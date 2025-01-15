@@ -16,17 +16,15 @@ for(const cData of data.councillors) {
     councillor.getNode().addEventListener("mouseover", (e) => {
         detailRole.innerText = cData.title;
         detailVote.innerText = councillor.getVote();
-        details.classList.remove("details-empty");
+        details.classList.remove("hidden");
     })
 
     councillor.getNode().addEventListener("mouseout", (e) => {
-        detailRole.innerText = "";
-        detailVote.innerText = "";
-        details.classList.add("details-empty");
+        details.classList.add("hidden");
     })
 
     councillor.getNode().addEventListener("mouseenter", (e) => {
-        details.classList.remove("details-empty");
+        details.classList.remove("hidden");
     })
 
     councillors.push(councillor);
