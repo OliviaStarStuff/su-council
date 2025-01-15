@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="title" content="SU Council Visualisation">
+  <meta name="author" content="Olivia">
+  <meta name="copyright" content="Olivia">
+  <meta name="description" content="An Interactive record of SU Council voting">
+
+  <!-- OpenGraph tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="Unknown">
+  <meta property="og:title" content="SU Council Visualisation">
+  <meta property="og:description" content="An Interactive record of SU Council voting">
+  <meta property="og:image" content="images/metatag.png">
+  <meta property="og:site_name" content="SU Council Visualisation">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SU Council Visualisation</title>
+  <link rel="stylesheet" href="css/core.css">
+
+  <!-- Utilities functions and classes -->
+  <script src="js/councillor.js"></script>
+</head>
+
+<body>
+  <div id="content_wrapper">
+    <header>
+      <h1>Su Council Vote</h1>
+      <hr>
+    </header>
+    <!-- <nav></nav> -->
+    <main>
+        <section>
+            <label for="policy">Select a policy to view voting record</label>
+                <select name="Policy" id="policy">
+                    <option value="none">None</option>
+                </select>
+        </section>
+        <section id="visualisation">
+        </section>
+        <div id="details">
+            <p id="detailRole"></p>
+            <p id="detailVote"></p>
+        </div>
+    </main>
+    <footer>Copyright, Olivia</footer>
+    <script type="module" src="js/visual.js"></script>
+
+  </div>
+</body>
+
+</html>
