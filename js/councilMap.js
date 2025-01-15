@@ -26,7 +26,11 @@ for(const cData of data.councillors) {
     councillor.getNode().addEventListener("mouseover", (e) => {
         detailRole.innerText = cData.title;
         detailType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
-        detailVote.innerText = councillor.getVote();
+        if(councillor.isVacant) {
+            detailVote.innerText = "Vacant";
+        } else {
+            detailVote.innerText = councillor.getVote();
+        }
         details.classList.remove("hidden");
     })
 
