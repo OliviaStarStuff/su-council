@@ -2,12 +2,12 @@
 class Councillor {
 
     static center = [400, 280];
-    constructor(isVacant=false, data=null) {
-        this.node = this.createCouncillor(isVacant, data.type);
+    constructor(data=null) {
+        this.node = this.createNode(!data.isFilled, data.type);
         this.text = document.createElement("text")
         this.node.appendChild(this.text)
         this.data = data;
-        this.isVacant = isVacant;
+        this.isVacant = !data.isFilled;
         this.vote = "";
 
         switch(data.type) {
@@ -30,12 +30,11 @@ class Councillor {
         this.setPosition(data.coords.q, data.coords.r);
     }
     // Getter
-    createCouncillor(isVacant = false, member_type) {
+    createNode(isVacant = false, member_type) {
         const circle = document.createElement("div");
         circle.classList.add("council-member");
-        let member_type_class;
-        member_type_class = "member-" + member_type.toLowerCase().replace(" & ", "-and-").replace(" ", "-");
-        // console.log(member_type_class);
+        let member_type_class = "member-";
+        member_type_class += member_type.toLowerCase().replace(" & ", "-and-").replace(" ", "-");
         circle.classList.add(member_type_class)
         if (isVacant) {
             circle.classList.add("vacant");
