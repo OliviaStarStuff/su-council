@@ -44,10 +44,10 @@ class Councillor {
     }
 
     setVote(votingState) {
-        if(this.isVacant) { return; }
+        if(this.isVacant) { this.vote = "Vacant"; return;}
 
         this.clearVote()
-        if (votingState == "No Vote" || votingState == "") { votingState = "absent" }
+        if (votingState == "No Vote" || votingState == "") { votingState = "Absent" }
         this.vote = votingState;
         this.node.classList.add("vote-"+votingState.toLowerCase());
     }
@@ -61,6 +61,10 @@ class Councillor {
         this.node.classList.remove("vote-abstain");
         this.node.classList.remove("vote-absent");
         this.vote = "";
+    }
+
+    getType() {
+        return this.data.type;
     }
 
     getVote() {

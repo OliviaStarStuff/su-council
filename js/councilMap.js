@@ -16,6 +16,8 @@ const section = document.getElementById('visualisation');
 // These are overlay hooks
 const details = document.getElementById('details');
 const detailRole = document.getElementById('detailRole');
+const detailType = document.getElementById('detailType');
+console.log(detailType);
 const detailVote = document.getElementById('detailVote');
 
 // Generate all councillors
@@ -23,6 +25,7 @@ for(const cData of data.councillors) {
     const councillor = new Councillor(cData);
     councillor.getNode().addEventListener("mouseover", (e) => {
         detailRole.innerText = cData.title;
+        detailType.innerText = councillor.getType();
         detailVote.innerText = councillor.getVote();
         details.classList.remove("hidden");
     })
