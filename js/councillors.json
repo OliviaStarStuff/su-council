@@ -5,7 +5,7 @@
             "title":"Advanced Manufacturing Research Centre Councillor",
             "type": "Representative",
             "initial": "AMRC",
-            "coords": { "q": 1, "r": 1 },
+            "coords": { "q": 0, "r": 2 },
             "isFilled": false
         },
         {
@@ -19,7 +19,7 @@
             "title": "Allied Health Professionals, Nursing and Midwifery Councillor (x2)",
             "type": "Health",
             "initial": "HPNM",
-            "coords": { "q": -2, "r": -3 },
+            "coords": { "q": -5, "r": 0 },
             "isFilled": false
         },
         {
@@ -68,14 +68,14 @@
             "title": "Clinical Dentistry Councillor (x2)",
             "type": "Health",
             "initial": "Dent",
-            "coords": { "q": -4, "r": -1 },
+            "coords": { "q": -2, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Clinical Dentistry Councillor (x2)",
             "type": "Health",
             "initial": "Dent",
-            "coords": { "q": -4, "r": 0 },
+            "coords": { "q": -3, "r": -1 },
             "isFilled": true
         },
         {
@@ -264,14 +264,14 @@
             "title": "Medicine and Population Health Councillor (x2)",
             "type": "Health",
             "initial": "MPH",
-            "coords": { "q": -5, "r": 0 },
+            "coords": { "q": -4, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Medicine and Population Health Councillor (x2)",
             "type": "Health",
             "initial": "MPH",
-            "coords": { "q": -3, "r": -2 },
+            "coords": { "q": -4, "r": -1 },
             "isFilled": false
         },
         {
@@ -313,28 +313,28 @@
             "title": "International Students Rep Councillor",
             "type": "Representative",
             "initial": "Intl",
-            "coords": { "q": -1, "r": 2 },
+            "coords": { "q": -2, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Mature Students Rep Councillor",
             "type": "Representative",
             "initial": "M",
-            "coords": { "q": -2, "r": -2 },
+            "coords": { "q": -1, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Trans Rep Councillor ",
             "type": "Representative",
             "initial": "Trans",
-            "coords": { "q": -2, "r": 2 },
+            "coords": { "q": -3, "r": 1 },
             "isFilled": true
         },
         {
             "title": "PGT Rep Councillor",
             "type": "Representative",
             "initial": "PGT",
-            "coords": { "q": 1, "r": -3 },
+            "coords": { "q": 2, "r": -4 },
             "isFilled": true
         },
         {
@@ -348,21 +348,21 @@
             "title": "Disabled Students Rep Councillor (x2)",
             "type": "Representative",
             "initial": "Dis",
-            "coords": { "q": -3, "r": -1 },
+            "coords": { "q": -2, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Women's Rep Councillor",
             "type": "Representative",
             "initial": "W",
-            "coords": { "q": -1, "r": -3 },
+            "coords": { "q": 0, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Ethnic Diversity Students' Councillor",
             "type": "Representative",
             "initial": "ED",
-            "coords": { "q": -3, "r": 1 },
+            "coords": { "q": 1, "r": -4 },
             "isFilled": true
         },
         {
@@ -376,42 +376,42 @@
             "title": "Ethical & Environmental Councillor",
             "type": "SU",
             "initial": "Env",
-            "coords": { "q": 2, "r": -1 },
+            "coords": { "q": 2, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Societies Councillor",
             "type": "SU",
             "initial": "Soc",
-            "coords": { "q": -1, "r": -1 },
+            "coords": { "q": 1, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Working Committees Councillor",
             "type": "SU",
             "initial": "Wrk",
-            "coords": { "q": 0, "r": -2 },
+            "coords": { "q": 2, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Sports Councillor",
             "type": "SU",
             "initial": "Sport",
-            "coords": { "q": 2, "r": -2 },
+            "coords": { "q": 2, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Apprentices Rep Councillor",
             "type": "Representative",
             "initial": "Appr",
-            "coords": { "q": 2, "r": 0 },
+            "coords": { "q": 1, "r": 1 },
             "isFilled": false
         },
         {
             "title": "Foundation Year Councillor",
             "initial": "Found",
             "type": "Representative",
-            "coords": { "q": 0, "r": 2 },
+            "coords": { "q": -1, "r": 2 },
             "isFilled": true
         },
         {
@@ -502,7 +502,7 @@
             "title": "Postgraduate Officer",
             "type": "PTO",
             "initial":"PG",
-            "coords": { "q": 1, "r": -2 },
+            "coords": { "q": 2, "r": -3 },
             "isFilled": true
         },
         {
@@ -516,28 +516,28 @@
             "title": "Disabled & Neurodivergent Students Officer",
             "type": "PTO",
             "initial":"Dis",
-            "coords": { "q": -2, "r": -1 },
+            "coords": { "q": -2, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Women Students Officer",
             "type": "PTO",
             "initial":"W",
-            "coords": { "q": 0, "r": -3 },
+            "coords": { "q": 0, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Ethnic Diversity Officer",
             "type": "PTO",
             "initial":"ED",
-            "coords": { "q": -2, "r": 0 },
+            "coords": { "q": 1, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Mature Students Officer",
             "type": "PTO",
             "initial":"M",
-            "coords": { "q": -1, "r": -2 },
+            "coords": { "q": -1, "r": -1 },
             "isFilled": true
         }
     ],

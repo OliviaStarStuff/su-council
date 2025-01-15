@@ -14,7 +14,7 @@
   <meta property="og:url" content="Unknown">
   <meta property="og:title" content="SU Council Visualisation">
   <meta property="og:description" content="An Interactive record of SU Council voting">
-  <meta property="og:image" content="images/metatag.png">
+  <meta property="og:image" content="img/preview.png">
   <meta property="og:site_name" content="SU Council Visualisation">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,12 +29,12 @@
 <body>
   <div id="content_wrapper">
     <header>
-      <h1>Su Council Vote</h1>
+      <h1>Su Council Voting Record Visualiser</h1>
       <hr>
     </header>
     <!-- <nav></nav> -->
     <main>
-        <section>
+        <section id="toggles">
             <label for="policy">Select a policy to view voting record</label>
                 <select name="Policy" id="policy">
                     <option value="none">None</option>
@@ -56,6 +56,10 @@
                 <p id="voteSummary">For: 0 Against: 0 Abstain: 0</p>
         </section>
         <section id="visualisation">
+          <svg width="300" height="500"  style="position:absolute">
+            <polygon points="270,150 125,150 40,300 110,430"
+                style="fill:none;stroke:purple;stroke-width:5;" />
+          </svg>
         </section>
         <div id="details">
             <p id="detailRole"></p>

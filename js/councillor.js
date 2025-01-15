@@ -1,7 +1,7 @@
 "use strict";
 class Councillor {
 
-    static center = [400, 230];
+    static center = [400, 280];
     constructor(isVacant=false, data=null) {
         this.node = this.createCouncillor(isVacant, data.type);
         this.text = document.createElement("text")

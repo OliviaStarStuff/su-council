@@ -1,6 +1,18 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #f3f6fa;
+}
+
+footer {
+    text-align: center;
+}
+
 #visualisation {
     position: relative;
-    height: 38em;
+    height: 42em;
 }
 
 .hidden {
@@ -45,8 +57,9 @@
 }
 
 .member-fto {
-    background-color: yellow;
-    border-color: yellow;
+    --node-colour: #fff75e;
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-pto {
@@ -61,33 +74,39 @@
 }
 
 .member-su {
-    background-color: cyan;
-    border-color: cyan;
+    --node-colour: rgb(69, 249, 249);
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-science {
-    background-color: lime;
-    border-color: lime;
+    --node-colour: #a3e29f;
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-social-science {
-    background-color: violet;
-    border-color: violet;
+    --node-colour: #FF99CC;
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-arts-and-humanities {
-    background-color: #564dda;
-    border-color: #564dda;
+    --node-colour: #8d87da;
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-engineering {
-    background-color: orange;
-    border-color: orange;
+    --node-colour: rgb(255, 150, 63);
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-health {
-    background-color: red;
-    border-color: red;
+    --node-colour: #f8a6a1;
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .vote-for {
