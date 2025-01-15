@@ -42,8 +42,8 @@ for(var i = 0; i<data.records.length; i++) {
     policySelector.append(opt);
 }
 
-function displayVote() {
-    const record = data.records[0].record;
+function displayVote(idx) {
+    const record = data.records[idx].record;
     for(let i = 0; i < record.length; i++) {
         councillors[i].setVote(record[i]);
     }
@@ -58,7 +58,7 @@ policySelector.addEventListener("change", (e) => {
     if(e.target.value == "none") {
         clear();
     } else {
-        displayVote();
+        displayVote(e.target.value);
     }
 });
 
