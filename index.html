@@ -7,7 +7,7 @@
   <meta name="title" content="SU Council Visualisation">
   <meta name="author" content="Olivia">
   <meta name="copyright" content="Olivia">
-  <meta name="description" content="An Interactive record of SU Council voting">
+  <meta name="description" content="An Interactive visualisation of the Sheffield SU Council's 2024/2025 voting record">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
   <!-- OpenGraph tags -->
@@ -30,7 +30,7 @@
 <body>
   <div id="content_wrapper">
     <header>
-      <h1>Su Council Voting Record Visualiser</h1>
+      <h1>SU Council 2024/2025 Voting Record Visualiser</h1>
       <hr>
     </header>
     <!-- <nav></nav> -->
@@ -67,8 +67,18 @@
             <p id="detailType"></p>
             <p id="detailVote" class="vote-text"></p>
         </div>
+        <section id="description">
+          <hr />
+          <h2>Description</h2>
+          <p>This tool allows you to view the voting record of Sheffield University's Students' Union's Council for the year 2024/2025.</p>
+          <p>Some votes are not included because they have multi option votes and need some work to implement.</p>
+          <p>This tool is a proof of concept to show what opportunities for datavisualisation and interaction is possible.</p>
+        </section>
     </main>
-    <footer><p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a></p><p>Copyright, Olivia</p></footer>
+    <footer>
+      <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a></p>
+      <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me Mastodon</a></p>
+    </footer>
     <script type="module" src="js/councilMap.js"></script>
     <script type="module" src="js/selector.js"></script>
     <script type="module" src="js/toggles.js"></script>
