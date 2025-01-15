@@ -14,6 +14,8 @@ class Councillor {
         if (this.data.title.includes("PGR")){
             this.text.innerText = "PGR";
         }
+        if (this.data.initial)
+            this.text.innerText = this.data.initial;
 
         const size = 20;
         const width = Math.sqrt(3) * size
@@ -41,7 +43,7 @@ class Councillor {
         if(this.isVacant) { return; }
 
         this.clearVote()
-        if (votingState == "No Vote") { votingState = "absent" }
+        if (votingState == "No Vote" || votingState == "") { votingState = "absent" }
         this.vote = votingState;
         this.node.classList.add("vote-"+votingState.toLowerCase());
     }

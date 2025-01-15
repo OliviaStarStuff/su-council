@@ -16,6 +16,10 @@
     border-style:solid;
     height:40px;
     width:40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .councillor {
@@ -31,6 +35,7 @@
 .member-pto {
     background-color: blue;
     border-color: blue;
+    color: white;
 }
 
 .member-representative {
@@ -70,27 +75,31 @@
 
 .vote-for {
     background-color: lime;
+    color: black;
 }
 
 .vote-against {
     background-color: red;;
+    color: black;
 }
 
 .vote-abstain {
     background-color: yellow;
+    color: black;
 }
 
 .vote-absent {
     background-color: lightgray;
+    color: black;
 }
 
 .vacant {
     /* filter: brightness(30%); */
-    background-color: black;
-    color: white;
-    border-style: dotted;
+    background-color: rgba(0,0,0,0);
+    color: gray;
+    border-style: dashed;
 }
-
+/*
 .member-arts-and-humanities.vacant {
     background-color: #413c4379;
 }
@@ -113,6 +122,6 @@
 
 .member-health.vacant {
     background-color: rgba(59, 1, 1, 0.452);
-}
+} */
 
 

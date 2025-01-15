@@ -4,6 +4,7 @@
         {
             "title":"Advanced Manufacturing Research Centre Councillor",
             "type": "Representative",
+            "initial": "AMRC",
             "coords": { "q": 0, "r": 2 },
             "isFilled": false
         },
@@ -268,89 +269,104 @@
         {
             "title": "International Students Rep Councillor",
             "type": "Representative",
+            "initial": "Intl",
             "coords": { "q": -1, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Mature Students Rep Councillor",
             "type": "Representative",
+            "initial": "M",
             "coords": { "q": -2, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Trans Rep Councillor ",
             "type": "Representative",
+            "initial": "Trans",
             "coords": { "q": -2, "r": 2 },
             "isFilled": true
         },
         {
             "title": "PGT Rep Councillor",
             "type": "Representative",
+            "initial": "PGT",
             "coords": { "q": 0, "r": -4 },
             "isFilled": true
         },
         {
             "title": "Disabled Students Rep Councillor (x2)",
             "type": "Representative",
+            "initial": "Dis",
             "coords": { "q": -3, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Disabled Students Rep Councillor (x2)",
             "type": "Representative",
+            "initial": "Dis",
             "coords": { "q": -3, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Women's Rep Councillor",
             "type": "Representative",
+            "initial": "W",
             "coords": { "q": -1, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Ethnic Diversity Students' Councillor",
             "type": "Representative",
+            "initial": "ED",
             "coords": { "q": -3, "r": 1 },
             "isFilled": true
         },
         {
             "title": "LGBTQ+ Rep Councillor",
             "type": "Representative",
+            "initial": "Q",
             "coords": { "q": -3, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Ethical & Environmental Councillor",
             "type": "Representative",
+            "initial": "Env",
             "coords": { "q": 2, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Societies Councillor",
             "type": "SU",
+            "initial": "Soc",
             "coords": { "q": 1, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Working Committees Councillor",
             "type": "SU",
+            "initial": "Wrk",
             "coords": { "q": 2, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Sports Councillor",
             "type": "SU",
+            "initial": "Sport",
             "coords": { "q": 2, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Apprentices Rep Councillor",
             "type": "Representative",
+            "initial": "Appr",
             "coords": { "q": 1, "r": 1 },
             "isFilled": false
         },
         {
             "title": "Foundation Year Councillor",
+            "initial": "Found",
             "type": "Representative",
             "coords": { "q": -1, "r": 2 },
             "isFilled": true
@@ -388,78 +404,91 @@
         {
             "title": "SU President",
             "type": "FTO",
+            "initial":"Pres",
             "coords": { "q": 0, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Activities and Development Officer",
             "type": "FTO",
+            "initial":"Act",
             "coords": { "q": 0, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Education Officer",
             "type": "FTO",
+            "initial": "Edu",
             "coords": { "q": 0, "r": 1 },
             "isFilled": true
         },
         {
             "title": "Welbeing & Sports Officer",
             "type": "FTO",
+            "initial":"Sport",
             "coords": { "q": 1, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Welfare & Sustainability Officer",
             "type": "FTO",
+            "initial":"W&S",
             "coords": { "q": 1, "r": 0 },
             "isFilled": true
         },
         {
             "title": "International & Community Officer",
             "type": "FTO",
+            "initial":"Intl",
             "coords": { "q": -1, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Liberation & Inclusions Officer",
             "type": "FTO",
+            "initial":"Lib",
             "coords": { "q": -1, "r": 1 },
             "isFilled": true
         },
         {
             "title": "Postgraduate Officer",
             "type": "PTO",
+            "initial":"PG",
             "coords": { "q": 1, "r": -4 },
             "isFilled": true
         },
         {
             "title": "LGBTQ+ Students Officer",
             "type": "PTO",
+            "initial":"Q",
             "coords": { "q": -2, "r": 1 },
             "isFilled": true
         },
         {
             "title": "Disabled & Neurodivergent Students Officer",
             "type": "PTO",
+            "initial":"Dis",
             "coords": { "q": -2, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Women Students Officer",
             "type": "PTO",
+            "initial":"W",
             "coords": { "q": 0, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Ethnic Diversity Officer",
             "type": "PTO",
+            "initial":"ED",
             "coords": { "q": -2, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Mature Students Officer",
             "type": "PTO",
+            "initial":"M",
             "coords": { "q": -1, "r": -2 },
             "isFilled": true
         }
