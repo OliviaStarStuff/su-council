@@ -22,13 +22,25 @@ toggleNames.addEventListener('change', function() {
 
 const toggleReps = document.getElementById("toggleReps");
 
+function hideNode(node, bool) {
+    if (bool)
+        node.getNode().classList.add("hidden");
+    else
+        node.getNode().classList.remove("hidden");
+}
+
 toggleReps.addEventListener('change', function() {
     for(const c of councillors) {
-        if(c.data.type == "Representative") {
-            if (!this.checked)
-                c.getNode().classList.add("hidden");
-            else
-                c.getNode().classList.remove("hidden");
+
+        switch(c.getFaculty()) {
+            case "AMRC":
+            case "Apprentices":
+            case "Foundation":
+                hideNode(c, !this.checked);
+                break;
+
+            default:
+                if(c.getType() == "Representative") { hideNode(c, !this.checked); }
         }
     }
 });
