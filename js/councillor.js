@@ -71,8 +71,9 @@ class Councillor {
         const left = q * this.horiz*2 + r*this.horiz+Councillor.center[0];
         const top = r * this.vert*2 +Councillor.center[1];
         this.coords = [q, r];
-        this.node.style.left = left+"px";
-        this.node.style.top = top+"px";
+        const center = this.isVacant ? 10: 20;
+        this.node.style.left = left-center+"px";
+        this.node.style.top = top-center+"px";
         this.text.textContent;
     }
 }

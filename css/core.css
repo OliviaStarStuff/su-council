@@ -11,6 +11,10 @@ body {
 }
 
 footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
     text-align: center;
 }
 
@@ -143,8 +147,8 @@ footer {
     color: gray;
     border-style: dashed;
 
-    /* height:30px; */
-    /* width:30px; */
+    height:20px;
+    width:20px;
 }
 /*
 .member-arts-and-humanities.vacant {
