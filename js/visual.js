@@ -2,7 +2,16 @@
 
 /* Written by Olivia*/
 // Import Data to display
-import data from './councillors.json' with { type: 'json' };
+
+const data = await fetch("./js/councillors.json").then(response => {
+    return response.json()
+});
+
+// Does not work with firefox 15/01/2025
+// import data from './councillors.json' with { type: 'json' };
+
+
+
 const councillors = []
 
 // We'll add all councillor objects to this section
