@@ -1,7 +1,7 @@
 "use strict";
 class Councillor {
 
-    static center = [400, 280];
+    static center = [400, 230];
     constructor(isVacant=false, data=null) {
         this.node = this.createCouncillor(isVacant, data.type);
         this.text = document.createElement("text")
@@ -10,12 +10,17 @@ class Councillor {
         this.isVacant = isVacant;
         this.vote = "";
 
-
-        if (this.data.title.includes("PGR")){
-            this.text.innerText = "PGR";
+        switch(data.type) {
+            case "Social Science":
+            case "Science":
+            case "Arts & Humanities":
+            case "Engineering":
+            case "Health":
+                this.text.innerText = data.title.includes("PGR") ? data.initial : "";
+                break;
+            default:
+                this.text.innerText = data.initial;
         }
-        if (this.data.initial)
-            this.text.innerText = this.data.initial;
 
         const size = 20;
         const width = Math.sqrt(3) * size

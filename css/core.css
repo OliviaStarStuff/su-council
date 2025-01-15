@@ -1,11 +1,28 @@
 #visualisation {
     position: relative;
-    height: 42em;
+    height: 38em;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.hidden-vacant {
+    visibility: hidden;
 }
 
 #details {
     position: absolute;
     pointer-events: none;
+    background-color: #EDE;
+    padding: 0px 1em;
+    /* width:8em; */
+    border-radius: 0 1.5em 1.5em 1.5em;
+    /* transition: width 2s height 2s; */
+}
+
+#details.details-empty {
+    width:0;
 }
 
 .council-member {
@@ -33,14 +50,14 @@
 }
 
 .member-pto {
-    background-color: blue;
-    border-color: blue;
+    background-color: rgb(138, 162, 217);
+    border-color: rgb(138, 162, 217);
     color: white;
 }
 
 .member-representative {
-    background-color: purple;
-    border-color: purple;
+    background-color: rgb(204, 148, 204);
+    border-color: rgb(165, 104, 165);
 }
 
 .member-su {
@@ -59,8 +76,8 @@
 }
 
 .member-arts-and-humanities {
-    background-color: #E1D5E7;
-    border-color: #E1D5E7;
+    background-color: #564dda;
+    border-color: #564dda;
 }
 
 .member-engineering {
@@ -89,8 +106,12 @@
 }
 
 .vote-absent {
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.139);
+    border-width: 1px;
     color: black;
+
+    /* height:20px; */
+    /* width:20px; */
 }
 
 .vacant {
@@ -98,6 +119,9 @@
     background-color: rgba(0,0,0,0);
     color: gray;
     border-style: dashed;
+
+    /* height:30px; */
+    /* width:30px; */
 }
 /*
 .member-arts-and-humanities.vacant {
