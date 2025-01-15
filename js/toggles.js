@@ -7,13 +7,13 @@ const toggleNames = document.getElementById("toggleNames");
 
 toggleNames.addEventListener('change', function() {
     for(const c of councillors) {
-        switch(c.data.type) {
+        switch(c.getFaculty()) {
             case "Social Science":
             case "Science":
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                c.text.innerText = this.checked || c.data.title.includes("PGR") ? c.data.initial : "";
+                c.text.innerText = this.checked || c.getType() == "PGR" ? c.data.initial : "";
             break;
         }
     }
@@ -37,7 +37,7 @@ const toggleCllrs = document.getElementById("toggleCllrs");
 
 toggleCllrs.addEventListener('change', function() {
     for(const c of councillors) {
-        switch(c.data.type) {
+        switch(c.getFaculty()) {
             case "Social Science":
             case "Science":
             case "Arts & Humanities":

@@ -25,7 +25,7 @@ for(const cData of data.councillors) {
     const councillor = new Councillor(cData);
     councillor.getNode().addEventListener("mouseover", (e) => {
         detailRole.innerText = cData.title;
-        detailType.innerText = councillor.getType();
+        detailType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
         detailVote.innerText = councillor.getVote();
         details.classList.remove("hidden");
     })

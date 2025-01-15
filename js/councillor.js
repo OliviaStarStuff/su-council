@@ -3,20 +3,33 @@ class Councillor {
 
     static center = [400, 280];
     constructor(data=null) {
-        this.node = this.createNode(!data.isFilled, data.type);
-        this.text = document.createElement("text")
-        this.node.appendChild(this.text)
         this.data = data;
-        this.isVacant = !data.isFilled;
-        this.vote = "";
-
-        switch(data.type) {
+        switch(data.faculty) {
+            case "PGR":
             case "Social Science":
             case "Science":
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                this.text.innerText = data.title.includes("PGR") ? data.initial : "";
+                this.node = this.createNode(!data.isFilled, data.faculty);
+                break;
+            default:
+                this.node = this.createNode(!data.isFilled, data.type);
+        }
+        //
+        this.text = document.createElement("text")
+        this.node.appendChild(this.text)
+
+        this.isVacant = !data.isFilled;
+        this.vote = "";
+
+        switch(data.faculty) {
+            case "Social Science":
+            case "Science":
+            case "Arts & Humanities":
+            case "Engineering":
+            case "Health":
+                this.text.innerText = data.type == "PGR" ? data.initial : "";
                 break;
             default:
                 this.text.innerText = data.initial;
@@ -65,6 +78,9 @@ class Councillor {
 
     getType() {
         return this.data.type;
+    }
+    getFaculty() {
+        return this.data.faculty;
     }
 
     getVote() {

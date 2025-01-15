@@ -65,7 +65,7 @@ footer {
 }
 
 .member-fto {
-    --node-colour: #fff75e;
+    --node-colour: #fff42d;
     background-color: var(--node-colour);
     border-color: var(--node-colour);
 }
@@ -79,6 +79,12 @@ footer {
 .member-representative {
     background-color: rgb(204, 148, 204);
     border-color: rgb(165, 104, 165);
+}
+
+.member-academic {
+    --node-colour: #5ec4ff;
+    background-color: var(--node-colour);
+    border-color: var(--node-colour);
 }
 
 .member-su {

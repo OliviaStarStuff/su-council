@@ -3,308 +3,352 @@
     [
         {
             "title":"Advanced Manufacturing Research Centre Councillor",
-            "type": "Representative",
+            "type": "Academic",
+            "faculty": "AMRC",
             "initial": "AMRC",
             "coords": { "q": 0, "r": 2 },
             "isFilled": false
         },
         {
             "title": "Allied Health Professionals, Nursing and Midwifery Councillor (x2)",
-            "type": "Health",
+            "type": "Academic",
+            "faculty": "Health",
             "initial": "HPNM",
             "coords": { "q": -5, "r": 1 },
             "isFilled": true
         },
         {
             "title": "Allied Health Professionals, Nursing and Midwifery Councillor (x2)",
-            "type": "Health",
+            "type": "Academic",
+            "faculty": "Health",
             "initial": "HPNM",
             "coords": { "q": -5, "r": 0 },
             "isFilled": false
         },
         {
             "title": "Architecture & Landscape Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Arch",
             "coords": { "q": 3, "r": 1 },
             "isFilled": true
         },
         {
             "title": "Architecture & Landscape Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Arch",
             "coords": { "q": 4, "r": 1 },
             "isFilled": true
         },
         {
             "title": "Biosciences Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "Bio",
             "coords": { "q": -4, "r": 3 },
             "isFilled": true
         },
         {
             "title": "Biosciences Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "Bio",
             "coords": { "q": -5, "r": 4 },
             "isFilled": true
         },
         {
             "title": "Chemical, Materials and Biological Engineering Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "CMBE",
             "coords": { "q": 2, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Chemical, Materials and Biological Engineering Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "CMBE",
             "coords": { "q": 3, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Clinical Dentistry Councillor (x2)",
-            "type": "Health",
+            "type": "Academic",
+            "faculty": "Health",
             "initial": "Dent",
             "coords": { "q": -2, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Clinical Dentistry Councillor (x2)",
-            "type": "Health",
+            "type": "Academic",
+            "faculty": "Health",
             "initial": "Dent",
             "coords": { "q": -3, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Computer Science Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "CS",
             "coords": { "q": 1, "r": 3 },
             "isFilled": true
         },
         {
             "title": "Computer Science Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "CS",
             "coords": { "q": 2, "r": 3 },
             "isFilled": true
         },
         {
             "title": "East Asian Studies Councillor",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "EAsia",
             "coords": { "q": -2, "r": 3 },
             "isFilled": true
         },
         {
             "title": "Economics Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Econ",
             "coords": { "q": 4, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Economics Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Econ",
             "coords": { "q": 5, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Education Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Edu",
             "coords": { "q": 4, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Education Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Edu",
             "coords": { "q": 5, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Electrical and Electronic Engineering Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "EEE",
             "coords": { "q": 0, "r": 3 },
             "isFilled": true
         },
         {
             "title": "Electrical and Electronic Engineering Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "EEE",
             "coords": { "q": 0, "r": 4 },
             "isFilled": true
         },
         {
             "title": "English Councillor",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "Eng",
             "coords": { "q": -3, "r": 4 },
             "isFilled": true
         },
         {
             "title": "Geography & Planning Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "GeoP",
             "coords": { "q": 4, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Geography & Planning Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "GeoP",
             "coords": { "q": 5, "r": -2 },
             "isFilled": true
         },
         {
             "title": "History, Philosophy & Digital Humanities Councillor (x2)",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "HPDH",
             "coords": { "q": -2, "r": 4 },
             "isFilled": true
         },
         {
             "title": "History, Philosophy & Digital Humanities Councillor (x2)",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "HPDH",
             "coords": { "q": -1, "r": 4 },
             "isFilled": true
         },
         {
             "title": "Information School Councillor",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Info",
             "coords": { "q": 3, "r": -3 },
             "isFilled": false
         },
         {
             "title": "Journalism, Media & Communications Councillor",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Media",
             "coords": { "q": 3, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Languages & Cultures Councillor",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "Lang",
             "coords": { "q": -3, "r": 5 },
             "isFilled": true
         },
         {
             "title": "Law Councillor (x2)",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "Law",
             "coords": { "q": -2, "r": 5 },
             "isFilled": true
         },
         {
             "title": "Law Councillor (x2)",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "Law",
             "coords": { "q": -1, "r": 5 },
             "isFilled": true
         },
         {
             "title": "Management Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Man",
             "coords": { "q": 4, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Management Councillor (x2)",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Man",
             "coords": { "q": 5, "r": -3 },
             "isFilled": true
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "MPS",
             "coords": { "q": -4, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "MPS",
             "coords": { "q": -5, "r": 3 },
             "isFilled": false
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "MPS",
             "coords": { "q": -5, "r": 2 },
             "isFilled": false
         },
         {
             "title": "Mechanical, Aerospace & Civil Engineering Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "MACE",
             "coords": { "q": 1, "r": 4 },
             "isFilled": true
         },
         {
             "title": "Mechanical, Aerospace & Civil Engineering Councillor (x2)",
-            "type": "Engineering",
+            "type": "Academic",
+            "faculty": "Engineering",
             "initial": "MACE",
             "coords": { "q": 0, "r": 5 },
             "isFilled": true
         },
         {
             "title": "Medicine and Population Health Councillor (x2)",
-            "type": "Health",
+            "type": "Academic",
+            "faculty": "Health",
             "initial": "MPH",
             "coords": { "q": -4, "r": 0 },
             "isFilled": true
         },
         {
             "title": "Medicine and Population Health Councillor (x2)",
-            "type": "Health",
+            "type": "Academic",
+            "faculty": "Health",
             "initial": "MPH",
             "coords": { "q": -4, "r": -1 },
             "isFilled": false
         },
         {
             "title": "Music Councillor",
-            "type": "Arts & Humanities",
+            "type": "Academic",
+            "faculty": "Arts & Humanities",
             "initial": "Mus",
             "coords": { "q": -4, "r": 5 },
             "isFilled": true
         },
         {
             "title": "Politics & International Relations Councillor",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "PIR",
             "coords": { "q": 3, "r": -2 },
             "isFilled": true
         },
         {
             "title": "Psychology Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "Psy",
             "coords": { "q": -4, "r": 4 },
             "isFilled": true
         },
         {
             "title": "Psychology Councillor (x2)",
-            "type": "Science",
+            "type": "Academic",
+            "faculty": "Science",
             "initial": "Psy",
             "coords": { "q": -5, "r": 5 },
             "isFilled": true
         },
         {
             "title": "Sociological Studies Councillor",
-            "type": "Social Science",
+            "type": "Academic",
+            "faculty": "Social Science",
             "initial": "Socio",
             "coords": { "q": 3, "r": 0 },
             "isFilled": true
@@ -312,6 +356,7 @@
         {
             "title": "International Students Rep Councillor",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "Intl",
             "coords": { "q": -2, "r": 2 },
             "isFilled": true
@@ -319,6 +364,7 @@
         {
             "title": "Mature Students Rep Councillor",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "M",
             "coords": { "q": -1, "r": -2 },
             "isFilled": true
@@ -326,6 +372,7 @@
         {
             "title": "Trans Rep Councillor ",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "Trans",
             "coords": { "q": -3, "r": 1 },
             "isFilled": true
@@ -333,6 +380,7 @@
         {
             "title": "PGT Rep Councillor",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "PGT",
             "coords": { "q": 2, "r": -4 },
             "isFilled": true
@@ -340,6 +388,7 @@
         {
             "title": "Disabled Students Rep Councillor (x2)",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "Dis",
             "coords": { "q": -3, "r": 0 },
             "isFilled": true
@@ -347,6 +396,7 @@
         {
             "title": "Disabled Students Rep Councillor (x2)",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "Dis",
             "coords": { "q": -2, "r": -1 },
             "isFilled": true
@@ -354,6 +404,7 @@
         {
             "title": "Women's Rep Councillor",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "W",
             "coords": { "q": 0, "r": -3 },
             "isFilled": true
@@ -361,6 +412,7 @@
         {
             "title": "Ethnic Diversity Students' Councillor",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "ED",
             "coords": { "q": 1, "r": -4 },
             "isFilled": true
@@ -368,6 +420,7 @@
         {
             "title": "LGBTQ+ Rep Councillor",
             "type": "Representative",
+            "faculty": "SU",
             "initial": "Q",
             "coords": { "q": -3, "r": 2 },
             "isFilled": true
@@ -375,6 +428,7 @@
         {
             "title": "Ethical & Environmental Councillor",
             "type": "SU",
+            "faculty": "SU",
             "initial": "Env",
             "coords": { "q": 2, "r": 0 },
             "isFilled": true
@@ -382,6 +436,7 @@
         {
             "title": "Societies Councillor",
             "type": "SU",
+            "faculty": "SU",
             "initial": "Soc",
             "coords": { "q": 1, "r": -2 },
             "isFilled": true
@@ -389,6 +444,7 @@
         {
             "title": "Working Committees Councillor",
             "type": "SU",
+            "faculty": "SU",
             "initial": "Wrk",
             "coords": { "q": 2, "r": -2 },
             "isFilled": true
@@ -396,13 +452,15 @@
         {
             "title": "Sports Councillor",
             "type": "SU",
+            "faculty": "SU",
             "initial": "Sport",
             "coords": { "q": 2, "r": -1 },
             "isFilled": true
         },
         {
             "title": "Apprentices Rep Councillor",
-            "type": "Representative",
+            "type": "Academic",
+            "faculty": "Apprentices",
             "initial": "Appr",
             "coords": { "q": 1, "r": 1 },
             "isFilled": false
@@ -410,41 +468,47 @@
         {
             "title": "Foundation Year Councillor",
             "initial": "Found",
-            "type": "Representative",
+            "type": "Academic",
+            "faculty": "Foundation",
             "coords": { "q": -1, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Faculty of Arts & Humanities PGR",
-            "type": "Arts & Humanities",
+            "type": "PGR",
+            "faculty": "Arts & Humanities",
             "initial": "PGR",
             "coords": { "q": -1, "r": 3 },
             "isFilled": false
         },
         {
             "title": "Faculty of Engineering PGR",
-            "type": "Engineering",
+            "type": "PGR",
+            "faculty": "Engineering",
             "initial": "PGR",
             "coords": { "q": 1, "r": 2 },
             "isFilled": false
         },
         {
             "title": "Faculty of Health PGR",
-            "type": "Health",
+            "type": "PGR",
+            "faculty": "Health",
             "initial": "PGR",
             "coords": { "q": -4, "r": 1 },
             "isFilled": false
         },
         {
             "title": "Faculty of Science PGR",
-            "type": "Science",
+            "type": "PGR",
+            "faculty": "Science",
             "initial": "PGR",
             "coords": { "q": -3, "r": 3 },
             "isFilled": true
         },
         {
             "title": "Faculty of Social Science PGR",
-            "type": "Social Science",
+            "type": "PGR",
+            "faculty": "Social Science",
             "initial": "PGR",
             "coords": { "q": 2, "r": 1 },
             "isFilled": true
@@ -452,6 +516,7 @@
         {
             "title": "SU President",
             "type": "FTO",
+            "faculty": "SU",
             "initial":"Pres",
             "coords": { "q": 0, "r": 0 },
             "isFilled": true
@@ -459,6 +524,7 @@
         {
             "title": "Activities and Development Officer",
             "type": "FTO",
+            "faculty": "SU",
             "initial":"Act",
             "coords": { "q": 0, "r": -1 },
             "isFilled": true
@@ -466,6 +532,7 @@
         {
             "title": "Education Officer",
             "type": "FTO",
+            "faculty": "SU",
             "initial": "Edu",
             "coords": { "q": 0, "r": 1 },
             "isFilled": true
@@ -473,6 +540,7 @@
         {
             "title": "Welbeing & Sports Officer",
             "type": "FTO",
+            "faculty": "SU",
             "initial":"Sport",
             "coords": { "q": 1, "r": -1 },
             "isFilled": true
@@ -480,6 +548,7 @@
         {
             "title": "Welfare & Sustainability Officer",
             "type": "FTO",
+            "faculty": "SU",
             "initial":"W&S",
             "coords": { "q": 1, "r": 0 },
             "isFilled": true
@@ -487,6 +556,7 @@
         {
             "title": "International & Community Officer",
             "type": "FTO",
+            "faculty": "SU",
             "initial":"Intl",
             "coords": { "q": -1, "r": 1 },
             "isFilled": true
@@ -494,6 +564,7 @@
         {
             "title": "Liberation & Inclusions Officer",
             "type": "FTO",
+            "faculty": "SU",
             "initial":"Lib",
             "coords": { "q": -1, "r": 0 },
             "isFilled": true
@@ -501,6 +572,7 @@
         {
             "title": "Postgraduate Officer",
             "type": "PTO",
+            "faculty": "SU",
             "initial":"PG",
             "coords": { "q": 2, "r": -3 },
             "isFilled": true
@@ -508,6 +580,7 @@
         {
             "title": "LGBTQ+ Students Officer",
             "type": "PTO",
+            "faculty": "SU",
             "initial":"Q",
             "coords": { "q": -2, "r": 1 },
             "isFilled": true
@@ -515,6 +588,7 @@
         {
             "title": "Disabled & Neurodivergent Students Officer",
             "type": "PTO",
+            "faculty": "SU",
             "initial":"Dis",
             "coords": { "q": -2, "r": 0 },
             "isFilled": true
@@ -522,6 +596,7 @@
         {
             "title": "Women Students Officer",
             "type": "PTO",
+            "faculty": "SU",
             "initial":"W",
             "coords": { "q": 0, "r": -2 },
             "isFilled": true
@@ -529,6 +604,7 @@
         {
             "title": "Ethnic Diversity Officer",
             "type": "PTO",
+            "faculty": "SU",
             "initial":"ED",
             "coords": { "q": 1, "r": -3 },
             "isFilled": true
@@ -536,6 +612,7 @@
         {
             "title": "Mature Students Officer",
             "type": "PTO",
+            "faculty": "SU",
             "initial":"M",
             "coords": { "q": -1, "r": -1 },
             "isFilled": true
