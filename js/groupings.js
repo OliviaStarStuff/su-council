@@ -23,3 +23,14 @@ for (const [key, value] of Object.entries(groups)) {
 
     }
 }
+
+const toggleSvg = document.getElementById("toggleGroupings");
+console.log(toggleSvg);
+console.log(toggleSvg.checked);
+toggleSvg.addEventListener("change", function() {
+    if (!this.checked) {
+        svg.classList.add("hidden");
+    } else {
+        svg.classList.remove("hidden");
+    }
+})
