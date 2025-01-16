@@ -24,3 +24,5 @@ policySelector.addEventListener("change", (e) => {
         summaryText.innerText = entries.join(" ");
     }
 })
+
+const policyStatus = document.getElementById("vote-Status");

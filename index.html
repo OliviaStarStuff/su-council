@@ -37,7 +37,7 @@
     <main>
         <section id="toggles">
             <label for="policy">Select a policy to view voting record</label>
-                <select name="Policy" id="policy">
+                <select name="Policy" id="policy" data-selected=true>
                     <option value="none">None</option>
                 </select>
                 <input type="checkbox" id="toggleNames" name="toggleNames" value="nameToggle">
@@ -57,10 +57,8 @@
                 <p id="vote-summary">For: 0 Against: 0 Abstain: 0</p>
         </section>
         <section id="visualisation">
-          <!-- <svg width="300" height="500"  style="position:absolute">
-            <polygon points="270,150 125,150 40,300 110,430"
-                style="fill:none;stroke:purple;stroke-width:5;" />
-          </svg> -->
+          <svg id="grids" style="position:absolute">
+          </svg>
         </section>
         <div id="details" class="hidden">
             <p id="detailRole"></p>
@@ -80,6 +78,7 @@
       <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me Mastodon</a></p>
     </footer>
     <script type="module" src="js/councilMap.js"></script>
+    <script type="module" src="js/groupings.js"></script>
     <script type="module" src="js/selector.js"></script>
     <script type="module" src="js/summary.js"></script>
     <script type="module" src="js/toggles.js"></script>

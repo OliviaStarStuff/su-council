@@ -39,6 +39,7 @@ class Councillor {
         const height =  4/2 * size;
         this.vert = 3/4 * height;
         this.horiz = width;
+        this.position = [0,0];
         this.setPosition(data.coords.q, data.coords.r);
     }
     // Getter
@@ -86,6 +87,7 @@ class Councillor {
         } else {
             this.node.classList.add("vote-"+votingState.toLowerCase());
         }
+        this.setCurrentPosition()
     }
     getNode() {
         return this.node;
@@ -118,9 +120,23 @@ class Councillor {
         const left = q * this.horiz*2 + r*this.horiz+Councillor.center[0];
         const top = r * this.vert*2 +Councillor.center[1];
         this.coords = [q, r];
-        const center = this.isVacant ? 10: 20;
-        this.node.style.left = left-center+"px";
-        this.node.style.top = top-center+"px";
+        const center = 20;
+        this.node.style.left = Math.round(left-center)+"px";
+        this.node.style.top = Math.round(top-center)+"px";
+        this.position[0] = Math.round(left-center);
+        this.position[1] = Math.round(top-center);
         this.text.textContent;
+    }
+
+    static getLeft(q, r, horiz) {
+        return q * horiz*2 + r * horiz + Councillor.center[0];
+    }
+
+    static getTop(r, vert) {
+        return r * vert*2 + Councillor.center[1];
+    }
+
+    setCurrentPosition() {
+        this.setPosition(this.coords[0], this.coords[1]);
     }
 }

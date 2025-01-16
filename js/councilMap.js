@@ -50,6 +50,7 @@ section.addEventListener("mousemove", (e) => {
     details.style.top = e.clientY+20+"px";
 })
 
+export const groups = data.groups;
 export const records = data.records;
 export const options = data.voteOptions;
 

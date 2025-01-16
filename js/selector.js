@@ -16,6 +16,7 @@ policySelector.addEventListener("change", (e) => {
     if(e.target.value == "none") {
         for(let i = 0; i < councillors.length; i++) {
             councillors[i].clearVote();
+            // councillors[i].setCurrentPosition();
         }
     } else {
         const record = records[e.target.value];
@@ -26,3 +27,6 @@ policySelector.addEventListener("change", (e) => {
         }
     }
 });
+
+
+policySelector.focus();
