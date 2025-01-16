@@ -1,6 +1,5 @@
 "use strict";
 class Councillor {
-
     static center = [400, 280];
     constructor(data=null) {
         this.data = data;
@@ -56,13 +55,35 @@ class Councillor {
 
     }
 
-    setVote(votingState) {
+    setVote(votingState, options, style) {
         if(this.isVacant) { this.vote = "Vacant"; return;}
 
-        this.clearVote()
+        this.clearVote();
         if (votingState == "No Vote" || votingState == "") { votingState = "Absent" }
         this.vote = votingState;
-        this.node.classList.add("vote-"+votingState.toLowerCase());
+        if (style == "custom") {
+            switch(votingState) {
+                case "Recommend Against":
+                    this.node.classList.add("vote-against");
+                    break;
+                case "Blank":
+                    this.node.classList.add("vote-abstain");
+                    break;
+                case "Abstain":
+                case "No Vote":
+                case "Against":
+                case "Absent":
+                    this.node.classList.add("vote-"+votingState.toLowerCase());
+                    break;
+                default:
+                    if (options.indexOf(votingState) == -1) {
+                        console.error("Invalid Vote Found", votingState);
+                    }
+                    this.node.classList.add("vote-option-"+(1+options.indexOf(votingState)));
+            }
+        } else {
+            this.node.classList.add("vote-"+votingState.toLowerCase());
+        }
     }
     getNode() {
         return this.node;

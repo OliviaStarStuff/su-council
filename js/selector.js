@@ -1,6 +1,6 @@
 "use strict"
 
-import { councillors, records } from "./councilMap.js";
+import { councillors, records, options } from "./councilMap.js";
 
 // Set up selector with all voting options
 const policySelector = document.getElementById("policy");
@@ -18,9 +18,11 @@ policySelector.addEventListener("change", (e) => {
             councillors[i].clearVote();
         }
     } else {
-        const record = records[e.target.value].record;
-        for(let i = 0; i < record.length; i++) {
-            councillors[i].setVote(record[i]);
+        const record = records[e.target.value];
+        const optionStyle = record.style;
+        const targetOptions = optionStyle == "custom" ? record.options : options[optionStyle];
+        for(let i = 0; i < record.record.length; i++) {
+            councillors[i].setVote(record.record[i], targetOptions, optionStyle);
         }
     }
 });

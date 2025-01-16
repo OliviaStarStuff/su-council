@@ -17,7 +17,6 @@ const section = document.getElementById('visualisation');
 const details = document.getElementById('details');
 const detailRole = document.getElementById('detailRole');
 const detailType = document.getElementById('detailType');
-console.log(detailType);
 const detailVote = document.getElementById('detailVote');
 
 // Generate all councillors
@@ -52,6 +51,7 @@ section.addEventListener("mousemove", (e) => {
 })
 
 export const records = data.records;
+export const options = data.voteOptions;
 
 // for (let q = -gs+1; q < gs; q++) {
 //     const r_start = q < 0 ? -gs-q : -gs;
