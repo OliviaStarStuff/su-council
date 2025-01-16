@@ -62,6 +62,7 @@ class Councillor {
         if (votingState == "No Vote" || votingState == "") { votingState = "Absent" }
         this.vote = votingState;
         if (style == "custom") {
+            console.log(style);
             switch(votingState) {
                 case "Recommend Against":
                     this.node.classList.add("vote-against");
@@ -80,6 +81,7 @@ class Councillor {
                         console.error("Invalid Vote Found", votingState);
                     }
                     this.node.classList.add("vote-option-"+(1+options.indexOf(votingState)));
+                    break;
             }
         } else {
             this.node.classList.add("vote-"+votingState.toLowerCase());
@@ -90,10 +92,14 @@ class Councillor {
     }
 
     clearVote() {
-        this.node.classList.remove("vote-against");
-        this.node.classList.remove("vote-for");
-        this.node.classList.remove("vote-abstain");
-        this.node.classList.remove("vote-absent");
+        const voteClasses = [
+            "vote-against", "vote-for", "vote-abstain", "vote-absent",
+            "vote-option-1", "vote-option-2", "vote-option-3", "vote-option-4"
+        ];
+
+        for (const voteClass of voteClasses) {
+            this.node.classList.remove(voteClass);
+        }
         this.vote = "";
     }
 
