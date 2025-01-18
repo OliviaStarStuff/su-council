@@ -16,7 +16,6 @@ for (const [key, value] of Object.entries(groups)) {
         "group-" + key.replace(" & ","-and-").replace(" ", "-").toLowerCase());
     for(const coords of value) {
         var point = svg.createSVGPoint();
-        console.log(coords)
         point.x = Councillor.getLeft(coords.q, coords.r, horiz);
         point.y = Councillor.getTop(coords.r, vert);
         shape.points.appendItem(point);
@@ -25,8 +24,6 @@ for (const [key, value] of Object.entries(groups)) {
 }
 
 const toggleSvg = document.getElementById("toggleGroupings");
-console.log(toggleSvg);
-console.log(toggleSvg.checked);
 toggleSvg.addEventListener("change", function() {
     if (!this.checked) {
         svg.classList.add("hidden");

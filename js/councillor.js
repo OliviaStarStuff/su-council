@@ -45,7 +45,7 @@ class Councillor {
     // Getter
     createNode(isVacant = false, member_type) {
         const circle = document.createElement("div");
-        circle.classList.add("council-member");
+        circle.classList.add("member");
         let member_type_class = "member-";
         member_type_class += member_type.toLowerCase().replace(" & ", "-and-").replace(" ", "-");
         circle.classList.add(member_type_class)
@@ -63,29 +63,10 @@ class Councillor {
         if (votingState == "No Vote" || votingState == "") { votingState = "Absent" }
         this.vote = votingState;
         if (style == "custom") {
-            console.log(style);
-            switch(votingState) {
-                case "Recommend Against":
-                    this.node.classList.add("vote-against");
-                    break;
-                case "Blank":
-                    this.node.classList.add("vote-abstain");
-                    break;
-                case "Abstain":
-                case "No Vote":
-                case "Against":
-                case "Absent":
-                    this.node.classList.add("vote-"+votingState.toLowerCase());
-                    break;
-                default:
-                    if (options.indexOf(votingState) == -1) {
-                        console.error("Invalid Vote Found", votingState);
-                    }
-                    this.node.classList.add("vote-option-"+(1+options.indexOf(votingState)));
-                    break;
-            }
+            this.node.classList.add(Councillor.getVoteClass(this.vote, options))
+
         } else {
-            this.node.classList.add("vote-"+votingState.toLowerCase());
+            this.node.classList.add("vote-"+this.vote.toLowerCase());
         }
         this.setCurrentPosition()
     }
@@ -138,5 +119,27 @@ class Councillor {
 
     setCurrentPosition() {
         this.setPosition(this.coords[0], this.coords[1]);
+    }
+
+    static getVoteClass(state, options) {
+        switch(state) {
+            case "Recommend Against":
+                return "vote-against";
+            case "Blank":
+                return "vote-abstain";
+            case "No Vote":
+            case "":
+                return "vote-absent";
+            case "For":
+            case "Against":
+            case "Abstain":
+            case "Absent":
+                return "vote-"+state.toLowerCase();
+            default:
+                if (options.indexOf(state) == -1) {
+                    console.error("Invalid Vote Found", state);
+                }
+                return "vote-option-"+(1+options.indexOf(state));
+        }
     }
 }

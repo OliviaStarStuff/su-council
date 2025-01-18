@@ -22,8 +22,8 @@ policySelector.addEventListener("change", (e) => {
         const record = records[e.target.value];
         const optionStyle = record.style;
         const targetOptions = optionStyle == "custom" ? record.options : options[optionStyle];
-        for(let i = 0; i < record.record.length; i++) {
-            councillors[i].setVote(record.record[i], targetOptions, optionStyle);
+        for(let i = 0; i < record.votes.length; i++) {
+            councillors[i].setVote(record.votes[i], targetOptions, optionStyle);
         }
     }
 });

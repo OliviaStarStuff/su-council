@@ -2,65 +2,85 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <meta name="title" content="SU Council Visualisation">
-  <meta name="author" content="Olivia">
-  <meta name="copyright" content="Olivia">
-  <meta name="description" content="An Interactive visualisation of the Sheffield SU Council's 2024/2025 voting record">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="title" content="SU Council Visualisation">
+    <meta name="author" content="Olivia">
+    <meta name="copyright" content="Olivia">
+    <meta name="description" content="An Interactive visualisation of the Sheffield SU Council's 2024/2025 voting record">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- OpenGraph tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://oliviastarstuff.github.io/su-council/">
-  <meta property="og:title" content="SU Council Visualisation">
-  <meta property="og:description" content="An Interactive record of SU Council voting">
-  <meta property="og:image" content="https://oliviastarstuff.github.io/su-council/preview.png">
-  <meta property="og:site_name" content="SU Council Visualisation">
+    <!-- OpenGraph tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oliviastarstuff.github.io/su-council/">
+    <meta property="og:title" content="SU Council Visualisation">
+    <meta property="og:description" content="An Interactive record of SU Council voting">
+    <meta property="og:image" content="https://oliviastarstuff.github.io/su-council/preview.png">
+    <meta property="og:site_name" content="SU Council Visualisation">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="oliviastarstuff.github.io">
+    <meta property="twitter:url" content="https://oliviastarstuff.github.io/su-council/">
+    <meta name="twitter:title" content="SU Council Visualisation">
+    <meta name="twitter:description" content="An Interactive record of SU Council voting">
+    <meta name="twitter:image" content="https://oliviastarstuff.github.io/su-council/preview.png">
 
-  <title>SU Council Visualisation</title>
-  <link rel="stylesheet" href="css/core.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Utilities functions and classes -->
-  <script src="js/councillor.js"></script>
+    <title>SU Council Visualisation</title>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/member.css">
+    <link rel="stylesheet" href="css/vote.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/grouping.css">
+
+    <!-- Utilities functions and classes -->
+    <script src="js/councillor.js"></script>
 </head>
 
 <body>
-  <div id="content_wrapper">
+    <div id="content_wrapper">
     <header>
-      <h1>SU Council 2024/2025 Voting Record Visualiser</h1>
-      <hr>
+        <h1>SU Council 2024/2025 Voting Record Visualiser</h1>
+        <hr />
     </header>
     <!-- <nav></nav> -->
     <main>
         <section id="toggles">
             <label for="policy">Select a policy to view voting record</label>
-                <select name="Policy" id="policy" data-selected=true>
-                    <option value="none">None</option>
-                </select>
-                <input type="checkbox" id="toggleNames" name="toggleNames" value="nameToggle">
-                <label for="toggleNames"> Show Councillor initials</label>
-                <input type="checkbox" id="toggleCllrs" name="toggleCllrs" value="councillorToggle" checked>
-                <label for="toggleCllrs"> Show Councillors</label>
-                <input type="checkbox" id="toggleReps" name="toggleReps" value="RepToggle" checked>
-                <label for="toggleReps"> Show Reps</label>
-                <input type="checkbox" id="toggleSU" name="toggleSU" value="SUToggle" checked>
-                <label for="toggleSU"> Show SU Councillors</label>
-                <input type="checkbox" id="togglePTOs" name="togglePTOs" value="PTOToggle" checked>
-                <label for="togglePTOs"> Show PTOs</label>
-                <input type="checkbox" id="toggleFTOs" name="toggleFTOs" value="FTOToggle" checked>
-                <label for="toggleFTOs"> Show FTOs</label>
-                <input type="checkbox" id="toggleVacant" name="toggleVacant" value="vacantToggle" checked>
-                <label for="toggleVacant"> Show Vacant</label>
-                <input type="checkbox" id="toggleGroupings" name="toggleGroupings" value="groupingsToggle" checked>
-                <label for="toggleGroupings"> Show Groupings</label>
-                <p id="vote-summary">For: 0 Against: 0 Abstain: 0</p>
+            <select name="Policy" id="policy" data-selected=true>
+                <option value="none">None</option>
+            </select>
+            <input type="checkbox" id="toggleNames" name="toggleNames" value="nameToggle">
+            <label for="toggleNames"> Show Councillor initials</label>
+            <input type="checkbox" id="toggleCllrs" name="toggleCllrs" value="councillorToggle" checked>
+            <label for="toggleCllrs"> Show Councillors</label>
+            <input type="checkbox" id="toggleReps" name="toggleReps" value="RepToggle" checked>
+            <label for="toggleReps"> Show Reps</label>
+            <input type="checkbox" id="toggleSU" name="toggleSU" value="SUToggle" checked>
+            <label for="toggleSU"> Show SU Councillors</label>
+            <input type="checkbox" id="togglePTOs" name="togglePTOs" value="PTOToggle" checked>
+            <label for="togglePTOs"> Show PTOs</label>
+            <input type="checkbox" id="toggleFTOs" name="toggleFTOs" value="FTOToggle" checked>
+            <label for="toggleFTOs"> Show FTOs</label>
+            <input type="checkbox" id="toggleVacant" name="toggleVacant" value="vacantToggle" checked>
+            <label for="toggleVacant"> Show Vacant</label>
+            <input type="checkbox" id="toggleGroupings" name="toggleGroupings" value="groupingsToggle" checked>
+            <label for="toggleGroupings"> Show Groupings</label>
         </section>
-        <section id="visualisation">
-          <svg id="grids" style="position:absolute">
-          </svg>
+        <section id="visual-container">
+            <section id="visualisation">
+                <svg id="grids" style="position:absolute">
+                </svg>
+
+            </section>
+            <section id="summary">
+                <h3>Vote Summary</h3>
+                <!-- <label for="vote-summary">Legend</label> -->
+                <ol id="vote-summary">
+                </ol>
+            </section>
         </section>
         <div id="details" class="hidden">
             <p id="detailRole"></p>
@@ -68,24 +88,22 @@
             <p id="detailVote" class="vote-text"></p>
         </div>
         <section id="description">
-          <hr />
-          <h2>Description</h2>
-          <p>This tool allows you to view the voting record of Sheffield University's Students' Union's Council for the year 2024/2025.</p>
-          <p>Some votes are not included because they have multi option votes and need some work to implement.</p>
-          <p>This tool is a proof of concept to show what opportunities for datavisualisation and interaction is possible.</p>
+            <hr />
+            <h2>Description</h2>
+            <p>This tool allows you to view the voting record of Sheffield University's Students' Union's Council for the year 2024/2025.</p>
+            <p>This tool is a proof of concept to show what opportunities for datavisualisation and interaction is possible.</p>
         </section>
     </main>
     <footer>
-      <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a></p>
-      <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me Mastodon</a></p>
+        <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a></p>
+        <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me Mastodon</a></p>
     </footer>
     <script type="module" src="js/councilMap.js"></script>
     <script type="module" src="js/groupings.js"></script>
     <script type="module" src="js/selector.js"></script>
     <script type="module" src="js/summary.js"></script>
     <script type="module" src="js/toggles.js"></script>
-
-  </div>
+    </div>
 </body>
 
 </html>

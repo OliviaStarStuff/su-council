@@ -2,10 +2,6 @@
     margin: 0;
 }
 
-p.vote-text {
-    margin: 0.3rem 0 0.5rem 0;
-}
-
 body {
     background-color: #f3f6fa;
 }
@@ -18,17 +14,17 @@ footer {
     text-align: center;
 }
 
+#visual-container {
+    height: 42em;
+    position: relative;
+    overflow: hidden;
+}
+
 #visualisation {
     position: relative;
-    height: 42em;
 }
 
 .hidden {
-    visibility: hidden;
-    opacity: 0;
-}
-
-.hidden-vacant {
     visibility: hidden;
     opacity: 0;
 }
@@ -47,266 +43,6 @@ footer {
     width:0;
 }
 
-.council-member {
-    box-sizing: border-box;
-    position: absolute;
-    /* left: 30px; */
-    border-radius: 50%;
-    border: 0.25em, black;
-    border-style:solid;
-    height:40px;
-    width:40px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: all 500ms ease-in-out, opacity 2ms ease-out;
-}
-
-.council-member * {
-    transform: scale(1.0);
-    transition: all 500ms ease-in-out;
-}
-svg {
-    height: 800px;
-    width: 900px;
-}
-polygon {
-    opacity: 70%;
-    stroke: black;
-    fill: none;
-    stroke-width: 1em;
-}
-
-.group-representative {
-    /* fill:rgb(204, 148, 204); */
-    stroke: rgb(204, 148, 204);
-}
-
-.group-pto {
-    /* fill:rgb(138, 162, 217); */
-    stroke: rgb(138, 162, 217);
-}
-
-.group-su {
-    /* fill:rgb(69, 249, 249); */
-    stroke: rgb(69, 249, 249);
-}
-
-.group-academic {
-    /* fill:#5ec4ff; */
-    stroke: #5ec4ff;
-}
-
-/* .group-su, .group-academic, .group-pto, .group-representative {
-    stroke-width: 1.5em;
+/* li::before.vote-for {
+    background-color: var(--vote-colour);
 } */
-
-.group-health {
-    /* fill:#f8a6a1; */
-    stroke:#f8a6a1;
-    /* stroke-width: 0.5em; */
-}
-
-.group-science {
-    /* fill:#a3e29f; */
-    stroke:#a3e29f;
-}
-
-.group-arts-and-humanities {
-    /* fill:#8d87da; */
-    stroke:#8d87da;
-}
-
-.group-engineering {
-    /* fill: #ff963f; */
-    stroke: #ff963f;
-}
-
-.group-social-science {
-    /* fill: #FF99CC; */
-    stroke:#FF99CC;
-}
-
-.group-fto {
-    /* fill:#fff42d; */
-    stroke:#fff42d;
-}
-
-.group-social-science    {
-    fill:none;
-}
-
-.councillor {
-    background-color: rgb(9, 79, 99);
-    border-color: rgb(9, 79, 99);
-}
-
-.member-fto {
-    --node-colour: #fff42d;
-    background-color: var(--node-colour);
-    border-color: #e8df27;
-}
-
-.member-pto {
-    --node-colour: rgb(138, 162, 217);
-    background-color: rgb(138, 162, 217);
-    border-color: rgb(107, 132, 190);
-    color: white;
-}
-
-.member-representative {
-    --node-colour: rgb(204, 148, 204);
-    background-color: var(--node-colour);
-    border-color: rgb(165, 104, 165);
-}
-
-.member-academic {
-    --node-colour: #5ec4ff;
-    background-color: #5ec4ff;
-    border-color: #4aace5;
-}
-
-.member-su {
-    --node-colour: rgb(69, 249, 249);
-    background-color: var(--node-colour);
-    border-color: rgb(57, 231, 231);
-}
-
-.member-science {
-    --node-colour: #a3e29f;
-    background-color: var(--node-colour);
-    border-color: #8acb86;
-}
-
-.member-social-science {
-    --node-colour: #FF99CC;
-    background-color: var(--node-colour);
-    border-color: #df7bad;
-}
-
-.member-arts-and-humanities {
-    --node-colour: #8d87da;
-    background-color: var(--node-colour);
-    border-color: #756fc6;
-}
-
-.member-engineering {
-    --node-colour: #ff963f;
-    background-color: var(--node-colour);
-    border-color: #e7812d;
-}
-
-.member-health {
-    --node-colour: #f8a6a1;
-    background-color: var(--node-colour);
-    border-color: #da817c;
-}
-
-.vote-abstain, .vote-against, .vote-for,
-.vote-option-1, .vote-option-2, .vote-option-3, .vote-option-4
-{
-    border-style:none;
-}
-
-.vote-for {
-    border-color: var(--node-colour);
-    background-color: lime;
-    color: black;
-}
-
-.vote-against {
-    border-color: var(--node-colour);
-    background-color: red;
-    color: black;
-}
-
-.vote-abstain {
-    border-color: var(--node-colour);
-    background-color: yellow;
-    color: black;
-    transform: scale(0.5);
-}
-
-.vote-absent {
-    border-color: var(--node-colour);
-    background-color: rgba(211, 211, 211, 0.139);
-    border-width: 0.125em;
-    color: black;
-
-    /* height:20px; */
-    /* width:20px; */
-}
-
-/* debugging purposes */
-/* div.council-member {
-    background-color: red;
-} */
-
-.vote-option-1 {
-    border-color: var(--node-colour);
-    background-color: #FF99CC;
-    color: black;
-}
-
-.vote-option-2 {
-    border-color: var(--node-colour);
-    background-color: rgb(255, 150, 63);
-    color: black;
-}
-
-.vote-option-3 {
-    border-color: var(--node-colour);
-    background-color: #8d87da;
-    color: black;
-}
-
-.vote-option-4 {
-    border-color: var(--node-colour);
-    background-color: #a3e29f;
-    color: black;
-}
-
-.vacant {
-    /* filter: brightness(30%); */
-    background-color: rgba(0,0,0,0);
-    border-width: 0.25em;
-    /* color: gray; */
-    border-style: dashed;
-
-    transform: scale(0.5);
-
-    /* height:20px; */
-    /* width:20px; */
-}
-
-.vacant *, .vote-abstain * {
-    transform: scale(2.0);
-}
-/*
-.member-arts-and-humanities.vacant {
-    background-color: #413c4379;
-}
-
-.member-engineering.vacant {
-    background-color: rgba(83, 55, 2, 0.452);
-}
-
-.member-representative.vacant {
-    background-color: rgba(46, 1, 46, 0.479);
-}
-
-.member-science.vacant {
-    background-color: #014d0171;
-}
-
-.member-social-science.vacant {
-    background-color: #3c203c;
-}
-
-.member-health.vacant {
-    background-color: rgba(59, 1, 1, 0.452);
-} */
-
-
