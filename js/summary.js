@@ -100,8 +100,20 @@ policySelector.addEventListener("change", (e) => {
     for (const option of targetOptions) {
 
         const item = document.createElement("div");
-        const total = record.votes.filter(x => x == option).length;
-
+        var total = 0;
+        // this sketchy work around is done because there are some
+        // non vacant positions that have a vote entry
+        // as "" instead of "No Vote". what does that mean?
+        /* todo: find out */
+        if (option == "No Vote") {
+            for (const c of councillors) {
+                if (c.vote == "Absent") {
+                    total += 1;
+                }
+            }
+        } else {
+            total = record.votes.filter(x => x == option).length;
+        }
         setItem(item, option, total);
         const vote = Councillor.getVoteClass(option, targetOptions);
         item.classList.add(vote);
