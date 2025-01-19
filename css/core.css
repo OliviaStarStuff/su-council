@@ -53,10 +53,48 @@ select {
     visibility: hidden;
 }
 
+.display-hidden {
+    display:none;
+}
+
 .frosted {
     background-color: rgba(255, 255, 255, .15);
     background-color: rgba(255, 192, 203, 0.167);
     backdrop-filter: blur(10px);
+}
+
+.grid-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-title div {
+    display: grid;
+    height: 100%;
+
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 1;
+
+    align-self: center;
+    justify-self: baseline;
+
+    align-items: center;
+    vertical-align: middle;
+
+    background-color: rgba(0, 0, 0, 0.196);
+}
+
+.grid-title div:hover {
+    background-color: rgba(255, 255, 255, 0.196);
+}
+
+.grid-title h2 {
+    display: grid;
+    grid-row-start: 1;
+
+    grid-column-start: 1;
+    grid-column-end: span 2;
 }
 
 /* main elements */

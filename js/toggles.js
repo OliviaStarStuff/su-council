@@ -3,7 +3,7 @@
 // Toggles name visibility for academic councillors
 import { councillors, records}  from './councilMap.js';
 
-const toggleNames = document.getElementById("toggleNames");
+const toggleNames = document.getElementById("toggle-names");
 
 toggleNames.addEventListener('change', function() {
     for(const c of councillors) {
@@ -20,7 +20,7 @@ toggleNames.addEventListener('change', function() {
 });
 
 
-const toggleReps = document.getElementById("toggleReps");
+const toggleReps = document.getElementById("toggle-reps");
 
 toggleReps.addEventListener('change', function() {
     for(const c of councillors) {
@@ -38,7 +38,7 @@ toggleReps.addEventListener('change', function() {
     }
 });
 
-const toggleCllrs = document.getElementById("toggleCllrs");
+const toggleCllrs = document.getElementById("toggle-cllrs");
 
 toggleCllrs.addEventListener('change', function() {
     for(const c of councillors) {
@@ -60,7 +60,7 @@ function toggleHidden(node, type, targetToMatch, bool) {
     }
 }
 
-const toggleSU = document.getElementById("toggleSU");
+const toggleSU = document.getElementById("toggle-su");
 
 toggleSU.addEventListener('change', function() {
     for(const c of councillors) {
@@ -68,7 +68,7 @@ toggleSU.addEventListener('change', function() {
     }
 });
 
-const togglePTOs = document.getElementById("togglePTOs");
+const togglePTOs = document.getElementById("toggle-ptos");
 
 togglePTOs.addEventListener('change', function() {
     for(const c of councillors) {
@@ -76,7 +76,7 @@ togglePTOs.addEventListener('change', function() {
     }
 });
 
-const toggleFTOs = document.getElementById("toggleFTOs");
+const toggleFTOs = document.getElementById("toggle-ftos");
 
 toggleFTOs.addEventListener('change', function() {
     for(const c of councillors) {
@@ -84,7 +84,7 @@ toggleFTOs.addEventListener('change', function() {
     }
 });
 
-const toggleVacant = document.getElementById("toggleVacant");
+const toggleVacant = document.getElementById("toggle-vacant");
 const policySelector = document.getElementById("policy");
 console.log()
 toggleVacant.addEventListener('change', function() {

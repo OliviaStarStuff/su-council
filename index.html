@@ -36,8 +36,11 @@
     <link rel="stylesheet" href="css/grouping.css">
     <link rel="stylesheet" href="css/councillor-panel.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close_small,expand_circle_down,expand_circle_up" />
+
     <!-- Utilities functions and classes -->
     <script src="js/councillor.js"></script>
+    <script type="module" src="js/selector.js"></script>
 </head>
 
 <body>
@@ -58,11 +61,11 @@
             <section id="summary" class="frosted">
                 <h2>Choose Policy</h2>
                 <div class="flex-center-row">
-                <label for="year">Year Select</label>
-                <select name="year" id="year">
-                    <option value="2024/2025">2024/2025</option>
-                    <option value="2023/2024">2023/2024</option>
-                </select>
+                    <label for="year">Year Select</label>
+                    <select name="year" id="year">
+                        <option value="2024/2025">2024/2025</option>
+                        <option value="2023/2024">2023/2024</option>
+                    </select>
                 </div>
 
                 <label for="policy">Policy Select</label>
@@ -71,59 +74,78 @@
                 </select>
 
                 <section id="toggles">
-                    <div class="header-container" id="toggles-header">
+                    <div class="header-container" id="toggles-header" role="button">
                         <h3>Options</h3>
-                        <p id="toggles-indicator">expand</p>
+                        <label id="toggles-indicator-label" for="toggles-indicator" class="display-hidden">
+                            Expand and collapse options
+                        </label>
+                        <span id="toggles-indicator" class="material-symbols-outlined" aria-labelledby="toggles-indicator-label">
+                            expand_circle_down
+                        </span>
                     </div>
                     <div id="toggles-options" class = "hidden">
                         <div>
-                            <input type="checkbox" id="toggleNames" name="toggleNames">
-                            <label for="toggleNames">Councillor initials</label>
+                            <input type="checkbox" id="toggle-names" name="toggle-names">
+                            <label for="toggle-names">Councillor initials</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="toggleCllrs" name="toggleCllrs" checked>
-                            <label for="toggleCllrs">Councillors</label>
+                            <input type="checkbox" id="toggle-cllrs" name="toggle-cllrs" checked>
+                            <label for="toggle-cllrs">Councillors</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="toggleReps" name="toggleReps" checked>
-                            <label for="toggleReps">Reps</label>
+                            <input type="checkbox" id="toggle-reps" name="toggle-reps" checked>
+                            <label for="toggle-reps">Reps</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="toggleSU" name="toggleSU" checked>
-                            <label for="toggleSU">SU Councillors</label>
+                            <input type="checkbox" id="toggle-su" name="toggle-su" checked>
+                            <label for="toggle-su">SU Councillors</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="togglePTOs" name="togglePTOs" checked>
-                            <label for="togglePTOs">PTOs</label>
+                            <input type="checkbox" id="toggle-ptos" name="toggle-ptos" checked>
+                            <label for="toggle-ptos">PTOs</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="toggleFTOs" name="toggleFTOs" checked>
-                            <label for="toggleFTOs">FTOs</label>
+                            <input type="checkbox" id="toggle-ftos" name="toggle-ftos" checked>
+                            <label for="toggle-ftos">FTOs</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="toggleVacant" name="toggleVacant" checked>
-                            <label for="toggleVacant">Vacant</label>
+                            <input type="checkbox" id="toggle-vacant" name="toggle-vacant" checked>
+                            <label for="toggle-vacant">Vacant</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="toggleGroupings" name="toggleGroupings" checked>
-                            <label for="toggleGroupings">Groupings</label>
+                            <input type="checkbox" id="toggle-groupings" name="toggle-groupings" checked>
+                            <label for="toggle-groupings">Groupings</label>
                         </div>
                     </div>
                 </section>
 
                 <div id="vote-summary" class="hidden">
-                    <div class="header-container" id="vote-summary-header">
+                    <div class="header-container" id="vote-summary-header" role="button">
                         <h3>Vote Summary</h3>
-                        <p id="vote-summary-indicator">contract</p>
+                        <label id="vote-summary-indicator-label" for="vote-summary-indicator" class="display-hidden">
+                            Expand and collapse vote summary
+                        </label>
+                        <span id="vote-summary-indicator" class="material-symbols-outlined" aria-labelledby="vote-summary-indicator-label">
+                            expand_circle_up
+                        </span>
                     </div>
-                <!-- <label for="vote-summary">Legend</label> -->
-                <div id="vote-summary-details">
-                </div>
+                    <!-- <label for="vote-summary">Legend</label> -->
+                    <div id="vote-summary-details">
+                    </div>
                 </div>
             </section>
             <section id="councillor-panel" class="detail-panel frosted flex-center-col hidden">
                 <div id="panel-top-container">
-                    <h2 id="panel-title">Title</h2>
+                    <div class="grid-title">
+
+                        <h2 id="panel-title">Title</h2>
+                        <div id="panel-close-button" role="button">
+                            <span class="material-symbols-outlined">
+                                close_small
+                            </span>
+                        </div>
+                    </div>
+
                     <h3 id="panel-name">Steven Universe</h3>
                     <div id="panel-bio" class="flex-center-row">
                         <p id="panel-pronouns">(they/them)</p>
@@ -131,7 +153,6 @@
                         <p id="panel-year">Year 2</p>
                     </div>
                 </div>
-                <button id="panel-close-button">close</button>
                 <div id="panel-bottom-container" class="flex-center-row">
                     <div class="profile-picture"></div>
                     <div class="flex-center-row">
@@ -139,16 +160,18 @@
                         <a href="">Manifesto</a>
                         <a href="">Socials</a>
                     </div>
-                    <div class="header-container" id="vote-history-header">
+                    <div class="header-container" id="vote-history-header" role="button">
                         <h4>Voting History</h4>
-                        <p id="vote-history-indicator">contract</p>
+                        <label id="vote-history-indicator-label" for="vote-summary-indicator" class="display-hidden">
+                            Expand and collapse vote History
+                        </label>
+                        <span id="vote-history-indicator" class="material-symbols-outlined" aria-labelledby="vote-history-indicator-label">
+                            expand_circle_up
+                        </span>
                     </div>
                     <div id="vote-history-container">
                         <table id="record-table"></table>
                     </div>
-
-
-                </div>
                 </div>
             </section>
         </section>
@@ -170,8 +193,7 @@
     </footer>
     <script type="module" src="js/councilMap.js"></script>
     <script type="module" src="js/groupings.js"></script>
-    <script type="module" src="js/selector.js" defer></script>
-    <script type="module" src="js/panel.js" defer></script>
+    <script type="module" src="js/panel.js"></script>
     <script type="module" src="js/summary.js"></script>
     <script type="module" src="js/toggles.js"></script>
     <script type="module" src="js/resize.js"></script>

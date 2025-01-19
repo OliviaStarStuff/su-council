@@ -31,11 +31,11 @@ const voteSummaryHeader = document.getElementById("vote-summary-header");
 const voteSummaryIndicator = document.getElementById("vote-summary-indicator");
 const voteSummaryDetails = document.getElementById("vote-summary-details");
 
-let summaryIsExpanded = false;
+let summaryIsExpanded = true;
 voteSummaryHeader.addEventListener("click", (e) => {
-    voteSummaryIndicator.textContent = summaryIsExpanded ? "contract" : "expand";
+    voteSummaryDetails.classList.toggle("hidden", summaryIsExpanded);
     summaryIsExpanded = !summaryIsExpanded;
-    voteSummaryDetails.classList.toggle("hidden");
+    voteSummaryIndicator.textContent = summaryIsExpanded ? "expand_circle_up" : "expand_circle_down";
 })
 
 
@@ -46,9 +46,9 @@ const togglesOptions = document.getElementById("toggles-options");
 
 let togglesIsExpanded = false;
 togglesHeader.addEventListener("click", (e) => {
-    togglesIndicator.textContent = togglesIsExpanded ? "contract" : "expand";
+    togglesOptions.classList.toggle("hidden", togglesIsExpanded);
     togglesIsExpanded = !togglesIsExpanded;
-    togglesOptions.classList.toggle("hidden");
+    togglesIndicator.textContent = togglesIsExpanded ? "expand_circle_up" : "expand_circle_down";
 })
 
 // utility functions to generate summary values

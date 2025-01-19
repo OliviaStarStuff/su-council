@@ -39,9 +39,7 @@
 }
 
 #panel-close-button {
-    position: absolute;
-    top: 4.5em;
-    left: 0.5em;
+    float:left;
 }
 
 #vote-history-container  {

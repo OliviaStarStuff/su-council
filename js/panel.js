@@ -21,9 +21,6 @@ for(let i = 0; i < councillors.length; i++) {
                 if (councillors[i].isVacant) {
                     vote = "Vacant";
                 }
-                if (vote == "" ) { vote = "Vacant";
-                    console.log(councillors[i].getTitle(), vote);
-                }
                 if (vote == "No Vote") { vote = "Absent" };
 
                 const voteTitleCell = document.createElement("td");
@@ -52,10 +49,9 @@ const tableContainer = document.getElementById("vote-history-container");
 
 let recordIsExpanded = true;
 recordHeader.addEventListener("click", (e) => {
-    console.log("test")
-    recordIndicator.textContent = recordIsExpanded ? "contract" : "expand";
-    recordIsExpanded = !recordIsExpanded;
     tableContainer.classList.toggle("hidden");
+    recordIsExpanded = !recordIsExpanded;
+    recordIndicator.textContent = recordIsExpanded ? "expand_circle_up" : "expand_circle_down";
 })
 
 // close panel

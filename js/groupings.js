@@ -47,7 +47,7 @@ generateGroupings();
 
 export { regeneratePoints } ;
 
-const toggleSvg = document.getElementById("toggleGroupings");
+const toggleSvg = document.getElementById("toggle-groupings");
 toggleSvg.addEventListener("change", function() {
     if (!this.checked) {
         svg.classList.add("hidden");

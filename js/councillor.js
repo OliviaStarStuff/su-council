@@ -65,7 +65,7 @@ class Councillor {
         if (votingState == "No Vote") { votingState = "Absent" }
         else if (votingState == "") {
             votingState = "Vacant";
-            const toggleVacant = document.getElementById("toggleVacant");
+            const toggleVacant = document.getElementById("toggle-vacant");
             this.node.classList.toggle("hidden-vacant", !toggleVacant.checked);
         }
         this.vote = votingState;

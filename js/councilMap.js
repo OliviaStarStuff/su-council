@@ -26,7 +26,7 @@ for(const cData of data.councillors) {
     const councillor = new Councillor(cData);
     councillor.index = i;
     i++;
-    councillor.getNode().addEventListener("mouseover", (e) => {
+    councillor.getNode().addEventListener("pointerover", (e) => {
         overlayRole.innerText = cData.title;
         overlayType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
         if(councillor.isVacant) {
@@ -37,11 +37,11 @@ for(const cData of data.councillors) {
         overlay.classList.remove("hidden");
     })
 
-    councillor.getNode().addEventListener("mouseout", (e) => {
+    councillor.getNode().addEventListener("pointerout", (e) => {
         overlay.classList.add("hidden");
     })
 
-    councillor.getNode().addEventListener("mouseenter", (e) => {
+    councillor.getNode().addEventListener("pointerenter", (e) => {
         overlay.classList.remove("hidden");
     })
 
@@ -49,7 +49,7 @@ for(const cData of data.councillors) {
     councilMap.appendChild(councillor.getNode());
 }
 
-councilMap.addEventListener("mousemove", (e) => {
+councilMap.addEventListener("pointermove", (e) => {
     overlay.style.left = e.clientX+"px";
     overlay.style.top = e.clientY+20+"px";
 })
