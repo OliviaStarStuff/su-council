@@ -129,6 +129,7 @@ class Councillor {
 
     setCurrentPosition() {
         this.setPosition(this.coords[0], this.coords[1]);
+        // console.log(this.coords, Councillor.center)
     }
 
     static getVoteClass(state, options) {

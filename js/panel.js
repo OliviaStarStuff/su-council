@@ -11,10 +11,8 @@ for(let i = 0; i < councillors.length; i++) {
         councillors[i].getNode().addEventListener("click", (e) => {
             panelTitle.className = ''
             while(recordTable.firstChild) {
-                console.log("removing")
                 recordTable.removeChild(recordTable.firstChild);
             }
-            console.log(councillors[i].data.title, councillors[i].getTitle())
             panelTitle.innerText =  councillors[i].getTitle();
 
             panelTitle.classList.add(councillors[i].getColourClass())

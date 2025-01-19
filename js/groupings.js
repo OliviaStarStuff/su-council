@@ -30,15 +30,15 @@ function regeneratePoints() {
     let i = 0;
     for (const [key, value] of Object.entries(groups)) {
         shapes[i].points.clear();
-        console.log("start", shapes[i].points);
+        // console.log("start", shapes[i].points);
         for(const coords of value) {
             const point = svg.createSVGPoint();
-            point.x = Councillor.getLeft(coords.q, coords.r, horiz)-window.screen.width/2;
+            point.x = Councillor.getLeft(coords.q, coords.r, horiz);
             point.y = Councillor.getTop(coords.r, vert);
             shapes[i].points.appendItem(point);
         }
         // console.log(shapes[i].points)
-        console.log("end", shapes[i].points);
+        // console.log("end", shapes[i].points);
         i++;
 
     }
