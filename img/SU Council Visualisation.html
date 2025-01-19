@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5500/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <meta name="title" content="SU Council Visualisation">
+    <meta name="author" content="Olivia">
+    <meta name="copyright" content="Olivia">
+    <meta name="description" content="An Interactive visualisation of the Sheffield SU Council&#39;s 2024/2025 voting record">
+    <link rel="icon" type="image/x-icon" href="http://127.0.0.1:5500/favicon.ico">
+
+    <!-- OpenGraph tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oliviastarstuff.github.io/su-council/">
+    <meta property="og:title" content="SU Council Visualisation">
+    <meta property="og:description" content="An Interactive record of SU Council voting">
+    <meta property="og:image" content="https://oliviastarstuff.github.io/su-council/preview.png">
+    <meta property="og:site_name" content="SU Council Visualisation">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="oliviastarstuff.github.io">
+    <meta property="twitter:url" content="https://oliviastarstuff.github.io/su-council/">
+    <meta name="twitter:title" content="SU Council Visualisation">
+    <meta name="twitter:description" content="An Interactive record of SU Council voting">
+    <meta name="twitter:image" content="https://oliviastarstuff.github.io/su-council/preview.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>SU Council Visualisation</title>
+    <link rel="stylesheet" href="./SU Council Visualisation_files/core.css">
+    <link rel="stylesheet" href="./SU Council Visualisation_files/member.css">
+    <link rel="stylesheet" href="./SU Council Visualisation_files/vote.css">
+    <link rel="stylesheet" href="./SU Council Visualisation_files/summary.css">
+    <link rel="stylesheet" href="./SU Council Visualisation_files/grouping.css">
+    <link rel="stylesheet" href="./SU Council Visualisation_files/councillor-panel.css">
+
+    <!-- Utilities functions and classes -->
+    <script src="./SU Council Visualisation_files/councillor.js.download"></script>
+</head>
+
+<body>
+    <div id="content_wrapper">
+    <header>
+        <h1>SU Council 2024/2025 Voting Record Visualiser</h1>
+        <hr>
+    </header>
+    <!-- <nav></nav> -->
+    <main>
+        <section id="visual-container">
+            <section id="council-map">
+                <svg id="grids" style="position:absolute">
+                <polygon class="group-arts-and-humanities" points="449.359 460 518.641 460 587.923 580 380.077 580"></polygon><polygon class="group-engineering" points="587.923 460 657.205 580 761.128 400 622.564 400"></polygon><polygon class="group-science" points="380.077 460 310.795 580 206.872 400 276.154 400 310.795 460"></polygon><polygon class="group-social-science" points="657.205 340 795.769 340 830.41 280 726.487 100 587.923 100 691.846 280"></polygon><polygon class="group-health" points="241.513 340 172.231 340 137.59 280 172.231 220 241.513 220 276.154 160 206.872 280"></polygon><polygon class="group-su" points="484 160 553.282 160 622.564 280 553.282 160"></polygon><polygon class="group-academic" points="484 400 553.282 400 587.923 340 553.282 400"></polygon><polygon class="group-representative" points="484 40 414.718 40 276.154 280 345.436 400 414.718 400 345.436 400 276.154 280 414.718 40"></polygon><polygon class="group-pto" points="449.359 100 518.641 100 449.359 100 345.436 280 380.077 340 345.436 280"></polygon><polygon class="group-fto" points="449.359 220 518.641 220 553.282 280 518.641 340 449.359 340 414.718 280"></polygon></svg>
+                <!-- <div id="council-map">
+
+                </div> -->
+            <div class="member member-academic vacant" style="left: 533px; top: 380px;"><text>AMRC</text></div><div class="member member-health" style="left: 152px; top: 320px;"><text></text></div><div class="member member-health vacant" style="left: 118px; top: 260px;"><text></text></div><div class="member member-social-science" style="left: 706px; top: 320px;"><text></text></div><div class="member member-social-science" style="left: 776px; top: 320px;"><text></text></div><div class="member member-science" style="left: 291px; top: 440px;"><text></text></div><div class="member member-science" style="left: 256px; top: 500px;"><text></text></div><div class="member member-engineering" style="left: 672px; top: 380px;"><text></text></div><div class="member member-engineering" style="left: 741px; top: 380px;"><text></text></div><div class="member member-health" style="left: 256px; top: 140px;"><text></text></div><div class="member member-health" style="left: 222px; top: 200px;"><text></text></div><div class="member member-engineering" style="left: 637px; top: 440px;"><text></text></div><div class="member member-engineering" style="left: 706px; top: 440px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 429px; top: 440px;"><text></text></div><div class="member member-social-science" style="left: 741px; top: 260px;"><text></text></div><div class="member member-social-science" style="left: 810px; top: 260px;"><text></text></div><div class="member member-social-science" style="left: 706px; top: 200px;"><text></text></div><div class="member member-social-science" style="left: 776px; top: 200px;"><text></text></div><div class="member member-engineering" style="left: 568px; top: 440px;"><text></text></div><div class="member member-engineering" style="left: 603px; top: 500px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 395px; top: 500px;"><text></text></div><div class="member member-social-science" style="left: 672px; top: 140px;"><text></text></div><div class="member member-social-science" style="left: 741px; top: 140px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 464px; top: 500px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 533px; top: 500px;"><text></text></div><div class="member member-social-science vacant" style="left: 568px; top: 80px;"><text></text></div><div class="member member-social-science" style="left: 637px; top: 200px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 429px; top: 560px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 499px; top: 560px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 568px; top: 560px;"><text></text></div><div class="member member-social-science" style="left: 637px; top: 80px;"><text></text></div><div class="member member-social-science" style="left: 706px; top: 80px;"><text></text></div><div class="member member-science" style="left: 256px; top: 380px;"><text></text></div><div class="member member-science vacant" style="left: 222px; top: 440px;"><text></text></div><div class="member member-science vacant" style="left: 187px; top: 380px;"><text></text></div><div class="member member-engineering" style="left: 672px; top: 500px;"><text></text></div><div class="member member-engineering" style="left: 637px; top: 560px;"><text></text></div><div class="member member-health" style="left: 187px; top: 260px;"><text></text></div><div class="member member-health vacant" style="left: 152px; top: 200px;"><text></text></div><div class="member member-arts-and-humanities" style="left: 360px; top: 560px;"><text></text></div><div class="member member-social-science" style="left: 603px; top: 140px;"><text></text></div><div class="member member-science" style="left: 325px; top: 500px;"><text></text></div><div class="member member-science" style="left: 291px; top: 560px;"><text></text></div><div class="member member-social-science" style="left: 672px; top: 260px;"><text></text></div><div class="member member-representative" style="left: 395px; top: 380px;"><text>Intl</text></div><div class="member member-representative" style="left: 325px; top: 140px;"><text>M</text></div><div class="member member-representative" style="left: 291px; top: 320px;"><text>Trans</text></div><div class="member member-representative" style="left: 464px; top: 20px;"><text>PGT</text></div><div class="member member-representative" style="left: 256px; top: 260px;"><text>Dis</text></div><div class="member member-representative" style="left: 291px; top: 200px;"><text>Dis</text></div><div class="member member-representative" style="left: 360px; top: 80px;"><text>W</text></div><div class="member member-representative" style="left: 395px; top: 20px;"><text>ED</text></div><div class="member member-representative" style="left: 325px; top: 380px;"><text>Q</text></div><div class="member member-su" style="left: 603px; top: 260px;"><text>Env</text></div><div class="member member-su" style="left: 464px; top: 140px;"><text>Soc</text></div><div class="member member-su" style="left: 533px; top: 140px;"><text>Wrk</text></div><div class="member member-su" style="left: 568px; top: 200px;"><text>Sport</text></div><div class="member member-academic vacant" style="left: 568px; top: 320px;"><text>Appr</text></div><div class="member member-academic" style="left: 464px; top: 380px;"><text>Found</text></div><div class="member member-arts-and-humanities vacant" style="left: 499px; top: 440px;"><text>PGR</text></div><div class="member member-engineering vacant" style="left: 603px; top: 380px;"><text>PGR</text></div><div class="member member-health vacant" style="left: 222px; top: 320px;"><text>PGR</text></div><div class="member member-science" style="left: 360px; top: 440px;"><text>PGR</text></div><div class="member member-social-science" style="left: 637px; top: 320px;"><text>PGR</text></div><div class="member member-fto" style="left: 464px; top: 260px;"><text>Pres</text></div><div class="member member-fto" style="left: 429px; top: 200px;"><text>Act</text></div><div class="member member-fto" style="left: 499px; top: 320px;"><text>Edu</text></div><div class="member member-fto" style="left: 499px; top: 200px;"><text>Sport</text></div><div class="member member-fto" style="left: 533px; top: 260px;"><text>W&amp;S</text></div><div class="member member-fto" style="left: 429px; top: 320px;"><text>Intl</text></div><div class="member member-fto" style="left: 395px; top: 260px;"><text>Lib</text></div><div class="member member-pto" style="left: 499px; top: 80px;"><text>PG</text></div><div class="member member-pto" style="left: 360px; top: 320px;"><text>Q</text></div><div class="member member-pto" style="left: 325px; top: 260px;"><text>Dis</text></div><div class="member member-pto" style="left: 395px; top: 140px;"><text>W</text></div><div class="member member-pto" style="left: 429px; top: 80px;"><text>ED</text></div><div class="member member-pto" style="left: 360px; top: 200px;"><text>M</text></div></section>
+            <section id="summary" class="frosted">
+                <h2>Choose Policy</h2>
+                <h3>Select year and policy</h3>
+                <label for="year">Year Select</label>
+                <select name="year" id="year">
+                    <option value="2024/2025">2024/2025</option>
+                    <option value="2023/2024">2023/2024</option>
+                </select>
+
+                <label for="policy">Policy Select</label>
+                <select name="Policy" id="policy" data-selected="true">
+                    <option value="none">None</option>
+                <option value="0">Cops off Campus</option><option value="1">Full-Time Officer Options</option><option value="2">Part-Time Officer Options</option><option value="3">Working Committees Councillor</option><option value="4">Censure of Mature PTO</option><option value="5">Make Abstentions Make Sense</option><option value="6">A Better Deal for Our Future</option><option value="7">Officer Role Review</option><option value="8">Policy Review (SEC Recommendations)</option></select>
+
+                <section id="toggles">
+                    <div class="header-container" id="toggles-header">
+                        <h4>Options</h4>
+                        <p id="toggles-indicator">expand</p>
+                    </div>
+                    <div id="toggles-options" class="hidden">
+                        <div>
+                            <input type="checkbox" id="toggleNames" name="toggleNames">
+                            <label for="toggleNames">Councillor initials</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleCllrs" name="toggleCllrs" checked="">
+                            <label for="toggleCllrs">Councillors</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleReps" name="toggleReps" checked="">
+                            <label for="toggleReps">Reps</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleSU" name="toggleSU" checked="">
+                            <label for="toggleSU">SU Councillors</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="togglePTOs" name="togglePTOs" checked="">
+                            <label for="togglePTOs">PTOs</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleFTOs" name="toggleFTOs" checked="">
+                            <label for="toggleFTOs">FTOs</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleVacant" name="toggleVacant" checked="">
+                            <label for="toggleVacant">Vacant</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleGroupings" name="toggleGroupings" checked="">
+                            <label for="toggleGroupings">Groupings</label>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="vote-summary" class="hidden">
+                    <div class="header-container" id="vote-summary-header">
+                        <h4>Vote Summary</h4>
+                        <p id="vote-summary-indicator">contract</p>
+                    </div>
+                <!-- <label for="vote-summary">Legend</label> -->
+                <div id="vote-summary-details">
+                </div>
+                </div>
+            </section>
+            <section id="councillor-panel" class="detail-panel frosted">
+                <button id="detail-close-button">close</button>
+                <h2 id="panel-title">Title</h2>
+                <h3 id="panel-name">Uknown</h3>
+                <div class="member-bio-container">
+
+                    <p id="panel-pronouns">(they/them)</p>
+                    <p id="panel-degree">Engineering</p>
+                    <p id="panel-year">Year X</p>
+                </div>
+                <div class="profile-picture"></div>
+                <div class="header-container" id="vote-summary-header">
+                    <h4>Vote Summary</h4>
+                    <p id="vote-record-indicator">contract</p>
+                </div>
+                <div id="table-container">
+                <table id="record-table"></table>
+                </div>
+                <h4 class="detail-member-quote">quote</h4>
+                <!-- <quote>"I tried my best"</quote> -->
+                <a href="http://127.0.0.1:5500/">Manifesto</a>
+                <a href="http://127.0.0.1:5500/">Socials</a>
+            </section>
+        </section>
+        <div id="details" class="hidden">
+            <p id="detailRole"></p>
+            <p id="detailType"></p>
+            <p id="detailVote" class="vote-text"></p>
+        </div>
+        <section id="description">
+            <hr>
+            <h2>Description</h2>
+            <p>This tool allows you to view the voting record of Sheffield University's Students' Union's Council for the year 2024/2025.</p>
+            <p>This tool is a proof of concept to show what opportunities for datavisualisation and interaction is possible.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a></p>
+        <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me Mastodon</a></p>
+    </footer>
+    <script type="module" src="./SU Council Visualisation_files/councilMap.js.download"></script>
+    <script type="module" src="./SU Council Visualisation_files/groupings.js.download"></script>
+    <script type="module" src="./SU Council Visualisation_files/selector.js.download"></script>
+    <script type="module" src="./SU Council Visualisation_files/panel.js.download"></script>
+    <script type="module" src="./SU Council Visualisation_files/summary.js.download"></script>
+    <script type="module" src="./SU Council Visualisation_files/toggles.js.download"></script>
+    <script type="module" src="./SU Council Visualisation_files/resize.js.download"></script>
+    </div>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<iframe id="4NGdzhvq" frameborder="0" src="./SU Council Visualisation_files/translateSandbox.html" style="width: 0px; height: 0px; display: none;"></iframe></body></html>

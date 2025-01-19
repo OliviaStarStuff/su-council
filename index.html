@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/vote.css">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/grouping.css">
+    <link rel="stylesheet" href="css/councillor-panel.css">
 
     <!-- Utilities functions and classes -->
     <script src="js/councillor.js"></script>
@@ -47,39 +48,107 @@
     </header>
     <!-- <nav></nav> -->
     <main>
-        <section id="toggles">
-            <label for="policy">Select a policy to view voting record</label>
-            <select name="Policy" id="policy" data-selected=true>
-                <option value="none">None</option>
-            </select>
-            <input type="checkbox" id="toggleNames" name="toggleNames" value="nameToggle">
-            <label for="toggleNames"> Show Councillor initials</label>
-            <input type="checkbox" id="toggleCllrs" name="toggleCllrs" value="councillorToggle" checked>
-            <label for="toggleCllrs"> Show Councillors</label>
-            <input type="checkbox" id="toggleReps" name="toggleReps" value="RepToggle" checked>
-            <label for="toggleReps"> Show Reps</label>
-            <input type="checkbox" id="toggleSU" name="toggleSU" value="SUToggle" checked>
-            <label for="toggleSU"> Show SU Councillors</label>
-            <input type="checkbox" id="togglePTOs" name="togglePTOs" value="PTOToggle" checked>
-            <label for="togglePTOs"> Show PTOs</label>
-            <input type="checkbox" id="toggleFTOs" name="toggleFTOs" value="FTOToggle" checked>
-            <label for="toggleFTOs"> Show FTOs</label>
-            <input type="checkbox" id="toggleVacant" name="toggleVacant" value="vacantToggle" checked>
-            <label for="toggleVacant"> Show Vacant</label>
-            <input type="checkbox" id="toggleGroupings" name="toggleGroupings" value="groupingsToggle" checked>
-            <label for="toggleGroupings"> Show Groupings</label>
-        </section>
         <section id="visual-container">
-            <section id="visualisation">
+            <section id="council-map">
                 <svg id="grids" style="position:absolute">
                 </svg>
+                <!-- <div id="council-map">
 
+                </div> -->
             </section>
-            <section id="summary">
-                <h3>Vote Summary</h3>
+            <section id="summary" class="frosted">
+                <h2>Choose Policy</h2>
+                <h3>Select year and policy</h3>
+                <label for="year">Year Select</label>
+                <select name="year" id="year">
+                    <option value="2024/2025">2024/2025</option>
+                    <option value="2023/2024">2023/2024</option>
+                </select>
+
+                <label for="policy">Policy Select</label>
+                <select name="Policy" id="policy" data-selected=true>
+                    <option value="none">None</option>
+                </select>
+
+                <section id="toggles">
+                    <div class="header-container" id="toggles-header">
+                        <h4>Options</h4>
+                        <p id="toggles-indicator">expand</p>
+                    </div>
+                    <div id="toggles-options" class = "hidden">
+                        <div>
+                            <input type="checkbox" id="toggleNames" name="toggleNames">
+                            <label for="toggleNames">Councillor initials</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleCllrs" name="toggleCllrs" checked>
+                            <label for="toggleCllrs">Councillors</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleReps" name="toggleReps" checked>
+                            <label for="toggleReps">Reps</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleSU" name="toggleSU" checked>
+                            <label for="toggleSU">SU Councillors</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="togglePTOs" name="togglePTOs" checked>
+                            <label for="togglePTOs">PTOs</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleFTOs" name="toggleFTOs" checked>
+                            <label for="toggleFTOs">FTOs</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleVacant" name="toggleVacant" checked>
+                            <label for="toggleVacant">Vacant</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="toggleGroupings" name="toggleGroupings" checked>
+                            <label for="toggleGroupings">Groupings</label>
+                        </div>
+                    </div>
+                </section>
+
+                <div id="vote-summary" class="hidden">
+                    <div class="header-container" id="vote-summary-header">
+                        <h4>Vote Summary</h4>
+                        <p id="vote-summary-indicator">contract</p>
+                    </div>
                 <!-- <label for="vote-summary">Legend</label> -->
-                <ol id="vote-summary">
-                </ol>
+                <div id="vote-summary-details">
+                </div>
+                </div>
+            </section>
+            <section id="councillor-panel" class="detail-panel frosted hidden">
+                <div id="panel-top-container">
+                    <h2 id="panel-title">Title</h2>
+                    <h3 id="panel-name">Steven Universe</h3>
+                    <div class="member-bio-container">
+
+                        <p id="panel-pronouns">(they/them)</p>
+                        <p id="panel-degree">Gem BA</p>
+                        <p id="panel-year">Year 2</p>
+                    </div>
+                </div>
+                <div id="detail-container">
+                    <div class="profile-picture"></div>
+                    <div class="header-container" id="vote-summary-header">
+                        <h4>Vote Summary</h4>
+                        <p id="vote-record-indicator">contract</p>
+                    </div>
+                    <div id="table-container">
+                        <table id="record-table"></table>
+                    </div>
+                <button id="detail-close-button">close</button>
+                <!-- <h4 class="detail-member-quote">quote</h4> -->
+                <!-- <quote>"I tried my best"</quote> -->
+                <div id="panel-links">
+                    <a href="">Manifesto</a>
+                    <a href="">Socials</a>
+                </div>
+                </div>
             </section>
         </section>
         <div id="details" class="hidden">
@@ -87,7 +156,7 @@
             <p id="detailType"></p>
             <p id="detailVote" class="vote-text"></p>
         </div>
-        <section id="description">
+        <section id="description" class="hidden">
             <hr />
             <h2>Description</h2>
             <p>This tool allows you to view the voting record of Sheffield University's Students' Union's Council for the year 2024/2025.</p>
@@ -101,8 +170,10 @@
     <script type="module" src="js/councilMap.js"></script>
     <script type="module" src="js/groupings.js"></script>
     <script type="module" src="js/selector.js"></script>
+    <script type="module" src="js/panel.js"></script>
     <script type="module" src="js/summary.js"></script>
     <script type="module" src="js/toggles.js"></script>
+    <script type="module" src="js/resize.js"></script>
     </div>
 </body>
 

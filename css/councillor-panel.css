@@ -1,0 +1,78 @@
+.detail-panel {
+    height: 100%;
+    width: 40ch;
+    float: right;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: stretch;
+    overflow-y: auto;
+}
+
+#detail-container {
+
+    padding: 0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    align-items: center;
+    justify-content: stretch;
+}
+#panel-title {
+    width: 100%;
+}
+
+.member-bio-container {
+    justify-content: center;
+    display: flex;
+    gap:1em;
+}
+
+.detail-panel > div {
+    width: 100%;
+}
+
+#record-table {
+    width: 100%;
+}
+
+#table-container  {
+    max-height: 15em;
+    align-self: stretch;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.detail-panel h2 {
+    font-size: 1.5rem;
+    background-color: var(--member-colour);
+    padding: 0.5em 0.5em;
+
+}
+
+#panel-links {
+    align-self: stretch;
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    /* align-items: stretch; */
+}
+
+.profile-picture {
+    /* width: 80%; */
+    width: 50%;
+    aspect-ratio: 1;
+    background-color: rgba(0, 0, 0, 0.258);
+    border-radius: 1em;
+}
+
+.detail-panel table tr td:last-child {
+    text-align: right;
+}
+.detail-panel table tr td:first-child {
+    text-align: left;
+    width:20ch;
+}

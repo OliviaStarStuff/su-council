@@ -50,7 +50,7 @@
 }
 
 /* Member colours */
-#council-map .member, #grids, .detail-panel {
+#council-map .member, #grids {
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 

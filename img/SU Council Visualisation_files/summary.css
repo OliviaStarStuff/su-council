@@ -82,7 +82,7 @@ select#policy {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    align-self: stretch;
+    align-self: space-between;
 }
 
 #vote-summary-details div p:first-child {
