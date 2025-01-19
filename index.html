@@ -49,12 +49,11 @@
     <!-- <nav></nav> -->
     <main>
         <section id="visual-container">
-            <section id="council-map">
-                <svg id="grids" style="position:absolute">
-                </svg>
-                <!-- <div id="council-map">
-
-                </div> -->
+            <svg id="grids" style="position:absolute">
+            </svg>
+            <section>
+                <div id="council-map">
+                </div>
             </section>
             <section id="summary" class="frosted">
                 <h2>Choose Policy</h2>
@@ -121,43 +120,41 @@
                 </div>
                 </div>
             </section>
-            <section id="councillor-panel" class="detail-panel frosted hidden">
+            <section id="councillor-panel" class="detail-panel frosted flex-center-col hidden">
                 <div id="panel-top-container">
                     <h2 id="panel-title">Title</h2>
                     <h3 id="panel-name">Steven Universe</h3>
-                    <div class="flex-center-row">
-
+                    <div id="panel-bio" class="flex-center-row">
                         <p id="panel-pronouns">(they/them)</p>
                         <p id="panel-degree">Gem BA</p>
                         <p id="panel-year">Year 2</p>
                     </div>
                 </div>
-                <div id="detail-container">
+                <button id="panel-close-button">close</button>
+                <div id="panel-bottom-container" class="flex-center-row">
                     <div class="profile-picture"></div>
-                    <div class="header-container" id="vote-summary-header">
-                        <h4>Vote Summary</h4>
-                        <p id="vote-record-indicator">contract</p>
+                    <div class="flex-center-row">
+                        <button id="detail-contact-button">contact</button>
+                        <a href="">Manifesto</a>
+                        <a href="">Socials</a>
                     </div>
-                    <div id="table-container">
+                    <div class="header-container" id="vote-history-header">
+                        <h4>Voting History</h4>
+                        <p id="vote-history-indicator">contract</p>
+                    </div>
+                    <div id="vote-history-container">
                         <table id="record-table"></table>
                     </div>
-                <div class="flex-center-row">
-                    <button id="detail-close-button">close</button>
-                    <button id="detail-close-button">contact</button>
-                </div>
-                <!-- <h4 class="detail-member-quote">quote</h4> -->
-                <!-- <quote>"I tried my best"</quote> -->
-                <div id="panel-links" class="flex-center-row">
-                    <a href="">Manifesto</a>
-                    <a href="">Socials</a>
+
+
                 </div>
                 </div>
             </section>
         </section>
-        <div id="details" class="hidden">
-            <p id="detailRole"></p>
-            <p id="detailType"></p>
-            <p id="detailVote" class="vote-text"></p>
+        <div id="overlay" class="hidden">
+            <p id="overlay-role"></p>
+            <p id="overlay-type"></p>
+            <p id="overlay-vote" class="vote-text"></p>
         </div>
         <section id="description" class="hidden">
             <hr />

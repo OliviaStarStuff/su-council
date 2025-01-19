@@ -2,7 +2,7 @@
 
 
 class Councillor {
-    static center = [window.innerWidth/2, 280];
+    static center = [0, 0];
     constructor(data=null) {
         this.data = data;
         this.member_type_class = "member-";
@@ -62,11 +62,15 @@ class Councillor {
         if(this.isVacant) { this.vote = "Vacant"; return;}
 
         this.clearVote();
-        if (votingState == "No Vote" || votingState == "") { votingState = "Absent" }
+        if (votingState == "No Vote") { votingState = "Absent" }
+        else if (votingState == "") {
+            votingState = "Vacant";
+            const toggleVacant = document.getElementById("toggleVacant");
+            this.node.classList.toggle("hidden-vacant", !toggleVacant.checked);
+        }
         this.vote = votingState;
         if (style == "custom") {
             this.node.classList.add(Councillor.getVoteClass(this.vote, options))
-
         } else {
             this.node.classList.add("vote-"+this.vote.toLowerCase());
         }
@@ -78,8 +82,8 @@ class Councillor {
 
     clearVote() {
         const voteClasses = [
-            "vote-against", "vote-for", "vote-abstain", "vote-absent",
-            "vote-option-1", "vote-option-2", "vote-option-3", "vote-option-4"
+            "vote-against", "vote-for", "vote-abstain", "vote-absent", "vote-vacant",
+            "vote-option-1", "vote-option-2", "vote-option-3", "vote-option-4", "hidden-vacant"
         ];
 
         for (const voteClass of voteClasses) {
@@ -145,6 +149,7 @@ class Councillor {
             case "Against":
             case "Abstain":
             case "Absent":
+            case "Vacant":
                 return "vote-"+state.toLowerCase();
             default:
                 if (options.indexOf(state) == -1) {

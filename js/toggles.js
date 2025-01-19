@@ -1,7 +1,7 @@
 "use strict"
 
 // Toggles name visibility for academic councillors
-import { councillors}  from './councilMap.js';
+import { councillors, records}  from './councilMap.js';
 
 const toggleNames = document.getElementById("toggleNames");
 
@@ -22,25 +22,18 @@ toggleNames.addEventListener('change', function() {
 
 const toggleReps = document.getElementById("toggleReps");
 
-function hideNode(node, bool) {
-    if (bool)
-        node.getNode().classList.add("hidden");
-    else
-        node.getNode().classList.remove("hidden");
-}
-
 toggleReps.addEventListener('change', function() {
     for(const c of councillors) {
-
         switch(c.getFaculty()) {
             case "AMRC":
             case "Apprentices":
             case "Foundation":
-                hideNode(c, !this.checked);
+                c.getNode().classList.toggle("hidden", !this.checked);
                 break;
-
             default:
-                if(c.getType() == "Representative") { hideNode(c, !this.checked); }
+                if(c.getType() == "Representative") {
+                    c.getNode().classList.toggle("hidden", !this.checked);
+                }
         }
     }
 });
@@ -55,26 +48,23 @@ toggleCllrs.addEventListener('change', function() {
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                if (!this.checked)
-                    c.getNode().classList.add("hidden");
-                else
-                    c.getNode().classList.remove("hidden");
+                c.getNode().classList.toggle("hidden", !this.checked);
             break;
         }
     }
 });
 
+function toggleHidden(node, type, targetToMatch, bool) {
+    if(type == targetToMatch) {
+        node.classList.toggle("hidden", bool);
+    }
+}
 
 const toggleSU = document.getElementById("toggleSU");
 
 toggleSU.addEventListener('change', function() {
     for(const c of councillors) {
-        if(c.data.type == "SU") {
-            if (!this.checked)
-                c.getNode().classList.add("hidden");
-            else
-                c.getNode().classList.remove("hidden");
-        }
+        toggleHidden(c.getNode(), c.data.type, "SU", !this.checked);
     }
 });
 
@@ -82,12 +72,7 @@ const togglePTOs = document.getElementById("togglePTOs");
 
 togglePTOs.addEventListener('change', function() {
     for(const c of councillors) {
-        if(c.data.type == "PTO") {
-            if (!this.checked)
-                c.getNode().classList.add("hidden");
-            else
-                c.getNode().classList.remove("hidden");
-        }
+        toggleHidden(c.getNode(), c.data.type, "PTO", !this.checked);
     }
 });
 
@@ -95,24 +80,21 @@ const toggleFTOs = document.getElementById("toggleFTOs");
 
 toggleFTOs.addEventListener('change', function() {
     for(const c of councillors) {
-        if(c.data.type == "FTO") {
-            if (!this.checked)
-                c.getNode().classList.add("hidden");
-            else
-                c.getNode().classList.remove("hidden");
-        }
+        toggleHidden(c.getNode(), c.data.type, "FTO", !this.checked);
     }
 });
 
 const toggleVacant = document.getElementById("toggleVacant");
-
+const policySelector = document.getElementById("policy");
+console.log()
 toggleVacant.addEventListener('change', function() {
+    let i = 0;
+    const value = policySelector.value;
+
     for(const c of councillors) {
-        if(c.isVacant) {
-            if (!this.checked)
-                c.getNode().classList.add("hidden-vacant");
-            else
-                c.getNode().classList.remove("hidden-vacant");
+        if(c.isVacant || ( value != "none" && records[value].votes[i] == "")) {
+            c.getNode().classList.toggle("hidden-vacant", !this.checked);
         }
+        i++;
     }
 });

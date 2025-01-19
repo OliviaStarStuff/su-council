@@ -1,4 +1,4 @@
-#council-map > .member, #vote-summary-details {
+#council-map > .member, #vote-summary-details, #vote-history-container {
     --for-colour: #06d6a0;
     --against-colour: red;
     --abstain-colour: yellow;
@@ -76,4 +76,16 @@ p.vote-text {
 
 .vote-hidden {
     opacity: 0;
+}
+
+.member.vote-vacant {
+    background-color: var(--vacant-colour);
+    border-width: 0.25em;
+    border-style: dotted;
+    transform: scale(0.5);
+    color: grey;
+}
+
+.member.vote-vacant * {
+    transform: scale(2.0);
 }

@@ -10,18 +10,26 @@ const vert = 3/4 * height;
 const horiz = width;
 
 const shapes = [];
+
+// manually calculated. ideally it should be based on the height of the element
+const offsetHeight = 288
+
+function generatePoints(shape, value) {
+    for(const coords of value) {
+        const point = svg.createSVGPoint();
+        point.x = Councillor.getLeft(coords.q, coords.r, horiz) + window.innerWidth/2;
+        point.y = Councillor.getTop(coords.r, vert) + offsetHeight;
+        shape.points.appendItem(point);
+    }
+}
+
 function generateGroupings() {
     for (const [key, value] of Object.entries(groups)) {
         let shape = document.createElementNS(svgns, "polygon");
         svg.appendChild(shape);
-        shape.classList.add(
-            "group-" + key.replace(" & ","-and-").replace(" ", "-").toLowerCase());
-        for(const coords of value) {
-            const point = svg.createSVGPoint();
-            point.x = Councillor.getLeft(coords.q, coords.r, horiz);
-            point.y = Councillor.getTop(coords.r, vert);
-            shape.points.appendItem(point);
-        }
+        shape.classList.add("group-" +
+                key.replace(" & ","-and-").replace(" ", "-").toLowerCase());
+        generatePoints(shape, value);
         shapes.push(shape);
     }
 }
@@ -30,17 +38,8 @@ function regeneratePoints() {
     let i = 0;
     for (const [key, value] of Object.entries(groups)) {
         shapes[i].points.clear();
-        // console.log("start", shapes[i].points);
-        for(const coords of value) {
-            const point = svg.createSVGPoint();
-            point.x = Councillor.getLeft(coords.q, coords.r, horiz);
-            point.y = Councillor.getTop(coords.r, vert);
-            shapes[i].points.appendItem(point);
-        }
-        // console.log(shapes[i].points)
-        // console.log("end", shapes[i].points);
+        generatePoints(shapes[i], value);
         i++;
-
     }
 }
 

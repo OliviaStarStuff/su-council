@@ -15,7 +15,7 @@ for(var i = 0; i<records.length; i++) {
 policySelector.addEventListener("change", (e) => {
     if(e.target.value == "none") {
         for(let i = 0; i < councillors.length; i++) {
-            councillors[i].clearVote();
+            if(!councillors[i].isVacant) { councillors[i].clearVote(); }
             // councillors[i].setCurrentPosition();
         }
     } else {

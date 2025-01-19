@@ -67,7 +67,7 @@ select#policy {
     border-radius: 0.5em;
 }
 
-#vote-summary-details div:last-child {
+#vote-summary-details div:nth-last-child(2) {
     margin-top: 1em;
 }
 

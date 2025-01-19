@@ -97,10 +97,11 @@ policySelector.addEventListener("change", (e) => {
     voteSummaryDetails.appendChild(topItem);
 
     // Display number of votes for each option
-    for (const option of targetOptions) {
+
+    for (const option of (targetOptions)) {
 
         const item = document.createElement("div");
-        var total = 0;
+        let total = 0;
         // this sketchy work around is done because there are some
         // non vacant positions that have a vote entry
         // as "" instead of "No Vote". what does that mean?
@@ -134,6 +135,16 @@ policySelector.addEventListener("change", (e) => {
             }
         })
     }
+    let vacantTotal = 0;
+    for (let i = 0; i< councillors.length; i++) {
+        if(councillors[i].isVacant || record.votes[i] == "") { vacantTotal++; }
+    }
+    const vacantItem = document.createElement("div");
+    setItem(vacantItem, "Vacant", vacantTotal);
+    const vote = "vote-vacant";
+    vacantItem.classList.add(vote);
+    voteSummaryDetails.appendChild(vacantItem);
+
 })
 
 const policyStatus = document.getElementById("vote-Status");

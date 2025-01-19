@@ -1,7 +1,6 @@
 svg {
-    height: 800px;
+    height: 100%;
     width: 100lvw;
-
     z-index: -2;
 }
 

@@ -2,56 +2,32 @@
     height: 100%;
     width: 40ch;
     float: right;
+    position: relative;
+
+    gap:unset;
+
+    overflow: visible auto;
+    /* right:100px; */
     text-align: center;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: stretch;
-    overflow-y: auto;
-}
-
-#detail-container {
-
-    padding: 0.5em 1em;
-    display: flex;
-    flex-direction: column;
-    gap:1em;
-    align-items: center;
-    justify-content: stretch;
-}
-#panel-title {
-    width: 100%;
 }
 
 .detail-panel > div {
     width: 100%;
 }
 
-#record-table {
-    width: 100%;
+#panel-bottom-container {
+    padding: 0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap:1em;
+    align-items: center;
 }
 
-#table-container  {
-    max-height: 15em;
-    align-self: stretch;
-    overflow-y: auto;
-    width: 100%;
-}
 
 .detail-panel h2 {
     font-size: 1.5rem;
     background-color: var(--member-colour);
     padding: 0.5em 0.5em;
-
-}
-
-.flex-center-row {
-    align-self: stretch;
-    display: flex;
-    gap: 1em;
-    justify-content: center;
 }
 
 .profile-picture {
@@ -62,8 +38,34 @@
     border-radius: 1em;
 }
 
+#panel-close-button {
+    position: absolute;
+    top: 4.5em;
+    left: 0.5em;
+}
+
+#vote-history-container  {
+    max-height: 15em;
+    overflow-y: auto;
+    width: 100%;
+    border: 0.125em solid rgb(152, 47, 65);
+}
+
+.detail-panel table {
+    width: inherit;
+}
+
+.detail-panel table tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+.detail-panel table tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
 .detail-panel table tr td:last-child {
     text-align: right;
+    padding-right: 0.75em;
 }
 .detail-panel table tr td:first-child {
     text-align: left;

@@ -14,10 +14,10 @@ export const councillors = []
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-map');
 // These are overlay hooks
-const details = document.getElementById('details');
-const detailRole = document.getElementById('detailRole');
-const detailType = document.getElementById('detailType');
-const detailVote = document.getElementById('detailVote');
+const overlay = document.getElementById('overlay');
+const overlayRole = document.getElementById('overlay-role');
+const overlayType = document.getElementById('overlay-type');
+const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
 var i = 0;
@@ -27,22 +27,22 @@ for(const cData of data.councillors) {
     councillor.index = i;
     i++;
     councillor.getNode().addEventListener("mouseover", (e) => {
-        detailRole.innerText = cData.title;
-        detailType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
+        overlayRole.innerText = cData.title;
+        overlayType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
         if(councillor.isVacant) {
-            detailVote.innerText = "Vacant";
+            overlayVote.innerText = "Vacant";
         } else {
-            detailVote.innerText = councillor.getVote();
+            overlayVote.innerText = councillor.getVote();
         }
-        details.classList.remove("hidden");
+        overlay.classList.remove("hidden");
     })
 
     councillor.getNode().addEventListener("mouseout", (e) => {
-        details.classList.add("hidden");
+        overlay.classList.add("hidden");
     })
 
     councillor.getNode().addEventListener("mouseenter", (e) => {
-        details.classList.remove("hidden");
+        overlay.classList.remove("hidden");
     })
 
     councillors.push(councillor);
@@ -50,8 +50,8 @@ for(const cData of data.councillors) {
 }
 
 councilMap.addEventListener("mousemove", (e) => {
-    details.style.left = e.clientX+"px";
-    details.style.top = e.clientY+20+"px";
+    overlay.style.left = e.clientX+"px";
+    overlay.style.top = e.clientY+20+"px";
 })
 
 export const groups = data.groups;
