@@ -5,6 +5,7 @@ const panel = document.getElementById("councillor-panel");
 
 const panelTitle = document.getElementById("panel-title");
 const recordTable = document.getElementById("record-table");
+const vacantContainer = document.getElementById("panel-vacant-container");
 
 for(let i = 0; i < councillors.length; i++) {
 
@@ -18,8 +19,9 @@ for(let i = 0; i < councillors.length; i++) {
             panelTitle.classList.add(councillors[i].getColourClass())
             for(const r of records) {
                 let vote = r.votes[i];
-                if (councillors[i].isVacant) {
+                if (councillors[i].isVacant || vote == "") {
                     vote = "Vacant";
+                    continue;
                 }
                 if (vote == "No Vote") { vote = "Absent" };
 
@@ -38,6 +40,7 @@ for(let i = 0; i < councillors.length; i++) {
             }
             // console.log("test")
             panel.classList.remove("hidden");
+            vacantContainer.classList.toggle("hidden", !councillors[i].isVacant)
 
         })
 }

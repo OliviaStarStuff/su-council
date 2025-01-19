@@ -146,3 +146,13 @@ policySelector.addEventListener("change", (e) => {
     voteSummaryDetails.appendChild(vacantItem);
 
 })
+
+const outlink = document.getElementById("outlink");
+const policyContainer = document.getElementById("policy-description-container");
+policySelector.addEventListener("change", (e) => {
+    policyContainer.classList.toggle("hidden", e.target.value == "none");
+    if(e.target.value != "none") {
+        const url = records[e.target.value].url;
+        outlink.href = url == "" ? "/#" : url;
+    }
+});
