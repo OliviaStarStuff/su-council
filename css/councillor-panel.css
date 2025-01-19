@@ -25,12 +25,6 @@
     width: 100%;
 }
 
-.member-bio-container {
-    justify-content: center;
-    display: flex;
-    gap:1em;
-}
-
 .detail-panel > div {
     width: 100%;
 }
@@ -53,12 +47,11 @@
 
 }
 
-#panel-links {
+.flex-center-row {
     align-self: stretch;
     display: flex;
     gap: 1em;
     justify-content: center;
-    /* align-items: stretch; */
 }
 
 .profile-picture {
