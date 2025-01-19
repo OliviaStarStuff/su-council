@@ -46,7 +46,7 @@
 <body>
     <div id="content_wrapper">
     <header>
-        <h1>SU Council 2024/2025 Voting Record Visualiser</h1>
+        <h1 class="playfair-display-title">SU Council 2024/2025 Voting Record Visualiser</h1>
         <hr />
     </header>
     <!-- <nav></nav> -->
@@ -81,7 +81,7 @@
                 </section>
 
                 <section id="toggles">
-                    <div class="header-container" id="toggles-header" role="button">
+                    <div class="header-container" id="toggles-header" role="button" tabindex="0">
                         <h3>Options</h3>
                         <span id="toggles-indicator" class="material-symbols-outlined" aria-labelledby="toggles-indicator-label">
                             expand_circle_down
@@ -124,7 +124,7 @@
                 </section>
 
                 <div id="vote-summary" class="hidden">
-                    <div class="header-container" id="vote-summary-header" role="button">
+                    <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
                         <h3>Vote Summary</h3>
                         <span id="vote-summary-indicator" class="material-symbols-outlined" aria-labelledby="vote-summary-indicator-label">
                             expand_circle_up
@@ -140,7 +140,7 @@
                     <div class="grid-title">
 
                         <h3 id="panel-title">Title</h3>
-                        <div id="panel-close-button" role="button">
+                        <div id="panel-close-button" role="button"  tabindex="0">
                             <span class="material-symbols-outlined">
                                 close_small
                             </span>
@@ -161,13 +161,13 @@
                         <a href="">Manifesto</a>
                         <a href="">Socials</a>
                     </div>
-                    <div class="header-container" id="vote-history-header" role="button">
+                    <div class="header-container" id="vote-history-header" role="button"  tabindex="0">
                         <h4>Voting History</h4>
                         <span id="vote-history-indicator" class="material-symbols-outlined">
                             expand_circle_up
                         </span>
                     </div>
-                    <div id="vote-history-container">
+                    <div id="vote-history-container"  tabindex="0"  >
                         <table id="record-table"></table>
                     </div>
                     <div id="panel-vacant-container">

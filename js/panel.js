@@ -57,7 +57,21 @@ recordHeader.addEventListener("click", (e) => {
     recordIndicator.textContent = recordIsExpanded ? "expand_circle_up" : "expand_circle_down";
 })
 
+recordHeader.addEventListener("keypress", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      recordHeader.click();
+    }
+});
+
 // close panel
 button.addEventListener("click", (e) => {
     panel.classList.add("hidden");
 })
+
+button.addEventListener("keypress", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      button.click();
+    }
+});

@@ -38,6 +38,13 @@ voteSummaryHeader.addEventListener("click", (e) => {
     voteSummaryIndicator.textContent = summaryIsExpanded ? "expand_circle_up" : "expand_circle_down";
 })
 
+voteSummaryHeader.addEventListener("keypress", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      voteSummaryHeader.click();
+    }
+});
+
 
 // contractable options tab
 const togglesHeader = document.getElementById("toggles-header");
@@ -50,6 +57,13 @@ togglesHeader.addEventListener("click", (e) => {
     togglesIsExpanded = !togglesIsExpanded;
     togglesIndicator.textContent = togglesIsExpanded ? "expand_circle_up" : "expand_circle_down";
 })
+
+togglesHeader.addEventListener("keypress", function(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      togglesHeader.click();
+    }
+});
 
 // utility functions to generate summary values
 function setTargetOptions(record) {

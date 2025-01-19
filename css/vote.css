@@ -35,6 +35,18 @@ p.vote-text {
     --vote-colour: var(--abstain-colour);
 }
 
+.member.vote-for {
+    border-radius: 50% 50% 0.25em 0.25em;
+}
+
+.member.vote-against {
+    border-radius: 0.25em 0.25em 50% 50% ;
+}
+
+.member.vote-abstain {
+    border-radius: 0.25em;
+}
+
 .vote-absent {
     border-style: solid;
 
@@ -67,6 +79,22 @@ p.vote-text {
 
 .vote-option-4 {
     --vote-colour: var(--option-4-colour);
+}
+
+.member.vote-option-1 {
+    border-radius: 0.25em 50% 50% 50%;
+}
+
+.member.vote-option-2 {
+    border-radius: 50% 0.25em 50% 50%;
+}
+
+.member.vote-option-3 {
+    border-radius: 50% 50% 0.25em 50%;
+}
+
+.member.vote-option-4 {
+    border-radius: 50% 50% 50% 0.25em;
 }
 
 .vote-hidden {

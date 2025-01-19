@@ -19,7 +19,7 @@ class Councillor {
                 this.node = this.createNode(!data.isFilled, data.type);
         }
         //
-        this.text = document.createElement("text")
+        this.text = document.createElement("p")
         this.node.appendChild(this.text)
 
         this.isVacant = !data.isFilled;
