@@ -32,8 +32,8 @@
     height: 0px;
 }
 
-#summary label {
-    display: block;
+#summary div.flex-center-row {
+    justify-content: space-between;
 }
 
 #toggles label {

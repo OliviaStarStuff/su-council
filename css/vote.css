@@ -36,7 +36,7 @@ p.vote-text {
 }
 
 .vote-absent {
-    border-style: dashed;
+    border-style: solid;
 
     /* --vote-colour: var(--member-border-colour); */
     --vote-colour: var(--absent-colour);
@@ -50,11 +50,6 @@ p.vote-text {
 
 .member.vote-absent {
     transform: scale(0.5);
-}
-
-.member.vote-absent * {
-    /* transform: scale(calc(1 / 0.2)); */
-
 }
 
 .vote-option-1 {

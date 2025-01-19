@@ -1228,7 +1228,7 @@
             "date":"",
             "result": "Passed",
             "style":"custom",
-            "options": ["Option A", "Option B", "Option C", "Option D", "Blank", "Recommend Against", "Abstain", "No Vote"],
+            "options": ["Option A", "Option B", "Option C", "Option D", "Blank", "Abstain", "No Vote"],
             "votes": [
                 "",
                 "No Vote",

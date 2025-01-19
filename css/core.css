@@ -65,12 +65,23 @@ select {
     height: 42em;
     position: relative;
     overflow: hidden;
+    /* animation: 10s linear infinite example; */
 }
+
+@keyframes example {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  }
 
 #council-map {
     position: relative;
     left: 50%;
     top:18em;
+    transform-origin: 0 0;
+    /* transform: rotate(0deg); */
+    /* animation-duration: 4s; */
+    /* animation-iteration-count: infinite; */
+    /* animation-timing-function: linear; */
 }
 
 #overlay {

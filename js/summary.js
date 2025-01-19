@@ -115,7 +115,7 @@ policySelector.addEventListener("change", (e) => {
         } else {
             total = record.votes.filter(x => x == option).length;
         }
-        setItem(item, option, total);
+        setItem(item, option == "No Vote" ? "Absent" : option, total);
         const vote = Councillor.getVoteClass(option, targetOptions);
         item.classList.add(vote);
         voteSummaryDetails.appendChild(item);
@@ -146,5 +146,3 @@ policySelector.addEventListener("change", (e) => {
     voteSummaryDetails.appendChild(vacantItem);
 
 })
-
-const policyStatus = document.getElementById("vote-Status");
