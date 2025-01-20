@@ -1,14 +1,8 @@
+"use strict";
+
 import { groups } from "./councilMap.js";
 
-var svgns = "http://www.w3.org/2000/svg";
-var svg = document.getElementById("grids");
-
-const size = 20;
-const width = Math.sqrt(3) * size;
-const height =  4/2 * size;
-const vert = 3/4 * height;
-const horiz = width;
-
+let svg = document.getElementById("grids");
 const shapes = [];
 
 // manually calculated. ideally it should be based on the height of the element
@@ -24,6 +18,7 @@ function generatePoints(shape, value) {
 }
 
 function generateGroupings() {
+    const svgns = "http://www.w3.org/2000/svg";
     for (const [key, value] of Object.entries(groups)) {
         let shape = document.createElementNS(svgns, "polygon");
         svg.appendChild(shape);
@@ -34,7 +29,7 @@ function generateGroupings() {
     }
 }
 
-function regeneratePoints() {
+export function regeneratePoints() {
     let i = 0;
     for (const [key, value] of Object.entries(groups)) {
         shapes[i].points.clear();
@@ -45,8 +40,6 @@ function regeneratePoints() {
 
 generateGroupings();
 
-export { regeneratePoints } ;
-
 const toggleSvg = document.getElementById("toggle-groupings");
 toggleSvg.addEventListener("change", function() {
     if (!this.checked) {
@@ -55,3 +48,5 @@ toggleSvg.addEventListener("change", function() {
         svg.classList.remove("hidden");
     }
 })
+
+console.log("Groupings Loaded");

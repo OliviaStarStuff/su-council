@@ -8,3 +8,5 @@ function contractable(root) {
         return isExpanded;
     }
 }
+
+console.log("Utilities Loaded");

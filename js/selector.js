@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import { councillors, records, options } from "./councilMap.js";
 
@@ -28,5 +28,6 @@ policySelector.addEventListener("change", (e) => {
     }
 });
 
-
 policySelector.focus();
+
+console.log("Selector Loaded");

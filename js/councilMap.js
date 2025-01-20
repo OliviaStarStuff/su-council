@@ -3,7 +3,6 @@
 // Does not work with firefox 15/01/2025
 // import data from './councillors.json' with { type: 'json' };
 import { data } from "./loadData.js"
-console.log("CouncilMap Start");
 export const councillors = []
 export const records = data.records;
 export const options = data.voteOptions;
@@ -70,3 +69,5 @@ councilMap.addEventListener("pointermove", (e) => {
 //         section.append(councilor.getNode());
 //     }
 // }
+
+console.log("councilMap Loaded");

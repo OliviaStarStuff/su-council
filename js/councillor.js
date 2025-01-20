@@ -165,3 +165,4 @@ class Councillor {
         this.vote = "";
     }
 }
+console.log("Hex, Votes, Councillor Classes Loaded");

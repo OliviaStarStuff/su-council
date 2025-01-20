@@ -69,3 +69,4 @@ button.addEventListener("keypress", function(event) {
       button.click();
     }
 });
+console.log("Panel Loaded");

@@ -100,3 +100,5 @@ toggleVacant.addEventListener('change', function() {
         i++;
     }
 });
+
+console.log("Toggles Loaded");

@@ -1,3 +1,5 @@
+"use strict";
+
 import { councillors, records, options }  from './councilMap.js';
 
 // Summary Window draggable feature
