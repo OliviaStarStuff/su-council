@@ -40,7 +40,15 @@
 
     <!-- Utilities functions and classes -->
     <script src="js/councillor.js"></script>
-    <script type="module" src="js/selector.js"></script>
+    <script src="js/utility.js"></script>
+    <script type="module" src="js/loadData.js" async></script>
+    <script type="module" src="js/councilMap.js" defer></script>
+    <script type="module" src="js/groupings.js" defer></script>
+    <script type="module" src="js/selector.js" defer></script>
+    <script type="module" src="js/summary.js"></script>
+    <script type="module" src="js/toggles.js"></script>
+    <script type="module" src="js/resize.js"></script>
+    <script type="module" src="js/panel.js" defer></script>
 </head>
 
 <body>
@@ -87,7 +95,7 @@
                             expand_circle_down
                         </span>
                     </div>
-                    <div id="toggles-options" class = "hidden">
+                    <div id="toggles-container" class = "hidden">
                         <div>
                             <input type="checkbox" id="toggle-names" name="toggle-names">
                             <label for="toggle-names">Councillor initials</label>
@@ -131,7 +139,7 @@
                         </span>
                     </div>
                     <!-- <label for="vote-summary">Legend</label> -->
-                    <div id="vote-summary-details">
+                    <div id="vote-summary-container">
                     </div>
                 </div>
             </section>
@@ -194,12 +202,7 @@
         <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me on Mastodon</a></p>
         <a href="https://github.com/OliviaStarStuff/su-council">Github</a>
     </footer>
-    <script type="module" src="js/councilMap.js"></script>
-    <script type="module" src="js/groupings.js"></script>
-    <script type="module" src="js/panel.js"></script>
-    <script type="module" src="js/summary.js"></script>
-    <script type="module" src="js/toggles.js"></script>
-    <script type="module" src="js/resize.js"></script>
+
     </div>
 </body>
 

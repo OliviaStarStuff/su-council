@@ -1,150 +1,49 @@
 "use strict";
 
+class Hex {
+    static size = 20;
+    static width = Math.sqrt(3) * Hex.size
+    static height =  4/2 * Hex.size;
+    static vert = 3/4 * Hex.height;
+    static horiz = Hex.width;
 
-class Councillor {
-    static center = [0, 0];
-    constructor(data=null) {
-        this.data = data;
-        this.member_type_class = "member-";
-        switch(data.faculty) {
-            case "PGR":
-            case "Social Science":
-            case "Science":
-            case "Arts & Humanities":
-            case "Engineering":
-            case "Health":
-                this.node = this.createNode(!data.isFilled, data.faculty);
-                break;
-            default:
-                this.node = this.createNode(!data.isFilled, data.type);
-        }
-        //
-        this.text = document.createElement("p")
-        this.node.appendChild(this.text)
-
-        this.isVacant = !data.isFilled;
-        this.vote = "";
-
-        switch(data.faculty) {
-            case "Social Science":
-            case "Science":
-            case "Arts & Humanities":
-            case "Engineering":
-            case "Health":
-                this.text.innerText = data.type == "PGR" ? data.initial : "";
-                break;
-            default:
-                this.text.innerText = data.initial;
-        }
-
-        const size = 20;
-        const width = Math.sqrt(3) * size
-        const height =  4/2 * size;
-        this.vert = 3/4 * height;
-        this.horiz = width;
-        this.position = [0,0];
-        this.setPosition(data.coords.q, data.coords.r);
-    }
-    // Getter
-    createNode(isVacant = false, member_type) {
-        const circle = document.createElement("div");
-        circle.classList.add("member");
-        this.member_type_class += member_type.toLowerCase().replace(" & ", "-and-").replace(" ", "-");
-        circle.classList.add(this.member_type_class)
-        if (isVacant) {
-            circle.classList.add("vacant");
-        }
-        return circle;
-
+    static getPosition(coords) {
+        return [Hex.getLeft(coords)-Hex.size, Hex.getTop(coords)-Hex.size]
     }
 
-    setVote(votingState, options, style) {
-        if(this.isVacant) { this.vote = "Vacant"; return;}
-
-        this.clearVote();
-        if (votingState == "No Vote") { votingState = "Absent" }
-        else if (votingState == "") {
-            votingState = "Vacant";
-            const toggleVacant = document.getElementById("toggle-vacant");
-            this.node.classList.toggle("hidden-vacant", !toggleVacant.checked);
-        }
-        this.vote = votingState;
-        if (style == "custom") {
-            this.node.classList.add(Councillor.getVoteClass(this.vote, options))
-        } else {
-            this.node.classList.add("vote-"+this.vote.toLowerCase());
-        }
-        this.setCurrentPosition()
-    }
-    getNode() {
-        return this.node;
+    static getLeft(coords) {
+        return coords.q*Hex.horiz*2 + coords.r*Hex.horiz;
     }
 
-    clearVote() {
-        const voteClasses = [
-            "vote-against", "vote-for", "vote-abstain", "vote-absent", "vote-vacant",
-            "vote-option-1", "vote-option-2", "vote-option-3", "vote-option-4", "hidden-vacant"
-        ];
+    static getTop(coords) {
+        return coords.r*Hex.vert*2;
+    }
+}
 
-        for (const voteClass of voteClasses) {
-            this.node.classList.remove(voteClass);
-        }
-        this.vote = "";
+class Vote {
+    static classes = [
+        "vote-for", "vote-against", "vote-abstain",
+        "vote-absent", "vote-vacant", "hidden-vacant",
+        "vote-option-1", "vote-option-2",
+        "vote-option-3", "vote-option-4"
+    ];
+
+    static sanitise(state) {
+        if (state == "No Vote") { return "Absent"; }
+        if (state == "") { return "Vacant"; }
+        return state;
     }
 
-    getType() {
-        return this.data.type;
-    }
-    getFaculty() {
-        return this.data.faculty;
-    }
-
-    getTitle() {
-        return this.data.title;
-    }
-
-    getColourClass() {
-        return this.member_type_class;
-    }
-
-    getVote() {
-        return this.vote;
-    }
-
-    setPosition(q, r) {
-        const left = q * this.horiz*2 + r*this.horiz+Councillor.center[0];
-        const top = r * this.vert*2 +Councillor.center[1];
-        this.coords = [q, r];
-        const center = 20;
-        this.node.style.left = Math.round(left-center)+"px";
-        this.node.style.top = Math.round(top-center)+"px";
-        this.position[0] = Math.round(left-center);
-        this.position[1] = Math.round(top-center);
-        this.text.textContent;
-    }
-
-    static getLeft(q, r, horiz) {
-        return q * horiz*2 + r * horiz + Councillor.center[0];
-    }
-
-    static getTop(r, vert) {
-        return r * vert*2 + Councillor.center[1];
-    }
-
-    setCurrentPosition() {
-        this.setPosition(this.coords[0], this.coords[1]);
-        // console.log(this.coords, Councillor.center)
-    }
-
-    static getVoteClass(state, options) {
+    static getClass(state, options) {
         switch(state) {
             case "Recommend Against":
                 return "vote-against";
             case "Blank":
                 return "vote-abstain";
             case "No Vote":
-            case "":
                 return "vote-absent";
+            case "":
+                return "vote-vacant";
             case "For":
             case "Against":
             case "Abstain":
@@ -157,5 +56,112 @@ class Councillor {
                 }
                 return "vote-option-"+(1+options.indexOf(state));
         }
+    }
+}
+
+class Councillor {
+    constructor(data) {
+        this.title = data.title;
+        this.type = data.type;
+        this.faculty = data.faculty;
+        this.initial = data.initial;
+        this.isVacant = !data.isFilled;
+        this.coords = data.coords;
+        this.vote = "";
+        this.history = data.history;
+
+        this.member_type_class = this.setMemberType();
+
+        this.node = this.createNode();
+        this.setPosition(this.coords);
+    }
+
+    getTitle() { return this.title; }
+    getNode() { return this.node; }
+    getType() { return this.type; }
+    getFaculty() { return this.faculty; }
+    getColourClass() { return this.member_type_class; }
+    getPosition() { return this.position; }
+    getVote() { return this.vote; }
+
+    setMemberType() {
+        switch(this.faculty) {
+            case "PGR":
+            case "Social Science":
+            case "Science":
+            case "Arts & Humanities":
+            case "Engineering":
+            case "Health":
+                return "member-" + this.faculty.toLowerCase().replace(
+                        " & ", "-and-").replace(" ", "-");
+                break;
+            default:
+                return "member-" + this.type.toLowerCase().replace(
+                        " & ", "-and-").replace(" ", "-");
+                break;
+        }
+    }
+
+    createNode() {
+        const node = document.createElement("div");
+        node.classList.add("member");
+        node.classList.add(this.member_type_class);
+        if (this.isVacant) { node.classList.add("vacant"); }
+
+        this.text = this.setNodeInitial();
+        node.appendChild(this.text)
+        return node;
+    }
+
+    setNodeInitial() {
+        const text = document.createElement("p")
+
+        switch(this.faculty) {
+            case "Social Science":
+            case "Science":
+            case "Arts & Humanities":
+            case "Engineering":
+            case "Health":
+                text.innerText = this.type == "PGR" ? this.initial : "";
+                break;
+            default:
+                text.innerText = this.initial;
+        }
+
+        return text
+    }
+
+    // Position code
+    setPosition(coords) {
+        this.position = Hex.getPosition(coords);
+        this.node.style.left = this.position[0]+"px";
+        this.node.style.top = this.position[1]+"px";
+    }
+
+    setCurrentPosition() {
+        this.setPosition(this.coords);
+    }
+
+    setVote(votingState, options) {
+        if(this.isVacant) {
+            this.vote = "Vacant";
+            return;
+        }
+
+        this.clearVote();
+
+        if (votingState == "") {
+            const toggleVacant = document.getElementById("toggle-vacant");
+            this.node.classList.toggle("hidden-vacant", !toggleVacant.checked);
+        }
+
+        this.vote = Vote.sanitise(votingState);
+        this.node.classList.add(Vote.getClass(this.vote, options));
+        this.setCurrentPosition();
+    }
+
+    clearVote() {
+        for (const vc of Vote.classes) { this.node.classList.remove(vc); }
+        this.vote = "";
     }
 }

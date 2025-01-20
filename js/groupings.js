@@ -17,8 +17,8 @@ const offsetHeight = 288
 function generatePoints(shape, value) {
     for(const coords of value) {
         const point = svg.createSVGPoint();
-        point.x = Councillor.getLeft(coords.q, coords.r, horiz) + window.innerWidth/2;
-        point.y = Councillor.getTop(coords.r, vert) + offsetHeight;
+        point.x = Hex.getLeft(coords) + window.innerWidth/2;
+        point.y = Hex.getTop(coords) + offsetHeight;
         shape.points.appendItem(point);
     }
 }

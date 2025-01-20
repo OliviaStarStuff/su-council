@@ -1,4 +1,4 @@
-import { councillors, records, options } from "./councilMap.js";
+import { councillors, records } from "./councilMap.js";
 
 const button = document.getElementById("panel-close-button");
 const panel = document.getElementById("councillor-panel");
@@ -17,20 +17,15 @@ for(let i = 0; i < councillors.length; i++) {
             panelTitle.innerText =  councillors[i].getTitle();
 
             panelTitle.classList.add(councillors[i].getColourClass())
-            for(const r of records) {
-                let vote = r.votes[i];
-                if (councillors[i].isVacant || vote == "") {
-                    vote = "Vacant";
-                    continue;
-                }
-                if (vote == "No Vote") { vote = "Absent" };
+            for(const r of councillors[i].history) {
+                if (councillors[i].isVacant || r.vote == "") { continue; }
 
                 const voteTitleCell = document.createElement("td");
                 voteTitleCell.innerText = r.name;
 
                 const voteCell = document.createElement("td");
-                voteCell.classList.add(Councillor.getVoteClass(vote, r.options));
-                voteCell.innerText = vote;
+                voteCell.classList.add(Vote.getClass(r.vote, records[r.index].options));
+                voteCell.innerText = r.vote;
 
                 const voteRow = document.createElement("tr");
                 voteRow.appendChild(voteTitleCell);
@@ -38,7 +33,6 @@ for(let i = 0; i < councillors.length; i++) {
 
                 recordTable.appendChild(voteRow);
             }
-            // console.log("test")
             panel.classList.remove("hidden");
             vacantContainer.classList.toggle("hidden", !councillors[i].isVacant)
 

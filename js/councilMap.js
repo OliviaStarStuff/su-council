@@ -1,15 +1,13 @@
 "use strict";
 
-/* Written by Olivia*/
-// Import Data to display
-const data = await fetch("./js/councillors.json").then(response => {
-    return response.json()
-});
-
 // Does not work with firefox 15/01/2025
 // import data from './councillors.json' with { type: 'json' };
-
+import { data } from "./loadData.js"
+console.log("CouncilMap Start");
 export const councillors = []
+export const records = data.records;
+export const options = data.voteOptions;
+export const groups = data.groups;
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-map');
@@ -20,15 +18,24 @@ const overlayType = document.getElementById('overlay-type');
 const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
-var i = 0;
+let i = 0;
 for(const cData of data.councillors) {
-    const cData = data.councillors[i]
+    cData.history = [];
+    let j = 0;
+    for (const record of data.records) {
+        const vote = record.votes[i] == "No Vote"? "Absent" : record.votes[i];
+        cData.history.push({"name": record.name, "vote": vote, "index":j});
+        j++;
+    };
     const councillor = new Councillor(cData);
     councillor.index = i;
     i++;
+
     councillor.getNode().addEventListener("pointerover", (e) => {
-        overlayRole.innerText = cData.title;
+        overlayRole.innerText = councillor.getTitle();
         overlayType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
+
+        // Set vacant status
         if(councillor.isVacant) {
             overlayVote.innerText = "Vacant";
         } else {
@@ -53,10 +60,6 @@ councilMap.addEventListener("pointermove", (e) => {
     overlay.style.left = e.clientX+"px";
     overlay.style.top = e.clientY+20+"px";
 })
-
-export const groups = data.groups;
-export const records = data.records;
-export const options = data.voteOptions;
 
 // for (let q = -gs+1; q < gs; q++) {
 //     const r_start = q < 0 ? -gs-q : -gs;

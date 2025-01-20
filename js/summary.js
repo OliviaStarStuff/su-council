@@ -1,4 +1,4 @@
-import { records, options, councillors }  from './councilMap.js';
+import { councillors, records, options }  from './councilMap.js';
 
 // Summary Window draggable feature
 const summary = document.getElementById("summary");
@@ -28,14 +28,10 @@ document.addEventListener('pointermove', (e) => {
 
 // contractable summary tab
 const voteSummaryHeader = document.getElementById("vote-summary-header");
-const voteSummaryIndicator = document.getElementById("vote-summary-indicator");
-const voteSummaryDetails = document.getElementById("vote-summary-details");
-
+const voteContractable = contractable("vote-summary");
 let summaryIsExpanded = true;
 voteSummaryHeader.addEventListener("click", (e) => {
-    voteSummaryDetails.classList.toggle("hidden", summaryIsExpanded);
-    summaryIsExpanded = !summaryIsExpanded;
-    voteSummaryIndicator.textContent = summaryIsExpanded ? "expand_circle_up" : "expand_circle_down";
+    summaryIsExpanded = voteContractable(summaryIsExpanded);
 })
 
 voteSummaryHeader.addEventListener("keypress", function(event) {
@@ -46,24 +42,7 @@ voteSummaryHeader.addEventListener("keypress", function(event) {
 });
 
 
-// contractable options tab
-const togglesHeader = document.getElementById("toggles-header");
-const togglesIndicator = document.getElementById("toggles-indicator");
-const togglesOptions = document.getElementById("toggles-options");
 
-let togglesIsExpanded = false;
-togglesHeader.addEventListener("click", (e) => {
-    togglesOptions.classList.toggle("hidden", togglesIsExpanded);
-    togglesIsExpanded = !togglesIsExpanded;
-    togglesIndicator.textContent = togglesIsExpanded ? "expand_circle_up" : "expand_circle_down";
-})
-
-togglesHeader.addEventListener("keypress", function(event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      togglesHeader.click();
-    }
-});
 
 // utility functions to generate summary values
 function setTargetOptions(record) {
@@ -83,12 +62,13 @@ function setItem(item, option, totalValue) {
 }
 
 const policySelector = document.getElementById("policy");
+const voteSummaryContainer = document.getElementById("vote-summary-container");
 const voteSummary = document.getElementById("vote-summary");
 
 policySelector.addEventListener("change", (e) => {
     // clear summary list
-    while (voteSummaryDetails.firstChild) {
-        voteSummaryDetails.removeChild(voteSummaryDetails.firstChild);
+    while (voteSummaryContainer.firstChild) {
+        voteSummaryContainer.removeChild(voteSummaryContainer.firstChild);
     }
 
     // guard clause if not showing voting data, show nothing
@@ -102,13 +82,13 @@ policySelector.addEventListener("change", (e) => {
     // Set result
     const resultItem = document.createElement("div");
     setItem(resultItem, "Result", record.result);
-    voteSummaryDetails.appendChild(resultItem);
+    voteSummaryContainer.appendChild(resultItem);
 
     // Set the total number of votes
     const topItem = document.createElement("div");
     const topTotal = record.votes.filter(x => x != "No Vote" && x != "blank" && x != "").length;
     setItem(topItem, "Total Votes", topTotal);
-    voteSummaryDetails.appendChild(topItem);
+    voteSummaryContainer.appendChild(topItem);
 
     // Display number of votes for each option
 
@@ -130,9 +110,9 @@ policySelector.addEventListener("change", (e) => {
             total = record.votes.filter(x => x == option).length;
         }
         setItem(item, option == "No Vote" ? "Absent" : option, total);
-        const vote = Councillor.getVoteClass(option, targetOptions);
+        const vote = Vote.getClass(option, targetOptions);
         item.classList.add(vote);
-        voteSummaryDetails.appendChild(item);
+        voteSummaryContainer.appendChild(item);
 
         // Add interactions for mouseover and mouseout to highlight similar votes
         item.addEventListener("mouseover", (e) =>  {
@@ -157,7 +137,7 @@ policySelector.addEventListener("change", (e) => {
     setItem(vacantItem, "Vacant", vacantTotal);
     const vote = "vote-vacant";
     vacantItem.classList.add(vote);
-    voteSummaryDetails.appendChild(vacantItem);
+    voteSummaryContainer.appendChild(vacantItem);
 
 })
 
