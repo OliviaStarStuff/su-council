@@ -2,6 +2,11 @@
 
 import { councillors, records, options } from "./councilMap.js";
 
+const notloaded = document.createElement("p");
+notloaded.innerText = "not loaded";
+document.getElementById("summary").appendChild(notloaded);
+
+
 // Set up selector with all voting options
 const policySelector = document.getElementById("policy");
 
@@ -16,7 +21,6 @@ policySelector.addEventListener("change", (e) => {
     if(e.target.value == "none") {
         for(let i = 0; i < councillors.length; i++) {
             if(!councillors[i].isVacant) { councillors[i].clearVote(); }
-            // councillors[i].setCurrentPosition();
         }
     } else {
         const record = records[e.target.value];
@@ -31,3 +35,4 @@ policySelector.addEventListener("change", (e) => {
 policySelector.focus();
 
 console.log("Selector Loaded");
+notloaded.classList.add("hidden");
