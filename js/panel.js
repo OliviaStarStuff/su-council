@@ -42,23 +42,8 @@ for(let i = 0; i < councillors.length; i++) {
 }
 
 // contractable vote history tab
-const recordHeader = document.getElementById("vote-history-header");
-const recordIndicator = document.getElementById("vote-history-indicator");
-const tableContainer = document.getElementById("vote-history-container");
+const voteHistoryCollapsable = new Collapsable("vote-history", true);
 
-let recordIsExpanded = true;
-recordHeader.addEventListener("click", (e) => {
-    tableContainer.classList.toggle("hidden");
-    recordIsExpanded = !recordIsExpanded;
-    recordIndicator.textContent = recordIsExpanded ? "expand_circle_up" : "expand_circle_down";
-})
-
-recordHeader.addEventListener("keypress", function(event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      recordHeader.click();
-    }
-});
 
 // close panel
 button.addEventListener("click", (e) => {

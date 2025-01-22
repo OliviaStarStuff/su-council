@@ -3,20 +3,6 @@
 // Toggles name visibility for academic councillors
 import { councillors, records }  from './councilMap.js';
 
-// contractable options tab
-const togglesHeader = document.getElementById("toggles-header");
-
-let togglesIsExpanded = false;
-const toggleContractable = contractable("toggles");
-togglesHeader.addEventListener("click", (e) => { togglesIsExpanded = toggleContractable(togglesIsExpanded); })
-
-togglesHeader.addEventListener("keypress", function(event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      togglesHeader.click();
-    }
-});
-
 const toggleNames = document.getElementById("toggle-names");
 
 toggleNames.addEventListener('change', function() {

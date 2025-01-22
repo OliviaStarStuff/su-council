@@ -1,6 +1,6 @@
 "use strict";
 
-import { councillors, records, options } from "./councilMap.js";
+import { councillors, records } from "./councilMap.js";
 
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";

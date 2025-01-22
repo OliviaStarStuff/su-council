@@ -1,6 +1,6 @@
 "use strict";
 
-import { councillors, records, options }  from './councilMap.js';
+import { councillors, records }  from './councilMap.js';
 
 // Summary Window draggable feature
 const summary = document.getElementById("summary");
@@ -28,31 +28,13 @@ document.addEventListener('pointermove', (e) => {
 });
 
 
-// contractable summary tab
-const voteSummaryHeader = document.getElementById("vote-summary-header");
-const voteContractable = contractable("vote-summary");
-let summaryIsExpanded = true;
-voteSummaryHeader.addEventListener("click", (e) => {
-    summaryIsExpanded = voteContractable(summaryIsExpanded);
-})
+// collapsables
+const togglesHeaderCollapsable = new Collapsable("toggles", false);
+const voteSummaryCollapsable = new Collapsable("vote-summary", true);
 
-voteSummaryHeader.addEventListener("keypress", function(event) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      voteSummaryHeader.click();
-    }
-});
-
-
-
-
-// utility functions to generate summary values
-function setTargetOptions(record) {
-
-    return options[record.style];
-}
-
-function setItem(item, option, totalValue) {
+// Produces a row for the votesummary
+function setItem(option, totalValue, voteClass) {
+    const item = document.createElement("div");
     const optionText = document.createElement("p");
     optionText.innerText  = option + ": ";
 
@@ -60,8 +42,27 @@ function setItem(item, option, totalValue) {
     total.innerText = totalValue;
     item.appendChild(optionText);
     item.appendChild(total);
+
+    if (voteClass) { item.classList.add(voteClass); }
+
+
+    // Add interactions for mouseover and mouseout to highlight similar votes
+    item.addEventListener("mouseover", (e) =>  {
+        for (const c of councillors) {
+            c.classList.toggle("vote-hidden", !c.classList.contains(voteClass));
+        }
+    })
+
+    item.addEventListener("mouseout", (e) =>  {
+        for (const c of councillors) {
+            c.classList.remove("vote-hidden");
+        }
+    })
+
+    return item;
 }
 
+// update vote summary container
 const policySelector = document.getElementById("policy");
 const voteSummaryContainer = document.getElementById("vote-summary-container");
 const voteSummary = document.getElementById("vote-summary");
@@ -80,27 +81,23 @@ policySelector.addEventListener("change", (e) => {
     const record = records[e.target.value];
     const targetOptions = Vote.styles[record.style];
 
-    // Set result
-    const resultItem = document.createElement("div");
-    setItem(resultItem, "Result", record.result);
-    voteSummaryContainer.appendChild(resultItem);
+    /* Display Code */
+    // Row 1: Result
+    let item = setItem("Result", record.result);
+    voteSummaryContainer.appendChild(item);
 
-    // Set the total number of votes
-    const topItem = document.createElement("div");
+    // Row 2: Total votes
     const topTotal = record.votes.filter(x => x != "No Vote" && x != "blank" && x != "").length;
-    setItem(topItem, "Total Votes", topTotal);
-    voteSummaryContainer.appendChild(topItem);
+    item = setItem("Total Votes", topTotal);
+    voteSummaryContainer.appendChild(item);
 
-    // Display number of votes for each option
-
+    // Row 3.. number of votes for each option
     for (const option of (targetOptions)) {
-
-        const item = document.createElement("div");
         let total = 0;
         // this sketchy work around is done because there are some
         // non vacant positions that have a vote entry
         // as "" instead of "No Vote". what does that mean?
-        /* todo: find out */
+        /* going to assume the seat was vacant but is no longer */
         if (option == "No Vote") {
             for (const c of councillors) {
                 if (c.vote == "Absent") {
@@ -110,36 +107,25 @@ policySelector.addEventListener("change", (e) => {
         } else {
             total = record.votes.filter(x => x == option).length;
         }
-        setItem(item, option == "No Vote" ? "Absent" : option, total);
-        const vote = Vote.getClass(option, record.style);
-        item.classList.add(vote);
+
+        const voteClass = Vote.getClass(option, record.style);
+        const chosenOption = option == "No Vote" ? "Absent" : option;
+        const item = setItem(chosenOption, total, voteClass);
         voteSummaryContainer.appendChild(item);
-
-        // Add interactions for mouseover and mouseout to highlight similar votes
-        item.addEventListener("mouseover", (e) =>  {
-            for (const c of councillors) {
-                c.classList.toggle("vote-hidden", !c.classList.contains(vote));
-            }
-        })
-
-        item.addEventListener("mouseout", (e) =>  {
-            for (const c of councillors) {
-                c.classList.remove("vote-hidden");
-            }
-        })
     }
+
+    // Last Row: Total vacant seats
     let vacantTotal = 0;
     for (let i = 0; i< councillors.length; i++) {
         if(councillors[i].isVacant || record.votes[i] == "") { vacantTotal++; }
     }
-    const vacantItem = document.createElement("div");
-    setItem(vacantItem, "Vacant", vacantTotal);
-    const vote = "vote-vacant";
-    vacantItem.classList.add(vote);
-    voteSummaryContainer.appendChild(vacantItem);
+    item = setItem("Vacant", vacantTotal, "vote-vacant");
+    // item.classList.add(vote);
+    voteSummaryContainer.appendChild(item);
 
 })
 
+// Update links
 const outlink = document.getElementById("outlink");
 const policyContainer = document.getElementById("policy-description-container");
 policySelector.addEventListener("change", (e) => {
