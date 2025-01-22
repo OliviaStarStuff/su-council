@@ -48,7 +48,6 @@ voteSummaryHeader.addEventListener("keypress", function(event) {
 
 // utility functions to generate summary values
 function setTargetOptions(record) {
-    if (record.style == "custom") { return record.options; }
 
     return options[record.style];
 }
@@ -79,7 +78,7 @@ policySelector.addEventListener("change", (e) => {
 
     // Get the correct record and options
     const record = records[e.target.value];
-    const targetOptions = setTargetOptions(record);
+    const targetOptions = Vote.styles[record.style];
 
     // Set result
     const resultItem = document.createElement("div");
@@ -112,22 +111,20 @@ policySelector.addEventListener("change", (e) => {
             total = record.votes.filter(x => x == option).length;
         }
         setItem(item, option == "No Vote" ? "Absent" : option, total);
-        const vote = Vote.getClass(option, targetOptions);
+        const vote = Vote.getClass(option, record.style);
         item.classList.add(vote);
         voteSummaryContainer.appendChild(item);
 
         // Add interactions for mouseover and mouseout to highlight similar votes
         item.addEventListener("mouseover", (e) =>  {
             for (const c of councillors) {
-                const node = c.getNode();
-                node.classList.toggle("vote-hidden", !node.classList.contains(vote));
+                c.classList.toggle("vote-hidden", !c.classList.contains(vote));
             }
         })
 
         item.addEventListener("mouseout", (e) =>  {
             for (const c of councillors) {
-                const node = c.getNode();
-                node.classList.remove("vote-hidden");
+                c.classList.remove("vote-hidden");
             }
         })
     }

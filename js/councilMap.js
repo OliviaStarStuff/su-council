@@ -18,41 +18,42 @@ const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
 let i = 0;
+Vote.styles = data.voteOptions;
 for(const cData of data.councillors) {
     cData.history = [];
     let j = 0;
     for (const record of data.records) {
         const vote = record.votes[i] == "No Vote"? "Absent" : record.votes[i];
-        cData.history.push({"name": record.name, "vote": vote, "index":j});
+        cData.history.push({"name": record.name, "style":record.style, "vote": vote});
         j++;
     };
     const councillor = new Councillor(cData);
     councillor.index = i;
     i++;
 
-    councillor.getNode().addEventListener("pointerover", (e) => {
-        overlayRole.innerText = councillor.getTitle();
-        overlayType.innerText = "Type: " + councillor.getType() + ", Faculty: " + councillor.getFaculty();
+    councillor.node.addEventListener("pointerover", (e) => {
+        overlayRole.innerText = councillor.title;
+        overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
 
         // Set vacant status
         if(councillor.isVacant) {
             overlayVote.innerText = "Vacant";
         } else {
-            overlayVote.innerText = councillor.getVote();
+            overlayVote.innerText = councillor.vote;
         }
         overlay.classList.remove("hidden");
     })
 
-    councillor.getNode().addEventListener("pointerout", (e) => {
+    councillor.node.addEventListener("pointerout", (e) => {
         overlay.classList.add("hidden");
     })
 
-    councillor.getNode().addEventListener("pointerenter", (e) => {
+    councillor.node.addEventListener("pointerenter", (e) => {
         overlay.classList.remove("hidden");
     })
 
     councillors.push(councillor);
-    councilMap.appendChild(councillor.getNode());
+    councilMap.appendChild(councillor.node);
 }
 
 councilMap.addEventListener("pointermove", (e) => {

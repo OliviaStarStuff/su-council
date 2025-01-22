@@ -1,6 +1,24 @@
 "use strict";
 
 class Hex {
+    #coords;
+    constructor(coords) {
+        this.#coords = coords;
+    }
+
+    get position() { return Hex.getPosition(this.#coords); }
+    get coords() { return this.#coords; }
+    set coords(coords) {
+        this.#coords.q = coords.q;
+        this.#coords.r = coords.r;
+    }
+
+    set moveX(distance) { this.#coords.q += distance; }
+    set moveY(distance) { this.#coords.r += distance; }
+    set moveZ(distance) {
+        this.#coords.q += distance; this.#coords.r -= distance;
+    }
+
     static size = 20;
     static width = Math.sqrt(3) * Hex.size
     static height =  4/2 * Hex.size;
@@ -21,6 +39,22 @@ class Hex {
 }
 
 class Vote {
+    #history;
+    #index;
+
+    constructor(history) {
+        this.#history = history;
+        this.#index = -1;
+    }
+
+    get current() { return this.#index == -1 ? "" : this.#history[this.#index].vote; }
+    set current(voteIndex) { this.#index = voteIndex; }
+    get voteStyle() { return this.#index == -1 ? "" : this.#history[this.#index].style;}
+    get voteClass() { return Vote.getClass(this.current, this.voteStyle); }
+    get history() { return this.#history; }
+
+    static styles = [];
+
     static classes = [
         "vote-for", "vote-against", "vote-abstain",
         "vote-absent", "vote-vacant", "hidden-vacant",
@@ -34,7 +68,7 @@ class Vote {
         return state;
     }
 
-    static getClass(state, options) {
+    static getClass(state, style) {
         switch(state) {
             case "Recommend Against":
                 return "vote-against";
@@ -51,52 +85,77 @@ class Vote {
             case "Vacant":
                 return "vote-"+state.toLowerCase();
             default:
-                if (options.indexOf(state) == -1) {
-                    console.error("Invalid Vote Found", state);
+                if (Vote.styles[style].indexOf(state) == -1) {
+                    console.error("Invalid Vote Found", state, style, Vote.styles);
                 }
-                return "vote-option-"+(1+options.indexOf(state));
+                return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
         }
     }
 }
 
 class Councillor {
+    #title = "Demo";
+    #type;
+    #faculty;
+    #initial;
+    #isVacant = true;
+    #member_class;
+
+    #coords;
+    #hex;
+
+    #vote;
+    #node;
+    #text;
+
     constructor(data) {
-        this.title = data.title;
-        this.type = data.type;
-        this.faculty = data.faculty;
-        this.initial = data.initial;
-        this.isVacant = !data.isFilled;
-        this.coords = data.coords;
-        this.vote = "";
-        this.history = data.history;
+        this.#title = data.title;
+        this.#type = data.type;
+        this.#faculty = data.faculty;
+        this.#initial = data.initial;
+        this.#isVacant = !data.isFilled;
 
-        this.member_type_class = this.setMemberType();
+        this.#hex = new Hex(data.coords);
+        this.#member_class = this.setMemberType();
+        this.#vote = new Vote(data.history);
 
-        this.node = this.createNode();
-        this.setPosition(this.coords);
+        this.#node = this.createNode();
+        this.setCurrentPosition();
     }
 
-    getTitle() { return this.title; }
-    getNode() { return this.node; }
-    getType() { return this.type; }
-    getFaculty() { return this.faculty; }
-    getColourClass() { return this.member_type_class; }
-    getPosition() { return this.position; }
-    getVote() { return this.vote; }
+    get title() { return this.#title; }
+    get node() { return this.#node; }
+    get type() { return this.#type; }
+    get faculty() {  return this.#faculty; }
+    get colourClass() { return this.#member_class; }
+    get classList() { return this.#node.classList; }
+    get position() { return this.#hex.position; }
+    get vote() { return this.#vote.current; }
+    get history() { return this.#vote.history; }
+    get isVacant() { return this.#isVacant; }
+
+    set showInitial(bool) { this.#text.classList.toggle("hidden", !bool); }
+    set vote(recordIndex) {
+        this.#vote.current = recordIndex;
+        // Add the right classes for the current vote
+        this.updateVoteClasses();
+        this.setCurrentPosition();
+    }
+    get voteClass() { return this.#vote.voteClass; }
 
     setMemberType() {
-        switch(this.faculty) {
+        switch(this.#faculty) {
             case "PGR":
             case "Social Science":
             case "Science":
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                return "member-" + this.faculty.toLowerCase().replace(
+                return "member-" + this.#faculty.toLowerCase().replace(
                         " & ", "-and-").replace(" ", "-");
                 break;
             default:
-                return "member-" + this.type.toLowerCase().replace(
+                return "member-" + this.#type.toLowerCase().replace(
                         " & ", "-and-").replace(" ", "-");
                 break;
         }
@@ -104,65 +163,52 @@ class Councillor {
 
     createNode() {
         const node = document.createElement("div");
+
         node.classList.add("member");
-        node.classList.add(this.member_type_class);
-        if (this.isVacant) { node.classList.add("vacant"); }
+        node.classList.add(this.#member_class);
+        if (this.#isVacant) { node.classList.add("vacant"); }
 
-        this.text = this.setNodeInitial();
-        node.appendChild(this.text)
-        return node;
-    }
+        this.#text = document.createElement("p")
 
-    setNodeInitial() {
-        const text = document.createElement("p")
-
-        switch(this.faculty) {
+        switch(this.#faculty) {
             case "Social Science":
             case "Science":
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                text.innerText = this.type == "PGR" ? this.initial : "";
+                this.#text.classList.add("hidden");
                 break;
-            default:
-                text.innerText = this.initial;
         }
 
-        return text
+        this.#text.innerText = this.#initial;
+        node.appendChild(this.#text)
+
+        return node;
     }
 
     // Position code
-    setPosition(coords) {
-        this.position = Hex.getPosition(coords);
-        this.node.style.left = this.position[0]+"px";
-        this.node.style.top = this.position[1]+"px";
+    set position(coords) {
+        this.#hex.coords = coords;
+        this.#node.style.left = this.#hex.position[0]+"px";
+        this.#node.style.top = this.#hex.position[1]+"px";
     }
 
     setCurrentPosition() {
-        this.setPosition(this.coords);
+        this.position = this.#hex.coords;
     }
 
-    setVote(votingState, options) {
-        if(this.isVacant) {
-            this.vote = "Vacant";
-            return;
-        }
+    clearVoteClasses() {
+        for (const vc of Vote.classes) { this.#node.classList.remove(vc); }
+    }
 
-        this.clearVote();
-
-        if (votingState == "") {
+    updateVoteClasses() {
+        this.clearVoteClasses();
+        if (this.#vote.vote == "") {
             const toggleVacant = document.getElementById("toggle-vacant");
-            this.node.classList.toggle("hidden-vacant", !toggleVacant.checked);
+            this.#node.classList.toggle("hidden-vacant", !toggleVacant.checked);
         }
-
-        this.vote = Vote.sanitise(votingState);
-        this.node.classList.add(Vote.getClass(this.vote, options));
-        this.setCurrentPosition();
-    }
-
-    clearVote() {
-        for (const vc of Vote.classes) { this.node.classList.remove(vc); }
-        this.vote = "";
+        this.#node.classList.add(this.#vote.voteClass);
     }
 }
+
 console.log("Hex, Votes, Councillor Classes Loaded");

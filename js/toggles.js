@@ -21,17 +21,13 @@ const toggleNames = document.getElementById("toggle-names");
 
 toggleNames.addEventListener('change', function() {
     for(const c of councillors) {
-        switch(c.getFaculty()) {
+        switch(c.faculty) {
             case "Social Science":
             case "Science":
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                if (this.checked || c.getType() == "PGR") {
-                    c.text.innerText = c.data.initial
-                } else {
-                    c.text.innerText = "";
-                }
+                c.showInitial = (this.checked || c.type == "PGR");
             break;
         }
     }
@@ -41,15 +37,15 @@ toggleNames.addEventListener('change', function() {
 const toggleReps = document.getElementById("toggle-reps");
 toggleReps.addEventListener('change', function() {
     for(const c of councillors) {
-        switch(c.getFaculty()) {
+        switch(c.faculty) {
             case "AMRC":
             case "Apprentices":
             case "Foundation":
-                c.getNode().classList.toggle("hidden", !this.checked);
+                c.classList.toggle("hidden", !this.checked);
                 break;
             default:
-                if(c.getType() == "Representative") {
-                    c.getNode().classList.toggle("hidden", !this.checked);
+                if(c.type == "Representative") {
+                    c.classList.toggle("hidden", !this.checked);
                 }
         }
     }
@@ -58,13 +54,13 @@ toggleReps.addEventListener('change', function() {
 const toggleCllrs = document.getElementById("toggle-cllrs");
 toggleCllrs.addEventListener('change', function() {
     for(const c of councillors) {
-        switch(c.getFaculty()) {
+        switch(c.faculty) {
             case "Social Science":
             case "Science":
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                c.getNode().classList.toggle("hidden", !this.checked);
+                c.classList.toggle("hidden", !this.checked);
             break;
         }
     }
@@ -72,8 +68,8 @@ toggleCllrs.addEventListener('change', function() {
 
 function toggleHidden(targetToMatch, bool) {
     for(const c of councillors) {
-        if(c.getType() == targetToMatch) {
-            c.getNode().classList.toggle("hidden", bool);
+        if(c.type == targetToMatch) {
+            c.classList.toggle("hidden", bool);
         }
     }
 }
@@ -95,7 +91,7 @@ toggleVacant.addEventListener('change', function() {
 
     for(const c of councillors) {
         if(c.isVacant || ( value != "none" && records[value].votes[i] == "")) {
-            c.getNode().classList.toggle("hidden-vacant", !this.checked);
+            c.classList.toggle("hidden-vacant", !this.checked);
         }
         i++;
     }

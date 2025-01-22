@@ -20,14 +20,14 @@ for(var i = 0; i<records.length; i++) {
 policySelector.addEventListener("change", (e) => {
     if(e.target.value == "none") {
         for(let i = 0; i < councillors.length; i++) {
-            if(!councillors[i].isVacant) { councillors[i].clearVote(); }
+            if(!councillors[i].isVacant) { councillors[i].clearVoteClasses(); }
         }
     } else {
         const record = records[e.target.value];
         const optionStyle = record.style;
-        const targetOptions = optionStyle == "custom" ? record.options : options[optionStyle];
-        for(let i = 0; i < record.votes.length; i++) {
-            councillors[i].setVote(record.votes[i], targetOptions, optionStyle);
+        for(const c of councillors) {
+            if(!c.isVacant) { c.vote = e.target.value;}
+
         }
     }
 });

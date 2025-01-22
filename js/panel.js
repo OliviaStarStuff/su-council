@@ -8,15 +8,17 @@ const recordTable = document.getElementById("record-table");
 const vacantContainer = document.getElementById("panel-vacant-container");
 
 for(let i = 0; i < councillors.length; i++) {
+        councillors[i].node.addEventListener("click", (e) => {
+            // Set bio details
+            panelTitle.className = '';
+            panelTitle.classList.add(councillors[i].colourClass)
+            panelTitle.innerText =  councillors[i].title;
 
-        councillors[i].getNode().addEventListener("click", (e) => {
-            panelTitle.className = ''
+            // clear the vote history table;
             while(recordTable.firstChild) {
                 recordTable.removeChild(recordTable.firstChild);
             }
-            panelTitle.innerText =  councillors[i].getTitle();
 
-            panelTitle.classList.add(councillors[i].getColourClass())
             for(const r of councillors[i].history) {
                 if (councillors[i].isVacant || r.vote == "") { continue; }
 
@@ -24,7 +26,7 @@ for(let i = 0; i < councillors.length; i++) {
                 voteTitleCell.innerText = r.name;
 
                 const voteCell = document.createElement("td");
-                voteCell.classList.add(Vote.getClass(r.vote, records[r.index].options));
+                voteCell.classList.add(Vote.getClass(r.vote, r.style));
                 voteCell.innerText = r.vote;
 
                 const voteRow = document.createElement("tr");
@@ -39,7 +41,7 @@ for(let i = 0; i < councillors.length; i++) {
         })
 }
 
-// contractable options tab
+// contractable vote history tab
 const recordHeader = document.getElementById("vote-history-header");
 const recordIndicator = document.getElementById("vote-history-indicator");
 const tableContainer = document.getElementById("vote-history-container");

@@ -620,7 +620,10 @@
     ],
     "voteOptions":
         {
-            "standard": ["For", "Against", "Abstain", "No Vote"]
+            "standard": ["For", "Against", "Abstain", "No Vote"],
+            "numerical": ["Option 1", "Option 2", "Option 3", "Option 4", "Recommend Against", "Abstain", "No Vote"],
+            "alphabetical": ["Option A", "Option B", "Option C", "Option D", "Blank", "Abstain", "No Vote"],
+            "duo": ["Community Organiser", "Liberation Facilitator", "Recommend Against", "Abstain", "No Vote"]
         },
     "records":
     [
@@ -715,8 +718,7 @@
             "date":"",
             "url": "https://docs.google.com/document/d/1NmxI4-Y9nyBrCK4NScxKu82jHwgi2jsWrdGvZkhXQco/edit?usp=sharing",
             "result": "Option 3",
-            "style":"custom",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4", "Recommend Against", "Abstain", "No Vote"],
+            "style":"numerical",
             "votes": [
                 "",
                 "No Vote",
@@ -802,8 +804,7 @@
             "date":"",
             "url": "https://docs.google.com/document/d/1cu_mob58tMOSRF0Z2KYxBxDfIWHLynxwUBM7qS8d8bI/edit?tab=t.0#heading=h.1358953j2pk5",
             "result": "Liberation Facilitator",
-            "style":"custom",
-            "options": ["Community Organiser", "Liberation Facilitator", "Recommend Against", "Abstain", "No Vote"],
+            "style":"duo",
             "votes": [
                 "",
                 "No Vote",
@@ -1233,8 +1234,7 @@
             "date":"",
             "url": "https://docs.google.com/document/d/1qKNzfzWGb2Io2tJkq5F8Q6qF9taKkSdKT73lbDwbXtI/edit?tab=t.0#heading=h.4bs0yyixuhc",
             "result": "Passed",
-            "style":"custom",
-            "options": ["Option A", "Option B", "Option C", "Option D", "Blank", "Abstain", "No Vote"],
+            "style":"alphabetical",
             "votes": [
                 "",
                 "No Vote",
