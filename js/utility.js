@@ -3,16 +3,20 @@ class Collapsable {
     #header;
     #indicator;
     #container;
-    constructor(root, isExpanded, ) {
+    #graphics = {"up": "expand_circle_up", "down": "expand_circle_down"};
+    constructor(root, isExpanded, graphics) {
         this.#isExpanded = isExpanded;
         this.#header = document.getElementById(root + "-header");
         this.#indicator = document.getElementById(root + "-indicator");
         this.#container = document.getElementById(root + "-container");
 
+        this.#indicator.textContent = this.indicatorGraphic;
+        if(graphics!=undefined) {this.#graphics = graphics}
+
         this.#header.addEventListener("click", (e) => {
             this.#container.classList.toggle("hidden", this.#isExpanded);
             this.#isExpanded = !this.#isExpanded;
-            this.#indicator.textContent = this.#isExpanded ? "expand_circle_up" : "expand_circle_down";
+            this.#indicator.textContent = this.indicatorGraphic;
         });
 
         this.#header.addEventListener("keypress", function(event) {
@@ -21,6 +25,10 @@ class Collapsable {
               this.click();
             }
         });
+    }
+
+    get indicatorGraphic() {
+        return !this.#isExpanded ? this.#graphics.up : this.#graphics.down
     }
 
 }
