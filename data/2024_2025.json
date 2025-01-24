@@ -152,7 +152,7 @@
             "type": "Academic",
             "faculty": "Social Science",
             "initial": "Econ",
-            "coords": { "q": 5, "r": 0 },
+            "coords": { "q": 0, "r": 2 },
             "isFilled": true
         },
         {
@@ -657,6 +657,7 @@
         {
             "name":"Cops off Campus",
             "date":"",
+            "session": 1,
             "url": "https://docs.google.com/document/d/1bQPXhZ57LaM2n3ZMmLZsGCoYubweY1mGnODqw3I5HAk/edit?tab=t.0",
             "result": "Passed",
             "style":"standard",
@@ -743,6 +744,7 @@
         {
             "name":"Full-Time Officer Options",
             "date":"",
+            "session": 1,
             "url": "https://docs.google.com/document/d/1NmxI4-Y9nyBrCK4NScxKu82jHwgi2jsWrdGvZkhXQco/edit?usp=sharing",
             "result": "Option 3",
             "style":"numerical",
@@ -829,6 +831,7 @@
         {
             "name":"Part-Time Officer Options",
             "date":"",
+            "session": 0,
             "url": "https://docs.google.com/document/d/1cu_mob58tMOSRF0Z2KYxBxDfIWHLynxwUBM7qS8d8bI/edit?tab=t.0#heading=h.1358953j2pk5",
             "result": "Liberation Facilitator",
             "style":"duo",
@@ -915,6 +918,7 @@
         {
             "name":"Working Committees Councillor",
             "date":"",
+            "session": 2,
             "url": "",
             "result":"Passed",
             "style":"standard",
@@ -1001,6 +1005,7 @@
         {
             "name":"Censure of Mature PTO",
             "date":"",
+            "session": 3,
             "url": "https://docs.google.com/document/d/1vaooBy1iEh0kMJJLRPFzTPuuCjVrBI3nCp5I6L-fJvQ/edit?tab=t.0",
             "result": "Passed",
             "style":"standard",
@@ -1087,6 +1092,7 @@
         {
             "name":"Make Abstentions Make Sense",
             "date":"",
+            "session": 3,
             "url": "https://docs.google.com/document/u/1/d/1R1ARuz-AjBCocGNOla1V0274Vrlu8WQtIFvYzqch9-E/edit",
             "result": "Passed",
             "style":"standard",
@@ -1173,6 +1179,7 @@
         {
             "name":"A Better Deal for Our Future",
             "date":"",
+            "session": 3,
             "url": "https://docs.google.com/document/u/1/d/1P2FiUw7qq01OzCi2uQ3ilqxOJB7Sf_4_Xt7RdoS67iA/edit",
             "result": "Passed",
             "style":"standard",
@@ -1259,6 +1266,7 @@
         {
             "name":"Officer Role Review",
             "date":"",
+            "session": 3,
             "url": "https://docs.google.com/document/d/1qKNzfzWGb2Io2tJkq5F8Q6qF9taKkSdKT73lbDwbXtI/edit?tab=t.0#heading=h.4bs0yyixuhc",
             "result": "Passed",
             "style":"alphabetical",
@@ -1345,6 +1353,7 @@
         {
             "name":"Policy Review (SEC Recommendations)",
             "date":"",
+            "session": 3,
             "url": "",
             "result": "Passed",
             "style":"standard",
@@ -1454,7 +1463,8 @@
         ],
         "Social Science": [
             { "q": -2, "r": 2 },
-            { "q": -1, "r": 2},
+            { "q": 0, "r": 2},
+            { "q": -1, "r": 3},
             { "q": -1, "r": 5},
             { "q": -5, "r": 5}
         ],

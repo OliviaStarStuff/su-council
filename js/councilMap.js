@@ -51,7 +51,7 @@ export function generateCouncillors(fromYear) {
         councillor.node.addEventListener("pointerover", (e) => {
             overlayRole.innerText = councillor.title;
             overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
-            overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty+councillor.coords;
+            overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
 
             // Set vacant status
             if(councillor.isVacant) {

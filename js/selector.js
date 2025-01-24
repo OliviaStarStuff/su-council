@@ -13,15 +13,18 @@ const yearSelector = document.getElementById("year-select");
 // Set up selector with all voting options
 const policySelector = document.getElementById("policy");
 
-for(var i = 0; i<records[yearSelector.value].length; i++) {
-    let opt = document.createElement('option');
-    opt.value = i;
-    opt.innerText = records[yearSelector.value][i].name;
-    policySelector.append(opt);
-}
-
 function generatePolicyOptions(period) {
+    let sessionIndex = 0;
     for(var i = 0; i<records[period].length; i++) {
+
+        if(records[period][i].session > sessionIndex) {
+            let opt = document.createElement('option');
+            opt.value = "none";
+            sessionIndex = records[period][i].session;
+            opt.innerText = "---Session " + sessionIndex;
+            policySelector.append(opt);
+        }
+
         let opt = document.createElement('option');
         opt.value = i;
         opt.innerText = records[period][i].name;
@@ -40,10 +43,19 @@ policySelector.addEventListener("change", (e) => {
                 councillors[i].clearVoteClasses();
             }
         }
-    // else set vote class
     } else {
         for(const c of councillors) {
-            if(!c.isVacant) { c.vote = e.target.value;}
+            if(c.vacantList) {
+                console.log(c.vacantList);
+                c.node.classList.remove("vacant");
+                for(const i of c.vacantList) {
+                    if (e.target.value == i) {
+                        c.node.classList.add("vacant");
+                    }
+                }
+            }
+            c.vote = e.target.value;
+            // if(!c.isVacant) { c.vote = e.target.value;}
         }
     }
 });
@@ -69,6 +81,7 @@ yearSelector.addEventListener("change", (e) => {
     policySelector.append(opt);
     generatePolicyOptions(yearSelector.value);
     setCouncillorClickBehaviour();
+    policySelector.dispatchEvent(new Event('change'))
 })
 
 console.log("Selector Loaded");

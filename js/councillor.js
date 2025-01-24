@@ -93,6 +93,7 @@ class Councillor {
     #faculty;
     #initial;
     #isVacant = true;
+    #vacantList;
     #member_class;
 
     #hex;
@@ -107,6 +108,7 @@ class Councillor {
         this.#faculty = data.faculty;
         this.#initial = data.initial;
         this.#isVacant = !data.isFilled;
+        this.#vacantList = data.vacantFor;
 
         this.#hex = new Hex(data.coords);
         this.#member_class = this.setMemberType();
@@ -127,6 +129,7 @@ class Councillor {
     get vote() { return this.#vote.current; }
     get history() { return this.#vote.history; }
     get isVacant() { return this.#isVacant; }
+    get vacantList() { return this.#vacantList; }
 
     set showInitial(bool) { this.#text.classList.toggle("hidden", !bool); }
     set vote(recordIndex) {
