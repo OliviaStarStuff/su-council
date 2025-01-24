@@ -42,7 +42,7 @@
             "faculty": "AMRC",
             "initial": "AMRC",
             "coords": { "q": -2, "r": 0 },
-            "isFilled": false,
+            "isFilled": true,
             "vacantFor": [ 1 ]
         },
         {

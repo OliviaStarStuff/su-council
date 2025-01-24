@@ -36,7 +36,7 @@ export function setCouncillorClickBehaviour() {
 
             // populate vote history table;
             for(const r of councillor.history) {
-                if (councillor.isVacant || r.vote == "") { continue; }
+                if (r.vote == "") { continue; }
                 createHistoryRow(r);
             }
 

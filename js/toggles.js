@@ -72,7 +72,7 @@ toggleVacant.addEventListener('change', function() {
     const value = policySelector.value;
 
     for(const c of Councillor.list) {
-        if(c.isVacant || ( value != "none" && c.vote == "")) {
+        if(( value != "none" && c.vote == "")) {
             c.classList.toggle("hidden-vacant", !this.checked);
         }
         i++;
