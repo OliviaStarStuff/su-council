@@ -52,10 +52,11 @@ policySelector.focus();
 
 yearSelector.addEventListener("change", (e) => {
 
+    Councillor.list = []
     // refresh the board
     clearChildren("council-map");
     generateCouncillors(yearSelector.value);
-    setCouncillorClickBehaviour();
+    //
     // refresh the grid
     clearChildren("grids");
     generateGroupings();
@@ -67,6 +68,7 @@ yearSelector.addEventListener("change", (e) => {
     opt.innerText = "None";
     policySelector.append(opt);
     generatePolicyOptions(yearSelector.value);
+    setCouncillorClickBehaviour();
 })
 
 console.log("Selector Loaded");
