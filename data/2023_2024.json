@@ -2911,7 +2911,7 @@
             "date":"",
             "session": 3,
             "url": "https://docs.google.com/document/u/2/d/1SZoEGv0TfJDzZRxVjn2alpx5HpBrKtSyaHnxYVjsRp8/edit",
-            "result": "Passed",
+            "result": "Failed",
             "style":"standard",
             "votes":
             [
@@ -3321,7 +3321,7 @@
             "date":"",
             "session": 4,
             "url": "",
-            "result": "Passed",
+            "result": "Failed",
             "style":"standard",
             "votes":
             [
