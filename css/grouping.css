@@ -17,6 +17,11 @@ svg#grids {
     --group-colour: var(--rep-colour);
 }
 
+#grids polygon.group-archaeology {
+    --group-colour: black;
+    fill:black;
+}
+
 .group-pto {
     --group-colour: var(--pto-colour);
 }

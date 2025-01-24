@@ -34,6 +34,7 @@ for(const cData of data.councillors) {
     councillor.node.addEventListener("pointerover", (e) => {
         overlayRole.innerText = councillor.title;
         overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
+        overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty+councillor.coords;
 
         // Set vacant status
         if(councillor.isVacant) {
@@ -41,15 +42,15 @@ for(const cData of data.councillors) {
         } else {
             overlayVote.innerText = councillor.vote;
         }
-        overlay.classList.remove("hidden");
+        overlay.classList.remove("display-hidden");
     })
 
     councillor.node.addEventListener("pointerout", (e) => {
-        overlay.classList.add("hidden");
+        overlay.classList.add("display-hidden");
     })
 
     councillor.node.addEventListener("pointerenter", (e) => {
-        overlay.classList.remove("hidden");
+        overlay.classList.remove("display-hidden");
     })
 
     Councillor.list.push(councillor);

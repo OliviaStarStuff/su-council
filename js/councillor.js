@@ -123,6 +123,7 @@ class Councillor {
     get colourClass() { return this.#member_class; }
     get classList() { return this.#node.classList; }
     get position() { return this.#hex.position; }
+    get coords() { return [this.#hex.coords.q, this.#hex.coords.r]; }
     get vote() { return this.#vote.current; }
     get history() { return this.#vote.history; }
     get isVacant() { return this.#isVacant; }
@@ -163,15 +164,15 @@ class Councillor {
 
         this.#text = document.createElement("p")
 
-        switch(this.#faculty) {
-            case "Social Science":
-            case "Science":
-            case "Arts & Humanities":
-            case "Engineering":
-            case "Health":
-                this.#text.classList.add("hidden");
-                break;
-        }
+        // switch(this.#faculty) {
+        //     case "Social Science":
+        //     case "Science":
+        //     case "Arts & Humanities":
+        //     case "Engineering":
+        //     case "Health":
+        //         this.#text.classList.add("hidden");
+        //         break;
+        // }
 
         this.#text.innerText = this.#initial;
         node.appendChild(this.#text)
