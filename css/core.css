@@ -38,12 +38,11 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 2em;
+    gap: 0.5em;
     text-align: center;
 }
 
 h1 {
-    text-align: center;
     margin: 1rem 1rem 0.5rem 1rem;
 }
 
@@ -74,13 +73,14 @@ select {
 }
 
 .hidden {
-    opacity: 0%;
+    /* opacity: 0%; */
     height: 0px;
     overflow: hidden;
     visibility: hidden;
 }
 
 .display-hidden {
+
     display:none;
 }
 
@@ -96,24 +96,12 @@ select {
     grid-template-columns: 1fr 1fr;
 }
 
-.grid-title div {
-    display: grid;
+.grid-title > div {
     height: 100%;
-
-    grid-row-start: 1;
-    grid-column-start: 1;
-    grid-column-end: 1;
-
-    align-self: center;
-    justify-self: baseline;
-
-    align-items: center;
-    vertical-align: middle;
-
     background-color: rgba(0, 0, 0, 0.196);
 }
 
-.grid-title div:hover {
+.grid-title > div:hover {
     background-color: rgba(255, 255, 255, 0.196);
 }
 
@@ -185,4 +173,28 @@ select {
         flex-direction: column;
         gap: 1em;
     }
+}
+
+#visualisation {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    touch-action: none;
+}
+
+main {
+    overflow: hidden;
+    position: relative;
+
+}
+.mastodon-link span::before {
+    --logo-size: 0.75em;
+    content: "";
+    display: inline-block;
+    background-image: url(/img/logo-purple.svg);
+    background-size: var(--logo-size) var(--logo-size);
+    background-position: bottom;
+    width: var(--logo-size);
+    height: var(--logo-size);
+    margin: 0em 0.25em;
 }

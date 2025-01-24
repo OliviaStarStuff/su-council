@@ -2,9 +2,7 @@
 
 class Hex {
     #coords;
-    constructor(coords) {
-        this.#coords = coords;
-    }
+    constructor(coords) { this.#coords = coords; }
 
     get position() { return Hex.getPosition(this.#coords); }
     get coords() { return this.#coords; }
@@ -20,22 +18,18 @@ class Hex {
     }
 
     static size = 20;
-    static width = Math.sqrt(3) * Hex.size
+    static width = Math.sqrt(3) * Hex.size;
     static height =  4/2 * Hex.size;
     static vert = 3/4 * Hex.height;
     static horiz = Hex.width;
 
     static getPosition(coords) {
-        return [Hex.getLeft(coords)-Hex.size, Hex.getTop(coords)-Hex.size]
+        return [Hex.getLeft(coords)-Hex.size, Hex.getTop(coords)-Hex.size];
     }
 
-    static getLeft(coords) {
-        return coords.q*Hex.horiz*2 + coords.r*Hex.horiz;
-    }
+    static getLeft(coords) { return coords.q*Hex.horiz*2 + coords.r*Hex.horiz; }
 
-    static getTop(coords) {
-        return coords.r*Hex.vert*2;
-    }
+    static getTop(coords) { return coords.r*Hex.vert*2; }
 }
 
 class Vote {
@@ -101,7 +95,6 @@ class Councillor {
     #isVacant = true;
     #member_class;
 
-    #coords;
     #hex;
 
     #vote;

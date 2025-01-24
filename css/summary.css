@@ -11,6 +11,7 @@
     align-items: stretch;
     gap:0.5em;
     touch-action: none;
+    top: 0px;
 }
 
 #summary hr {

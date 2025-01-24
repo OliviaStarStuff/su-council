@@ -57,9 +57,35 @@ for(const cData of data.councillors) {
 }
 
 councilMap.addEventListener("pointermove", (e) => {
-    overlay.style.left = e.clientX+"px";
-    overlay.style.top = e.clientY+20+"px";
+    overlay.style.left = e.pageX+"px";
+    overlay.style.top = e.pageY-50 + "px";
 })
+
+const visualisation = document.getElementById("visualisation");
+
+let drag = false;
+const pos = {"x": 0, "y": 0};
+const offsetPos = {"x": 0, "y": 0};
+
+visualisation.addEventListener('pointerdown', (e) => {
+    console.log("clickd")
+    drag = true
+    offsetPos.x = e.clientX-pos.x;
+    offsetPos.y = e.clientY-pos.y;
+});
+
+document.addEventListener('pointerup', () => {
+    drag = false;
+});
+
+document.addEventListener('pointermove', (e) => {
+        if(drag) {
+            pos.x = e.clientX - offsetPos.x;
+            pos.y = e.clientY - offsetPos.y;
+            visualisation.style.left = pos.x + "px";
+            visualisation.style.top = pos.y + "px";
+        }
+});
 
 // for (let q = -gs+1; q < gs; q++) {
 //     const r_start = q < 0 ? -gs-q : -gs;

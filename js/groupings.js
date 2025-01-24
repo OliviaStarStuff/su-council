@@ -25,6 +25,11 @@ function generateGroupings() {
         shape.classList.add("group-" +
                 key.replace(" & ","-and-").replace(" ", "-").toLowerCase());
         generatePoints(shape, value);
+
+        const title = document.createElement("title")
+        title.sinnerText = key;
+        shape.appendChild(title)
+
         shapes.push(shape);
     }
 }

@@ -19,6 +19,8 @@
     text-align: center;
     /* z-index: -1; */
     transition: all 500ms ease-in-out, opacity 50ms ease-out, border 0ms;
+
+    user-select: none;
 }
 
 .member:hover {
@@ -50,7 +52,7 @@
 }
 
 /* Member colours */
-#council-map .member, #grids, .detail-panel {
+#council-map .member, #grids, #panel-title, #panel-close-button {
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 

@@ -36,154 +36,176 @@
     <link rel="stylesheet" href="css/grouping.css">
     <link rel="stylesheet" href="css/councillor-panel.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close_small,expand_circle_down,expand_circle_up,link" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,expand_circle_down,expand_circle_up,link">
 
     <!-- Utilities functions and classes -->
     <script src="js/councillor.js"></script>
     <script src="js/utility.js"></script>
     <script type="module" src="js/loadData.js" async></script>
-    <script type="module" src="js/councilMap.js" defer></script>
-    <script type="module" src="js/groupings.js" async defer></script>
-    <script type="module" src="js/selector.js" async defer></script>
-    <script type="module" src="js/summary.js" async defer></script>
-    <script type="module" src="js/toggles.js" async defer></script>
-    <script type="module" src="js/resize.js" async defer></script>
-    <script type="module" src="js/panel.js" async defer></script>
+    <script type="module" src="js/councilMap.js"></script>
+    <script type="module" src="js/groupings.js" async></script>
+    <script type="module" src="js/selector.js" async></script>
+    <script type="module" src="js/summary.js" async></script>
+    <script type="module" src="js/toggles.js" async></script>
+    <script type="module" src="js/resize.js" async></script>
+    <script type="module" src="js/panel.js" async></script>
 </head>
 
 <body>
     <div id="content_wrapper">
     <header>
         <h1 class="playfair-display-title">SU Council 2024/2025 Voting Record Visualiser</h1>
-        <hr />
+        <hr>
     </header>
     <!-- <nav></nav> -->
     <main>
         <section id="visual-container">
-            <svg id="grids" style="position:absolute">
-            </svg>
-            <section>
+
+            <section id="visualisation">
+                <svg id="grids" style="position:absolute" role="img" aria-labelledby="grids-title grids-desc">
+                    <title id="grids-title">councillor groups</title>
+                    <desc id="grids-desc">10 unique coloured hexagonal groups that group several councillor nodes into their type or faculty.
+                    </desc>
+                </svg>
                 <div id="council-map">
                 </div>
             </section>
-            <section id="summary" class="frosted">
-                <h2>Choose Policy</h2>
-                <div class="flex-center-row">
-                    <label for="year">Year Select</label>
-                    <select name="year" id="year">
-                        <option value="2024/2025">2024/2025</option>
-                        <option value="2023/2024">2023/2024</option>
-                    </select>
-                </div>
+        </section>
+        <section id="councillor-panel">
+                <button id="panel-close-button" class="member-social-science">
+                    <div id="panel-close-background" >
+                        <span id="panel-close-button-indicator"class="material-symbols-outlined">
+                            chevron_left
+                        </span>
+                    </div>
+                </button>
+                <div id="panel-title-container">
 
-                <label for="policy">Policy Select</label>
-                <select name="Policy" id="policy" data-selected=true>
-                    <option value="none">None</option>
+                    <h3 id="panel-title">Title</h3>
+
+                </div>
+                <div id="grid-main" class="detail-panel frosted flex-center-col"  class="display-hidden">
+                    <div id="panel-top-container">
+
+
+                        <h4 id="panel-name">Steven Universe</h4>
+                        <div id="panel-bio" class="flex-center-row">
+                            <p id="panel-pronouns">(they/them)</p>
+                            <p id="panel-degree">Gem BA</p>
+                            <p id="panel-year">Year 2</p>
+                        </div>
+                    </div>
+                    <div id="panel-bottom-container" class="flex-center-row">
+                        <div class="profile-picture"></div>
+                        <div class="flex-center-row">
+                            <button id="detail-contact-button">contact</button>
+                            <a href="">Socials</a>
+                        </div>
+                        <div class="panel-item">
+                            <div class="header-container" id="manifesto-header" role="button"  tabindex="0">
+                                <h4>Manifesto</h4>
+                                <span id="manifesto-indicator" class="material-symbols-outlined">
+                                    expand_circle_up
+                                </span>
+                            </div>
+                            <div id="manifesto-container" class="hidden display-hidden" tabindex="0">
+                                <p>Build better tomorrows</p>
+                            </div>
+                        </div>
+                        <div class="panel-item">
+                            <div class="header-container" id="vote-history-header" role="button"  tabindex="0">
+                                <h4>Voting History</h4>
+                                <span id="vote-history-indicator" class="material-symbols-outlined">
+                                    expand_circle_up
+                                </span>
+                            </div>
+                            <div id="vote-history-container" tabindex="0"  >
+                                <table id="record-table"></table>
+                            </div>
+                        </div>
+                        <div id="panel-vacant-container" class="panel-item">
+                            <h4>Vacant</h4>
+                            <button>Apply here</button>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section id="summary" class="frosted">
+            <h2>Choose Policy</h2>
+            <div class="flex-center-row">
+                <label for="year">Year Select</label>
+                <select name="year" id="year">
+                    <option value="2024/2025">2024/2025</option>
+                    <option value="2023/2024">2023/2024</option>
                 </select>
-                <section id="policy-description-container" class="hidden">
-                    <div class="flex-center-row">
-                        <h3>Outlink</h3>
-                        <a id="outlink" href="Outlink" target="_blank"><span class="material-symbols-outlined">link</span></a>
-                    </div>
-                    <!-- <p id="policy-description">blah blah blah</p> -->
-                </section>
+            </div>
 
-                <section id="toggles">
-                    <div class="header-container" id="toggles-header" role="button" tabindex="0">
-                        <h3>Options</h3>
-                        <span id="toggles-indicator" class="material-symbols-outlined" aria-labelledby="toggles-indicator-label">
-                            expand_circle_down
-                        </span>
-                    </div>
-                    <div id="toggles-container" class = "hidden">
-                        <div>
-                            <input type="checkbox" id="toggle-names" name="toggle-names">
-                            <label for="toggle-names">Councillor initials</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-cllrs" name="toggle-cllrs" checked>
-                            <label for="toggle-cllrs">Councillors</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-reps" name="toggle-reps" checked>
-                            <label for="toggle-reps">Reps</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-su" name="toggle-su" checked>
-                            <label for="toggle-su">SU Councillors</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-ptos" name="toggle-ptos" checked>
-                            <label for="toggle-ptos">PTOs</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-ftos" name="toggle-ftos" checked>
-                            <label for="toggle-ftos">FTOs</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-vacant" name="toggle-vacant" checked>
-                            <label for="toggle-vacant">Vacant</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-groupings" name="toggle-groupings" checked>
-                            <label for="toggle-groupings">Groupings</label>
-                        </div>
-                    </div>
-                </section>
+            <label for="policy">Policy Select</label>
+            <select name="Policy" id="policy" data-selected=true>
+                <option value="none">None</option>
+            </select>
+            <section id="policy-description-container" class="hidden">
+                <div class="flex-center-row">
+                    <h3>Outlink</h3>
+                    <a id="outlink" href="Outlink" target="_blank"><span class="material-symbols-outlined">link</span></a>
+                </div>
+                <!-- <p id="policy-description">blah blah blah</p> -->
+            </section>
 
-                <div id="vote-summary" class="hidden">
-                    <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
-                        <h3>Vote Summary</h3>
-                        <span id="vote-summary-indicator" class="material-symbols-outlined" aria-labelledby="vote-summary-indicator-label">
-                            expand_circle_up
-                        </span>
+            <section id="toggles">
+                <div class="header-container" id="toggles-header" role="button" tabindex="0">
+                    <h3>Options</h3>
+                    <span id="toggles-indicator" class="material-symbols-outlined">
+                        expand_circle_down
+                    </span>
+                </div>
+                <div id="toggles-container" class = "hidden">
+                    <div>
+                        <input type="checkbox" id="toggle-names" name="toggle-names">
+                        <label for="toggle-names">Councillor initials</label>
                     </div>
-                    <!-- <label for="vote-summary">Legend</label> -->
-                    <div id="vote-summary-container">
+                    <div>
+                        <input type="checkbox" id="toggle-cllrs" name="toggle-cllrs" checked>
+                        <label for="toggle-cllrs">Councillors</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="toggle-reps" name="toggle-reps" checked>
+                        <label for="toggle-reps">Reps</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="toggle-su" name="toggle-su" checked>
+                        <label for="toggle-su">SU Councillors</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="toggle-ptos" name="toggle-ptos" checked>
+                        <label for="toggle-ptos">PTOs</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="toggle-ftos" name="toggle-ftos" checked>
+                        <label for="toggle-ftos">FTOs</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="toggle-vacant" name="toggle-vacant" checked>
+                        <label for="toggle-vacant">Vacant</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="toggle-groupings" name="toggle-groupings" checked>
+                        <label for="toggle-groupings">Groupings</label>
                     </div>
                 </div>
             </section>
-            <section id="councillor-panel" class="detail-panel frosted flex-center-col hidden">
-                <div id="panel-top-container">
-                    <div class="grid-title">
 
-                        <h3 id="panel-title">Title</h3>
-                        <div id="panel-close-button" role="button"  tabindex="0">
-                            <span class="material-symbols-outlined">
-                                close_small
-                            </span>
-                        </div>
-                    </div>
-
-                    <h4 id="panel-name">Steven Universe</h4>
-                    <div id="panel-bio" class="flex-center-row">
-                        <p id="panel-pronouns">(they/them)</p>
-                        <p id="panel-degree">Gem BA</p>
-                        <p id="panel-year">Year 2</p>
-                    </div>
+            <div id="vote-summary" class="hidden">
+                <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
+                    <h3>Vote Summary</h3>
+                    <span id="vote-summary-indicator" class="material-symbols-outlined">
+                        expand_circle_up
+                    </span>
                 </div>
-                <div id="panel-bottom-container" class="flex-center-row">
-                    <div class="profile-picture"></div>
-                    <div class="flex-center-row">
-                        <button id="detail-contact-button">contact</button>
-                        <a href="">Manifesto</a>
-                        <a href="">Socials</a>
-                    </div>
-                    <div class="header-container" id="vote-history-header" role="button"  tabindex="0">
-                        <h4>Voting History</h4>
-                        <span id="vote-history-indicator" class="material-symbols-outlined">
-                            expand_circle_up
-                        </span>
-                    </div>
-                    <div id="vote-history-container"  tabindex="0"  >
-                        <table id="record-table"></table>
-                    </div>
-                    <div id="panel-vacant-container">
-                        <h4>Vacant</h4>
-                        <button>Apply here</button>
-                    </div>
+                <!-- <label for="vote-summary">Legend</label> -->
+                <div id="vote-summary-container">
                 </div>
-            </section>
+            </div>
         </section>
         <div id="overlay" class="hidden">
             <p id="overlay-role"></p>
@@ -191,16 +213,30 @@
             <p id="overlay-vote" class="vote-text"></p>
         </div>
         <section id="description" class="hidden">
-            <hr />
+            <hr>
             <h2>Description</h2>
             <p>This tool allows you to view the voting record of Sheffield University's Students' Union's Council for the year 2024/2025.</p>
             <p>This tool is a proof of concept to show what opportunities for datavisualisation and interaction is possible.</p>
         </section>
     </main>
     <footer id="footer">
-        <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a></p>
-        <p>Copyright, Olivia, <a href="https://fosstodon.org/@Oliviastarstuff">Follow me on Mastodon</a></p>
-        <a href="https://github.com/OliviaStarStuff/su-council">Github</a>
+        <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a>, </p>
+        <p>Made by Olivia&copy;, </p>
+        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mastodon-link-title mastodon-link-desc">
+            <title id="mastodon-link-title">Olivia's social on fosstodon</title>
+            <desc id="mastodon-link-desc">Follow Olivia on mastodon at this url</desc>
+            <a href="https://fosstodon.org/@Oliviastarstuff" target="_blank">
+              <image width="16" height="16" xlink:href="img/logo-purple.svg">
+            </a>
+        </svg>
+        <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" aria-labelledby="github-link-title github-link-desc">
+            <title id="github-link-title">github repository for su-council</title>
+            <desc id="github-link-desc">View the files that make up thise project</desc>
+            <a href="https://github.com/OliviaStarStuff/su-council" target="_blank">
+              <image width="16" height="16" xlink:href="img/github-mark.svg">
+            </a>
+        </svg>
+        <p>a Computer Science Student at the University of Sheffield</p>
     </footer>
 
     </div>

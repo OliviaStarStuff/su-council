@@ -1,14 +1,44 @@
+#councillor-panel {
+    --detail-width: 40rch;
+
+    position: absolute;
+    height: 100%;
+    right: calc(0ch - var(--detail-width));
+
+    display: grid;
+    grid-template-columns: 0fr auto;
+    grid-template-rows: 0fr 1fr;
+
+    pointer-events: none;
+    transition: all 150ms ease-out;
+}
+
+#councillor-panel.panel-open {
+    right: 0;
+}
+
+#councillor-panel * {
+    pointer-events: visible;
+}
 .detail-panel {
     height: 100%;
-    width: 40ch;
-    float: right;
-    position: relative;
+    width: var(--detail-width);
 
+    grid-column-start: 2;
     gap:unset;
 
-    overflow: visible auto;
-    /* right:100px; */
     text-align: center;
+
+    overflow: visible auto;
+}
+#panel-close-background {
+    background-color: rgba(0, 0, 0, 0.196);
+    height: 100%;
+    align-content: center;
+}
+
+#panel-close-background:hover {
+    background-color: rgba(255, 255, 255, 0.196);
 }
 
 .detail-panel > div {
@@ -21,10 +51,11 @@
     flex-direction: column;
     gap:1em;
     align-items: center;
+    overflow-y: auto;
 }
 
 
-.detail-panel h3 {
+#councillor-panel h3 {
     font-size: 1.5rem;
     background-color: var(--member-colour);
     padding: 0.5em 0.5em;
@@ -38,8 +69,23 @@
     border-radius: 1em;
 }
 
+#panel-title {
+    text-align: center;
+    width: var(--detail-width);
+}
+
 #panel-close-button {
+    height: 100%;
+    align-self:center;
     float:left;
+    background-color: var(--member-colour);
+    align-self: center;
+    justify-self: baseline;
+    align-items: center;
+    vertical-align: middle;
+    border: unset;
+    padding: unset;
+
 }
 
 #vote-history-container  {
@@ -47,6 +93,18 @@
     overflow-y: auto;
     width: 100%;
     border: 0.125em solid rgb(152, 47, 65);
+}
+
+#manifesto-container {
+    width: 100%;
+}
+
+#manifesto-container p {
+    text-align: left;
+}
+
+.panel-item {
+    width: 100%;
 }
 
 .detail-panel table {
