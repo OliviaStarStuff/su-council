@@ -44,7 +44,8 @@ class Vote {
     get current() { return this.#index == -1 ? "" : this.#history[this.#index].vote; }
     set current(voteIndex) { this.#index = voteIndex; }
     get voteStyle() { return this.#index == -1 ? "" : this.#history[this.#index].style;}
-    get voteClass() { return Vote.getClass(this.current, this.voteStyle); }
+    get voteClass() {
+        return Vote.getClass(this.current, this.voteStyle); }
     get history() { return this.#history; }
 
     static styles = [];

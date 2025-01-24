@@ -2,6 +2,7 @@
 
 import { records, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
+import { setCouncillorClickBehaviour } from "./panel.js";
 
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
@@ -54,7 +55,7 @@ yearSelector.addEventListener("change", (e) => {
     // refresh the board
     clearChildren("council-map");
     generateCouncillors(yearSelector.value);
-
+    setCouncillorClickBehaviour();
     // refresh the grid
     clearChildren("grids");
     generateGroupings();
@@ -62,7 +63,7 @@ yearSelector.addEventListener("change", (e) => {
     // refresh the policy selector
     clearChildren("policy");
     let opt = document.createElement('option');
-    opt.value = "None";
+    opt.value = "none";
     opt.innerText = "None";
     policySelector.append(opt);
     generatePolicyOptions(yearSelector.value);

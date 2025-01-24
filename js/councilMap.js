@@ -28,16 +28,18 @@ const overlayType = document.getElementById('overlay-type');
 const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
-let i = 0;
+
 
 export function generateCouncillors(fromYear) {
+    let i = 0;
     const fromData = data[fromYear];
     Vote.styles = fromData.voteOptions;
     for(const cData of fromData.councillors) {
         cData.history = [];
         let j = 0;
         for (const record of fromData.records) {
-            const vote = record.votes[i] == "No Vote"? "Absent" : record.votes[i];
+            const vote = record.votes[i] == "No Vote" ? "Absent" : record.votes[i];
+
             cData.history.push({"name": record.name, "style":record.style, "vote": vote});
             j++;
         };
@@ -73,7 +75,7 @@ export function generateCouncillors(fromYear) {
     }
 }
 
-generateCouncillors("2024/2025");   
+generateCouncillors("2024/2025");
 
 
 councilMap.addEventListener("pointermove", (e) => {
