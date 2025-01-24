@@ -1,8 +1,14 @@
 "use strict";
 /* Written by Olivia*/
 // Import Data to display
-export const data = await fetch("./data/2023_2024.json").then(response => {
+const data2023 = await fetch("./data/2023_2024.json").then(response => {
     return response.json()
 });
+
+const data2024 = await fetch("./data/2024_2025.json").then(response => {
+    return response.json()
+});
+
+export const data = { "2023/2024": data2023, "2024/2025": data2024 }
 
 console.log("Data Loaded");

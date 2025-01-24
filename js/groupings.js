@@ -3,6 +3,8 @@
 import { groups } from "./councilMap.js";
 
 let svg = document.getElementById("grids");
+
+const yearSelector = document.getElementById("year-select");
 const shapes = [];
 
 // manually calculated. ideally it should be based on the height of the element
@@ -17,9 +19,9 @@ function generatePoints(shape, value) {
     }
 }
 
-function generateGroupings() {
+export function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
-    for (const [key, value] of Object.entries(groups)) {
+    for (const [key, value] of Object.entries(groups[yearSelector.value])) {
         let shape = document.createElementNS(svgns, "polygon");
         svg.appendChild(shape);
         shape.classList.add("group-" +
@@ -36,7 +38,7 @@ function generateGroupings() {
 
 export function regeneratePoints() {
     let i = 0;
-    for (const [key, value] of Object.entries(groups)) {
+    for (const [key, value] of Object.entries(groups[yearSelector.value])) {
         shapes[i].points.clear();
         generatePoints(shapes[i], value);
         i++;

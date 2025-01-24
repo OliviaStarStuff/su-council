@@ -36,4 +36,11 @@ class Collapsable {
     }
 }
 
+function clearChildren(parentClassName) {
+    const parentClass = document.getElementById(parentClassName);
+    while(parentClass.firstChild) {
+        parentClass.removeChild(parentClass.firstChild);
+    }
+}
+
 console.log("Utilities Loaded");

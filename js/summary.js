@@ -67,6 +67,8 @@ const policySelector = document.getElementById("policy");
 const voteSummaryContainer = document.getElementById("vote-summary-container");
 const voteSummary = document.getElementById("vote-summary");
 
+const yearSelector = document.getElementById("year-select");
+
 policySelector.addEventListener("change", (e) => {
     // clear summary list
     while (voteSummaryContainer.firstChild) {
@@ -78,7 +80,7 @@ policySelector.addEventListener("change", (e) => {
     if (e.target.value == "none") { return; }
 
     // Get the correct record and options
-    const record = records[e.target.value];
+    const record = records[yearSelector.value][e.target.value];
     const targetOptions = Vote.styles[record.style];
 
     /* Display Code */
@@ -131,7 +133,7 @@ const policyContainer = document.getElementById("policy-description-container");
 policySelector.addEventListener("change", (e) => {
     policyContainer.classList.toggle("display-hidden", e.target.value == "none");
     if(e.target.value != "none") {
-        const url = records[e.target.value].url;
+        const url = records[yearSelector.value][e.target.value].url;
         outlink.href = url == "" ? "/#" : url;
     }
 });

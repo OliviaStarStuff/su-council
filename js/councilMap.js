@@ -4,8 +4,20 @@
 // import data from './councillors.json' with { type: 'json' };
 import { data } from "./loadData.js"
 // const councillors = []
-export const records = data.records;
-export const groups = data.groups;
+// export const records = data.records;
+// export const groups = data.groups;
+
+function generateDataExport(attribute) {
+    const recordOutput = {};
+    for (const key in data) {
+        recordOutput[key] = data[key][attribute];
+    }
+    return recordOutput;
+}
+
+export const records = generateDataExport("records");
+export const groups = generateDataExport("groups");
+
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-map');
@@ -17,45 +29,51 @@ const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
 let i = 0;
-Vote.styles = data.voteOptions;
-for(const cData of data.councillors) {
-    cData.history = [];
-    let j = 0;
-    for (const record of data.records) {
-        const vote = record.votes[i] == "No Vote"? "Absent" : record.votes[i];
-        cData.history.push({"name": record.name, "style":record.style, "vote": vote});
-        j++;
-    };
-    const councillor = new Councillor(cData);
 
-    councillor.index = i;
-    i++;
+export function generateCouncillors(fromYear) {
+    const fromData = data[fromYear];
+    Vote.styles = fromData.voteOptions;
+    for(const cData of fromData.councillors) {
+        cData.history = [];
+        let j = 0;
+        for (const record of fromData.records) {
+            const vote = record.votes[i] == "No Vote"? "Absent" : record.votes[i];
+            cData.history.push({"name": record.name, "style":record.style, "vote": vote});
+            j++;
+        };
+        const councillor = new Councillor(cData);
 
-    councillor.node.addEventListener("pointerover", (e) => {
-        overlayRole.innerText = councillor.title;
-        overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
-        overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty+councillor.coords;
+        councillor.index = i;
+        i++;
 
-        // Set vacant status
-        if(councillor.isVacant) {
-            overlayVote.innerText = "Vacant";
-        } else {
-            overlayVote.innerText = councillor.vote;
-        }
-        overlay.classList.remove("display-hidden");
-    })
+        councillor.node.addEventListener("pointerover", (e) => {
+            overlayRole.innerText = councillor.title;
+            overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
+            overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty+councillor.coords;
 
-    councillor.node.addEventListener("pointerout", (e) => {
-        overlay.classList.add("display-hidden");
-    })
+            // Set vacant status
+            if(councillor.isVacant) {
+                overlayVote.innerText = "Vacant";
+            } else {
+                overlayVote.innerText = councillor.vote;
+            }
+            overlay.classList.remove("display-hidden");
+        })
 
-    councillor.node.addEventListener("pointerenter", (e) => {
-        overlay.classList.remove("display-hidden");
-    })
+        councillor.node.addEventListener("pointerout", (e) => {
+            overlay.classList.add("display-hidden");
+        })
 
-    Councillor.list.push(councillor);
-    councilMap.appendChild(councillor.node);
+        councillor.node.addEventListener("pointerenter", (e) => {
+            overlay.classList.remove("display-hidden");
+        })
+
+        Councillor.list.push(councillor);
+        councilMap.appendChild(councillor.node);
+    }
 }
+
+generateCouncillors("2024/2025");   
 
 
 councilMap.addEventListener("pointermove", (e) => {
