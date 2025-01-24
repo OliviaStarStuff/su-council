@@ -33,7 +33,7 @@
             "type": "Academic",
             "faculty": "Engineering",
             "initial": "Aero",
-            "coords": { "q": 3, "r": 2 },
+            "coords": { "q": 1, "r": 4 },
             "isFilled": true
         },
         {
@@ -74,15 +74,15 @@
             "type": "Academic",
             "faculty": "Engineering",
             "initial": "ACSE",
-            "coords": { "q": 1, "r": 4 },
+            "coords": { "q": 0, "r": 2 },
             "isFilled": true
         },
         {
             "title": "Bioengineering Councillor",
             "type": "Academic",
-            "faculty": "Science",
+            "faculty": "Engineering",
             "initial": "BioE",
-            "coords": { "q": 4, "r": -4 },
+            "coords": { "q": 3, "r": 2 },
             "isFilled": true
         },
         {
@@ -271,7 +271,7 @@
             "type": "Academic",
             "faculty": "Science",
             "initial": "MSci",
-            "coords": { "q": 5, "r": -2 },
+            "coords": { "q": 4, "r": -4 },
             "isFilled": true
         },
         {
@@ -4558,15 +4558,15 @@
             { "q": 3, "r": -1 }
         ],
         "Engineering": [
-            { "q": 0, "r": 3 },
+            { "q": 0, "r": 2 },
             { "q": 0, "r": 5 },
-            { "q": 3, "r": 2 },
-            { "q": 1, "r": 2 }
+            { "q": 3, "r": 2 }
         ],
         "Science": [
             { "q": 4, "r": -4 },
             { "q": 5, "r": -4 },
-            { "q": 5, "r": -2 },
+            { "q": 5, "r": -3 },
+            { "q": 4, "r": -2 },
             { "q": 3, "r": -2 },
             { "q": 3, "r": -3 }
         ],
