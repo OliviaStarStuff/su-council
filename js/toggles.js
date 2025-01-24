@@ -1,12 +1,8 @@
 "use strict"
 
-// Toggles name visibility for academic councillors
-import { councillors, records }  from './councilMap.js';
-
 const toggleNames = document.getElementById("toggle-names");
-
 toggleNames.addEventListener('change', function() {
-    for(const c of councillors) {
+    for(const c of Councillor.list) {
         switch(c.faculty) {
             case "Social Science":
             case "Science":
@@ -22,7 +18,7 @@ toggleNames.addEventListener('change', function() {
 
 const toggleReps = document.getElementById("toggle-reps");
 toggleReps.addEventListener('change', function() {
-    for(const c of councillors) {
+    for(const c of Councillor.list) {
         switch(c.faculty) {
             case "AMRC":
             case "Apprentices":
@@ -39,7 +35,7 @@ toggleReps.addEventListener('change', function() {
 
 const toggleCllrs = document.getElementById("toggle-cllrs");
 toggleCllrs.addEventListener('change', function() {
-    for(const c of councillors) {
+    for(const c of Councillor.list) {
         switch(c.faculty) {
             case "Social Science":
             case "Science":
@@ -53,7 +49,7 @@ toggleCllrs.addEventListener('change', function() {
 });
 
 function toggleHidden(targetToMatch, bool) {
-    for(const c of councillors) {
+    for(const c of Councillor.list) {
         if(c.type == targetToMatch) {
             c.classList.toggle("hidden", bool);
         }
@@ -75,8 +71,8 @@ toggleVacant.addEventListener('change', function() {
     let i = 0;
     const value = policySelector.value;
 
-    for(const c of councillors) {
-        if(c.isVacant || ( value != "none" && records[value].votes[i] == "")) {
+    for(const c of Councillor.list) {
+        if(c.isVacant || ( value != "none" && c.vote == "")) {
             c.classList.toggle("hidden-vacant", !this.checked);
         }
         i++;

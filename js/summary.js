@@ -1,6 +1,6 @@
 "use strict";
 
-import { councillors, records }  from './councilMap.js';
+import { records }  from './councilMap.js';
 
 // Summary Window draggable feature
 const summary = document.getElementById("summary");
@@ -33,7 +33,7 @@ const togglesHeaderCollapsable = new Collapsable("toggles", false);
 const voteSummaryCollapsable = new Collapsable("vote-summary", true);
 
 // Produces a row for the votesummary
-function setItem(option, totalValue, voteClass) {
+function setItem(option, totalValue, voteClass, addMouseOver=true) {
     const item = document.createElement("div");
     const optionText = document.createElement("p");
     optionText.innerText  = option + ": ";
@@ -45,16 +45,16 @@ function setItem(option, totalValue, voteClass) {
 
     if (voteClass) { item.classList.add(voteClass); }
 
-
+    if (!addMouseOver) { return item; }
     // Add interactions for mouseover and mouseout to highlight similar votes
     item.addEventListener("mouseover", (e) =>  {
-        for (const c of councillors) {
+        for (const c of Councillor.list) {
             c.classList.toggle("vote-hidden", !c.classList.contains(voteClass));
         }
     })
 
     item.addEventListener("mouseout", (e) =>  {
-        for (const c of councillors) {
+        for (const c of Councillor.list) {
             c.classList.remove("vote-hidden");
         }
     })
@@ -74,7 +74,7 @@ policySelector.addEventListener("change", (e) => {
     }
 
     // guard clause if not showing voting data, show nothing
-    voteSummary.classList.toggle("hidden", e.target.value == "none");
+    voteSummary.classList.toggle("display-hidden", e.target.value == "none");
     if (e.target.value == "none") { return; }
 
     // Get the correct record and options
@@ -83,12 +83,12 @@ policySelector.addEventListener("change", (e) => {
 
     /* Display Code */
     // Row 1: Result
-    let item = setItem("Result", record.result);
+    let item = setItem("Result", record.result, undefined, false);
     voteSummaryContainer.appendChild(item);
 
     // Row 2: Total votes
     const topTotal = record.votes.filter(x => x != "No Vote" && x != "blank" && x != "").length;
-    item = setItem("Total Votes", topTotal);
+    item = setItem("Total Votes", topTotal, undefined, false);
     voteSummaryContainer.appendChild(item);
 
     // Row 3.. number of votes for each option
@@ -99,7 +99,7 @@ policySelector.addEventListener("change", (e) => {
         // as "" instead of "No Vote". what does that mean?
         /* going to assume the seat was vacant but is no longer */
         if (option == "No Vote") {
-            for (const c of councillors) {
+            for (const c of Councillor.list) {
                 if (c.vote == "Absent") {
                     total += 1;
                 }
@@ -116,8 +116,8 @@ policySelector.addEventListener("change", (e) => {
 
     // Last Row: Total vacant seats
     let vacantTotal = 0;
-    for (let i = 0; i< councillors.length; i++) {
-        if(councillors[i].isVacant || record.votes[i] == "") { vacantTotal++; }
+    for (let i = 0; i< Councillor.list.length; i++) {
+        if(Councillor.list[i].isVacant || record.votes[i] == "") { vacantTotal++; }
     }
     item = setItem("Vacant", vacantTotal, "vote-vacant");
     // item.classList.add(vote);
@@ -129,7 +129,7 @@ policySelector.addEventListener("change", (e) => {
 const outlink = document.getElementById("outlink");
 const policyContainer = document.getElementById("policy-description-container");
 policySelector.addEventListener("change", (e) => {
-    policyContainer.classList.toggle("hidden", e.target.value == "none");
+    policyContainer.classList.toggle("display-hidden", e.target.value == "none");
     if(e.target.value != "none") {
         const url = records[e.target.value].url;
         outlink.href = url == "" ? "/#" : url;

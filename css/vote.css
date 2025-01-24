@@ -99,6 +99,7 @@ p.vote-text {
 
 .vote-hidden {
     opacity: 0;
+    transition: opacity 200ms ease-in-out;
 }
 
 .member.vote-vacant {

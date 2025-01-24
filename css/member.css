@@ -18,14 +18,24 @@
     justify-content: center;
     text-align: center;
     /* z-index: -1; */
+    opacity: 1;
     transition: all 500ms ease-in-out, opacity 50ms ease-out, border 0ms;
 
     user-select: none;
 }
 
+.member.hidden {
+    transition: opacity 300ms;
+}
+
 .member:hover {
     border-style: solid;
     transform: scale(1.0)
+}
+
+.member p {
+    font-family: unset;
+    font-weight: 400;
 }
 
 .member * {

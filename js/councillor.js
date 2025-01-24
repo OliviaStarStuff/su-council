@@ -202,6 +202,8 @@ class Councillor {
         }
         this.#node.classList.add(this.#vote.voteClass);
     }
+
+    static list = [];
 }
 
 console.log("Hex, Votes, Councillor Classes Loaded");

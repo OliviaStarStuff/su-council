@@ -4,4 +4,5 @@
 export const data = await fetch("./js/councillors.json").then(response => {
     return response.json()
 });
+
 console.log("Data Loaded");

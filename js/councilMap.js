@@ -3,9 +3,8 @@
 // Does not work with firefox 15/01/2025
 // import data from './councillors.json' with { type: 'json' };
 import { data } from "./loadData.js"
-export const councillors = []
+// const councillors = []
 export const records = data.records;
-export const options = data.voteOptions;
 export const groups = data.groups;
 
 // We'll add all councillor objects to this section
@@ -28,6 +27,7 @@ for(const cData of data.councillors) {
         j++;
     };
     const councillor = new Councillor(cData);
+
     councillor.index = i;
     i++;
 
@@ -52,9 +52,10 @@ for(const cData of data.councillors) {
         overlay.classList.remove("hidden");
     })
 
-    councillors.push(councillor);
+    Councillor.list.push(councillor);
     councilMap.appendChild(councillor.node);
 }
+
 
 councilMap.addEventListener("pointermove", (e) => {
     overlay.style.left = e.pageX+"px";
@@ -68,7 +69,6 @@ const pos = {"x": 0, "y": 0};
 const offsetPos = {"x": 0, "y": 0};
 
 visualisation.addEventListener('pointerdown', (e) => {
-    console.log("clickd")
     drag = true
     offsetPos.x = e.clientX-pos.x;
     offsetPos.y = e.clientY-pos.y;

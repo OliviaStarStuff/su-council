@@ -10,13 +10,14 @@ class Collapsable {
         this.#header = document.getElementById(root + "-header");
         this.#indicator = document.getElementById(root + "-indicator");
         this.#container = document.getElementById(root + "-container");
+        this.#container.classList.add("collapsable-container")
 
         this.#indicator.textContent = this.indicatorGraphic;
         if(graphics!=undefined) { this.#graphics = graphics; }
 
         this.#header.addEventListener("click", (e) => {
             this.#container.classList.toggle("hidden", this.#isExpanded);
-            this.#container.classList.toggle("display-hidden", this.#isExpanded);
+            // this.#container.classList.toggle("display-hidden", this.#isExpanded);
             this.#isExpanded = !this.#isExpanded;
             this.#indicator.textContent = this.indicatorGraphic;
         });
@@ -24,7 +25,7 @@ class Collapsable {
         this.#header.addEventListener("keypress", function(event) {
             if (event.key === "Enter" || event.key === " ") {
                 // prevent default allows it to slide
-                // event.preventDefault();
+                event.preventDefault();
                 this.click();
             }
         });

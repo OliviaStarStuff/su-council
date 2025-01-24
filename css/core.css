@@ -12,6 +12,10 @@
     font-style: oblique;
 }
 
+h1 {
+    margin: 1rem 1rem 0.5rem 1rem;
+}
+
 h2, h3, h4 {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
@@ -25,9 +29,8 @@ a, p, td, label  {
     font-style: normal;
 }
 
-.member p {
-    font-family: unset;
-    font-weight: 400;
+a[disabled] {
+    pointer-events: none;
 }
 
 body {
@@ -42,10 +45,6 @@ footer {
     text-align: center;
 }
 
-h1 {
-    margin: 1rem 1rem 0.5rem 1rem;
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -54,6 +53,19 @@ main {
 
 select {
     border-radius: 0.3em;
+}
+
+#visualisation {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    touch-action: none;
+}
+
+main {
+    overflow: hidden;
+    position: relative;
+
 }
 
 .flex-center-col {
@@ -68,13 +80,13 @@ select {
 .flex-center-row {
     display: flex;
     gap: 1em;
+    clip-path: rect(auto, auto, 0, auto);
     justify-content: center;
     align-self: stretch;
 }
 
 .hidden {
-    /* opacity: 0%; */
-    height: 0px;
+    opacity: 0;
     overflow: hidden;
     visibility: hidden;
 }
@@ -82,6 +94,19 @@ select {
 *.display-hidden {
 
     display:none;
+}
+
+.collapsable-container {
+    max-height: 20em;
+    opacity: 1;
+    transition: max-height 300ms ease-out, opacity 100ms ease-in 200ms;
+}
+
+.collapsable-container.hidden {
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 300ms, opacity ease-in 100ms;
+    visibility: unset;
 }
 
 .frosted {
@@ -164,37 +189,25 @@ select {
     margin: 0.5em;
 }
 
-/* li::before.vote-for {
-    background-color: var(--vote-colour);
-} */
+.draggable-panel {
+    --panel-colour: rgba(255, 192, 203, 0.167);
+    position: absolute;
+
+    padding: 1em;
+    border: 0.25em solid var(--panel-colour);
+    border-radius: 1em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap:0.5em;
+
+    touch-action: none;
+}
 
 @media only screen and (max-width: 600px) {
     footer {
         flex-direction: column;
         gap: 1em;
     }
-}
-
-#visualisation {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    touch-action: none;
-}
-
-main {
-    overflow: hidden;
-    position: relative;
-
-}
-.mastodon-link span::before {
-    --logo-size: 0.75em;
-    content: "";
-    display: inline-block;
-    background-image: url(/img/logo-purple.svg);
-    background-size: var(--logo-size) var(--logo-size);
-    background-position: bottom;
-    width: var(--logo-size);
-    height: var(--logo-size);
-    margin: 0em 0.25em;
 }
