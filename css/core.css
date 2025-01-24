@@ -79,7 +79,7 @@ select {
     visibility: hidden;
 }
 
-.display-hidden {
+*.display-hidden {
 
     display:none;
 }

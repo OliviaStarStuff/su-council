@@ -7,7 +7,7 @@ const panelTitle = document.getElementById("panel-title");
 const panelTitleContainer = document.getElementById("panel-title-container");
 const recordTable = document.getElementById("record-table");
 const vacantContainer = document.getElementById("panel-vacant-container");
-const gridMain = document.getElementById("grid-main");
+const gridMain = document.getElementById("panel-bottom-container");
 
 
 for(let i = 0; i < councillors.length; i++) {
