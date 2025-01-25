@@ -87,7 +87,7 @@ main {
 
 .hidden {
     opacity: 0;
-    /* overflow: hidden; */
+    overflow: hidden;
     visibility: hidden;
 }
 
