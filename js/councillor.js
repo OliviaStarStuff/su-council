@@ -187,7 +187,7 @@ class Councillor {
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                this.#text.classList.toggle("hidden", bool || this.#type == "PGR");
+                this.#text.classList.toggle("hidden", bool && this.#type != "PGR");
                 break;
         }
     }
