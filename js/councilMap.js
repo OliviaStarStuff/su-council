@@ -40,7 +40,12 @@ export function generateCouncillors(fromYear) {
         for (const record of fromData.records) {
             const vote = record.votes[i] == "No Vote" ? "Absent" : record.votes[i];
 
-            cData.history.push({"name": record.name, "style":record.style, "vote": vote});
+            cData.history.push({
+                "name": record.name,
+                "style":record.style,
+                "vote": vote,
+                "session": record.session
+            });
             j++;
         };
         const councillor = new Councillor(cData);
@@ -54,7 +59,7 @@ export function generateCouncillors(fromYear) {
             overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
 
             // Set vacant status
-            if(councillor.isVacant) {
+            if(councillor.isCurrentlyVacant) {
                 overlayVote.innerText = "Vacant";
             } else {
                 overlayVote.innerText = councillor.vote;

@@ -1,7 +1,7 @@
 "use strict";
 
 import { records, generateCouncillors } from "./councilMap.js";
-import { generateGroupings } from "./groupings.js";
+// import { generateGroupings } from "./groupings.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 
 const notloaded = document.createElement("p");
@@ -11,7 +11,7 @@ document.getElementById("summary").appendChild(notloaded);
 
 const yearSelector = document.getElementById("year-select");
 // Set up selector with all voting options
-const policySelector = document.getElementById("policy");
+const policySelector = document.getElementById("policy-select");
 
 function generatePolicyOptions(period) {
     let sessionIndex = 0;
@@ -38,24 +38,13 @@ policySelector.addEventListener("change", (e) => {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
     if(e.target.value == "none") {
-        for(let i = 0; i < councillors.length; i++) {
-            if(!councillors[i].isVacant) {
-                councillors[i].clearVoteClasses();
-            }
+        for(const c of councillors) {
+            c.classList.toggle("vacant", c.isVacant)
+            c.clearVoteClasses();
         }
     } else {
         for(const c of councillors) {
-            if(c.vacantList) {
-                console.log(c.vacantList);
-                c.node.classList.remove("vacant");
-                for(const i of c.vacantList) {
-                    if (e.target.value == i) {
-                        c.node.classList.add("vacant");
-                    }
-                }
-            }
             c.vote = e.target.value;
-            // if(!c.isVacant) { c.vote = e.target.value;}
         }
     }
 });
@@ -70,11 +59,11 @@ yearSelector.addEventListener("change", (e) => {
     generateCouncillors(yearSelector.value);
     //
     // refresh the grid
-    clearChildren("grids");
-    generateGroupings();
+    // clearChildren("grids");
+    // generateGroupings();
 
     // refresh the policy selector
-    clearChildren("policy");
+    clearChildren("policy-select");
     let opt = document.createElement('option');
     opt.value = "none";
     opt.innerText = "None";

@@ -19,7 +19,7 @@ function generatePoints(shape, value) {
     }
 }
 
-export function generateGroupings() {
+function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
     for (const [key, value] of Object.entries(groups[yearSelector.value])) {
         let shape = document.createElementNS(svgns, "polygon");
@@ -35,6 +35,11 @@ export function generateGroupings() {
         shapes.push(shape);
     }
 }
+
+yearSelector.addEventListener("change", (e) => {
+    clearChildren("grids");
+    generateGroupings();
+});
 
 export function regeneratePoints() {
     let i = 0;

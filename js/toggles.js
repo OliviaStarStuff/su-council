@@ -66,7 +66,7 @@ toggleFTOs.addEventListener('change', function() { toggleHidden("FTO", !this.che
 
 
 const toggleVacant = document.getElementById("toggle-vacant");
-const policySelector = document.getElementById("policy");
+const policySelector = document.getElementById("policy-select");
 toggleVacant.addEventListener('change', function() {
     let i = 0;
     const value = policySelector.value;

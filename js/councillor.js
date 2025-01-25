@@ -42,6 +42,7 @@ class Vote {
     }
 
     get current() { return this.#index == -1 ? "" : this.#history[this.#index].vote; }
+    get session() { return this.#index == -1 ? 0 : this.#history[this.#index].session; }
     set current(voteIndex) { this.#index = voteIndex; }
     get voteStyle() { return this.#index == -1 ? "" : this.#history[this.#index].style;}
     get voteClass() { return Vote.getClass(this.current, this.voteStyle); }
@@ -107,8 +108,8 @@ class Councillor {
         this.#type = data.type;
         this.#faculty = data.faculty;
         this.#initial = data.initial;
-        this.#isVacant = !data.isFilled;
-        this.#vacantList = data.vacantFor;
+        this.#isVacant = !data.isCurrentlyFilled;
+        this.#vacantList = data.vacantFor ? data.vacantFor: [];
 
         this.#hex = new Hex(data.coords);
         this.#member_class = this.setMemberType();
@@ -130,6 +131,9 @@ class Councillor {
     get history() { return this.#vote.history; }
     get isVacant() { return this.#isVacant; }
     get vacantList() { return this.#vacantList; }
+    get isCurrentlyVacant() {
+        if(this.#vote.session == 0) { return this.#isVacant; }
+        return this.#vacantList.includes(this.#vote.session) }
 
     set showInitial(bool) { this.#text.classList.toggle("hidden", !bool); }
     set vote(recordIndex) {
@@ -137,6 +141,10 @@ class Councillor {
         // Add the right classes for the current vote
         this.updateVoteClasses();
         this.setCurrentPosition();
+
+        this.#node.classList.add(this.#vote.voteClass);
+        this.#node.classList.toggle(
+                "vacant", this.#vacantList.includes(this.#vote.session));
     }
     get voteClass() { return this.#vote.voteClass; }
 
@@ -204,7 +212,6 @@ class Councillor {
             const toggleVacant = document.getElementById("toggle-vacant");
             this.#node.classList.toggle("hidden-vacant", !toggleVacant.checked);
         }
-        this.#node.classList.add(this.#vote.voteClass);
     }
 
     static list = [];

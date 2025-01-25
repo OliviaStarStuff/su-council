@@ -63,7 +63,7 @@ function setItem(option, totalValue, voteClass, addMouseOver=true) {
 }
 
 // update vote summary container
-const policySelector = document.getElementById("policy");
+const policySelector = document.getElementById("policy-select");
 const voteSummaryContainer = document.getElementById("vote-summary-container");
 const voteSummary = document.getElementById("vote-summary");
 
