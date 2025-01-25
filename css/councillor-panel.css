@@ -1,7 +1,7 @@
 /* Side Panel style */
 .side-panel {
     --button-height: 2em;
-    --detail-height: 60lvh;
+    --detail-height: 60svh;
 
     bottom: calc(var(--button-height) - var(--detail-height));
     height: var(--detail-height);

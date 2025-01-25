@@ -50,7 +50,7 @@ body {
 }
 
 #content_wrapper {
-    /* height: 100lvh; */
+    /* height: 100svh; */
     display: flex;
     flex-direction: column;
 }
@@ -65,13 +65,15 @@ main {
 }
 
 footer {
+
+    padding: 0.5em 0 0 0;
     background-color: rgb(179, 228, 255);
     width: 100%;
     flex-direction: column;
     display: flex;
     justify-content: center;
     text-align: center;
-    gap: 1em;
+    gap: 0.25em;
 }
 
 select {
@@ -82,7 +84,7 @@ select {
     position: absolute;
     height: 100%;
     width: 100%;
-    touch-action: none;
+    /* touch-action: none; */
 
 }
 
@@ -141,7 +143,7 @@ select {
 /* main elements */
 /* visual-container > council-map */
 #visual-container {
-    height: 100lvh;
+    height: 100svh;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
@@ -202,7 +204,7 @@ select {
 }
 
 .scroller {
-    height: 100lvh;
+    height: 100svh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
 }
@@ -214,7 +216,7 @@ select {
 
 @media only screen and (min-width: 600px) {
     #content_wrapper {
-        height: 100lvh;
+        height: 100svh;
     }
     #visual-container {
         height: 100%;
@@ -224,7 +226,7 @@ select {
         position: absolute;
         bottom: 0;
         flex-direction: row;
-        gap: 0.5em;
+        gap: 5em;
     }
 
     .scroller {
