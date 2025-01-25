@@ -13,7 +13,7 @@ button.addEventListener("click", (e) => {
 })
 
 const panelTitle = document.getElementById("panel-title");
-const recordTable = document.getElementById("record-table");
+const recordTableBody = document.getElementById("record-body");
 const vacantContainer = document.getElementById("panel-vacant-container");
 
 import { records } from "./councilMap.js"
@@ -30,8 +30,8 @@ export function setCouncillorClickBehaviour() {
             updatePanel(councillor);
 
             // clear vote history table;
-            while(recordTable.firstChild) {
-                recordTable.removeChild(recordTable.firstChild);
+            while(recordTableBody.firstChild) {
+                recordTableBody.removeChild(recordTableBody.firstChild);
             }
 
             // populate vote history table;
@@ -75,7 +75,7 @@ function createHistoryRow(record) {
     voteRow.appendChild(voteTitleCell);
     voteRow.appendChild(voteCell);
 
-    recordTable.appendChild(voteRow);
+    recordTableBody.appendChild(voteRow);
 }
 
 // contractable vote history tab

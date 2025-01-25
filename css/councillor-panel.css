@@ -115,6 +115,10 @@
     width: inherit;
 }
 
+#record-table thead tr td {
+    font-weight: 400;
+}
+
 .detail-panel table tr:nth-child(odd) {
     background-color: lightgrey;
 }

@@ -15,20 +15,20 @@ const policySelector = document.getElementById("policy");
 
 function generatePolicyOptions(period) {
     let sessionIndex = 0;
+    let optGroup;
     for(var i = 0; i<records[period].length; i++) {
 
         if(records[period][i].session > sessionIndex) {
-            let opt = document.createElement('option');
-            opt.value = "none";
             sessionIndex = records[period][i].session;
-            opt.innerText = "---Session " + sessionIndex;
-            policySelector.append(opt);
+            optGroup = document.createElement('optgroup');
+            optGroup.label = "Session " + sessionIndex;
+            policySelector.append(optGroup);
         }
 
         let opt = document.createElement('option');
         opt.value = i;
         opt.innerText = records[period][i].name;
-        policySelector.append(opt);
+        optGroup.append(opt);
     }
 }
 
