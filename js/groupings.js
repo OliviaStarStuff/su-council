@@ -19,7 +19,7 @@ function generatePoints(shape, value) {
     }
 }
 
-function generateGroupings() {
+export function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
     for (const [key, value] of Object.entries(groups[yearSelector.value])) {
         let shape = document.createElementNS(svgns, "polygon");
@@ -29,17 +29,40 @@ function generateGroupings() {
         generatePoints(shape, value);
 
         const title = document.createElement("title")
-        title.sinnerText = key;
+        title.innerText = key;
         shape.appendChild(title)
+        console.log(key);
+        if(key == "Archaeology") {
+            const cm = document.getElementById("council-map");
+            const hiddenDiv = document.createElement("div");
+            hiddenDiv.style.height = "40px"
+            hiddenDiv.style.width = "50px"
+            hiddenDiv.style.position = "absolute"
+            const hex = new Hex({"q":4,"r":0}, [25, 20]);
+            const coords = hex.position;
+            hiddenDiv.style.left = coords[0] + "px";
+            hiddenDiv.style.top = coords[1] + "px";
+            cm.appendChild(hiddenDiv);
+            hiddenDiv.addEventListener("pointerover", (e) => {
+                const overlayRole = document.getElementById('overlay-role');
+                const overlayType = document.getElementById('overlay-type');
+                overlayRole.innerText = "Archaeology Councillor";
+                overlayType.innerText = "Forever Vacant";
+                overlay.classList.remove("display-hidden");
+            })
+            hiddenDiv.addEventListener("pointerout", (e) => {
+                overlay.classList.add("display-hidden");
+            })
+        }
 
         shapes.push(shape);
     }
 }
 
-yearSelector.addEventListener("change", (e) => {
-    clearChildren("grids");
-    generateGroupings();
-});
+// yearSelector.addEventListener("change", (e) => {
+//     clearChildren("grids");
+//     generateGroupings();
+// });
 
 export function regeneratePoints() {
     let i = 0;

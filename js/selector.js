@@ -1,7 +1,7 @@
 "use strict";
 
 import { records, generateCouncillors } from "./councilMap.js";
-// import { generateGroupings } from "./groupings.js";
+import { generateGroupings } from "./groupings.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 
 const notloaded = document.createElement("p");
@@ -59,8 +59,8 @@ yearSelector.addEventListener("change", (e) => {
     generateCouncillors(yearSelector.value);
     //
     // refresh the grid
-    // clearChildren("grids");
-    // generateGroupings();
+    clearChildren("grids");
+    generateGroupings();
 
     // refresh the policy selector
     clearChildren("policy-select");

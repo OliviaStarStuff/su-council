@@ -2,9 +2,20 @@
 
 class Hex {
     #coords;
-    constructor(coords) { this.#coords = coords; }
+    #size;
+    constructor(coords, size=[20, 20]) {
+        this.#coords = coords;
+        this.#size = size;
+    }
 
-    get position() { return Hex.getPosition(this.#coords); }
+    get position() {
+        const pos = [
+            Hex.getLeft(this.#coords)-this.#size[0],
+            Hex.getTop(this.#coords)-this.#size[1]
+        ]
+        return pos;
+    }
+
     get coords() { return this.#coords; }
     set coords(coords) {
         this.#coords.q = coords.q;
