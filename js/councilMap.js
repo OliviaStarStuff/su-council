@@ -96,24 +96,24 @@ let drag = false;
 const pos = {"x": 0, "y": 0};
 const offsetPos = {"x": 0, "y": 0};
 
-visualisation.addEventListener('pointerdown', (e) => {
-    drag = true
-    offsetPos.x = e.clientX-pos.x;
-    offsetPos.y = e.clientY-pos.y;
-});
+// visualisation.addEventListener('pointerdown', (e) => {
+//     drag = true
+//     offsetPos.x = e.clientX-pos.x;
+//     offsetPos.y = e.clientY-pos.y;
+// });
 
-document.addEventListener('pointerup', () => {
-    drag = false;
-});
+// document.addEventListener('pointerup', () => {
+//     drag = false;
+// });
 
-document.addEventListener('pointermove', (e) => {
-        if(drag) {
-            pos.x = e.clientX - offsetPos.x;
-            pos.y = e.clientY - offsetPos.y;
-            visualisation.style.left = pos.x + "px";
-            visualisation.style.top = pos.y + "px";
-        }
-});
+// document.addEventListener('pointermove', (e) => {
+//         if(drag) {
+//             pos.x = e.clientX - offsetPos.x;
+//             pos.y = e.clientY - offsetPos.y;
+//             visualisation.style.left = pos.x + "px";
+//             visualisation.style.top = pos.y + "px";
+//         }
+// });
 
 // for (let q = -gs+1; q < gs; q++) {
 //     const r_start = q < 0 ? -gs-q : -gs;
