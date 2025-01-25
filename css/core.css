@@ -1,33 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 * {
     margin: 0;
     box-sizing: border-box;
 }
 
-.playfair-display-title {
-    font-family: "Playfair Display", serif;
+#content_wrapper {
+    /* height: 100svh; */
+    --highlight-colour: rgb(179, 228, 255);
+    display: flex;
+    flex-direction: column;
+}
+
+.cinzel-display-title {
+    font-family: "Cinzel", serif;
     font-optical-sizing: auto;
     font-weight: 500;
-    font-style: oblique;
-    font-size: 1.4em
+    font-style: normal;
 }
 
 h1 {
     margin: 1rem 1rem 0.5rem 1rem;
 }
 
+
+header {
+    background-color: var(--highlight-colour);
+}
+
 h2, h3 {
-    font-family: "Playfair Display", serif;
+    font-family: "Cinzel", serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
 }
 
-h4, h5 {
+h3, h4, h5, label {
     font-family: "Fira Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
 }
 
@@ -35,8 +45,9 @@ h4 {
     padding: 0.75em 0 0 0;
 }
 
-a, p, td, label  {
+a, p, td {
     font-family: "Fira Sans", sans-serif;
+    font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
 }
@@ -47,12 +58,6 @@ a[disabled] {
 
 body {
     background-color: #f3f6fa;
-}
-
-#content_wrapper {
-    /* height: 100svh; */
-    display: flex;
-    flex-direction: column;
 }
 
 main {
@@ -67,7 +72,7 @@ main {
 footer {
 
     padding: 0.5em 0 0 0;
-    background-color: rgb(179, 228, 255);
+    background-color: var(--highlight-colour);
     width: 100%;
     flex-direction: column;
     display: flex;
