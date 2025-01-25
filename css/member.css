@@ -62,7 +62,7 @@
 }
 
 /* Member colours */
-#council-map .member, #grids, #panel-title, #panel-close-button {
+#council-map .member, #grids, .panel-title, .panel-close-button {
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 

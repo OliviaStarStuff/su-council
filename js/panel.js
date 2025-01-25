@@ -1,20 +1,23 @@
-const button = document.getElementById("panel-close-button");
-const panel = document.getElementById("councillor-panel");
-const gridMain = document.getElementById("panel-bottom-container");
+const button = document.getElementById("cllr-panel-close-button");
+const panel = document.getElementById("cllr-panel");
+const details = document.getElementById("cllr-panel-details-container");
+const closeIndicator = document.getElementById("cllr-panel-close-button-indicator");
+const closeIndicatorH = document.getElementById("cllr-panel-close-button-indicator-h");
 
-const closeIndicator = document.getElementById("panel-close-button-indicator");
 let isExpanded = false;
 // close panel
 button.addEventListener("click", (e) => {
     isExpanded = !isExpanded
     panel.classList.toggle("panel-open");
-    gridMain.classList.toggle("display-hidden");
-    closeIndicator.innerText = isExpanded ?  "chevron_right" : "chevron_left";
+    details.classList.toggle("display-hidden");
+    closeIndicator.innerText = isExpanded ?  "keyboard_arrow_down" : "keyboard_arrow_up";
+    closeIndicatorH.innerText = isExpanded ?  "chevron_right" : "chevron_left";
 })
 
-const panelTitle = document.getElementById("panel-title");
-const recordTableBody = document.getElementById("record-body");
-const vacantContainer = document.getElementById("panel-vacant-container");
+// fill details
+const panelTitle = document.getElementById("cllr-panel-title");
+const recordTableBody = document.getElementById("cllr-record-body");
+const vacantContainer = document.getElementById("cllr-panel-vacant-container");
 
 import { records } from "./councilMap.js"
 export function setCouncillorClickBehaviour() {
@@ -22,9 +25,10 @@ export function setCouncillorClickBehaviour() {
         councillor.node.addEventListener("click", (e) => {
             // open panel;
             isExpanded = true;
-            closeIndicator.innerText = "chevron_right";
+            closeIndicator.innerText = "keyboard_arrow_down";
+            closeIndicatorH.innerText = "keyboard_arrow_right";
             panel.classList.add("panel-open");
-            gridMain.classList.remove("display-hidden");
+            details.classList.remove("display-hidden");
 
             // Set panel stylings
             updatePanel(councillor);
@@ -39,8 +43,8 @@ export function setCouncillorClickBehaviour() {
                 if (r.vote == "") { continue; }
                 createHistoryRow(r);
             }
-
-            vacantContainer.classList.toggle("display-hidden", !councillor.isVacant)
+            vacantContainer.classList.add("display-hidden")
+            // vacantContainer.classList.toggle("display-hidden", !councillor.isVacant)
         })
     }
 
@@ -56,8 +60,11 @@ export function setCouncillorClickBehaviour() {
 setCouncillorClickBehaviour();
 
 function updatePanel(councillor) {
+    // const classes = ["member-fto","member-pto","member-academic","member-fto"]
     panelTitle.className = '';
-    button.className = '';
+    button.className = "";
+    panelTitle.classList.add("panel-title");
+    button.classList.add("panel-close-button");
     button.classList.add(councillor.colourClass);
     panelTitle.classList.add(councillor.colourClass);
     panelTitle.innerText =  councillor.title;

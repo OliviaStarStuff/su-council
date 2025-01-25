@@ -1,71 +1,99 @@
-#councillor-panel {
-    --detail-width: 40rch;
+/* Side Panel style */
+.side-panel {
+    --button-height: 2em;
+    --detail-height: 60lvh;
+
+    bottom: calc(var(--button-height) - var(--detail-height));
+    height: var(--detail-height);
+    width: 100%;
+
 
     position: absolute;
-    height: 100%;
-    right: calc(0ch - var(--detail-width));
 
     display: grid;
-    grid-template-columns: 0fr auto;
-    grid-template-rows: 0fr 1fr;
+    grid-template-columns: auto 5em;
+    grid-template-rows: var(--button-height) 0fr auto;
 
     pointer-events: none;
     transition: all 150ms ease-out;
 }
 
-#councillor-panel .display-hidden {
+.side-panel .display-hidden {
     display: none;
 }
 
-#councillor-panel.panel-open {
-    right: 0;
+.side-panel.panel-open {
+    bottom: 0;
 }
 
-#councillor-panel * {
+.side-panel * {
     pointer-events: visible;
 }
-.detail-panel {
+
+/* close button and title */
+.panel-close-button {
+    grid-row: 1;
+    grid-column: 2;
     height: 100%;
-    width: var(--detail-width);
-
-    grid-column-start: 2;
-    gap:unset;
-
-    text-align: center;
-
-    overflow: visible auto;
+    width: 100%;
+    align-self:center;
+    float:left;
+    align-self: center;
+    justify-self: baseline;
+    align-items: center;
+    vertical-align: middle;
+    border: unset;
+    padding: unset;
 }
-#panel-close-background {
+
+.panel-close-bg {
     background-color: rgba(0, 0, 0, 0.196);
     height: 100%;
     align-content: center;
 }
 
-#panel-close-background:hover {
+#cllr-panel-close-button-indicator-h {
+    display: none;
+}
+
+.panel-close-bg:hover {
     background-color: rgba(255, 255, 255, 0.196);
 }
 
-.detail-panel > div {
-    width: 100%;
+.panel-title-container {
+    grid-column: 1 / span 2;
+    grid-row: 2;
 }
 
-#panel-bottom-container {
-    padding: 0.5em 1em;
-    display: flex;
-    flex-direction: column;
-    gap:1em;
-    align-items: center;
-    overflow-y: auto;
-}
-
-
-#councillor-panel h3 {
+.panel-title {
+    text-align: center;
+    width: var(--detail-width);
     font-size: 1.5rem;
-    background-color: var(--member-colour);
     padding: 0.5em 0.5em;
 }
 
-.profile-picture {
+#cllr-panel-close-button, #cllr-panel .panel-title {
+    background-color: var(--member-colour);
+}
+
+/* panel content */
+.panel-details {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+
+    width: var(--detail-width);
+    gap:0.5em;
+    text-align: center;
+    padding: 0em 2em 1em 2em;
+
+    overflow-y: auto;
+}
+
+.panel-item {
+    width: 100%;
+}
+
+.panel-picture {
     /* width: 80%; */
     width: 50%;
     aspect-ratio: 1;
@@ -73,32 +101,7 @@
     border-radius: 1em;
 }
 
-#panel-title {
-    text-align: center;
-    width: var(--detail-width);
-}
-
-#panel-close-button {
-    height: 100%;
-    align-self:center;
-    float:left;
-    background-color: var(--member-colour);
-    align-self: center;
-    justify-self: baseline;
-    align-items: center;
-    vertical-align: middle;
-    border: unset;
-    padding: unset;
-
-}
-
-#vote-history-container  {
-    max-height: 15em;
-    overflow-y: auto;
-    width: 100%;
-    border: 0.125em solid rgb(152, 47, 65);
-}
-
+/* Manifest item */
 #manifesto-container {
     width: 100%;
 }
@@ -107,31 +110,89 @@
     text-align: left;
 }
 
-.panel-item {
+/* vote history item */
+#vote-history-container  {
+    max-height: 15em;
+    overflow-y: auto;
     width: 100%;
+    border: 0.125em solid rgb(152, 47, 65);
 }
 
-.detail-panel table {
+#vote-history-container.hidden {
+    max-height: 0em;
+}
+
+#record-table {
     width: inherit;
 }
 
-#record-table thead tr td {
+#record-table thead td {
     font-weight: 400;
 }
 
-.detail-panel table tr:nth-child(odd) {
+#record-table tr:nth-child(odd) {
     background-color: lightgrey;
 }
 
-.detail-panel table tr:nth-child(even) {
+#record-table tr:nth-child(even) {
     background-color: aliceblue;
 }
 
-.detail-panel table tr td:last-child {
+#record-table tr > td:last-child {
     text-align: right;
     padding-right: 0.75em;
 }
-.detail-panel table tr td:first-child {
+#record-table tr > td:first-child {
     text-align: left;
     width:20ch;
+}
+
+@media only screen and (min-width: 600px) {
+    .side-panel {
+        bottom: unset;
+        position: absolute;
+        width: unset;
+        --detail-height: 100%;
+        --detail-width: 40rch;
+        height: 100%;
+        right: calc(0ch - var(--detail-width));
+        grid-template-columns: 0fr auto;
+        grid-template-rows: 0fr 1fr;
+    }
+
+
+    .side-panel.panel-open {
+        bottom: unset;
+        right: 0;
+    }
+
+    .panel-title-container {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .panel-details {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .panel-close-button {
+        grid-column: 1;
+        grid-row: 1;
+        height: 100%;
+    }
+
+    #cllr-panel-close-button-indicator-h {
+        display: inline-block;
+    }
+
+    #cllr-panel-close-button-indicator {
+        display: none;
+    }
+
+    .side-panel.panel-open .panel-backing {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        box-shadow: 0px 0 5px rgb(98, 98, 98);
+    }
 }

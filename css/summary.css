@@ -1,17 +1,56 @@
+#summary-close-button {
+    position: absolute;
+    top:0.5em;
+    right:0.5em;
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	/* font: inherit; */
+	cursor: pointer;
+	outline: inherit;
+    padding-top: 0.25em;
+    vertical-align: bottom;
+}
+
+.overlay-button {
+    /* border: none; */
+    background-color: red;
+    /* width: fit-content; */
+    /* border-radius: 50%; */
+
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 #summary {
-    width: 32ch;
+    position:static;
     max-height: 78lvh;
     top: 0px;
+
 }
 
 #summary hr {
     border: 0.0625em solid pink;
 }
 
+#policy-select-container {
+    width: 100%;
+}
+
+select#policy-select {
+    width: 100%;
+    max-width: 25em;
+    text-wrap: wrap;
+}
+
 
 #vote-summary-container {
-    /* border-left: 5px solid red; */
-    max-width: 30ch;
     padding: 0;
 }
 
@@ -25,12 +64,6 @@
 
 #summary div.flex-center-row {
     justify-content: space-between;
-}
-
-select#policy {
-    /* max-width: 25ch; */
-    text-wrap: wrap;
-    min-height: 3em;
 }
 
 #vote-summary {
@@ -89,4 +122,22 @@ select#policy {
 
 div.vote-absent {
     background-color: unset;
+}
+
+@media only screen and (min-width: 600px) {
+    #summary {
+        position: absolute;
+        width: 32ch;
+        z-index: 1;
+    }
+
+    #policy-select-container {
+        flex-direction: column;
+    }
+
+    select#policy-select {
+        min-height: 3em;
+        text-wrap: wrap;
+        width: 100%;
+    }
 }

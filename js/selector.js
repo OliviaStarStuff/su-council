@@ -44,6 +44,7 @@ policySelector.addEventListener("change", (e) => {
         }
     } else {
         for(const c of councillors) {
+            // c.classList.toggle("vacant", c.isCurrentlyVacant)
             c.vote = e.target.value;
         }
     }
