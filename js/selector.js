@@ -6,6 +6,7 @@ import { setCouncillorClickBehaviour } from "./panel.js";
 
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
+notloaded.innerText = records["2024/2025"].map( r =>   r.name);
 document.getElementById("summary").appendChild(notloaded);
 
 
