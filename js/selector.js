@@ -32,7 +32,15 @@ function generatePolicyOptions(period) {
     }
 }
 
-generatePolicyOptions(yearSelector.value);
+try {
+    generatePolicyOptions(yearSelector.value);
+  } catch (error) {
+    console.error(error);
+    notloaded.innerText = error;
+    // Expected output: ReferenceError: nonExistentFunction is not defined
+    // (Note: the exact output may be browser-dependent)
+  }
+
 
 policySelector.addEventListener("change", (e) => {
     // If no policy is selected, clear vote classes
