@@ -67,6 +67,13 @@ select#policy-select {
 }
 
 #vote-summary {
+    padding: 1em;
+    z-index: 1;
+    /* background-color: rgba(255, 150, 185, 0.514); */
+    position: absolute;
+    top:0;
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     gap:0.25em;
@@ -127,8 +134,16 @@ div.vote-absent {
 @media only screen and (min-width: 600px) {
     #summary {
         position: absolute;
+        left: 1em;
+        top: calc(100svh - 17em);
         width: 32ch;
-        z-index: 1;
+        z-index: 2;
+    }
+
+    #vote-summary {
+        width: unset;
+        border-radius: 0 0 1em 0;
+        /* box-shadow: 3px 3px 10px #898989; */
     }
 
     #policy-select-container {

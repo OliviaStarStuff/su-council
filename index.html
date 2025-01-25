@@ -130,7 +130,10 @@
                 </div>
             </section>
 
-            <div id="vote-summary" class="display-hidden">
+
+        </section>
+        <section id="visual-container">
+            <div id="vote-summary" class="frosted display-hidden">
                 <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
                     <h3>Vote Summary</h3>
                     <span id="vote-summary-indicator" class="material-symbols-outlined">
@@ -141,8 +144,6 @@
                 <div id="vote-summary-container" class="collapsable-container">
                 </div>
             </div>
-        </section>
-        <section id="visual-container">
             <div id="visualisation">
                 <svg id="grids" style="position:absolute" role="img" aria-labelledby="grids-title grids-desc">
                     <title id="grids-title">councillor groups</title>
@@ -228,8 +229,8 @@
         <script type="module" src="js/panel.js" defer></script>
         <footer id="footer">
             <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a>, </p>
-            <p>Made by Olivia&copy;, </p>
-            <div>
+            <div class="flex-center-row"><p>Made by Olivia&copy;, </p>
+            <div class="flex-center-row">
                 <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mastodon-link-title mastodon-link-desc">
                     <title id="mastodon-link-title">Olivia's social on fosstodon</title>
                     <desc id="mastodon-link-desc">Follow Olivia on mastodon at this url</desc>
@@ -245,6 +246,7 @@
                     </a>
                 </svg>
             </div>
+        </div>
             <p>a Computer Science Student at the University of Sheffield</p>
         </footer>
     </main>

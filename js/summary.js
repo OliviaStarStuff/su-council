@@ -6,7 +6,8 @@ import { records }  from './councilMap.js';
 const summary = document.getElementById("summary");
 
 let drag = false;
-const pos = {"x": 0, "y": 0};
+const rect = summary.getBoundingClientRect();
+const pos = {"x": rect.left, "y": rect.top};
 const offsetPos = {"x": 0, "y": 0};
 summary.addEventListener('pointerdown', (e) => {
     drag = true

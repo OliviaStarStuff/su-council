@@ -84,7 +84,8 @@ select {
     position: absolute;
     height: 100%;
     width: 100%;
-    transform: scale(0.5);
+    bottom: -25svh;
+    transform: scale(0.7);
     /* touch-action: none; */
 
 }
@@ -219,19 +220,36 @@ select {
     #content_wrapper {
         height: 100svh;
     }
+
     #visual-container {
         height: 100%;
+    }
+
+    #visualisation {
+        bottom: unset;
+        transform: scale(1);
     }
 
     footer {
         position: absolute;
         bottom: 0;
         flex-direction: row;
-        gap: 5em;
+        flex-wrap: wrap;
+        /* gap: 5em; */
+    }
+
+    footer > * {
+        flex-shrink: 0;
     }
 
     .scroller {
         overflow-y: hidden;
+        scroll-snap-type: unset;
+    }
+
+    .scroller > * {
+    scroll-snap-align: unset;
+    scroll-snap-stop: unset;
     }
 
     .draggable-panel {

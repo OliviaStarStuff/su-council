@@ -26,7 +26,7 @@ export function setCouncillorClickBehaviour() {
             // open panel;
             isExpanded = true;
             closeIndicator.innerText = "keyboard_arrow_down";
-            closeIndicatorH.innerText = "keyboard_arrow_right";
+            closeIndicatorH.innerText = "chevron_right";
             panel.classList.add("panel-open");
             details.classList.remove("display-hidden");
 
