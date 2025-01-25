@@ -167,15 +167,15 @@ class Councillor {
 
         this.#text = document.createElement("p")
 
-        // switch(this.#faculty) {
-        //     case "Social Science":
-        //     case "Science":
-        //     case "Arts & Humanities":
-        //     case "Engineering":
-        //     case "Health":
-        //         this.#text.classList.add("hidden");
-        //         break;
-        // }
+        switch(this.#faculty) {
+            case "Social Science":
+            case "Science":
+            case "Arts & Humanities":
+            case "Engineering":
+            case "Health":
+                this.#text.classList.add("hidden");
+                break;
+        }
 
         this.#text.innerText = this.#initial;
         node.appendChild(this.#text)

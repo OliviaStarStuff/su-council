@@ -87,12 +87,11 @@ main {
 
 .hidden {
     opacity: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     visibility: hidden;
 }
 
 *.display-hidden {
-
     display:none;
 }
 
