@@ -3,15 +3,7 @@
 const toggleNames = document.getElementById("toggle-names");
 toggleNames.addEventListener('change', function() {
     for(const c of Councillor.list) {
-        switch(c.faculty) {
-            case "Social Science":
-            case "Science":
-            case "Arts & Humanities":
-            case "Engineering":
-            case "Health":
-                c.showInitial = (this.checked || c.type == "PGR");
-            break;
-        }
+        c.showInitial = !this.checked;
     }
 });
 

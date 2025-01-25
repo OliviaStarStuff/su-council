@@ -49,6 +49,8 @@ export function generateCouncillors(fromYear) {
             j++;
         };
         const councillor = new Councillor(cData);
+        const toggleNames = document.getElementById("toggle-names");
+        councillor.showInitial = !toggleNames.checked;
 
         councillor.index = i;
         i++;
