@@ -33,7 +33,8 @@
             "faculty": "AMRC",
             "initial": "AMRC",
             "coords": { "q": -2, "r": 0 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Allied Health Professionals, Nursing and Midwifery Councillor (x2)",
@@ -49,7 +50,8 @@
             "faculty": "Health",
             "initial": "HPNM",
             "coords": { "q": -5, "r": 3 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Architecture & Landscape Councillor (x2)",
@@ -185,7 +187,8 @@
             "faculty": "Engineering",
             "initial": "EEE",
             "coords": { "q": 0, "r": 4 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "vacantFor": [ 1 ]
         },
         {
             "title": "English Councillor",
@@ -233,7 +236,8 @@
             "faculty": "Social Science",
             "initial": "Info",
             "coords": { "q": -5, "r": 5 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Journalism, Media & Communications Councillor",
@@ -241,7 +245,8 @@
             "faculty": "Social Science",
             "initial": "Media",
             "coords": { "q": -2, "r": 2 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "vacantFor": [ 1 ]
         },
         {
             "title": "Languages & Cultures Councillor",
@@ -298,7 +303,8 @@
             "faculty": "Science",
             "initial": "MPS",
             "coords": { "q": 4, "r": -3 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [2, 3]
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
@@ -306,7 +312,8 @@
             "faculty": "Science",
             "initial": "MPS",
             "coords": { "q": 4, "r": -2 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Mechanical, Aerospace & Civil Engineering Councillor (x2)",
@@ -338,7 +345,8 @@
             "faculty": "Health",
             "initial": "MPH",
             "coords": { "q": -5, "r": 2 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Music Councillor",
@@ -426,7 +434,8 @@
             "faculty": "SU",
             "initial": "Dis",
             "coords": { "q": -3, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "vacantFor": [ 1 ]
         },
         {
             "title": "Women's Rep Councillor",
@@ -474,7 +483,8 @@
             "faculty": "SU",
             "initial": "Wrk",
             "coords": { "q": 1, "r": -2 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "vacantFor": [ 1 ]
         },
         {
             "title": "Sports Councillor",
@@ -490,7 +500,8 @@
             "faculty": "Apprentices",
             "initial": "Appr",
             "coords": { "q": -2, "r": 1 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Foundation Year Councillor",
@@ -506,7 +517,8 @@
             "faculty": "Arts & Humanities",
             "initial": "PGR",
             "coords": { "q": 2, "r": 0 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Faculty of Engineering PGR",
@@ -514,7 +526,8 @@
             "faculty": "Engineering",
             "initial": "PGR",
             "coords": { "q": 1, "r": 2 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Faculty of Health PGR",
@@ -522,7 +535,8 @@
             "faculty": "Health",
             "initial": "PGR",
             "coords": { "q": -3, "r": 2 },
-            "isCurrentlyFilled": false
+            "isCurrentlyFilled": false,
+            "vacantFor": [1, 2, 3]
         },
         {
             "title": "Faculty of Science PGR",

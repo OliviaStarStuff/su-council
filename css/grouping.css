@@ -15,7 +15,7 @@ svg#grids {
 }
 
 #grids polygon {
-    opacity: 70%;
+    /* opacity: 70%; */
     stroke: black;
     fill: none;
     stroke-width: 3em;
