@@ -11,7 +11,7 @@
     position: absolute;
 
     display: grid;
-    grid-template-columns: auto 5em;
+    grid-template-columns: auto auto;
     grid-template-rows: var(--button-height) 0fr auto;
     z-index: 2;
     pointer-events: none;
@@ -44,6 +44,10 @@
     vertical-align: middle;
     border: unset;
     padding: unset;
+}
+
+#cllr-panel-close-button  {
+    height: 2.5em;
 }
 
 .panel-close-bg {
@@ -179,6 +183,10 @@
     .panel-close-button {
         grid-column: 1;
         grid-row: 1;
+        height: 100%;
+    }
+
+    #cllr-panel-close-button {
         height: 100%;
     }
 
