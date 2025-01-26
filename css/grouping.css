@@ -18,8 +18,10 @@ svg#grids {
     opacity: 70%;
     stroke: black;
     fill: none;
-    stroke-width: 1em;
+    stroke-width: 3em;
     stroke: var(--group-colour);
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 .group-representative {
@@ -29,6 +31,8 @@ svg#grids {
 #grids polygon.group-archaeology {
     --group-colour: black;
     fill:black;
+    stroke-width: 1em;
+    stroke-linejoin: miter;
 }
 
 .group-pto {
