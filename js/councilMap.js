@@ -58,7 +58,6 @@ export function generateCouncillors(fromYear) {
         councillor.node.addEventListener("pointerover", (e) => {
             overlayRole.innerText = councillor.title;
             overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
-            overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
 
             // Set vacant status
             if(councillor.isCurrentlyVacant) {
@@ -86,8 +85,8 @@ generateCouncillors("2024/2025");
 
 
 councilMap.addEventListener("pointermove", (e) => {
-    overlay.style.left = e.pageX+"px";
-    overlay.style.top = e.pageY-50 + "px";
+    overlay.style.left = e.pageX + 10 + "px";
+    overlay.style.top = e.pageY + 20 + "px";
 })
 
 const visualisation = document.getElementById("visualisation");

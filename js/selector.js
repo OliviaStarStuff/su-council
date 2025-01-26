@@ -3,6 +3,7 @@
 import { records, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
+import { updateSummary } from "./summary.js";
 
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
@@ -51,6 +52,7 @@ policySelector.addEventListener("change", (e) => {
         for(const c of councillors) {
             c.classList.toggle("vacant", c.isVacant)
             c.clearVoteClasses();
+            c.vote = -1;
         }
     } else {
         policyName.innerText = records[yearSelector.value][e.target.value].name;
@@ -59,6 +61,7 @@ policySelector.addEventListener("change", (e) => {
             c.vote = e.target.value;
         }
     }
+    updateSummary(e);
 });
 
 policySelector.focus();

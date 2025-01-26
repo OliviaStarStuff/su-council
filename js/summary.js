@@ -70,7 +70,7 @@ const voteSummary = document.getElementById("vote-summary");
 
 const yearSelector = document.getElementById("year-select");
 
-policySelector.addEventListener("change", (e) => {
+export function updateSummary(e) {
     // clear summary list
     while (voteSummaryContainer.firstChild) {
         voteSummaryContainer.removeChild(voteSummaryContainer.firstChild);
@@ -90,7 +90,7 @@ policySelector.addEventListener("change", (e) => {
     voteSummaryContainer.appendChild(item);
 
     // Row 2: Total votes
-    const topTotal = record.votes.filter(x => x != "No Vote" && x != "blank" && x != "").length;
+    const topTotal = record.votes.filter(x => x != "No Vote" && x != "blank" && x != "" && x != "Absent").length;
     item = setItem("Total Votes", topTotal, undefined, false);
     voteSummaryContainer.appendChild(item);
 
@@ -126,7 +126,7 @@ policySelector.addEventListener("change", (e) => {
     // item.classList.add(vote);
     voteSummaryContainer.appendChild(item);
 
-})
+}
 
 // Update links
 const outlink = document.getElementById("outlink");

@@ -274,7 +274,7 @@ select {
 
     #visualisation {
         height: 100%;
-        bottom: 5em;
+        bottom: 3em;
         transform: scale(0.8);
     }
 

@@ -3,12 +3,14 @@
     /* size, border, sizing, position, colour, items, transitions */
     height:40px;
     width:40px;
+    box-sizing: border-box;
+    position: absolute;
 
     border-radius: 50%;
     border: 0.25em solid black;
+    box-shadow: 0.125em 0.125em 5px var(--member-border-colour);
+    opacity: 1;
 
-    box-sizing: border-box;
-    position: absolute;
 
     background-color: var(--member-colour);
     border-color: var(--member-border-colour);
@@ -18,7 +20,6 @@
     justify-content: center;
     text-align: center;
     /* z-index: -1; */
-    opacity: 1;
     transition: all 500ms ease-in-out, opacity 50ms ease-out, border 0ms;
 
     user-select: none;
