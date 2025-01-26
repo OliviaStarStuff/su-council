@@ -81,7 +81,7 @@ select#policy-select {
 
 #vote-summary-container div:not(:first-child):hover {
 
-    border: 0.25em solid var(--vote-colour);
+    box-shadow: inset 0 0 0 0.25em var(--vote-colour);
     background-color: unset;
     font-weight: bold;
 }
@@ -135,8 +135,8 @@ select#policy-select {
     font-size: 1.5em;
 }
 
-div.vote-absent {
-    background-color: unset;
+#vote-summary-container div.vote-absent:hover {
+    color: black;
 }
 
 @media only screen and (min-width: 600px) {

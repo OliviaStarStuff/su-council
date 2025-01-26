@@ -165,7 +165,7 @@
         position: absolute;
         width: unset;
         --detail-height: 100%;
-        --detail-width: 40rch;
+        --detail-width: 44rch;
         height: 100%;
         right: calc(0ch - var(--detail-width));
         grid-template-columns: 0fr auto;

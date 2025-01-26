@@ -48,14 +48,9 @@ p.vote-text {
 }
 
 .vote-absent {
-    border-style: solid;
-
-    /* --vote-colour: var(--member-border-colour); */
     --vote-colour: var(--absent-colour);
-    /* border-width: 0.125em; */
-    color: black;
     background-color: black;
-    color: white;
+    color: var(--vote-colour);
 }
 
 .member.vote-absent:hover {
@@ -63,8 +58,8 @@ p.vote-text {
 }
 
 .member.vote-absent {
-    background-color: black;
-    /* transform: scale(0.5); */
+    border-style: solid;
+    color: white;
 }
 
 .vote-option-1 {
