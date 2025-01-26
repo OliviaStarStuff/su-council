@@ -127,6 +127,14 @@ select#policy-select {
     background-color: var(--vote-colour);
 }
 
+#toggles-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 5em;
+    font-size: 1.5em;
+}
+
 div.vote-absent {
     background-color: unset;
 }
@@ -138,6 +146,12 @@ div.vote-absent {
         top: calc(100svh - 17em);
         width: 32ch;
         z-index: 2;
+    }
+
+    #toggles-container {
+        flex-wrap: nowrap;
+        height: unset;
+        font-size: unset;
     }
 
     #vote-summary {
