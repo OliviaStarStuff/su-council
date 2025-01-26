@@ -1,8 +1,17 @@
 svg#grids {
+    border: 1em solid #0000;
+    --grid-width: 17px;
     height: 100%;
-    width: 100lvw;
+    width: var(--grid-width);
     z-index: -2;
     overflow: visible;
+    left: calc(0em - var(--grid-width) / 2);
+    top: calc(0em - var(--grid-width) / 2);
+}
+
+#grid-container {
+    top:50%;
+    left:50%;
 }
 
 #grids polygon {
@@ -56,4 +65,16 @@ svg#grids {
 
 .group-fto {
     --group-colour: var(--fto-colour);
+}
+
+.member-lost {
+    height: 40px;
+    width: 50px;
+    position: absolute;
+}
+
+@media only screen and (min-width: 400px) {
+    svg#grids {
+        --grid-width: 30px;
+    }
 }

@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #f3f6fa;
+    font-size: 0.6em;
+}
+
 #content_wrapper {
     /* height: 100svh; */
     --highlight-colour: rgb(179, 228, 255);
@@ -56,10 +61,6 @@ a[disabled] {
     pointer-events: none;
 }
 
-body {
-    background-color: #f3f6fa;
-}
-
 main {
     height:100%;
     display: flex;
@@ -87,9 +88,10 @@ select {
 
 #visualisation {
     position: absolute;
-    height: 100%;
+    height: 50%;
     width: 100%;
-    transform: scale(0.7);
+    transform: scale(0.45);
+    bottom:5em;
     /* touch-action: none; */
 
 }
@@ -161,10 +163,16 @@ select {
     to {transform: rotate(360deg);}
   }
 
+#grid-container {
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+
 #council-map {
     position: relative;
     left: 50%;
-    top:18em;
+    top:50%;
     transform-origin: 0 0;
     /* transform: rotate(0deg); */
     /* animation-duration: 4s; */
@@ -220,6 +228,25 @@ select {
     scroll-snap-stop: always;
 }
 
+.member p {
+    font-size: 2em;
+}
+
+@media only screen and (min-width: 400px) {
+    body {
+        font-size: 1em;
+    }
+
+    #visualisation {
+
+        transform: scale(0.7);
+    }
+
+    .member p {
+        font-size: 1em;
+    }
+}
+
 @media only screen and (min-width: 600px) {
     #content_wrapper {
         height: 100svh;
@@ -230,8 +257,9 @@ select {
     }
 
     #visualisation {
-        bottom: unset;
-        transform: scale(1);
+        height: 100%;
+        bottom: 5em;
+        transform: scale(0.8);
     }
 
     footer {
@@ -271,5 +299,11 @@ select {
 
     .playfair-display-title {
         font-size: 2em;
+    }
+}
+
+@media only screen and (min-width: 750px) {
+    #visualisation {
+        transform: scale(1);
     }
 }

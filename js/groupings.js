@@ -13,8 +13,8 @@ const offsetHeight = 288
 function generatePoints(shape, value) {
     for(const coords of value) {
         const point = svg.createSVGPoint();
-        point.x = Hex.getLeft(coords) + window.innerWidth/2;
-        point.y = Hex.getTop(coords) + offsetHeight;
+        point.x = Hex.getLeft(coords)
+        point.y = Hex.getTop(coords)
         shape.points.appendItem(point);
     }
 }
@@ -28,28 +28,30 @@ export function generateGroupings() {
                 key.replace(" & ","-and-").replace(" ", "-").toLowerCase());
         generatePoints(shape, value);
 
-        const title = document.createElement("title")
+        const title = document.createElement("title");
         title.innerText = key;
-        shape.appendChild(title)
-        console.log(key);
+        shape.appendChild(title);
         if(key == "Archaeology") {
             const cm = document.getElementById("council-map");
             const hiddenDiv = document.createElement("div");
-            hiddenDiv.style.height = "40px"
-            hiddenDiv.style.width = "50px"
-            hiddenDiv.style.position = "absolute"
+
             const hex = new Hex({"q":4,"r":0}, [25, 20]);
             const coords = hex.position;
             hiddenDiv.style.left = coords[0] + "px";
             hiddenDiv.style.top = coords[1] + "px";
+
             cm.appendChild(hiddenDiv);
+
             hiddenDiv.addEventListener("pointerover", (e) => {
                 const overlayRole = document.getElementById('overlay-role');
                 const overlayType = document.getElementById('overlay-type');
+                const overlayVote = document.getElementById('overlay-vote');
                 overlayRole.innerText = "Archaeology Councillor";
                 overlayType.innerText = "Forever Vacant";
+                overlayVote.innerText = "";
                 overlay.classList.remove("display-hidden");
             })
+
             hiddenDiv.addEventListener("pointerout", (e) => {
                 overlay.classList.add("display-hidden");
             })
