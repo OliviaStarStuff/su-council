@@ -42,16 +42,18 @@ try {
     // (Note: the exact output may be browser-dependent)
   }
 
-
+const policyName = document.getElementById("policy-name")
 policySelector.addEventListener("change", (e) => {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
     if(e.target.value == "none") {
+        policyName.innerText = "";
         for(const c of councillors) {
             c.classList.toggle("vacant", c.isVacant)
             c.clearVoteClasses();
         }
     } else {
+        policyName.innerText = records[yearSelector.value][e.target.value].name;
         for(const c of councillors) {
             // c.classList.toggle("vacant", c.isCurrentlyVacant)
             c.vote = e.target.value;
@@ -81,6 +83,7 @@ yearSelector.addEventListener("change", (e) => {
     generatePolicyOptions(yearSelector.value);
     setCouncillorClickBehaviour();
     policySelector.dispatchEvent(new Event('change'))
+    policyName.innerText = "";
 })
 
 console.log("Selector Loaded");

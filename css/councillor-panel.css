@@ -150,7 +150,15 @@
     text-align: left;
     width:20ch;
 }
-
+@media only screen and (min-width: 500px) {
+    #policy-name-container {
+        justify-content: unset;
+        bottom: 2em;
+    }
+    #policy-name-container p {
+        padding-left: 2em;
+    }
+}
 @media only screen and (min-width: 600px) {
     .side-panel {
         bottom: unset;

@@ -63,6 +63,10 @@ svg#grids {
     --group-colour: var(--soc-sci-colour);
 }
 
+.group-grey {
+    --group-colour: rgba(168, 168, 168, 0.249);
+}
+
 .group-fto {
     --group-colour: var(--fto-colour);
 }

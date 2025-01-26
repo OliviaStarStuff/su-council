@@ -120,7 +120,7 @@ policySelector.addEventListener("change", (e) => {
     // Last Row: Total vacant seats
     let vacantTotal = 0;
     for (let i = 0; i< Councillor.list.length; i++) {
-        if(Councillor.list[i].isVacant || record.votes[i] == "") { vacantTotal++; }
+        if(Councillor.list[i].isCurrentlyVacant || record.votes[i] == "") { vacantTotal++; }
     }
     item = setItem("Vacant", vacantTotal, "vote-vacant");
     // item.classList.add(vote);

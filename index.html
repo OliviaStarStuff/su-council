@@ -57,7 +57,6 @@
     <main class="scroller">
         <header>
             <h1 class="cinzel-display-title">SU Council Voting Record Visualiser</h1>
-            <hr>
         </header>
         <section id="summary" class="frosted draggable-panel">
             <button id="summary-close-button">
@@ -86,7 +85,6 @@
                 </div>
                 <!-- <p id="policy-description">blah blah blah</p> -->
             </section>
-
             <section id="toggles">
                 <div class="header-container" id="toggles-header" role="button" tabindex="0">
                     <h3>Options</h3>
@@ -129,8 +127,6 @@
                     </div>
                 </div>
             </section>
-
-
         </section>
         <section id="visual-container">
             <div id="vote-summary" class="frosted display-hidden">
@@ -220,15 +216,15 @@
                     </div>
                 </div>
             </section>
+            <div id="policy-name-container">
+                <p id="policy-name"></p>
+            </div>
         </section>
-
-
         <div id="overlay" class="display-hidden">
             <p id="overlay-role"></p>
             <p id="overlay-type"></p>
             <p id="overlay-vote" class="vote-text"></p>
         </div>
-
         <script type="module" src="js/panel.js" defer></script>
         <footer id="footer">
             <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a>, </p>

@@ -9,6 +9,14 @@ body {
     font-size: 0.6em;
 }
 
+#policy-name-container {
+    position: absolute;
+    bottom: 4em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 #content_wrapper {
     /* height: 100svh; */
     --highlight-colour: rgb(179, 228, 255);

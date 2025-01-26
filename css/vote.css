@@ -54,6 +54,8 @@ p.vote-text {
     --vote-colour: var(--absent-colour);
     /* border-width: 0.125em; */
     color: black;
+    background-color: black;
+    color: white;
 }
 
 .member.vote-absent:hover {
@@ -61,7 +63,8 @@ p.vote-text {
 }
 
 .member.vote-absent {
-    transform: scale(0.5);
+    background-color: black;
+    /* transform: scale(0.5); */
 }
 
 .vote-option-1 {
