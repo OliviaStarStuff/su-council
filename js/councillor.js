@@ -153,6 +153,7 @@ class Councillor {
         if(this.#vote.session == 0) { return this.#isVacant; }
         return this.#vacantList.includes(this.#vote.session) }
 
+    set initial(bool) { this.#text.classList.toggle("opacity-hidden", bool) }
     set vote(recordIndex) {
         this.#vote.current = recordIndex;
         // Add the right classes for the current vote
@@ -202,18 +203,6 @@ class Councillor {
         node.appendChild(this.#text)
 
         return node;
-    }
-
-    set showInitial(bool) {
-        switch(this.#faculty) {
-            case "Social Science":
-            case "Science":
-            case "Arts & Humanities":
-            case "Engineering":
-            case "Health":
-                this.#text.classList.toggle("hidden", bool && this.#type != "PGR");
-                break;
-        }
     }
 
     // Position code

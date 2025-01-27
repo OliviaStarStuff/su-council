@@ -3,8 +3,35 @@
 const toggleNames = document.getElementById("toggle-names");
 toggleNames.addEventListener('change', function() {
     for(const c of Councillor.list) {
-        c.showInitial = !this.checked;
+        switch(c.type) {
+            case "Academic":
+            case "Specialised":
+            case "PGR":
+                c.initial = !this.checked;
+                break;
+        }
     }
+});
+
+const toggleSUNames = document.getElementById("toggle-su-names");
+toggleSUNames.addEventListener('change', function() {
+    for(const c of Councillor.list) {
+        switch(c.type) {
+            case "SU":
+            case "Representative":
+            case "FTO":
+            case "PTO":
+                c.initial = !this.checked;
+                break;
+        }
+    }
+});
+
+const toggleAllNames = document.getElementById("toggle-all-names");
+toggleAllNames.addEventListener('change', function() {
+    for(const c of Councillor.list) {c.initial = !this.checked; }
+    toggleNames.checked = this.checked;
+    toggleSUNames.checked = this.checked;
 });
 
 
@@ -20,7 +47,7 @@ toggleCllrs.addEventListener('change', function() {
             case "Arts & Humanities":
             case "Engineering":
             case "Health":
-                c.classList.toggle("hidden", !this.checked);
+                c.classList.toggle("opacity-hidden", !this.checked);
             break;
         }
     }
@@ -29,7 +56,7 @@ toggleCllrs.addEventListener('change', function() {
 function toggleHidden(targetToMatch, bool) {
     for(const c of Councillor.list) {
         if(c.type == targetToMatch) {
-            c.classList.toggle("hidden", bool);
+            c.classList.toggle("opacity-hidden", bool);
         }
     }
 }
@@ -58,5 +85,29 @@ toggleVacant.addEventListener('change', function() {
         i++;
     }
 });
+
+const toggleAll = document.getElementById("toggle-all");
+toggleAll.addEventListener('change', function() {
+    for(const c of Councillor.list) {
+        c.classList.toggle("opacity-hidden", !this.checked);
+    }
+    toggleAcademic.checked = this.checked;
+    toggleCllrs.checked = this.checked;
+    toggleFTOs.checked = this.checked;
+    togglePTOs.checked = this.checked;
+    toggleReps.checked = this.checked;
+    toggleSU.checked = this.checked;
+
+});
+
+const svg = document.getElementById("grid-container");
+const toggleSvg = document.getElementById("toggle-groupings");
+toggleSvg.addEventListener("change", function() {
+    if (!this.checked) {
+        svg.classList.add("opacity-hidden");
+    } else {
+        svg.classList.remove("opacity-hidden");
+    }
+})
 
 console.log("Toggles Loaded");

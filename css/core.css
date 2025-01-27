@@ -131,6 +131,15 @@ select {
     display:none;
 }
 
+.opacity-hidden {
+    opacity: 0;
+}
+
+.member.opacity-hidden {
+    opacity: 0;
+    /* visibility: hidden; */
+}
+
 *.visibility-hidden {
     position: absolute;
     width: 0;

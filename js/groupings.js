@@ -63,29 +63,6 @@ export function generateGroupings() {
     }
 }
 
-// yearSelector.addEventListener("change", (e) => {
-//     clearChildren("grids");
-//     generateGroupings();
-// });
-
-export function regeneratePoints() {
-    let i = 0;
-    for (const [key, value] of Object.entries(groups[yearSelector.value])) {
-        shapes[i].points.clear();
-        generatePoints(shapes[i], value);
-        i++;
-    }
-}
-
 generateGroupings();
-
-const toggleSvg = document.getElementById("toggle-groupings");
-toggleSvg.addEventListener("change", function() {
-    if (!this.checked) {
-        svg.classList.add("hidden");
-    } else {
-        svg.classList.remove("hidden");
-    }
-})
 
 console.log("Groupings Loaded");
