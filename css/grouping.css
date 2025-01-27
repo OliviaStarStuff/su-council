@@ -18,7 +18,7 @@ svg#grids {
     /* opacity: 70%; */
     stroke: black;
     fill: none;
-    stroke-width: 3em;
+    stroke-width: 5em;
     stroke: var(--group-colour);
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -84,5 +84,9 @@ svg#grids {
 @media only screen and (min-width: 400px) {
     svg#grids {
         --grid-width: 30px;
+    }
+
+    #grids polygon {
+        stroke-width: 3em;
     }
 }

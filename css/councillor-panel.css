@@ -26,6 +26,10 @@
     bottom: 0;
 }
 
+.side-panel.panel-open .panel-selector-container {
+    display: none;
+}
+
 .side-panel * {
     pointer-events: visible;
 }
