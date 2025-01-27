@@ -261,6 +261,12 @@ select {
     font-size: 2em;
 }
 
+/* @media ( min-resolution: 2dppx) {
+    body {
+        font-size: 50%;
+    }
+} */
+
 @media only screen and (min-width: 400px) {
     body {
         font-size: 1em;

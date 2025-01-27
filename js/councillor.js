@@ -39,8 +39,10 @@ class Hex {
     }
 
     static getLeft(coords) { return coords.q*Hex.horiz*2 + coords.r*Hex.horiz; }
-
     static getTop(coords) { return coords.r*Hex.vert*2; }
+
+    // static getLeft(coords) { return coords.q*Hex.vert*2; }
+    // static getTop(coords) { return coords.r*Hex.horiz*2 + coords.q*Hex.horiz; }
 }
 
 class Vote {
