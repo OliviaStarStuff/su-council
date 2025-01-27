@@ -18,6 +18,10 @@ function generatePoints(shape, value) {
         shape.points.appendItem(point);
     }
 }
+const overlay = document.getElementById('overlay')
+const overlayRole = document.getElementById('overlay-role');
+const overlayType = document.getElementById('overlay-type');
+const overlayVote = document.getElementById('overlay-vote');
 
 export function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
@@ -43,11 +47,7 @@ export function generateGroupings() {
             hiddenDiv.style.top = coords[1] + 1 + "px";
 
             cm.appendChild(hiddenDiv);
-
             hiddenDiv.addEventListener("pointerover", (e) => {
-                const overlayRole = document.getElementById('overlay-role');
-                const overlayType = document.getElementById('overlay-type');
-                const overlayVote = document.getElementById('overlay-vote');
                 overlayRole.innerText = "Archaeology Councillor";
                 overlayType.innerText = "Forever Vacant";
                 overlayVote.innerText = "";
@@ -60,6 +60,24 @@ export function generateGroupings() {
         }
 
         shapes.push(shape);
+
+        if (key == "Grey") { continue; }
+
+        const cName = "member-" + key.toLowerCase().replace(
+            " & ", "-and-").replace(" ", "-");
+
+        shape.addEventListener("pointerout", (e) => {
+            overlay.classList.add("display-hidden");
+            overlay.classList.remove(cName);
+        })
+
+        shape.addEventListener("pointerenter", (e) => {
+            overlayRole.innerText = key;
+            overlayType.innerText = "";
+            overlayVote.innerText = "";
+            overlay.classList.remove("display-hidden");
+            overlay.classList.add(cName);
+        })
     }
 }
 

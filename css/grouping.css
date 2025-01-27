@@ -1,12 +1,9 @@
 svg#grids {
-    border: 1em solid #0000;
-    --grid-width: 17px;
-    height: 100%;
-    width: var(--grid-width);
-    z-index: -2;
+    position: absolute;
+    border: solid 1em #0000;
     overflow: visible;
-    left: calc(0em - var(--grid-width) / 2);
-    top: calc(0em - var(--grid-width) / 2);
+    left: -1em;
+    top: -1em;
 }
 
 #grid-container {
@@ -82,10 +79,6 @@ svg#grids {
 }
 
 @media only screen and (min-width: 400px) {
-    svg#grids {
-        --grid-width: 30px;
-    }
-
     #grids polygon {
         stroke-width: 3em;
     }

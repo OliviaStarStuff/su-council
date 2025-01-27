@@ -28,8 +28,6 @@ const overlayType = document.getElementById('overlay-type');
 const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
-
-
 export function generateCouncillors(fromYear) {
     let i = 0;
     const fromData = data[fromYear];
@@ -48,43 +46,53 @@ export function generateCouncillors(fromYear) {
             });
             j++;
         };
-        const councillor = new Councillor(cData);
+        const c = new Councillor(cData);
         const toggleNames = document.getElementById("toggle-names");
-        councillor.showInitial = !toggleNames.checked;
+        switch(c.type) {
+            case "Academic":
+            case "Specialised":
+            case "PGR":
+                c.initial = !toggleNames.checked;
+                break;
+        }
 
-        councillor.index = i;
+        c.index = i;
         i++;
 
-        councillor.node.addEventListener("pointerover", (e) => {
-            overlayRole.innerText = councillor.title;
-            overlayType.innerText = "Type: " + councillor.type + ", Faculty: " + councillor.faculty;
+        c.node.addEventListener("pointerover", (e) => {
+            overlayRole.innerText = c.title;
+            overlayType.innerText = "Type: " + c.type + ", Faculty: " + c.faculty;
 
             // Set vacant status
-            if(councillor.isCurrentlyVacant) {
+            if(c.isCurrentlyVacant) {
                 overlayVote.innerText = "Vacant";
             } else {
-                overlayVote.innerText = councillor.vote;
+                overlayVote.innerText = c.vote;
             }
             overlay.classList.remove("display-hidden");
+            overlay.classList.add(c.colourClass);
         })
 
-        councillor.node.addEventListener("pointerout", (e) => {
+        c.node.addEventListener("pointerout", (e) => {
             overlay.classList.add("display-hidden");
+            overlay.classList.remove(c.colourClass);
         })
 
-        councillor.node.addEventListener("pointerenter", (e) => {
+        c.node.addEventListener("pointerenter", (e) => {
             overlay.classList.remove("display-hidden");
+            overlay.classList.add(c.colourClass);
         })
 
-        Councillor.list.push(councillor);
-        councilMap.appendChild(councillor.node);
+        Councillor.list.push(c);
+        councilMap.appendChild(c.node);
     }
 }
 
 generateCouncillors("2024/2025");
 
 
-councilMap.addEventListener("pointermove", (e) => {
+const vc = document.getElementById("visual-container");
+vc.addEventListener("pointermove", (e) => {
     overlay.style.left = e.pageX + 10 + "px";
     overlay.style.top = e.pageY + 20 + "px";
 })

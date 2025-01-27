@@ -133,10 +133,12 @@ select {
 
 .opacity-hidden {
     opacity: 0;
+
 }
 
 .member.opacity-hidden {
     opacity: 0;
+    display: none;
     /* visibility: hidden; */
 }
 
@@ -204,10 +206,13 @@ select {
     /* animation-timing-function: linear; */
 }
 
-#overlay {
+.overlay {
+    --member-colour: #EDE;
     position: absolute;
     pointer-events: none;
     background-color: #EDE;
+    background-color: var(--member-colour);
+    border: solid 0.375em var(--member-border-colour);
     padding: 0.75em 1em 0.5em 1em;
     border-radius: 0 1.5em 1.5em 1.5em;
 }
@@ -295,6 +300,7 @@ select {
     }
 
     footer {
+        padding: 0.75em 0 1em 0;
         position: absolute;
         bottom: 0;
         flex-direction: row;

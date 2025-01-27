@@ -44,12 +44,13 @@
 
 /* Vacant position */
 .vacant {
-    background-color: var(--vacant-colour);
+    /* background-color: var(--vacant-colour); */
+    background-color: var(--member-border-colour);
     border-width: 0.25em;
     border-style: none;
     --transform-scale: 0.7;
     transform: scale(var(--transform-scale));
-    box-shadow: 0.125em 0.125em 5px #00000029, inset 0.125em 0.125em 0.25em #ffffff7d;
+    /* box-shadow: 0.125em 0.125em 5px #00000029, inset 0.125em 0.125em 0.25em #ffffff7d; */
     color: rgb(75, 75, 75);
 }
 
@@ -62,8 +63,13 @@
     transform: scale(calc(1 / var(--transform-scale)));
 }
 
+/* :focus-visible {
+    outline: 0.25em solid red   ;
+    outline-offset: 0.25em;
+  } */
+
 /* Member colours */
-#council-map .member, #grids, .panel-title, .panel-close-button {
+#council-map .member, #grids, .panel-title, .panel-close-button, .overlay {
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 
