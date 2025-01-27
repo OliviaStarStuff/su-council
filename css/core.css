@@ -131,6 +131,13 @@ select {
     display:none;
 }
 
+*.visibility-hidden {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
 .collapsable-container {
     max-height: 25em;
     opacity: 1;

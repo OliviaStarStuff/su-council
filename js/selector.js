@@ -14,8 +14,9 @@ document.getElementById("summary").appendChild(notloaded);
 const yearSelector = document.getElementById("year-select");
 // Set up selector with all voting options
 const policySelector = document.getElementById("policy-select");
+const panelPolicySelector = document.getElementById("panel-policy-select");
 
-function generatePolicyOptions(period) {
+function generatePolicyOptions(period, pSelector) {
     let sessionIndex = 0;
     let optGroup;
     for(var i = 0; i<records[period].policies.length; i++) {
@@ -24,7 +25,7 @@ function generatePolicyOptions(period) {
             sessionIndex = record.session;
             optGroup = document.createElement('optgroup');
             optGroup.label = "Session " + sessionIndex;
-            policySelector.append(optGroup);
+            pSelector.append(optGroup);
         }
 
         let opt = document.createElement('option');
@@ -35,16 +36,15 @@ function generatePolicyOptions(period) {
 }
 
 try {
-    generatePolicyOptions(yearSelector.value);
+    generatePolicyOptions(yearSelector.value, policySelector);
+    generatePolicyOptions(yearSelector.value, panelPolicySelector);
   } catch (error) {
     console.error(error);
     notloaded.innerText = error;
     // Expected output: ReferenceError: nonExistentFunction is not defined
     // (Note: the exact output may be browser-dependent)
   }
-
-const policyName = document.getElementById("policy-name")
-policySelector.addEventListener("change", (e) => {
+function selectPolicy(e) {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
     if(e.target.value == "none") {
@@ -56,12 +56,17 @@ policySelector.addEventListener("change", (e) => {
         for(const c of councillors) { c.vote = e.target.value; }
     }
     updateSummary(e);
-});
+    policySelector.value = e.target.value;
+    panelPolicySelector.value = e.target.value;
+}
+
+const policyName = document.getElementById("policy-name")
+policySelector.addEventListener("change", selectPolicy);
+panelPolicySelector.addEventListener("change", selectPolicy);
 
 policySelector.focus();
 
-yearSelector.addEventListener("change", (e) => {
-
+function selectYear(e, yearSelect) {
     Councillor.list = []
     // refresh the board
     clearChildren("council-map");
@@ -72,16 +77,31 @@ yearSelector.addEventListener("change", (e) => {
     generateGroupings();
 
     // refresh the policy selector
-    clearChildren("policy-select");
-    let opt = document.createElement('option');
-    opt.value = "none";
-    opt.innerText = "None";
-    policySelector.append(opt);
-    generatePolicyOptions(yearSelector.value);
+    console.log("We got here");
+    refreshPolicySelector(panelPolicySelector, "panel-policy-select", yearSelect)
+    refreshPolicySelector(policySelector, "policy-select", yearSelect)
     setCouncillorClickBehaviour();
     policySelector.dispatchEvent(new Event('change'))
     policyName.innerText = "";
-})
+}
+
+function refreshPolicySelector(pSelector, id, yearSelector,) {
+    clearChildren(id);
+    let opt = document.createElement('option');
+    opt.value = "none";
+    opt.innerText = "None";
+    pSelector.append(opt);
+    generatePolicyOptions(yearSelector.value, pSelector);
+}
+
+yearSelector.addEventListener("change", (e) => {
+    selectYear(e, yearSelector)
+});
+
+// const panelYearSelector = document.getElementById("panel-year-select");
+// panelYearSelector.addEventListener("change", (e) => {
+//     selectYear(e, panelYearSelector)
+// });
 
 console.log("Selector Loaded");
 notloaded.classList.add("display-hidden");

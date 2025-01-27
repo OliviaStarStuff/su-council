@@ -1,6 +1,6 @@
 /* Side Panel style */
 .side-panel {
-    --button-height: 2em;
+    --button-height: 3em;
     --detail-height: 90svh;
 
     bottom: calc(var(--button-height) - var(--detail-height));
@@ -11,8 +11,8 @@
     position: absolute;
 
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: var(--button-height) 0fr auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: var(--button-height) 0fr 1fr;
     z-index: 2;
     pointer-events: none;
     transition: all 150ms ease-out;
@@ -44,10 +44,6 @@
     vertical-align: middle;
     border: unset;
     padding: unset;
-}
-
-#cllr-panel-close-button  {
-    height: 2.5em;
 }
 
 .panel-close-bg {
@@ -91,6 +87,21 @@
     padding: 0em 2em 1em 2em;
 
     overflow-y: auto;
+}
+
+.panel-selector-container {
+    align-items: center;
+    padding: 0em 1em;
+}
+
+.panel-selector-container > * {
+    justify-self: end;
+}
+
+.panel-selector-container select {
+    width: 100%;
+    text-wrap: wrap;
+    font-size: 1em;
 }
 
 .panel-item {
@@ -150,6 +161,7 @@
     text-align: left;
     width:20ch;
 }
+
 @media only screen and (min-width: 500px) {
     #policy-name-container {
         justify-content: unset;
@@ -172,10 +184,13 @@
         grid-template-rows: 0fr 1fr;
     }
 
-
     .side-panel.panel-open {
         bottom: unset;
         right: 0;
+    }
+
+    .panel-selector-container {
+        display: none;
     }
 
     .panel-title-container {
