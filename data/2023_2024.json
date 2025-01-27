@@ -38,7 +38,7 @@
         },
         {
             "title":"Advanced Manufacturing Research Centre Councillor",
-            "type": "Academic",
+            "type": "Specialised",
             "faculty": "AMRC",
             "initial": "AMRC",
             "coords": { "q": -2, "r": 0 },
@@ -391,7 +391,7 @@
         },
         {
             "title": "Apprentices Rep Councillor",
-            "type": "Academic",
+            "type": "Specialised",
             "faculty": "Apprentices",
             "initial": "Appr",
             "coords": { "q": -2, "r": 1 },

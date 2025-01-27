@@ -9,21 +9,7 @@ toggleNames.addEventListener('change', function() {
 
 
 const toggleReps = document.getElementById("toggle-reps");
-toggleReps.addEventListener('change', function() {
-    for(const c of Councillor.list) {
-        switch(c.faculty) {
-            case "AMRC":
-            case "Apprentices":
-            case "Foundation":
-                c.classList.toggle("hidden", !this.checked);
-                break;
-            default:
-                if(c.type == "Representative") {
-                    c.classList.toggle("hidden", !this.checked);
-                }
-        }
-    }
-});
+toggleReps.addEventListener('change', function() { toggleHidden("Representative", !this.checked); });
 
 const toggleCllrs = document.getElementById("toggle-cllrs");
 toggleCllrs.addEventListener('change', function() {
@@ -48,10 +34,12 @@ function toggleHidden(targetToMatch, bool) {
     }
 }
 
+const toggleAcademic = document.getElementById("toggle-specialised");
 const toggleSU = document.getElementById("toggle-su");
 const togglePTOs = document.getElementById("toggle-ptos");
 const toggleFTOs = document.getElementById("toggle-ftos");
 
+toggleAcademic.addEventListener('change', function() { toggleHidden("Specialised", !this.checked); });
 toggleSU.addEventListener('change', function() { toggleHidden("SU", !this.checked); });
 togglePTOs.addEventListener('change', function() { toggleHidden("PTO", !this.checked); });
 toggleFTOs.addEventListener('change', function() { toggleHidden("FTO", !this.checked); });

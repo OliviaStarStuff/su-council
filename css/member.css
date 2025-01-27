@@ -6,21 +6,19 @@
     box-sizing: border-box;
     position: absolute;
 
-    border-radius: 50%;
-    border: 0.25em solid black;
-    box-shadow: 0.125em 0.125em 5px var(--member-border-colour);
-    opacity: 1;
-
-
     background-color: var(--member-colour);
+    border: 0.25em solid black;
     border-color: var(--member-border-colour);
+    border-radius: 50%;
+    box-shadow: 0.125em 0.125em 0 var(--member-border-colour);
+    opacity: 1;
 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     /* z-index: -1; */
-    transition: all 500ms ease-in-out, opacity 50ms ease-out, border 0ms;
+    transition: all 300ms ease-in-out, opacity 50ms ease-out, border 0ms;
 
     user-select: none;
 }
@@ -48,9 +46,11 @@
 .vacant {
     background-color: var(--vacant-colour);
     border-width: 0.25em;
-    border-style: dotted;
-    transform: scale(0.5);
-    color: grey;
+    border-style: none;
+    --transform-scale: 0.7;
+    transform: scale(var(--transform-scale));
+    box-shadow: 0.125em 0.125em 5px #00000029, inset 0.125em 0.125em 0.25em #ffffff7d;
+    color: rgb(75, 75, 75);
 }
 
 .hidden-vacant {
@@ -59,7 +59,7 @@
 }
 
 .vacant * {
-    transform: scale(2.0);
+    transform: scale(calc(1 / var(--transform-scale)));
 }
 
 /* Member colours */
@@ -74,7 +74,7 @@
     --rep-border-colour: rgb(165, 104, 165);
 
     --su-colour:  rgb(69, 249, 249);
-    --su-border-colour: rgb(57, 231, 231);
+    --su-border-colour: rgb(42, 214, 214);
 
     --acad-colour:  #5ec4ff;
     --acad-border-colour: #4aace5;
@@ -114,14 +114,14 @@
     --member-border-colour: var(--rep-border-colour);
 }
 
-.member-academic {
+.member-specialised {
     --member-colour: var(--acad-colour);
     --member-border-colour: var(--acad-border-colour);
 }
 
 .member-su {
-    --member-colour: var(--acad-colour);
-    --member-border-colour: var(--acad-border-colour);
+    --member-colour: var(--su-colour);
+    --member-border-colour: var(--su-border-colour);
 }
 
 /* Faculty */

@@ -149,13 +149,19 @@ class Councillor {
     set vote(recordIndex) {
         this.#vote.current = recordIndex;
         // Add the right classes for the current vote
-        this.updateVoteClasses();
-        this.setCurrentPosition();
+        this.clearVoteClasses();
+
+        if (this.#vote.vote == "") {
+            const toggleVacant = document.getElementById("toggle-vacant");
+            this.#node.classList.toggle("hidden-vacant", !toggleVacant.checked);
+        }
+
+        this.#node.classList.toggle("vacant", this.isCurrentlyVacant);
+        if (recordIndex == -1) { return }
 
         this.#node.classList.add(this.#vote.voteClass);
-        this.#node.classList.toggle(
-                "vacant", this.#vacantList.includes(this.#vote.session));
     }
+
     get voteClass() { return this.#vote.voteClass; }
 
     setMemberType() {
@@ -215,7 +221,9 @@ class Councillor {
     }
 
     clearVoteClasses() {
-        for (const vc of Vote.classes) { this.#node.classList.remove(vc); }
+        for (const vc of Vote.classes) {
+            this.#node.classList.remove(vc);
+        }
     }
 
     updateVoteClasses() {

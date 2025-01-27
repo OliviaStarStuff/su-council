@@ -132,7 +132,7 @@ select {
 }
 
 .collapsable-container {
-    max-height: 20em;
+    max-height: 25em;
     opacity: 1;
     transition: max-height 300ms ease-out, opacity 100ms ease-in 200ms;
 }
@@ -262,7 +262,7 @@ select {
         transform: scale(0.7);
     }
 }
-
+/* main transition to desktop */
 @media only screen and (min-width: 600px) {
     #content_wrapper {
         height: 100svh;
@@ -313,6 +313,10 @@ select {
 
     .playfair-display-title {
         font-size: 2em;
+    }
+
+    .collapsable-container {
+        max-height: 20em;
     }
 }
 

@@ -29,7 +29,7 @@
     [
         {
             "title":"Advanced Manufacturing Research Centre Councillor",
-            "type": "Academic",
+            "type": "Specialised",
             "faculty": "AMRC",
             "initial": "AMRC",
             "coords": { "q": -2, "r": 0 },
@@ -188,7 +188,7 @@
             "initial": "EEE",
             "coords": { "q": 0, "r": 4 },
             "isCurrentlyFilled": true,
-            "vacantFor": [ 1 ]
+            "vacantFor": [ 1, 2 ]
         },
         {
             "title": "English Councillor",
@@ -246,7 +246,7 @@
             "initial": "Media",
             "coords": { "q": -2, "r": 2 },
             "isCurrentlyFilled": true,
-            "vacantFor": [ 1 ]
+            "vacantFor": [ 1, 2 ]
         },
         {
             "title": "Languages & Cultures Councillor",
@@ -304,7 +304,7 @@
             "initial": "MPS",
             "coords": { "q": 4, "r": -3 },
             "isCurrentlyFilled": false,
-            "vacantFor": [2, 3]
+            "vacantFor": [ 3 ]
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
@@ -435,7 +435,7 @@
             "initial": "Dis",
             "coords": { "q": -3, "r": -1 },
             "isCurrentlyFilled": true,
-            "vacantFor": [ 1 ]
+            "vacantFor": [ 1, 2 ]
         },
         {
             "title": "Women's Rep Councillor",
@@ -484,7 +484,7 @@
             "initial": "Wrk",
             "coords": { "q": 1, "r": -2 },
             "isCurrentlyFilled": true,
-            "vacantFor": [ 1 ]
+            "vacantFor": [ 1, 2 ]
         },
         {
             "title": "Sports Councillor",
@@ -496,7 +496,7 @@
         },
         {
             "title": "Apprentices Rep Councillor",
-            "type": "Academic",
+            "type": "Specialised",
             "faculty": "Apprentices",
             "initial": "Appr",
             "coords": { "q": -2, "r": 1 },
@@ -506,7 +506,7 @@
         {
             "title": "Foundation Year Councillor",
             "initial": "Found",
-            "type": "Academic",
+            "type": "Specialised",
             "faculty": "Foundation",
             "coords": { "q": -3, "r": 1 },
             "isCurrentlyFilled": true
@@ -659,18 +659,38 @@
             "isCurrentlyFilled": true
         }
     ],
-    "voteOptions":
+    "sessions":
+    [
         {
-            "standard": ["For", "Against", "Abstain", "No Vote"],
-            "numerical": ["Option 1", "Option 2", "Option 3", "Option 4", "Recommend Against", "Abstain", "No Vote"],
-            "alphabetical": ["Option A", "Option B", "Option C", "Option D", "Blank", "Abstain", "No Vote"],
-            "duo": ["Community Organiser", "Liberation Facilitator", "Recommend Against", "Abstain", "No Vote"]
+            "name": "Meeting 1",
+            "date": "2024-10-31",
+            "agenda": "https://docs.google.com/document/d/1Q-OQsVMgjWG7SUmtKad1zqsIJQCpp0IZ6971hJan4O4/edit?tab=t.0",
+            "logs": "https://docs.google.com/document/d/1VECB59mZe_-ln_6vUevDJn6Z6wN3vGuJFFQxh5MJLXQ/edit?tab=t.0"
         },
+        {
+            "name": "Meeting 2",
+            "date": "2024-11-26",
+            "agenda": "https://docs.google.com/document/d/1J-SyauTzTKx8w23NrN7eOylacrXvIqwelCIvuRE0drg/edit?tab=t.0",
+            "logs": "https://docs.google.com/document/d/1TAlWsx5DJjmtQ7FuqGxBKIRMimez6xiWDRbRFLfb6Ws/edit?tab=t.0"
+        },
+        {
+            "name": "Meeting 3",
+            "date": "2024-11-26",
+            "agenda": "https://docs.google.com/document/d/1Ciic6Yuw0ti4DaoRuU-pUxNBw2gGgHQTVjIBw3u9sJQ/edit?tab=t.0",
+            "logs": "https://docs.google.com/document/d/1vaooBy1iEh0kMJJLRPFzTPuuCjVrBI3nCp5I6L-fJvQ/edit?tab=t.0"
+        }
+    ],
+    "voteOptions":
+    {
+        "standard": ["For", "Against", "Abstain", "No Vote"],
+        "numerical": ["Option 1", "Option 2", "Option 3", "Option 4", "Recommend Against", "Abstain", "No Vote"],
+        "alphabetical": ["Option A", "Option B", "Option C", "Option D", "Blank", "Abstain", "No Vote"],
+        "duo": ["Community Organiser", "Liberation Facilitator", "Recommend Against", "Abstain", "No Vote"]
+    },
     "records":
     [
         {
             "name":"Cops off Campus",
-            "date":"",
             "session": 1,
             "url": "https://docs.google.com/document/d/1bQPXhZ57LaM2n3ZMmLZsGCoYubweY1mGnODqw3I5HAk/edit?tab=t.0",
             "result": "Passed",
@@ -757,7 +777,6 @@
         },
         {
             "name":"Full-Time Officer Options",
-            "date":"",
             "session": 1,
             "url": "https://docs.google.com/document/d/1NmxI4-Y9nyBrCK4NScxKu82jHwgi2jsWrdGvZkhXQco/edit?usp=sharing",
             "result": "Option 3",
@@ -844,8 +863,7 @@
         },
         {
             "name":"Part-Time Officer Options",
-            "date":"",
-            "session": 0,
+            "session": 1,
             "url": "https://docs.google.com/document/d/1cu_mob58tMOSRF0Z2KYxBxDfIWHLynxwUBM7qS8d8bI/edit?tab=t.0#heading=h.1358953j2pk5",
             "result": "Liberation Facilitator",
             "style":"duo",
@@ -931,7 +949,6 @@
         },
         {
             "name":"Working Committees Councillor",
-            "date":"",
             "session": 2,
             "url": "",
             "result":"Passed",
@@ -1018,7 +1035,6 @@
         },
         {
             "name":"Censure of Mature PTO",
-            "date":"",
             "session": 3,
             "url": "https://docs.google.com/document/d/1vaooBy1iEh0kMJJLRPFzTPuuCjVrBI3nCp5I6L-fJvQ/edit?tab=t.0",
             "result": "Passed",
@@ -1105,7 +1121,6 @@
         },
         {
             "name":"Make Abstentions Make Sense",
-            "date":"",
             "session": 3,
             "url": "https://docs.google.com/document/u/1/d/1R1ARuz-AjBCocGNOla1V0274Vrlu8WQtIFvYzqch9-E/edit",
             "result": "Passed",
@@ -1192,7 +1207,6 @@
         },
         {
             "name":"A Better Deal for Our Future",
-            "date":"",
             "session": 3,
             "url": "https://docs.google.com/document/u/1/d/1P2FiUw7qq01OzCi2uQ3ilqxOJB7Sf_4_Xt7RdoS67iA/edit",
             "result": "Passed",
@@ -1279,7 +1293,6 @@
         },
         {
             "name":"Officer Role Review",
-            "date":"",
             "session": 3,
             "url": "https://docs.google.com/document/d/1qKNzfzWGb2Io2tJkq5F8Q6qF9taKkSdKT73lbDwbXtI/edit?tab=t.0#heading=h.4bs0yyixuhc",
             "result": "Passed",
@@ -1366,7 +1379,6 @@
         },
         {
             "name":"Policy Review (SEC Recommendations)",
-            "date":"",
             "session": 3,
             "url": "",
             "result": "Passed",
@@ -1452,8 +1464,10 @@
             ]
         }
     ],
-    "groups": {
-        "Grey": [
+    "groups":
+    {
+        "Grey":
+        [
             { "q": -5, "r": 0 },
             { "q": 0, "r": -5 },
             { "q": 5, "r": -5 },
@@ -1461,7 +1475,8 @@
             { "q": 0, "r": 5 },
             { "q": -5, "r": 5 }
         ],
-        "Arts & Humanities": [
+        "Arts & Humanities":
+        [
             { "q": 3, "r": -1 },
             { "q": 5, "r": -1 },
             { "q": 5, "r": 0 },
@@ -1470,57 +1485,66 @@
             { "q": 2, "r": 0 },
             { "q": 3, "r": -1 }
         ],
-        "Engineering": [
+        "Engineering":
+        [
             { "q": 0, "r": 3 },
             { "q": 0, "r": 5 },
             { "q": 3, "r": 2 },
             { "q": 1, "r": 2 }
         ],
-        "Science": [
+        "Science":
+        [
             { "q": 4, "r": -4 },
             { "q": 5, "r": -4 },
             { "q": 5, "r": -2 },
             { "q": 3, "r": -2 },
             { "q": 3, "r": -3 }
         ],
-        "Social Science": [
+        "Social Science":
+        [
             { "q": -2, "r": 2 },
             { "q": 0, "r": 2},
             { "q": -1, "r": 3},
             { "q": -1, "r": 5},
             { "q": -5, "r": 5}
         ],
-        "Health": [
+        "Health":
+        [
             { "q": -4, "r": 2 },
             { "q": -3, "r": 2 },
             { "q": -5, "r": 4 },
             { "q": -5, "r": 2 },
             { "q": -4, "r": 1 }
         ],
-        "SU": [
+        "SU":
+        [
             { "q": 0, "r": -2 },
             { "q": 2, "r": -2 },
             { "q": 2, "r": -1 },
             { "q": 2, "r": -2 }
         ],
-        "Academic": [
+        "Academic":
+        [
             { "q": -3, "r": 1 },
             { "q": -2, "r": 0 },
             { "q": -2, "r": 1 }
         ],
-        "Representative": [
+        "Representative":
+        [
             { "q": 3, "r": -4 },
             { "q": 0, "r": -4 },
             { "q": -5, "r": 1 },
             { "q": 0, "r": -4 }
         ],
-        "PTO": [
+        "PTO":
+        [
             { "q": 2, "r": -3 },
             { "q": 0, "r": -3 },
             { "q": -3, "r": 0 },
             { "q": 0, "r": -3 }
         ],
-        "FTO": [
+        "FTO":
+        [
             { "q": 0, "r": -1 },
             { "q": 1, "r": -1 },
             { "q": 1, "r": 0 },
@@ -1528,7 +1552,8 @@
             { "q": -1, "r": 1 },
             { "q": -1, "r": 0 }
         ],
-        "Archaeology": [
+        "Archaeology":
+        [
             { "q": 4.0, "r": -0.2 },
             { "q": 4.2, "r": -0.2 },
             { "q": 4.2, "r": 0 },

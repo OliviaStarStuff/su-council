@@ -48,11 +48,11 @@ policySelector.addEventListener("change", (e) => {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
     if(e.target.value == "none") {
+        console.log("we got here");
         policyName.innerText = "";
         for(const c of councillors) {
-            c.classList.toggle("vacant", c.isVacant)
-            c.clearVoteClasses();
             c.vote = -1;
+            // c.clearVoteClasses();
         }
     } else {
         policyName.innerText = records[yearSelector.value][e.target.value].name;
