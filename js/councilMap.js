@@ -30,11 +30,14 @@ const overlayVote = document.getElementById('overlay-vote');
 // Generate all councillors
 export function generateCouncillors(fromYear) {
     let i = 0;
+    // {"state", "period", "people", "councillors", "records", "groups"}
     const fromData = data[fromYear];
     Vote.styles = fromData.records.options;
+    councilMap.setAttribute("aria-label",
+            `There are ${fromData.councillors.length} councillors arranged in the shape of a hexagon`);
     for(const cData of fromData.councillors) {
         cData.history = [];
-        let j = 0;
+
         for (const record of fromData.records.policies) {
             const vote = record.votes[i] == "No Vote" ? "Absent" : record.votes[i];
 
@@ -44,9 +47,31 @@ export function generateCouncillors(fromYear) {
                 "vote": vote,
                 "session": record.session
             });
-            j++;
         };
         const c = new Councillor(cData);
+        c.node.setAttribute("tabindex", 0);
+        c.node.setAttribute("role", "graphics-symbol");
+        let an = "a"
+        let definite = ` from the faculty of ${c.faculty}`
+        switch(c.faculty) {
+            case "Arts & Humanities":
+            case "Engineering":
+                an = "an";
+                break;
+            case "SU":
+                an = "an";
+                definite = "from the SU";
+                break;
+            case "AMRC":
+            case "Apprentice":
+            case "Foundation":
+                definite = "";
+                break;
+        }
+        c.node.setAttribute("aria-label", `${c.title}, ${an} ${c.type} `
+                          + `councillor ${definite} at axial `
+                          + `coordinates, q: ${c.coords[0]}, r:${c.coords[1]}`)
+        c.node.setAttribute("tabindex", 0);
         const toggleNames = document.getElementById("toggle-names");
         switch(c.type) {
             case "Academic":

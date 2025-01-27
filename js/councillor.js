@@ -28,6 +28,7 @@ class Hex {
         this.#coords.q += distance; this.#coords.r -= distance;
     }
 
+    // Axial coordinates using https://www.redblobgames.com/grids/hexagons/
     static size = 20;
     static width = Math.sqrt(3) * Hex.size;
     static height =  4/2 * Hex.size;

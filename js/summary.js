@@ -30,7 +30,8 @@ document.addEventListener('pointermove', (e) => {
 
 
 // collapsables
-const togglesHeaderCollapsable = new Collapsable("toggles", false);
+const policyCollapsable = new Collapsable("policy", true);
+const togglesCollapsable = new Collapsable("toggles", false);
 const voteSummaryCollapsable = new Collapsable("vote-summary", true);
 
 // Produces a row for the votesummary

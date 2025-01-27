@@ -40,7 +40,7 @@ svg#grids {
     --group-colour: var(--su-colour);
 }
 
-.group-academic {
+.group-specialised {
     --group-colour: var(--acad-colour);
 }
 

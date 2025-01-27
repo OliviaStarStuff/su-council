@@ -43,4 +43,8 @@ function clearChildren(parentClassName) {
     }
 }
 
+function sanitiseName(name) {
+    return name.toLowerCase().replace(" & ", "-and-").replace(" ", "-");
+}
+
 console.log("Utilities Loaded");

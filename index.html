@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
 
@@ -49,107 +48,124 @@
     <script type="module" src="js/toggles.js" async></script>
     <script type="module" src="js/resize.js" async></script>
 </head>
-
 <body>
     <div id="content_wrapper">
-
     <!-- <nav></nav> -->
     <main class="scroller">
         <header>
             <h1 class="cinzel-display-title">SU Council Voting Record Visualiser</h1>
         </header>
         <section id="summary" class="frosted draggable-panel">
-            <button id="summary-close-button">
+            <!-- <button id="summary-close-button">
                 <span class="material-symbols-outlined">
                     close_small
                 </span>
-            </button>
-            <h2>Choose Policy</h2>
-            <div class="flex-center-row">
-                <label for="year-select">Year Select</label>
-                <select name="yearSelect" id="year-select">
-                    <option value="2024/2025">2024/2025</option>
-                    <option value="2023/2024">2023/2024</option>
-                </select>
+            </button> -->
+            <div class="header-container" id="policy-header" role="button" tabindex="0">
+                <h2>Choose Policy</h2>
+                <span id="policy-indicator" class="material-symbols-outlined">
+                    expand_circle_down
+                </span>
             </div>
-            <div id="policy-select-container" class="flex-center-row">
-            <label for="policy-select">Policy Select</label>
-            <select name="Policy" id="policy-select" data-selected=true>
-                <option value="none">None</option>
-            </select>
-            </div>
-            <section id="policy-description-container" class="display-hidden">
+            <div id="policy-container" class ="collapsable-container">
                 <div class="flex-center-row">
-                    <h3>Outlink</h3>
-                    <a id="outlink" href="Outlink" target="_blank"><span class="material-symbols-outlined">link</span></a>
+                    <label for="year-select">Year Select</label>
+                    <select name="yearSelect" id="year-select">
+                        <option value="2024/2025">2024/2025</option>
+                        <option value="2023/2024">2023/2024</option>
+                    </select>
                 </div>
-                <!-- <p id="policy-description">blah blah blah</p> -->
-            </section>
-            <section id="toggles">
-                <div class="header-container" id="toggles-header" role="button" tabindex="0">
-                    <h3>Options</h3>
-                    <span id="toggles-indicator" class="material-symbols-outlined">
-                        expand_circle_down
-                    </span>
+                <div id="policy-select-container" class="flex-center-row">
+                <label for="policy-select">Policy Select</label>
+                <select name="Policy" id="policy-select" data-selected=true>
+                    <option value="none">None</option>
+                </select>
                 </div>
-                <div id="toggles-container" class ="hidden collapsable-container">
-                    <fieldset>
-                        <div>
-                            <input type="checkbox" id="toggle-names" name="toggle-names">
-                            <label for="toggle-names">Show Academic Names</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-su-names" name="toggle-su-names" checked>
-                            <label for="toggle-su-names">Show SU Names</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-all-names" name="toggle-all-names">
-                            <label for="toggle-all-names">Show All Names</label>
-                        </div>
-                    </fieldset>
-                    <fieldset>
-                        <div>
-                            <input type="checkbox" id="toggle-cllrs" name="toggle-cllrs" checked>
-                            <label for="toggle-cllrs">Academic Councillors</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-specialised" name="toggle-specialised" checked>
-                            <label for="toggle-specialised">Specialist Councillors</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-reps" name="toggle-reps" checked>
-                            <label for="toggle-reps">Reps</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-su" name="toggle-su" checked>
-                            <label for="toggle-su">SU Councillors</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-ptos" name="toggle-ptos" checked>
-                            <label for="toggle-ptos">PTOs</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-ftos" name="toggle-ftos" checked>
-                            <label for="toggle-ftos">FTOs</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="toggle-all" name="toggle-all" checked>
-                            <label for="toggle-all">All</label>
-                        </div>
-                    </fieldset>
-                    <div>
-                        <input type="checkbox" id="toggle-vacant" name="toggle-vacant" checked>
-                        <label for="toggle-vacant">Vacant</label>
+                <section id="policy-description-container" class="display-hidden">
+                    <div class="flex-center-row">
+                        <h3>Outlink</h3>
+                        <a id="outlink" href="Outlink" target="_blank"">
+                            <span class="material-symbols-outlined">link</span>
+                            <span class="visibility-hidden">to the policy document</span>
+                        </a>
                     </div>
-                    <div>
-                        <input type="checkbox" id="toggle-groupings" name="toggle-groupings" checked>
-                        <label for="toggle-groupings">Groupings</label>
+                    <!-- <p id="policy-description">blah blah blah</p> -->
+                </section>
+
+                <section id="toggles" role="menu">
+                    <div class="header-container" id="toggles-header" role="button" tabindex="0">
+                        <h3>Options</h3>
+                        <span id="toggles-indicator" class="material-symbols-outlined">
+                            expand_circle_down
+                        </span>
                     </div>
-                </div>
-            </section>
+                    <div id="toggles-container" class ="hidden collapsable-container">
+                        <fieldset>
+                            <legend>Toggle name visibility</legend>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-names" name="toggle-names">
+                                <label for="toggle-names">Academic</label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-su-names" name="toggle-su-names" checked>
+                                <label for="toggle-su-names">SU</label>
+                            </div role="menuitem">
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-all-names" name="toggle-all-names">
+                                <label for="toggle-all-names">All</label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Toggle councillor visibiltiy</legend>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-cllrs" name="toggle-cllrs" checked>
+                                <label for="toggle-cllrs">Academic</label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-specialised" name="toggle-specialised" checked>
+                                <label for="toggle-specialised">Specialist</label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-reps" name="toggle-reps" checked>
+                                <label for="toggle-reps">Representative</label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-su" name="toggle-su" checked>
+                                <label for="toggle-su">SU   </label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-ptos" name="toggle-ptos" checked>
+                                <label for="toggle-ptos">PTOs</label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-ftos" name="toggle-ftos" checked>
+                                <label for="toggle-ftos">FTOs</label>
+                            </div>
+                            <div role="menuitem">
+                                <input type="checkbox" id="toggle-all" name="toggle-all" checked>
+                                <label for="toggle-all">All</label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Toggle groupings visibility</legend>
+                            <div>
+                                <input type="checkbox" id="toggle-groupings" name="toggle-groupings" checked>
+                                <label for="toggle-groupings">Groupings</label>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Toggle state visibility</legend>
+                            <div>
+                                <input type="checkbox" id="toggle-vacant" name="toggle-vacant" checked>
+                                <label for="toggle-vacant">Vacant</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                </section>
+            </div>
         </section>
         <section id="visual-container">
-            <div id="vote-summary" class="frosted display-hidden">
+            <div id="vote-summary" class="frosted display-hidden" role="menu">
                 <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
                     <h3>Vote Summary</h3>
                     <span id="vote-summary-indicator" class="material-symbols-outlined">
@@ -157,11 +173,11 @@
                     </span>
                 </div>
                 <!-- <label for="vote-summary">Legend</label> -->
-                <div id="vote-summary-container" class="collapsable-container">
+                <div id="vote-summary-container" class="collapsable-container" role="menuitem">
                 </div>
             </div>
-            <div id="visualisation">
-                <div id="grid-container">
+            <div id="visualisation" role="figure graphics-document" aria-label="An 11 by 11 by 11 hexagonal grid">
+                <div id="grid-container" role="graphics-object">
                     <svg id="grids" style="position:absolute" role="img" aria-labelledby="grids-title grids-desc"
                     viewbox = "-350 -325 700 650">
                         <title id="grids-title">councillor groups</title>
@@ -169,10 +185,10 @@
                         </desc>
                     </svg>
                 </div>
-                <div id="council-map">
+                <div id="council-map" role="graphics-object" aria-label="A collection of councillors arranged in a hexagonal grid there are usually 77 of them.">
                 </div>
             </div>
-            <section id="cllr-panel" class="side-panel">
+            <aside id="cllr-panel" class="side-panel">
                 <div class="flex-center-row panel-selector-container">
                     <!-- <div class="flex-center-row">
                         <label class="visibility-hidden" for="panel-year-select" class="display-hidden">Year Select</label>
@@ -189,7 +205,7 @@
                     </div>
                 </div>
                 <div class="panel-backing"></div>
-                <button id="cllr-panel-close-button" class="panel-close-button member-social-science">
+                <button id="cllr-panel-close-button" class="panel-close-button member-social-science" role="tab">
                     <div class="panel-close-bg">
 
                         <span id="cllr-panel-close-button-indicator" class="panel-indicator material-symbols-outlined">
@@ -216,13 +232,13 @@
                         <a href="">Socials</a>
                     </div>
                     <div class="panel-item">
-                        <div class="header-container" id="manifesto-header" role="button"  tabindex="0">
+                        <div class="header-container" id="manifesto-header" role="button" tabindex="0" role="menu">
                             <h5>Manifesto</h5>
                             <span id="manifesto-indicator" class="material-symbols-outlined">
                                 expand_circle_up
                             </span>
                         </div>
-                        <div id="manifesto-container" class="hidden display-hidden" tabindex="0">
+                        <div id="manifesto-container" class="hidden display-hidden" tabindex="0" role="menu">
                             <p>Build better tomorrows</p>
                         </div>
                     </div>
@@ -237,8 +253,8 @@
                             <table id="record-table">
                                 <thead>
                                     <tr>
-                                        <td>Policy Voted On</td>
-                                        <td>Vote</td>
+                                        <th>Policy Voted On</th>
+                                        <th>Vote</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cllr-record-body"></tbody>
@@ -250,12 +266,12 @@
                         <button>Apply here</button>
                     </div>
                 </div>
-            </section>
+            </aside>
             <div id="policy-name-container">
                 <p id="policy-name"></p>
             </div>
         </section>
-        <div id="overlay" class="overlay display-hidden">
+        <div id="overlay" class="overlay display-hidden" role="note">
             <p id="overlay-role"></p>
             <p id="overlay-type"></p>
             <p id="overlay-vote" class="vote-text"></p>
@@ -265,13 +281,15 @@
             <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a>, </p>
             <div class="flex-center-row"><p>Made by Olivia&copy;, </p>
             <div class="flex-center-row">
+                <a href="https://fosstodon.org/@Oliviastarstuff" target="_blank">
                 <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mastodon-link-title mastodon-link-desc">
                     <title id="mastodon-link-title">Olivia's social on fosstodon</title>
                     <desc id="mastodon-link-desc">Follow Olivia on mastodon at this url</desc>
-                    <a href="https://fosstodon.org/@Oliviastarstuff" target="_blank">
+
                     <image width="24" height="24" xlink:href="img/logo-purple.svg">
-                    </a>
+
                 </svg>
+            </a>
                 <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="github-link-title github-link-desc">
                     <title id="github-link-title">github repository for su-council</title>
                     <desc id="github-link-desc">View the files that make up thise project</desc>

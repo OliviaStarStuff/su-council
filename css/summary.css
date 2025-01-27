@@ -154,6 +154,10 @@ select#policy-select {
         font-size: unset;
     }
 
+    .collapsable-container {
+        max-height: 25em;
+    }
+
     #vote-summary {
         width: unset;
         border-radius: 0 0 1em 0;

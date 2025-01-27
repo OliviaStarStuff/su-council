@@ -86,14 +86,16 @@
     --acad-border-colour: #4aace5;
 
     /* Faculty */
-    --arts-colour:  #8d87da;
+    /* --arts-colour:  #8d87da; */
+    --arts-colour:  #9B92DD;
     --arts-border-colour: #756fc6;
 
     --engi-colour:  #ff963f;
     --engi-border-colour: #e7812d;
 
     --health-colour:  #f8a6a1;
-    --health-border-colour: #da817c;
+    /* --health-border-colour: #da817c; */
+    --health-border-colour: #E09590;
 
     --sci-colour:  #a3e29f;
     --sci-border-colour: #8acb86;

@@ -343,6 +343,19 @@ select {
         font-size: 2em;
     }
 
+    #policy-container:not(.hidden):has(#toggles-container:not(.hidden)) {
+        max-height: 32em;
+    }
+    #policy-container:not(.hidden) {
+        max-height: 15em;
+    }
+
+    #policy-container:not(.hidden)
+
+    #policy.collapsable-container {
+        max-height: 25em
+    }
+
     .collapsable-container {
         max-height: 20em;
     }
