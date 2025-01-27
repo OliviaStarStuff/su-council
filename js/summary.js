@@ -94,6 +94,8 @@ export function updateSummary(e) {
     item = setItem("Total Votes", topTotal, undefined, false);
     voteSummaryContainer.appendChild(item);
 
+    let forVotes = 0;
+    let abstainVotes = 0;
     // Row 3.. number of votes for each option
     for (const option of (targetOptions)) {
         let total = 0;
@@ -110,12 +112,19 @@ export function updateSummary(e) {
         } else {
             total = record.votes.filter(x => x == option).length;
         }
+        if (option == "For") { forVotes = total; }
+        if (option == "Abstain") { abstainVotes = total; }
 
         const voteClass = Vote.getClass(option, record.style);
         const chosenOption = option == "No Vote" ? "Absent" : option;
         const item = setItem(chosenOption, total, voteClass);
         voteSummaryContainer.appendChild(item);
     }
+    const threshold = Math.ceil((topTotal - abstainVotes) * 2 / 3);
+    console.log(forVotes + " out of " + (topTotal - abstainVotes) + " votes. Threshold is " + threshold);
+    console.log("Vote " + (forVotes > threshold ? "passes" : "fails"));
+
+
 
     // Last Row: Total vacant seats
     let vacantTotal = 0;
@@ -125,7 +134,6 @@ export function updateSummary(e) {
     item = setItem("Vacant", vacantTotal, "vote-vacant");
     // item.classList.add(vote);
     voteSummaryContainer.appendChild(item);
-
 }
 
 // Update links

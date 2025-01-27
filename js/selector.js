@@ -77,7 +77,6 @@ function selectYear(e, yearSelect) {
     generateGroupings();
 
     // refresh the policy selector
-    console.log("We got here");
     refreshPolicySelector(panelPolicySelector, "panel-policy-select", yearSelect)
     refreshPolicySelector(policySelector, "policy-select", yearSelect)
     setCouncillorClickBehaviour();

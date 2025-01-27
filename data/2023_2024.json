@@ -2879,7 +2879,7 @@
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/d/19uOBoRgZUL8flZD688nKxrbQmZ44-sXCseuWuzwmUMk/edit?usp=sharing",
-                "result": "Failed",
+                "result": "Passed",
                 "style":"standard",
                 "votes":
                 [
@@ -4655,7 +4655,7 @@
             { "q": 2, "r": -1 },
             { "q": 2, "r": -2 }
         ],
-        "Academic":
+        "Specialised":
         [
             { "q": -2, "r": 0 },
             { "q": -2, "r": 1 }
