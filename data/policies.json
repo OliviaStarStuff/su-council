@@ -1,0 +1,103 @@
+{
+    "policies" :
+    [
+        {
+            "id": 76,
+            "name": "Cops Off Campus",
+            "resolvesTo":
+            [
+                "Maintain the SUC Voting Record as a publicly available and easily accessible resource.",
+                "Display individual officer and councillor voting history underneath their profile on the SU website (updated after each Council).",
+                "Create a dedicated space on the SU website for candidates to expand on their manifestoes and experience, with voting records clearly displayed (if applicable)."
+            ],
+            "status": "passed",
+            "passedOn": "2024-10-31",
+            "reviewDate": "2027-10-31",
+            "implementation": "https://docs.google.com/document/d/10i4W9vSiKF-NrWHYe4vxXOw7lkaMnRxKpStzOSDkFag/edit?tab=t.0",
+            "versions":
+            [
+                {
+                    "readable": "2023-29-A",
+                    "period": "2023/2024",
+                    "type": "policy",
+                    "date": "2023-02-09",
+                    "url": "https://docs.google.com/document/d/1SZoEGv0TfJDzZRxVjn2alpx5HpBrKtSyaHnxYVjsRp8/edit?tab=t.0",
+                    "proposer": 70,
+                    "seconder": 51,
+                    "proposedAtSession": 3,
+                    "isPassed": false
+                },
+                {
+                    "readable": "2023-29-B",
+                    "period": "2024/2025",
+                    "type": "policy",
+                    "date": "2024-10-28",
+                    "url": "https://docs.google.com/document/d/1bQPXhZ57LaM2n3ZMmLZsGCoYubweY1mGnODqw3I5HAk/edit?tab=t.0",
+                    "proposer": 54,
+                    "seconder": 41,
+                    "proposedAtSession": 1,
+                    "isPassed": true
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Food for Future",
+            "resolvesTo":
+            [
+                "The SU will explicitly label Kosher, Halal, vegan, vegetarian, gluten-free and allergen friendly foods. Vegetarian options to be advertised before meat options on menus.",
+                "Have allergen friendly options for all of the top allergens, including vegetarian and vegan options.",
+                "Ensure the food offering across campus caters to International students.",
+                "To not sell red meat except pork and ensure ⅔ of options in all outlets are vegetarian and where feasible ⅓ of these are vegan.",
+                "Vegetarian food offered as standard for events catering, lobbying the university to do the same.",
+                "Oat milk will be offered as standard. Customers can request dairy milk. This will be monitored and a charge for dairy milk will be added if emissions do not drop.",
+                "Food emissions should be tracked by the SU, written on menus and publicised to students. Clear annual reduction goals will be set.",
+                "Prioritise the sale of affordable food by maintaining affordable meal deals, introducing more affordable hot food and guaranteeing an affordable option for all dietary needs at every outlet.",
+                "When replacing outlets, introduce a fully vegetarian/vegan outlet with international food offerings.",
+                "Host regular events, with a month that promotes plant based and sustainable diets."
+            ],
+            "status": "amended",
+            "passedOn": "2024-10-31",
+            "reviewDate": "2027-10-31",
+            "implementation": "https://docs.google.com/document/d/10i4W9vSiKF-NrWHYe4vxXOw7lkaMnRxKpStzOSDkFag/edit?tab=t.0",
+            "versions":
+            [
+                {
+                    "name": "Food Policy",
+                    "readable": "2018-01-A",
+                    "period": "2017/2018",
+                    "type": "policy",
+                    "date": "",
+                    "url": "https://docs.google.com/document/d/1SZoEGv0TfJDzZRxVjn2alpx5HpBrKtSyaHnxYVjsRp8/edit?tab=t.0",
+                    "proposer": 70,
+                    "seconder": 51,
+                    "proposedAtSession": 3,
+                    "isPassed": true
+                },
+                {
+                    "name": "Amendment to Food Policy",
+                    "readable": "2018-01-B",
+                    "period": "2023/2024",
+                    "type": "amendment",
+                    "date": "",
+                    "url": "https://docs.google.com/document/d/1LPaPhd2XmtG4PuTBZz8yjztk4lw8MVDUHQGXbUUencU/edit?tab=t.0",
+                    "proposer": 65,
+                    "seconder": 46,
+                    "proposedAtSession": 1,
+                    "isPassed": true
+                },
+                {
+                    "name": "Amendment to Foor for Future",
+                    "readable": "2018-01-C",
+                    "period": "2023/2024",
+                    "type": "amendment",
+                    "date": "",
+                    "url": "https://docs.google.com/document/d/1GNS8WtkWu1CPiyVT0rIvoRhrmQVlrxR8eQnRS1K8jzo/edit?tab=t.0",
+                    "proposer": 5,
+                    "proposedAtSession": 1,
+                    "isPassed": true
+                }
+            ]
+        }
+    ]
+}
