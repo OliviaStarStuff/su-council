@@ -7,7 +7,7 @@ import { updateSummary } from "./summary.js";
 
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
-notloaded.innerText = records["2024/2025"].map( r =>   r.name);
+notloaded.innerText = records["2024/2025"].policies.map( r =>   r.name);
 document.getElementById("summary").appendChild(notloaded);
 
 
@@ -18,10 +18,10 @@ const policySelector = document.getElementById("policy-select");
 function generatePolicyOptions(period) {
     let sessionIndex = 0;
     let optGroup;
-    for(var i = 0; i<records[period].length; i++) {
-
-        if(records[period][i].session > sessionIndex) {
-            sessionIndex = records[period][i].session;
+    for(var i = 0; i<records[period].policies.length; i++) {
+        const record = records[period].policies[i];
+        if(record.session > sessionIndex) {
+            sessionIndex = record.session;
             optGroup = document.createElement('optgroup');
             optGroup.label = "Session " + sessionIndex;
             policySelector.append(optGroup);
@@ -29,7 +29,7 @@ function generatePolicyOptions(period) {
 
         let opt = document.createElement('option');
         opt.value = i;
-        opt.innerText = records[period][i].name;
+        opt.innerText = record.name;
         optGroup.append(opt);
     }
 }
@@ -48,18 +48,12 @@ policySelector.addEventListener("change", (e) => {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
     if(e.target.value == "none") {
-        console.log("we got here");
         policyName.innerText = "";
-        for(const c of councillors) {
-            c.vote = -1;
-            // c.clearVoteClasses();
-        }
+        for(const c of councillors) { c.vote = -1; }
     } else {
-        policyName.innerText = records[yearSelector.value][e.target.value].name;
-        for(const c of councillors) {
-            // c.classList.toggle("vacant", c.isCurrentlyVacant)
-            c.vote = e.target.value;
-        }
+        policyName.innerText = records[yearSelector.value].policies[e.target.value].name;
+
+        for(const c of councillors) { c.vote = e.target.value; }
     }
     updateSummary(e);
 });

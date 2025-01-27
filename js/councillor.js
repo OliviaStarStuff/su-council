@@ -97,9 +97,14 @@ class Vote {
                 return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
         }
     }
+
+    static removeVoteClasses(node) {
+        for(const vc of Vote.classes) { node.classList.remove(vc); }
+    }
 }
 
 class Councillor {
+    // attributes
     #title = "Demo";
     #type;
     #faculty;
@@ -108,9 +113,11 @@ class Councillor {
     #vacantList;
     #member_class;
 
-    #hex;
-
+    // components
+    #hex; //for positioning
     #vote;
+
+    // nodes
     #node;
     #text;
 
@@ -149,7 +156,7 @@ class Councillor {
     set vote(recordIndex) {
         this.#vote.current = recordIndex;
         // Add the right classes for the current vote
-        this.clearVoteClasses();
+        Vote.removeVoteClasses(this.#node);
 
         if (this.#vote.vote == "") {
             const toggleVacant = document.getElementById("toggle-vacant");
@@ -220,14 +227,8 @@ class Councillor {
         this.position = this.#hex.coords;
     }
 
-    clearVoteClasses() {
-        for (const vc of Vote.classes) {
-            this.#node.classList.remove(vc);
-        }
-    }
-
     updateVoteClasses() {
-        this.clearVoteClasses();
+        Vote.removeVoteClasses(this.#node);
         if (this.#vote.vote == "") {
             const toggleVacant = document.getElementById("toggle-vacant");
             this.#node.classList.toggle("hidden-vacant", !toggleVacant.checked);

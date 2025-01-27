@@ -81,7 +81,7 @@ export function updateSummary(e) {
     if (e.target.value == "none") { return; }
 
     // Get the correct record and options
-    const record = records[yearSelector.value][e.target.value];
+    const record = records[yearSelector.value].policies[e.target.value];
     const targetOptions = Vote.styles[record.style];
 
     /* Display Code */
@@ -134,7 +134,7 @@ const policyContainer = document.getElementById("policy-description-container");
 policySelector.addEventListener("change", (e) => {
     policyContainer.classList.toggle("display-hidden", e.target.value == "none");
     if(e.target.value != "none") {
-        const url = records[yearSelector.value][e.target.value].url;
+        const url = records[yearSelector.value].policies[e.target.value].url;
         outlink.href = url == "" ? "/#" : url;
     }
 });

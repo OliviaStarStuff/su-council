@@ -15,3 +15,96 @@ This tool is a proof of concept to show what opportunities for data visualisatio
 
 1. Doesn't handle councillors who vacate or fill a set half way very well.
 2. Unsure what the difference between no vote given, blank and absent.
+
+## Format
+
+### Overview
+```json
+{
+  "state": "ongoing | completed",
+  "period": "YYYY/YYYY",
+  "people": [],
+  "councillors": [],
+  "sessions": [],
+  "records": {},
+  "groups": [],
+}
+```
+
+#### Person
+```json
+{
+  "id": 1,
+  "name": "Stevonnie",
+  "pronouns": "they/them",
+  "course": "Gemology",
+  "year": "1st | 2nd | 3rd | 4th",
+  "history": [],
+  "email": "suniverse2@sheffield.ac.uk",
+  "socials": { "mastodon": "", "pixelfed": "", "bluesky": "" }
+}```
+
+##### Person > History
+```json
+{
+    "id": #CllrNum,
+    "title": #CllrTitle,
+    "period": "YYYY/YYYY",
+    "manifesto": "text? url?"
+}
+```
+
+#### Councillor
+```json
+{
+  "title": "Councillor title",
+  "type": "Academic | Specialised | Representative | SU | PTO | FTO",
+  "faculty": "Apprentices | AMRC | SU | Arts & Humanities | Enginnering | Health | Science | Social Science",
+  "initial": "@@@@@",
+  "coords": { "q": #, "r": # },
+  "isCurrentlyFilled": bool,
+  "vacantFor": [ #sessionNum ],
+  "voteDelegatedIn": [ #sessionNum ]
+  "person" : [ #personID ]
+}```
+
+#### Session
+```json
+{
+    "name": "Meeting #",
+    "date": "YYYY-MM-DD",
+    "agenda": "url",
+    "logs": "url"
+}```
+
+
+#### Record
+```json
+{
+  "styles":
+  {
+    "standard": [ "For", "Against", "Abstain", "No Vote" ],
+    "numerical":
+    [
+      "Option 1", "Option 2", "Option 3", "Option 4",
+      "Recommend Against", "Abstain", "No Vote"
+    ],
+    "alphabetical":
+    [
+      "Option A", "Option B", "Option C", "Option D",
+      "Blank", "Abstain", "No Vote"
+    ],
+  },
+  "policies": []
+}```
+
+#### Record > policies
+```json
+{
+  "name": "Policy/vote title",
+  "session": #sessionID,
+  "url": "url",
+  "result": "Passed | Failed | <Custom Result>",
+  "style":"standard | alphabetical | numerical | <Custom #Style>"
+  "votes": [ option ]
+}```

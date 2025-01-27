@@ -33,16 +33,16 @@ const overlayVote = document.getElementById('overlay-vote');
 export function generateCouncillors(fromYear) {
     let i = 0;
     const fromData = data[fromYear];
-    Vote.styles = fromData.voteOptions;
+    Vote.styles = fromData.records.options;
     for(const cData of fromData.councillors) {
         cData.history = [];
         let j = 0;
-        for (const record of fromData.records) {
+        for (const record of fromData.records.policies) {
             const vote = record.votes[i] == "No Vote" ? "Absent" : record.votes[i];
 
             cData.history.push({
                 "name": record.name,
-                "style":record.style,
+                "style": record.style,
                 "vote": vote,
                 "session": record.session
             });
