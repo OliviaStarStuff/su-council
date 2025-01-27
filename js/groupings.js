@@ -31,14 +31,16 @@ export function generateGroupings() {
         const title = document.createElement("title");
         title.innerText = key;
         shape.appendChild(title);
+
         if(key == "Archaeology") {
             const cm = document.getElementById("council-map");
             const hiddenDiv = document.createElement("div");
+            hiddenDiv.classList.add("member-lost");
 
-            const hex = new Hex({"q":4,"r":0}, [25, 20]);
+            const hex = new Hex({"q":4,"r":0}, [24, 20]);
             const coords = hex.position;
-            hiddenDiv.style.left = coords[0] + "px";
-            hiddenDiv.style.top = coords[1] + "px";
+            hiddenDiv.style.left = coords[0] + 1 + "px";
+            hiddenDiv.style.top = coords[1] + 1 + "px";
 
             cm.appendChild(hiddenDiv);
 
