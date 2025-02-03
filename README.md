@@ -138,7 +138,7 @@ This tool is a proof of concept to show what opportunities for data visualisatio
 *I WANT* to be told which policies are relevant to me
 *So THAT* I don't waste what little time I have
 
-*AS A* student who does not believe the SU h*as a* lot of power
+*AS A* student who does not believe the SU has a lot of power
 *I WANT* to be shown how policies have changed things in the uni for the better
 *SO THAT* I can be proven wrong
 
