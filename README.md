@@ -18,7 +18,7 @@ This tool is a proof of concept to show what opportunities for data visualisatio
 
 ## Format
 
-### Overview
+### Overview of json format used
 ```json
 {
   "state": "ongoing | completed",
@@ -111,3 +111,37 @@ This tool is a proof of concept to show what opportunities for data visualisatio
   "votes": [ "option" ]
 }
 ```
+## User stories
+
+*AS A* student who is interested in the SU Council,
+*I WANT* to learn what my councillor voted for
+*AND* why they voted the way they did
+*SO THAT* I can stay informed.
+
+*AS A* student who is interested in the SU Council,
+*I WANT* to be notified when something council related happens
+*SO THAT* I can get involved with council
+
+*AS A* student who doesn't care about council,
+*I WANT* to understand how council is relevant to me.
+*SO THAT* I can decide if it matters to me.
+
+*AS A* student,
+*I WANT* to know who my councillor is
+*SO THAT* I can contact them about an issue I am passionate about
+
+*AS A* student,
+*I WANT* to submit a policy
+*SO THAT* I can help change the uni for the better.
+
+*AS A* Student who does not have a lot of time
+*I WANT* to be told which policies are relevant to me
+*So THAT* I don't waste what little time I have
+
+*AS A* student who does not believe the SU h*as a* lot of power
+*I WANT* to be shown how policies have changed things in the uni for the better
+*SO THAT* I can be proven wrong
+
+*As A* student who knows nothing about council,
+*I WANT* to learn how council works
+*SO THAT* I can understand what is going on AND get involved
