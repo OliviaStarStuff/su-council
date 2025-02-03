@@ -48,8 +48,6 @@
     background-color: var(--member-border-colour);
     border-width: 0.25em;
     border-style: none;
-    --transform-scale: 0.7;
-    transform: scale(var(--transform-scale));
     /* box-shadow: 0.125em 0.125em 5px #00000029, inset 0.125em 0.125em 0.25em #ffffff7d; */
     color: rgb(75, 75, 75);
 }
