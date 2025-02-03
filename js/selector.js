@@ -40,7 +40,7 @@ function generatePolicyListOptions(period) {
 
         const displayPolicyButton = clone.querySelector("button");
         displayPolicyButton.value = i;
-        displayPolicyButton.addEventListener("click", e => {selectPolicy(e)});
+        displayPolicyButton.addEventListener("click", e => {selectPolicy(e, "vote-summary")});
 
         const summaryButton = clone.querySelector("button.summary-button");
         summaryButton.value = i;
