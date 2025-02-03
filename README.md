@@ -6,6 +6,13 @@ This tool allows you to view the voting record of Sheffield University's Student
 
 This tool is a proof of concept to show what opportunities for data visualisation and interaction is possible.
 
+It is in line with the active SU policy, [Transparency And Voting](https://docs.google.com/document/d/1KrbLNFIf5dPhOnjdFkb0cNOqID-g8Okiz5aS2p9mfXE/edit?tab=t.0) whose stated goals are to:
+
+1. Maintain the SUC Voting Record as a publicly available and easily accessible resource.
+2. Display individual officer and councillor voting history underneath their profile on the SU website (updated after each Council).
+3. Create a dedicated space on the SU website for candidates to expand on their manifestoes and experience, with voting records clearly displayed (if applicable).
+
+
 ## Info
 
 1. Does not display vote by proxy
