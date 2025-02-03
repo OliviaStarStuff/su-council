@@ -42,13 +42,14 @@ This tool is a proof of concept to show what opportunities for data visualisatio
   "history": [],
   "email": "suniverse2@sheffield.ac.uk",
   "socials": { "mastodon": "", "pixelfed": "", "bluesky": "" }
-}```
+}
+```
 
 ##### Person > History
 ```json
 {
-    "id": #CllrNum,
-    "title": #CllrTitle,
+    "id": "#CllrNum",
+    "title": "#CllrTitle",
     "period": "YYYY/YYYY",
     "manifesto": "text? url?"
 }
@@ -61,12 +62,13 @@ This tool is a proof of concept to show what opportunities for data visualisatio
   "type": "Academic | Specialised | Representative | SU | PTO | FTO",
   "faculty": "Apprentices | AMRC | SU | Arts & Humanities | Enginnering | Health | Science | Social Science",
   "initial": "@@@@@",
-  "coords": { "q": #, "r": # },
-  "isCurrentlyFilled": bool,
-  "vacantFor": [ #sessionNum ],
-  "voteDelegatedIn": [ #sessionNum ]
-  "person" : [ #personID ]
-}```
+  "coords": { "q": 0, "r": 0 },
+  "isCurrentlyFilled": "true | false",
+  "vacantFor": [ "#sessionNum" ],
+  "voteDelegatedIn": [ "#sessionNum" ]
+  "person" : [ "#personID" ]
+}
+```
 
 #### Session
 ```json
@@ -75,9 +77,8 @@ This tool is a proof of concept to show what opportunities for data visualisatio
     "date": "YYYY-MM-DD",
     "agenda": "url",
     "logs": "url"
-}```
-
-
+}
+```
 #### Record
 ```json
 {
@@ -96,15 +97,17 @@ This tool is a proof of concept to show what opportunities for data visualisatio
     ],
   },
   "policies": []
-}```
+}
+```
 
 #### Record > policies
 ```json
 {
   "name": "Policy/vote title",
-  "session": #sessionID,
+  "session": "#sessionID",
   "url": "url",
   "result": "Passed | Failed | <Custom Result>",
   "style":"standard | alphabetical | numerical | <Custom #Style>"
-  "votes": [ option ]
-}```
+  "votes": [ "option" ]
+}
+```
