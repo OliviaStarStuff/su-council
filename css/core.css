@@ -502,12 +502,29 @@ a.list-item-button {
         display: none;
     }
 
-    #desktop-left-panel {
-        display: unset;
-        width: 10em;
-        flex-shrink: 0;
-        height: 100%;
+    #outlinks-container {
+        position: absolute;
+        top: -7.5em;
+        flex-direction: column;
+        gap: 1em;
+        align-items: flex-start;
     }
+
+    #outlinks-container:not(.display-hidden) {
+        display: flex;
+    }
+
+    #outlinks-container a {
+        text-decoration: none;
+    }
+
+    #outlinks-container div {
+        padding: 0.25em 1em;
+        background-color: white;
+        border-radius: 0.75em;
+        box-shadow: 2px 2px 5px black;
+    }
+
     #content_wrapper {
         height: 100svh;
     }
@@ -548,9 +565,16 @@ a.list-item-button {
         grid-row: 2;
         grid-column: 1 / span 2;
     }
-    #vote-summary-panel.display-hidden {
+
+    #vote-summary-panel:not(.display-hidden) {
+        position: relative;
         display: flex;
     }
+
+    #vote-summary-panel h3 {
+        color: white;
+    }
+
     #vote-summary-panel .summary-container {
         display: flex;
         padding: 0;

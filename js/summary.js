@@ -147,14 +147,3 @@ export function updateSummary(e, voteSummaryID) {
     // item.classList.add(vote);
     voteSummaryContainer.appendChild(item);
 }
-
-// Update links
-const outlink = document.getElementById("outlink");
-const outLinkContainer = document.getElementById("outlink-container");
-policySelector.addEventListener("change", (e) => {
-    outLinkContainer.classList.toggle("display-hidden", e.target.value == "none");
-    if(e.target.value != "none") {
-        const url = records[getCurrentYear()].policies[e.target.value].url;
-        outlink.href = url == "" ? "/#" : url;
-    }
-});

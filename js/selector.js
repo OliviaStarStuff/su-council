@@ -52,10 +52,6 @@ function generatePolicyListOptions(period) {
         summaryButton.value = i;
         summaryButton.addEventListener("click", displaySummary);
 
-        const outlink = clone.querySelector("a");
-        outlink.disabled = record.url == "";
-        outlink.href = record.url;
-
         policyList.appendChild(clone);
     }
 }
@@ -63,6 +59,12 @@ function generatePolicyListOptions(period) {
 function generatePolicySelectOptions(pSelector, period) {
     let sessionIndex = 0;
     let optGroup;
+
+    let opt = document.createElement('option');
+    opt.value = "none";
+    opt.innerText = "None";
+    pSelector.append(opt);
+
     for(var i = 0; i<records[period].policies.length; i++) {
         const record = records[period].policies[i];
         if(record.session > sessionIndex) {
@@ -107,8 +109,24 @@ function displaySummary(e) {
     voteSummary.classList.remove("display-hidden");
 }
 
-const policyName = document.getElementById("policy-name")
-policySelector.addEventListener("change", (e) => {selectPolicy(e, "vote-summary-panel")})
+const policy = document.getElementById("policy-outlink");
+const agenda = document.getElementById("agenda-outlink");
+const logs = document.getElementById("minutes-outlink");
+const voteSummaryPanel = document.getElementById("vote-summary-panel");
+policySelector.addEventListener("change", (e) => {
+    selectPolicy(e, "vote-summary-panel");
+
+    voteSummaryPanel.classList.toggle("display-hidden", e.target.value == "none");
+    if (e.target.value == "none") return;
+
+    const currentRecord = records[getCurrentYear()].policies[e.target.value];
+    const currentSession = sessions[getCurrentYear()][currentRecord.session - 1];
+
+    agenda.href = currentSession.agenda;
+    logs.href = currentSession.logs;
+    policy.href = currentRecord.url;
+    policy.disabled = currentRecord.url == "";
+})
 
 policyList.focus();
 
@@ -136,6 +154,11 @@ function selectYear(e) {
 
     setCouncillorClickBehaviour();
     // policyList.dispatchEvent(new Event('change'))
+    // hide links
+    const outlinkContainer = document.getElementById("outlinks-container");
+    outlinkContainer.classList.add("display-hidden");
+    clearChildren(policyList.id);
+    clearChildren("vote-summary-panel");
 }
 
 const tab = document.getElementById("session-tab");

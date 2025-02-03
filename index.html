@@ -58,9 +58,8 @@
             <h1 class="cinzel-display-title">SU Council Voting Record Visualiser</h1>
         </header>
         <main>
-            <section id="desktop-left-panel"></section>
             <section id="visual-container">
-                <div id="hexagon" role="figure graphics-document" aria-label="An 11 by 11 by 11 hexagonal grid">
+                <div id="hexagon" role="figure graphics-document" aria-label="An 5 by 5 by 5 hexagonal grid">
                     <div id="group-container" role="graphics-object">
                         <svg id="grids" role="img" aria-labelledby="grids-title grids-desc"
                         viewbox = "-350 -325 700 650">
@@ -88,17 +87,20 @@
                         <div id="panel-policy-select-container">
                             <label for="panel-policy-select">Policy Select</label>
                             <select name="Policy" id="policy-select">
-                                <option value="none">None</option>
                             </select>
-                        </div>
-                        <div id="outlink-container" class="display-hidden">
-                            <a target="_blank" id="outlink">link to policy</a>
                         </div>
                     </div>
                 </div>
             </section>
+
             <section id="desktop-right-panel">
+
                 <div id="vote-summary-panel" class="summary frosted display-hidden" role="menu">
+                    <section id="outlinks-container">
+                        <div><a id="agenda-outlink" class="outlink" target="_blank">Agenda</a></div>
+                        <div><a id="minutes-outlink" class="outlink" target="_blank">Minutes</a></div>
+                        <div><a id="policy-outlink" class="outlink" target="_blank" >Policy Info</a></div>
+                    </section>
                     <div class="header-container" id="vote-summary-panel-header" role="button"  tabindex="0">
                         <h3>Vote Summary</h3>
                         <span id="vote-summary-panel-indicator" class="material-symbols-outlined">

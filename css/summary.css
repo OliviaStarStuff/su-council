@@ -179,7 +179,7 @@ select#policy-select {
     }
 
     main {
-        grid-template-columns: 1fr 1fr 16.5em;
+        grid-template-columns: 1fr 1fr 20em;
     }
 
     #panel-policy-select-container {
