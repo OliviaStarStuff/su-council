@@ -39,4 +39,10 @@ for(let i = 0; i < councilNav.children.length; i++) {
                 break;
         }
     });
+
 }
+
+if(window.innerWidth > 600) {
+    councilNav.children[1].click();
+}
+

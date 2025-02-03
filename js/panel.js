@@ -1,4 +1,4 @@
-const button = document.getElementById("cllr-panel-close-button");
+// const button = document.getElementById("cllr-panel-close-button");
 
 
 // fill details
@@ -37,12 +37,11 @@ export function updateMobilePanel(councillor) {
         if (r.vote == "") { continue; }
         createHistoryRow(r);
     }
-    vacantContainer.classList.add("display-hidden")
+    // vacantContainer.classList.add("display-hidden")
 }
 
 function updatePanel(councillor) {
     panelTitle.className = '';
-    button.className = "";
     panelTitle.classList.add("panel-title");
     panelTitle.classList.add(councillor.colourClass);
     panelTitle.innerText =  councillor.title;

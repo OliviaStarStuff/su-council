@@ -64,7 +64,8 @@
     padding: 1em;
 
     background-color: var(--primary-colour);
-    border-radius: 2em;
+    border-radius: 1em;
+    box-shadow: 0.25em 0.25em rgba(79, 253, 192, 0.457);
     color: black;
 }
 
@@ -236,7 +237,8 @@
     }
 
     #help-button  {
-        top: 25%;
+        top: unset;
+        bottom: 10em;
         right: 10%;
     }
 
@@ -266,7 +268,6 @@
 
 @media only screen and (min-width: 900px) {
     #help-button  {
-        top: 18%;
-        right: 15%;
+        right: 5em;
     }
 }

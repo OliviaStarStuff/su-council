@@ -462,16 +462,14 @@ a.list-item-button {
     }
 
     #hexagon {
-
-        transform: scale(0.55) rotate(-30deg);
+        height: 360px;
+        top: 45%;
+        transform: scale(0.55);
     }
 
-    .member {
-        transform: rotate(30deg);
-    }
 
     .member p {
-        font-size: 1em;
+        font-size: 1rem;
     }
 }
 
@@ -496,9 +494,6 @@ a.list-item-button {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 0fr;
     }
-
-
-
     main {
         grid-template-columns: 1fr 1fr 16.5em;
     }
@@ -570,8 +565,6 @@ a.list-item-button {
         flex-grow: 1;
     }
 
-
-
     footer {
         padding: 0.75em 0 1em 0;
         position: absolute;
@@ -616,7 +609,6 @@ a.list-item-button {
         /* height: 20em; */
     }
 
-
     #policy-container:not(.hidden)
 
     #policy.collapsable-container {
@@ -628,6 +620,7 @@ a.list-item-button {
     }
 
     #hexagon {
+        top: 50%;
         transform: scale(0.50);
     }
 

@@ -156,6 +156,12 @@ select#policy-select {
     }
 }
 
+@media only screen and (min-width: 700px) {
+    #panel-policy-select-container {
+        flex-direction: row;
+    }
+}
+
 
 @media only screen and (min-width: 900px) {
     select#policy-select {
@@ -183,7 +189,11 @@ select#policy-select {
 }
 
 @media only screen and (min-width: 1080px) {
-#panel-policy-select-group-container {
-    flex-direction: row;
-}
+    #panel-policy-select-group-container {
+        flex-direction: row;
+    }
+
+    #year-buttons-container {
+        gap: 3em;
+    }
 }
