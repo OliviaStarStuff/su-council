@@ -155,10 +155,10 @@ function selectYear(e) {
     setCouncillorClickBehaviour();
     // policyList.dispatchEvent(new Event('change'))
     // hide links
-    const outlinkContainer = document.getElementById("outlinks-container");
-    outlinkContainer.classList.add("display-hidden");
+    const voteSummaryPanel = document.getElementById("vote-summary-panel");
+    voteSummaryPanel.classList.add("display-hidden");
     clearChildren(policyList.id);
-    clearChildren("vote-summary-panel");
+    clearChildren("vote-summary-panel-container");
 }
 
 const tab = document.getElementById("session-tab");

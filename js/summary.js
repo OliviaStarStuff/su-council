@@ -81,6 +81,7 @@ export function updateSummary(e, voteSummaryID) {
     const voteSummary = document.getElementById(voteSummaryID);
     const voteSummaryContainer = document.getElementById(voteSummaryID + "-container");
     const header = voteSummary.querySelector("h3");
+    console.log(voteSummaryID, voteSummaryContainer);
     // clear summary list
     while (voteSummaryContainer.firstChild) {
         voteSummaryContainer.removeChild(voteSummaryContainer.firstChild);
