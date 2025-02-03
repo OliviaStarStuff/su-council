@@ -47,4 +47,11 @@ function sanitiseName(name) {
     return name.toLowerCase().replace(" & ", "-and-").replace(" ", "-");
 }
 
+function getCurrentYear() {
+    const yearSelector = document.getElementById("year-buttons")
+    for(const button of yearSelector.children) {
+        if (button.classList.contains("selected")) { return button.value; }
+    };
+}
+
 console.log("Utilities Loaded");

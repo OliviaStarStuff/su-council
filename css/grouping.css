@@ -1,24 +1,29 @@
-svg#grids {
-    position: absolute;
-    border: solid 1em #0000;
-    overflow: visible;
-    left: -1em;
-    top: -1em;
-}
+#grids {
+    --height: 745px;
+    --width: 700px;
 
-#grid-container {
-    top:50%;
-    left:50%;
+    position: absolute;
+    top: calc(0px - var(--height) / 2);
+    left: calc(0px - var(--width) / 2);
+    height: var(--height);
+    width: var(--width);
+    overflow: visible;
 }
 
 #grids polygon {
     /* opacity: 70%; */
     stroke: black;
     fill: none;
-    stroke-width: 5em;
+    stroke-width: 3em;
     stroke: var(--group-colour);
     stroke-linecap: round;
     stroke-linejoin: round;
+}
+
+
+#grids polygon.group-background {
+    /* --group-colour: white; */
+    /* fill: var(--group-colour); */
 }
 
 .group-representative {

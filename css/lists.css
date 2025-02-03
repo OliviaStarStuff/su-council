@@ -1,0 +1,243 @@
+
+
+.list-container {
+    padding: 0em;
+}
+
+.list-container > li {
+    list-style: none;
+    list-style-position: inside;
+    /* outline: var(--primary-colour-dark) solid 0.0625em; */
+}
+
+li:has(.list-item-header) {
+    text-align: center;
+    padding: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    background-color: var(--primary-colour-light);
+}
+
+.list-item, .list-item-header {
+    width: 100%;
+    padding: 0.5rem 1.25rem;
+}
+
+.list-item-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.list-item-header > h5 {
+    /* font-size: 1.25rem; */
+    color: var(--primary-colour-dark);
+    font-weight: 400;
+}
+
+.list-item-header p {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: left;
+}
+
+.list-item-header .list-item-button {
+    border-color: var(--primary-colour)
+}
+
+
+.list-separator {
+    margin: 0 2em;
+    border-bottom: solid 0.126em var(--primary-colour-highlight);
+}
+
+.list-item {
+    display: flex;
+    flex-direction: column;
+    gap:0.5em;
+    /* justify-content: space-between; */
+}
+
+.list-item > p {
+    text-align: left;
+    font-size: 1rem;
+}
+
+.list-item-main-button p {
+    font-size: 1rem;
+}
+
+.list-item-button-container {
+    display: flex;
+    flex-direction: row;
+    gap:0.75em;
+    justify-content: end;
+    grid-row: 2;
+    grid-column: 2;
+}
+
+
+.list-item-button {
+    border-radius: 3em;
+    padding: 0.25em 0.75em;
+    border: solid 0.125em white;
+    font-size: 0.8rem;
+}
+
+.vote-button {
+    width: fit-content;
+    justify-self: end;
+    grid-row: 1;
+    grid-column: 2;
+    background-color: var(--primary-colour-light);
+}
+
+.details-button {
+    color: var(--primary-colour-darker);
+    text-decoration: none;
+    background-color: var(--primary-colour-light);
+}
+
+.details-button:disabled {
+    color: grey;
+}
+
+#councillor-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+}
+
+.councillor-list-item {
+    display: flex;
+    border-radius: 0.5em;
+    align-items: center;
+    overflow: clip;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: var(--member-colour);
+
+    /* align-content: stretch; */
+}
+
+.info-container {
+    display: flex;
+    gap: 1em;
+    padding: 0.75em 0 0.75em 0.75em;
+
+    flex-grow: 1;
+}
+
+.info-container > img {
+    border-radius: 50%;
+    /* width: 2.5em; */
+    /* height: 2.5em; */
+    aspect-ratio: 1;
+    background-color: white;
+}
+
+.info-container > div {
+    flex-grow: 1;
+}
+
+.councillor-more-button {
+    height: max-content;
+    width: 3em;
+    height: 100%;
+    /* padding: 1em; */
+    color: white;
+    /* background-color: var(--primary-colour-light); */
+}
+
+#councillors-tab .header-container {
+    padding: 0.75em 1em;
+}
+
+#councillor-list-container .collapsable-container {
+    padding: 0em 0.5em;
+}
+
+#councillors-tab .list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+#councillors-tab h3 {
+    color: var(--member-border-colour);
+}
+#councillors-tab p {
+    color: black;
+}
+#councillors-tab span {
+    color: black;
+}
+
+#cllr-details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0.25em 0;
+    gap: 0.75em;
+}
+
+#cllr-details.display-hidden {
+    display: none;
+}
+
+#cllr-back-button {
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 50%;
+    background-color: var(--primary-colour);
+    vertical-align: middle;
+    line-height: 0;
+}
+
+#cllr-details #title-container {
+    display: flex;
+    flex-direction: row;
+    padding: unset;
+    align-items: center;
+}
+
+#cllr-details > div {
+    padding-inline: 1em;
+}
+
+#cllr-details > #vote-history-container {
+    padding-inline: unset;
+}
+
+#cllr-details > #info-bio {
+    display: grid;
+    gap: 0 1em;
+    grid-template-columns: 0fr 1fr;
+}
+
+#cllr-details img {
+    grid-row: 1 / span 5;
+    height: 7em;
+    width: 7em;
+    border-radius: 100%;
+    border: solid 0.125em black;
+}
+
+#cllr-details #cllr-details-buttons {
+    grid-column: span 2;
+    display: flex;
+    gap: 0;
+}
+
+.cllr-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#cllr-details-buttons {
+    padding-block: 0em;
+}
+
+#vote-history-container {
+    padding: unset;
+}

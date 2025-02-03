@@ -3,6 +3,7 @@
 // Does not work with firefox 15/01/2025
 // import data from './councillors.json' with { type: 'json' };
 import { data } from "./loadData.js"
+import { openCouncillorPanel } from "./councillorList.js"
 // const councillors = []
 // export const records = data.records;
 // export const groups = data.groups;
@@ -20,7 +21,7 @@ export const groups = generateDataExport("groups");
 
 
 // We'll add all councillor objects to this section
-const councilMap = document.getElementById('council-map');
+const councilMap = document.getElementById('council-container');
 // These are overlay hooks
 const overlay = document.getElementById('overlay');
 const overlayRole = document.getElementById('overlay-role');
@@ -30,6 +31,7 @@ const overlayVote = document.getElementById('overlay-vote');
 // Generate all councillors
 export function generateCouncillors(fromYear) {
     let i = 0;
+    console.log(fromYear);
     // {"state", "period", "people", "councillors", "records", "groups"}
     const fromData = data[fromYear];
     Vote.styles = fromData.records.options;
@@ -112,11 +114,11 @@ export function generateCouncillors(fromYear) {
         councilMap.appendChild(c.node);
     }
 }
+const yearSelector = document.getElementById("year-buttons");
+generateCouncillors(getCurrentYear());
 
-generateCouncillors("2024/2025");
 
-
-const vc = document.getElementById("visual-container");
+const vc = document.getElementById("hexagon");
 vc.addEventListener("pointermove", (e) => {
     overlay.style.left = e.pageX + 10 + "px";
     overlay.style.top = e.pageY + 20 + "px";

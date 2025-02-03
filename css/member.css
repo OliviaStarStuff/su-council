@@ -69,7 +69,7 @@
   } */
 
 /* Member colours */
-#council-map .member, #grids, .panel-title, .panel-close-button, .overlay {
+#council-container .member, #grids, .panel-title, .panel-close-button, .overlay, #councillors-tab {
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 

@@ -27,7 +27,7 @@ function setGroupOverlay(shape, name) {
 }
 
 function setArchaeologyOverlay() {
-    const cm = document.getElementById("council-map");
+    const cm = document.getElementById("council-container");
     const hiddenDiv = document.createElement("div");
     hiddenDiv.classList.add("member-lost");
 
@@ -65,12 +65,25 @@ function generatePoints(shape, value) {
 
 // This is the main code we'll be running to generate the svg polygonal groups
 let svg = document.getElementById("grids");
-const yearSelector = document.getElementById("year-select");
+const yearSelector = document.getElementById("year-buttons");
 const shapes = [];
 
 export function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
-    for (const [key, value] of Object.entries(groups[yearSelector.value])) {
+    let shape = document.createElementNS(svgns, "polygon");
+    shape.classList.add("group-background");
+    generatePoints(shape, [
+        { "q": -5.2, "r": 0 },
+        { "q": 0, "r": -5.2 },
+        { "q": 5.2, "r": -5.2 },
+        { "q": 5.2, "r": 0 },
+        { "q": 0, "r": 5.2 },
+        { "q": -5.2, "r": 5.2 }
+    ]);
+    shape.setAttribute("role", "decorate");
+    svg.appendChild(shape);
+
+    for (const [key, value] of Object.entries(groups[getCurrentYear()])) {
         // main shape code
         const sanitisedName = sanitiseName(key);
 

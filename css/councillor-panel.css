@@ -56,6 +56,27 @@
     align-content: center;
 }
 
+#help-button {
+    bottom: unset;
+    top: 1em;
+    right: 1.5em;
+    width: 6ch;
+    padding: 1em;
+
+    background-color: var(--primary-colour);
+    border-radius: 2em;
+    color: black;
+}
+
+#help-button p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#cllr-panel {
+    display: none;
+}
+
 #cllr-panel-close-button-indicator-h {
     display: none;
 }
@@ -131,6 +152,7 @@
 
 /* vote history item */
 #vote-history-container  {
+    padding: unset;
     max-height: 15em;
     overflow-y: auto;
     width: 100%;
@@ -142,7 +164,7 @@
 }
 
 #record-table {
-    width: inherit;
+    width: 100%;
 }
 
 #record-table thead td {
@@ -213,6 +235,15 @@
         height: 100%;
     }
 
+    #help-button  {
+        top: 25%;
+        right: 10%;
+    }
+
+    #cllr-panel {
+        display: block;
+    }
+
     #cllr-panel-close-button {
         height: 100%;
     }
@@ -229,5 +260,13 @@
         grid-column: 2;
         grid-row: 1 / span 2;
         box-shadow: 0px 0 5px rgb(98, 98, 98);
+    }
+}
+
+
+@media only screen and (min-width: 900px) {
+    #help-button  {
+        top: 18%;
+        right: 15%;
     }
 }

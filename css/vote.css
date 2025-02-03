@@ -1,4 +1,4 @@
-#council-map > .member, #vote-summary-container, #vote-history-container {
+#council-container, .summary-container, #vote-history-container {
     --for-colour: #06d6a0;
     --against-colour: red;
     --abstain-colour: yellow;

@@ -3,36 +3,37 @@
 import { records }  from './councilMap.js';
 
 // Summary Window draggable feature
-const summary = document.getElementById("summary");
+// const summary = document.getElementById("summary");
 
-let drag = false;
-const rect = summary.getBoundingClientRect();
-const pos = {"x": rect.left, "y": rect.top};
-const offsetPos = {"x": 0, "y": 0};
-summary.addEventListener('pointerdown', (e) => {
-    drag = true
-    offsetPos.x = e.clientX-pos.x;
-    offsetPos.y = e.clientY-pos.y;
-});
+// let drag = false;
+// const rect = summary.getBoundingClientRect();
+// const pos = {"x": rect.left, "y": rect.top};
+// const offsetPos = {"x": 0, "y": 0};
+// summary.addEventListener('pointerdown', (e) => {
+//     drag = true
+//     offsetPos.x = e.clientX-pos.x;
+//     offsetPos.y = e.clientY-pos.y;
+// });
 
-document.addEventListener('pointerup', () => {
-    drag = false;
-});
+// document.addEventListener('pointerup', () => {
+//     drag = false;
+// });
 
-document.addEventListener('pointermove', (e) => {
-        if(drag) {
-            pos.x = e.clientX - offsetPos.x;
-            pos.y = e.clientY - offsetPos.y;
-            summary.style.left = pos.x + "px";
-            summary.style.top = pos.y + "px";
-        }
-});
+// document.addEventListener('pointermove', (e) => {
+//         if(drag) {
+//             pos.x = e.clientX - offsetPos.x;
+//             pos.y = e.clientY - offsetPos.y;
+//             summary.style.left = pos.x + "px";
+//             summary.style.top = pos.y + "px";
+//         }
+// });
 
 
 // collapsables
-const policyCollapsable = new Collapsable("policy", true);
+// const policyCollapsable = new Collapsable("policy", true);
 const togglesCollapsable = new Collapsable("toggles", false);
 const voteSummaryCollapsable = new Collapsable("vote-summary", true);
+const voteSummaryPanelCollapsable = new Collapsable("vote-summary-panel", true);
 
 // Produces a row for the votesummary
 function setItem(option, totalValue, voteClass, addMouseOver=true) {
@@ -64,35 +65,47 @@ function setItem(option, totalValue, voteClass, addMouseOver=true) {
     return item;
 }
 
+const policyList = document.getElementById("policy-list")
+const voteSummary = document.getElementById("vote-summary");
+const backButton = voteSummary.querySelector("button");
+
+backButton.addEventListener("click", e => {
+    voteSummary.classList.add("display-hidden");
+    policyList.classList.remove("display-hidden");
+})
+
 // update vote summary container
 const policySelector = document.getElementById("policy-select");
-const voteSummaryContainer = document.getElementById("vote-summary-container");
-const voteSummary = document.getElementById("vote-summary");
 
-const yearSelector = document.getElementById("year-select");
-
-export function updateSummary(e) {
+export function updateSummary(e, voteSummaryID) {
+    const voteSummary = document.getElementById(voteSummaryID);
+    const voteSummaryContainer = document.getElementById(voteSummaryID + "-container");
+    const header = voteSummary.querySelector("h3");
     // clear summary list
     while (voteSummaryContainer.firstChild) {
         voteSummaryContainer.removeChild(voteSummaryContainer.firstChild);
     }
 
     // guard clause if not showing voting data, show nothing
-    voteSummary.classList.toggle("display-hidden", e.target.value == "none");
+    // voteSummaryTabContainer.classList.toggle("display-hidden", e.target.value == "none");
     if (e.target.value == "none") { return; }
 
     // Get the correct record and options
-    const record = records[yearSelector.value].policies[e.target.value];
+    const record = records[getCurrentYear()].policies[e.target.value];
     const targetOptions = Vote.styles[record.style];
+
+    header.innerText = record.name;
 
     /* Display Code */
     // Row 1: Result
     let item = setItem("Result", record.result, undefined, false);
+    item.classList.add("summary-top");
     voteSummaryContainer.appendChild(item);
 
     // Row 2: Total votes
     const topTotal = record.votes.filter(x => x != "No Vote" && x != "blank" && x != "" && x != "Absent").length;
     item = setItem("Total Votes", topTotal, undefined, false);
+    item.classList.add("summary-top");
     voteSummaryContainer.appendChild(item);
 
     let forVotes = 0;
@@ -125,8 +138,6 @@ export function updateSummary(e) {
     console.log(forVotes + " out of " + (topTotal - abstainVotes) + " votes. Threshold is " + threshold);
     console.log("Vote " + (forVotes > threshold ? "passes" : "fails"));
 
-
-
     // Last Row: Total vacant seats
     let vacantTotal = 0;
     for (let i = 0; i< Councillor.list.length; i++) {
@@ -139,11 +150,11 @@ export function updateSummary(e) {
 
 // Update links
 const outlink = document.getElementById("outlink");
-const policyContainer = document.getElementById("policy-description-container");
+const outLinkContainer = document.getElementById("outlink-container");
 policySelector.addEventListener("change", (e) => {
-    policyContainer.classList.toggle("display-hidden", e.target.value == "none");
+    outLinkContainer.classList.toggle("display-hidden", e.target.value == "none");
     if(e.target.value != "none") {
-        const url = records[yearSelector.value].policies[e.target.value].url;
+        const url = records[getCurrentYear()].policies[e.target.value].url;
         outlink.href = url == "" ? "/#" : url;
     }
 });
