@@ -423,6 +423,11 @@ select {
     width: fit-content;
 }
 
+a.list-item-button {
+    text-decoration: none;
+    color: var(--primary-colour-darker);
+}
+
 #help-overlay {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;

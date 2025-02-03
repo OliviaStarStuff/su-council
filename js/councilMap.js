@@ -18,7 +18,7 @@ function generateDataExport(attribute) {
 
 export const records = generateDataExport("records");
 export const groups = generateDataExport("groups");
-
+export const sessions = generateDataExport("sessions")
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');

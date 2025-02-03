@@ -1,6 +1,6 @@
 "use strict";
 
-import { records, generateCouncillors } from "./councilMap.js";
+import { records, sessions, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
@@ -30,7 +30,13 @@ function generatePolicyListOptions(period) {
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
             const header = headerTemplate.content.cloneNode(true);
+            const sessionData = sessions[getCurrentYear()][sessionIndex-1];
+            console.log(sessionData.logs);
             header.querySelector("h5").innerText = "Session " + sessionIndex;
+            const minutesLink = header.querySelector(".minutes-link")
+            minutesLink.href = sessionData.logs;
+            const agendaLink = header.querySelector(".agenda-link")
+            agendaLink.href = sessionData.agenda;
             policyList.appendChild(header);
         }
 
