@@ -83,9 +83,7 @@ export function updateSummary(e, voteSummaryID) {
     const header = voteSummary.querySelector("h3");
     console.log(voteSummaryID, voteSummaryContainer);
     // clear summary list
-    while (voteSummaryContainer.firstChild) {
-        voteSummaryContainer.removeChild(voteSummaryContainer.firstChild);
-    }
+    clearChildren(voteSummaryID + "-container");
 
     // guard clause if not showing voting data, show nothing
     // voteSummaryTabContainer.classList.toggle("display-hidden", e.target.value == "none");
@@ -135,6 +133,7 @@ export function updateSummary(e, voteSummaryID) {
         const item = setItem(chosenOption, total, voteClass);
         voteSummaryContainer.appendChild(item);
     }
+
     const threshold = Math.ceil((topTotal - abstainVotes) * 2 / 3);
     console.log(forVotes + " out of " + (topTotal - abstainVotes) + " votes. Threshold is " + threshold);
     console.log("Vote " + (forVotes > threshold ? "passes" : "fails"));

@@ -31,7 +31,6 @@ function generatePolicyListOptions(period) {
             sessionIndex = record.session;
             const header = headerTemplate.content.cloneNode(true);
             const sessionData = sessions[getCurrentYear()][sessionIndex-1];
-            console.log(sessionData.logs);
             header.querySelector("h5").innerText = "Session " + sessionIndex;
             const minutesLink = header.querySelector(".minutes-link")
             minutesLink.href = sessionData.logs;
@@ -99,7 +98,7 @@ function selectPolicy(e, summaryId) {
         for(const c of councillors) { c.vote = e.target.value; }
     }
     updateSummary(e, summaryId);
-    policyList.value = e.target.value;
+    // policyList.value = e.target.value;
 }
 
 const voteSummary = document.getElementById("vote-summary")
@@ -116,9 +115,11 @@ const voteSummaryPanel = document.getElementById("vote-summary-panel");
 policySelector.addEventListener("change", (e) => {
     selectPolicy(e, "vote-summary-panel");
 
+    // show or hide vote summary panel
     voteSummaryPanel.classList.toggle("display-hidden", e.target.value == "none");
     if (e.target.value == "none") return;
 
+    // Provide urls
     const currentRecord = records[getCurrentYear()].policies[e.target.value];
     const currentSession = sessions[getCurrentYear()][currentRecord.session - 1];
 
@@ -128,7 +129,7 @@ policySelector.addEventListener("change", (e) => {
     policy.disabled = currentRecord.url == "";
 })
 
-policyList.focus();
+policySelector.focus();
 
 populateCouncillorList();
 

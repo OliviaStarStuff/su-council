@@ -33,9 +33,12 @@ export function updateMobilePanel(councillor) {
     }
 
     // populate vote history table;
+    let i = 0
+    const currentPolicies = records[getCurrentYear()].policies;
     for(const r of councillor.history) {
+        i++;
         if (r.vote == "") { continue; }
-        createHistoryRow(r);
+        createHistoryRow(r, i, currentPolicies[i-1].url);
     }
     // vacantContainer.classList.add("display-hidden")
 }
@@ -47,19 +50,24 @@ function updatePanel(councillor) {
     panelTitle.innerText =  councillor.title;
 }
 
-function createHistoryRow(record) {
-    const voteTitleCell = document.createElement("td");
+const rowTemplate = document.getElementById("record-table-row-template");
+const policySelector = document.getElementById("policy-select");
+function createHistoryRow(record, index, url) {
+    const clone = rowTemplate.content.cloneNode(true);
+    const voteTitleCell = clone.querySelector("a");
     voteTitleCell.innerText = record.name;
+    voteTitleCell.href = url;
+    voteTitleCell.disabled = url == "";
 
-    const voteCell = document.createElement("td");
+    const voteCell = clone.querySelector("button");
     voteCell.classList.add(Vote.getClass(record.vote, record.style));
     voteCell.innerText = record.vote;
+    voteCell.addEventListener("click", (e) => {
+        policySelector.selectedIndex = index;
+        policySelector.dispatchEvent(new Event("change"))
+    })
 
-    const voteRow = document.createElement("tr");
-    voteRow.appendChild(voteTitleCell);
-    voteRow.appendChild(voteCell);
-
-    recordTableBody.appendChild(voteRow);
+    recordTableBody.appendChild(clone);
 }
 
 console.log("Panel Loaded");

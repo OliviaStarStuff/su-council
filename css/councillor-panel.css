@@ -172,6 +172,12 @@
     font-weight: 400;
 }
 
+#record-table button {
+    position: absolute; top:0; left:0;
+    height: 100%;
+    width: 100%;
+}
+
 #record-table tr:nth-child(odd) {
     background-color: lightgrey;
 }
@@ -181,6 +187,7 @@
 }
 
 #record-table tr > td:last-child {
+    position:relative;
     text-align: right;
     padding-right: 0.75em;
 }
