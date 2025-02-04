@@ -1,9 +1,16 @@
 "use strict";
 
 import { groups } from "./councilMap.js";
+// import { data } from "./loadData.js"
+// const groups = generateDataExport(data, "groups");
+// createMessage(Object.entries(data).length);
+// createMessage(data[getCurrentYear()]);
+// createMessage(Object.entries(data[getCurrentYear()]["groups"]).length);
 
+
+// try {
 // These are to set the overlay when you mouse over the groups
-const overlay = document.getElementById('overlay')
+const overlay = document.getElementById('overlay');
 const overlayRole = document.getElementById('overlay-role');
 const overlayType = document.getElementById('overlay-type');
 const overlayVote = document.getElementById('overlay-vote');
@@ -18,6 +25,8 @@ function setGroupOverlay(shape, name) {
     })
 
     shape.addEventListener("pointerenter", (e) => {
+        if (window.innerWidth < 600) { return; }
+
         overlayRole.innerText = name;
         overlayType.innerText = "";
         overlayVote.innerText = "";
@@ -68,25 +77,12 @@ let svg = document.getElementById("grids");
 const yearSelector = document.getElementById("year-buttons");
 const shapes = [];
 
-export function generateGroupings() {
+function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
-    let shape = document.createElementNS(svgns, "polygon");
-    shape.classList.add("group-background");
-    generatePoints(shape, [
-        { "q": -5.2, "r": 0 },
-        { "q": 0, "r": -5.2 },
-        { "q": 5.2, "r": -5.2 },
-        { "q": 5.2, "r": 0 },
-        { "q": 0, "r": 5.2 },
-        { "q": -5.2, "r": 5.2 }
-    ]);
-    shape.setAttribute("role", "decorate");
-    svg.appendChild(shape);
-
     for (const [key, value] of Object.entries(groups[getCurrentYear()])) {
         // main shape code
         const sanitisedName = sanitiseName(key);
-
+        // createMessage(key);
         let shape = document.createElementNS(svgns, "polygon");
         shape.classList.add("group-" + sanitisedName);
         generatePoints(shape, value);
@@ -110,6 +106,6 @@ export function generateGroupings() {
     }
 }
 
-generateGroupings();
+export { generateGroupings };
 
-console.log("Groupings Loaded");
+// console.log("Groupings Loaded");

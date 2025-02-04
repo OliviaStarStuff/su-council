@@ -54,4 +54,19 @@ function getCurrentYear() {
     };
 }
 
-console.log("Utilities Loaded");
+function generateDataExport(data, attribute) {
+    const recordOutput = {};
+    for (const key in data) {
+        recordOutput[key] = data[key][attribute];
+    }
+    return recordOutput;
+}
+
+function createMessage(text) {
+    const header = document.getElementById("header");
+    const p = document.createElement("p");
+    header.appendChild(p);
+    p.innerText = text;
+}
+
+// console.log("Utilities Loaded");

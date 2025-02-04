@@ -81,7 +81,6 @@ export function updateSummary(e, voteSummaryID) {
     const voteSummary = document.getElementById(voteSummaryID);
     const voteSummaryContainer = document.getElementById(voteSummaryID + "-container");
     const header = voteSummary.querySelector("h3");
-    console.log(voteSummaryID, voteSummaryContainer);
     // clear summary list
     clearChildren(voteSummaryID + "-container");
 
@@ -135,8 +134,8 @@ export function updateSummary(e, voteSummaryID) {
     }
 
     const threshold = Math.ceil((topTotal - abstainVotes) * 2 / 3);
-    console.log(forVotes + " out of " + (topTotal - abstainVotes) + " votes. Threshold is " + threshold);
-    console.log("Vote " + (forVotes > threshold ? "passes" : "fails"));
+    // console.log(forVotes + " out of " + (topTotal - abstainVotes) + " votes. Threshold is " + threshold);
+    // console.log("Vote " + (forVotes > threshold ? "passes" : "fails"));
 
     // Last Row: Total vacant seats
     let vacantTotal = 0;

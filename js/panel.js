@@ -70,4 +70,4 @@ function createHistoryRow(record, index, url) {
     recordTableBody.appendChild(clone);
 }
 
-console.log("Panel Loaded");
+// console.log("Panel Loaded");

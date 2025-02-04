@@ -8,17 +8,11 @@ import { openCouncillorPanel } from "./councillorList.js"
 // export const records = data.records;
 // export const groups = data.groups;
 
-function generateDataExport(attribute) {
-    const recordOutput = {};
-    for (const key in data) {
-        recordOutput[key] = data[key][attribute];
-    }
-    return recordOutput;
-}
+const records = generateDataExport(data, "records");
+const groups = generateDataExport(data, "groups");
+const sessions = generateDataExport(data, "sessions");
 
-export const records = generateDataExport("records");
-export const groups = generateDataExport("groups");
-export const sessions = generateDataExport("sessions")
+export { records, groups , sessions };
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
@@ -31,7 +25,6 @@ const overlayVote = document.getElementById('overlay-vote');
 // Generate all councillors
 export function generateCouncillors(fromYear) {
     let i = 0;
-    console.log(fromYear);
     // {"state", "period", "people", "councillors", "records", "groups"}
     const fromData = data[fromYear];
     Vote.styles = fromData.records.options;
@@ -114,15 +107,15 @@ export function generateCouncillors(fromYear) {
         councilMap.appendChild(c.node);
     }
 }
-const yearSelector = document.getElementById("year-buttons");
-generateCouncillors(getCurrentYear());
-
-
 const vc = document.getElementById("hexagon");
 vc.addEventListener("pointermove", (e) => {
     overlay.style.left = e.pageX + 10 + "px";
     overlay.style.top = e.pageY + 20 + "px";
 })
+
+export function councilMapMain() {
+    generateCouncillors(getCurrentYear());
+}
 
 const visualisation = document.getElementById("visualisation");
 
@@ -153,10 +146,9 @@ const offsetPos = {"x": 0, "y": 0};
 //     const r_start = q < 0 ? -gs-q : -gs;
 //     const r_end = q < 0 ? gs : gs-q;
 //     for(let r = r_start; r < r_end-1; r++) {
-//         console.log(q, r);
 //         const councilor = new Councillor(false, q, r, "member-pto");
 //         section.append(councilor.getNode());
 //     }
 // }
 
-console.log("councilMap Loaded");
+// console.log("councilMap Loaded");

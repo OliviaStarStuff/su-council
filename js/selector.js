@@ -80,15 +80,6 @@ function generatePolicySelectOptions(pSelector, period) {
     }
 }
 
-try {
-    generatePolicyListOptions(getCurrentYear());
-    generatePolicySelectOptions(policySelector, getCurrentYear());
-  } catch (error) {
-    console.error(error);
-    notloaded.innerText = error;
-    // Expected output: ReferenceError: nonExistentFunction is not defined
-    // (Note: the exact output may be browser-dependent)
-}
 function selectPolicy(e, summaryId) {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
@@ -129,11 +120,6 @@ policySelector.addEventListener("change", (e) => {
     policy.disabled = currentRecord.url == "";
 })
 
-policySelector.focus();
-
-populateCouncillorList();
-
-setCouncillorClickBehaviour();
 function selectYear(e) {
     Councillor.list = []
     // refresh the board
@@ -179,5 +165,14 @@ export function resetVotesList() {
     policyList.classList.remove("display-hidden");
     voteSummary.classList.add("display-hidden");
 }
-console.log("Selector Loaded");
+
+export function selectorMain() {
+    policySelector.focus();
+    generatePolicyListOptions(getCurrentYear());
+    generatePolicySelectOptions(policySelector, getCurrentYear());
+    populateCouncillorList();
+    setCouncillorClickBehaviour();
+}
+
+// console.log("Selector Loaded");
 notloaded.classList.add("display-hidden");

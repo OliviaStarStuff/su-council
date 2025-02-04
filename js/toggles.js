@@ -110,4 +110,4 @@ toggleSvg.addEventListener("change", function() {
     }
 })
 
-console.log("Toggles Loaded");
+// console.log("Toggles Loaded");

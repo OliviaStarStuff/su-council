@@ -8,13 +8,13 @@ const councillorListContainer = document.getElementById("councillor-list-contain
 const collapsableRoots = ["arts", "engineering", "health", "science", "social-science",
     "specialised", "representative", "fto-pto"];
 
-    for (const root of collapsableRoots) {
+for (const root of collapsableRoots) {
     new Collapsable(root, false);
     lists.push(document.getElementById(root + "-list"))
 }
 
 export function populateCouncillorList() {
-    console.log("populating councillors");
+    // console.log("populating councillors");
     for (const list of lists) {
         clearChildren(list.id);
     }

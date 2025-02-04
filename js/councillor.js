@@ -95,7 +95,7 @@ class Vote {
                 return "vote-"+state.toLowerCase();
             default:
                 if (Vote.styles[style].indexOf(state) == -1) {
-                    console.error("Invalid Vote Found", state, style);
+                    // console.error("Invalid Vote Found", state, style);
                 }
                 return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
         }
@@ -230,4 +230,4 @@ class Councillor {
     static list = [];
 }
 
-console.log("Hex, Votes, Councillor Classes Loaded");
+// console.log("Hex, Votes, Councillor Classes Loaded");
