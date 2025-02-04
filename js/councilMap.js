@@ -24,6 +24,7 @@ Record.records = records;
 Group.groups = generateDataExport("groups");
 Session.sessions = sessions;
 
+createMessage("council map load complete");
 createMessage(Object.keys(Group.getYear("2023/2024")).length);
 
 // We'll add all councillor objects to this section
