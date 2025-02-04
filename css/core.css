@@ -688,7 +688,7 @@ a.list-item-button {
     }
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 900px) and (min-height: 720px) {
     #hexagon {
         transform: scale(0.85);
     }
