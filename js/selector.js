@@ -11,7 +11,7 @@ notloaded.innerText = "not loaded";
 notloaded.innerText = Record.records["2024/2025"].policies.map( r =>   r.name);
 // document.getElementById("summary").appendChild(notloaded);
 
-try {
+
 const yearSelector = document.getElementById("year-buttons");
 // Set up selector with all voting options
 const policyList = document.getElementById("policy-list");
@@ -83,15 +83,10 @@ function generatePolicySelectOptions(pSelector, period) {
 }
 
 
-createMessage("I got here to sessions");
+createMessage("I got here just before policy list options");
+generatePolicyListOptions(getCurrentYear());
+generatePolicySelectOptions(policySelector, getCurrentYear());
 
-    generatePolicyListOptions(getCurrentYear());
-    generatePolicySelectOptions(policySelector, getCurrentYear());
-  } catch (error) {
-    createMessage(error);
-    // Expected output: ReferenceError: nonExistentFunction is not defined
-    // (Note: the exact output may be browser-dependent)
-}
 function selectPolicy(e, summaryId) {
     // If no policy is selected, clear vote classes
     const councillors = Councillor.list;
