@@ -20,9 +20,9 @@ function generateDataExport(attribute) {
 Record.records = generateDataExport("records");
 Group.groups = generateDataExport("groups");
 Session.sessions = generateDataExport("sessions")
-export const records = Record.records;
-export const sessions = Session.sessions;
-export const groups = Group.groups;
+const records = Record.records;
+const sessions = Session.sessions;
+const groups = Group.groups;
 
 createMessage("council map load complete");
 createMessage(Object.keys(Record.getYear("2023/2024")).length);
@@ -37,7 +37,7 @@ const overlayType = document.getElementById('overlay-type');
 const overlayVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
-export function generateCouncillors(fromYear) {
+function generateCouncillors(fromYear) {
     let i = 0;
     // {"state", "period", "people", "councillors", "records", "groups"}
     const fromData = data[fromYear];
@@ -165,5 +165,7 @@ const offsetPos = {"x": 0, "y": 0};
 //         section.append(councilor.getNode());
 //     }
 // }
+
+export {records, groups, sessions, generateCouncillors}
 
 console.log("councilMap Loaded");
