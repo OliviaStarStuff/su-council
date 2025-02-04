@@ -16,13 +16,13 @@ function generateDataExport(attribute) {
     return recordOutput;
 }
 
-export const records = generateDataExport("records");
-export const groups = {};
-export const sessions = generateDataExport("sessions");
 
 Record.records = records;
 Group.groups = generateDataExport("groups");
 Session.sessions = sessions;
+export const records = generateDataExport("records");
+export const sessions = generateDataExport("sessions");
+export const groups = Group.groups;
 
 createMessage("council map load complete");
 createMessage(Object.keys(Group.getYear("2023/2024")).length);
