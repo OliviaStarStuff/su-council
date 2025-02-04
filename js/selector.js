@@ -6,18 +6,19 @@ import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
 createMessage("I am here after selector import");
+createMessage(Object.keys(Session).length);
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
 notloaded.innerText = Record.records["2024/2025"].policies.map( r =>   r.name);
 // document.getElementById("summary").appendChild(notloaded);
 
-
+createMessage("Made it past not loaded");
 const yearSelector = document.getElementById("year-buttons");
 // Set up selector with all voting options
 const policyList = document.getElementById("policy-list");
 const panelPolicySelector = document.getElementById("panel-policy-select");
 const policySelector = document.getElementById("policy-select");
-
+createMessage("Made it past id references");
 function generatePolicyListOptions(period) {
     const itemTemplate = document.getElementById("list-item-template");
     const headerTemplate = document.getElementById("list-header-template");
@@ -56,6 +57,8 @@ function generatePolicyListOptions(period) {
         policyList.appendChild(clone);
     }
 }
+
+createMessage("Made it past the first function");
 
 function generatePolicySelectOptions(pSelector, period) {
     let sessionIndex = 0;
