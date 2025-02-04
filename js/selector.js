@@ -7,10 +7,6 @@ import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
 createMessage("I am here after selector import");
 createMessage(Object.keys(Record.records).length);
-const notloaded = document.createElement("p");
-notloaded.innerText = "not loaded";
-notloaded.innerText = Record.records["2024/2025"].policies.map( r =>   r.name);
-// document.getElementById("summary").appendChild(notloaded);
 
 createMessage("Made it past not loaded");
 const yearSelector = document.getElementById("year-buttons");
@@ -182,4 +178,3 @@ export function resetVotesList() {
     voteSummary.classList.add("display-hidden");
 }
 console.log("Selector Loaded");
-notloaded.classList.add("display-hidden");
