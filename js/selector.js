@@ -6,7 +6,7 @@ import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
 createMessage("I am here after selector import");
-createMessage(Object.keys(Session).length);
+createMessage(Object.keys(Record.records).length);
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
 notloaded.innerText = Record.records["2024/2025"].policies.map( r =>   r.name);

@@ -67,7 +67,7 @@ function generatePoints(shape, value) {
 let svg = document.getElementById("grids");
 const shapes = [];
 
-export function generateGroupings() {
+function generateGroupings() {
     const svgns = "http://www.w3.org/2000/svg";
     let shape = document.createElementNS(svgns, "polygon");
     shape.classList.add("group-background");
@@ -110,5 +110,7 @@ export function generateGroupings() {
 }
 
 generateGroupings();
+
+export { generateGroupings }
 
 console.log("Groupings Loaded");

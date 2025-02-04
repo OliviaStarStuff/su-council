@@ -13,7 +13,7 @@ const collapsableRoots = ["arts", "engineering", "health", "science", "social-sc
     lists.push(document.getElementById(root + "-list"))
 }
 
-export function populateCouncillorList() {
+function populateCouncillorList() {
     console.log("populating councillors");
     for (const list of lists) {
         clearChildren(list.id);
@@ -56,16 +56,17 @@ export function populateCouncillorList() {
     }
 }
 
-export function openCouncillorPanel(councillor) {
+function openCouncillorPanel(councillor) {
     details.classList.remove("display-hidden");
     councillorListContainer.classList.add("display-hidden");
     updateMobilePanel(councillor);
 }
 
-export function resetCouncillor() {
+function resetCouncillor() {
     details.classList.add("display-hidden");
     councillorListContainer.classList.remove("display-hidden");
 }
+
 
 const backButton = document.getElementById("cllr-back-button");
 backButton.addEventListener("click", () => {
@@ -73,3 +74,4 @@ backButton.addEventListener("click", () => {
     councillorListContainer.classList.remove("display-hidden");
 })
 
+export { populateCouncillorList, openCouncillorPanel, resetCouncillor }
