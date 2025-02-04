@@ -24,9 +24,7 @@ function generatePolicyListOptions(period) {
 
     let sessionIndex = 0;
 
-    createMessage("I got here to sessions");
     for(var i = 0; i<Record.records[period].policies.length; i++) {
-        createMessage("and in a loop");
         const record = Record.records[period].policies[i];
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
@@ -84,12 +82,13 @@ function generatePolicySelectOptions(pSelector, period) {
     }
 }
 
+
+createMessage("I got here to sessions");
 try {
     generatePolicyListOptions(getCurrentYear());
     generatePolicySelectOptions(policySelector, getCurrentYear());
   } catch (error) {
-    console.error(error);
-    notloaded.innerText = error;
+    createMessage(error);
     // Expected output: ReferenceError: nonExistentFunction is not defined
     // (Note: the exact output may be browser-dependent)
 }

@@ -25,7 +25,8 @@ export const sessions = Session.sessions;
 export const groups = Group.groups;
 
 createMessage("council map load complete");
-createMessage(Object.keys(Group.getYear("2023/2024")).length);
+createMessage(Object.keys(Record.getYear("2023/2024")).length);
+createMessage(Object.keys(Session.getYear("2023/2024")).length);
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
