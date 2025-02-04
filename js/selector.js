@@ -1,17 +1,17 @@
 "use strict";
-
+createMessage("I am here before selector import");
 import { records, sessions, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
-
+createMessage("I am here after selector import");
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
 notloaded.innerText = Record.records["2024/2025"].policies.map( r =>   r.name);
 // document.getElementById("summary").appendChild(notloaded);
 
-
+try {
 const yearSelector = document.getElementById("year-buttons");
 // Set up selector with all voting options
 const policyList = document.getElementById("policy-list");
@@ -84,7 +84,7 @@ function generatePolicySelectOptions(pSelector, period) {
 
 
 createMessage("I got here to sessions");
-try {
+
     generatePolicyListOptions(getCurrentYear());
     generatePolicySelectOptions(policySelector, getCurrentYear());
   } catch (error) {
