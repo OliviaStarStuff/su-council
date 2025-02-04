@@ -1,5 +1,7 @@
 import { updateMobilePanel } from "./panel.js";
 
+createMessage("Loading CouncilList");
+
 const template = document.getElementById("councillor-item-template");
 const lists = [];
 const details = document.getElementById("cllr-details");

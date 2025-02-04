@@ -8,6 +8,8 @@ const vacantContainer = document.getElementById("cllr-panel-vacant-container");
 
 import { records } from "./councilMap.js"
 
+createMessage("Loading panel");
+
 const councillorButton = document.getElementById("nav-councillors");
 function setCouncillorClickBehaviour() {
     const details = document.getElementById("cllr-details");

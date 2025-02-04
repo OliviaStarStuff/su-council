@@ -1,14 +1,14 @@
 "use strict";
-createMessage("I am here before selector import");
 import { records, sessions, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
 createMessage("I am here after selector import");
-createMessage(Object.keys(Record.records).length);
+while (Object.keys(Record.records).length == 0) {
 
-createMessage("Made it past not loaded");
+}
+
 const yearSelector = document.getElementById("year-buttons");
 // Set up selector with all voting options
 const policyList = document.getElementById("policy-list");
@@ -54,8 +54,6 @@ function generatePolicyListOptions(period) {
     }
 }
 
-createMessage("Made it past the first function");
-
 function generatePolicySelectOptions(pSelector, period) {
     let sessionIndex = 0;
     let optGroup;
@@ -81,8 +79,6 @@ function generatePolicySelectOptions(pSelector, period) {
     }
 }
 
-
-createMessage("I got here just before policy list options");
 generatePolicyListOptions(getCurrentYear());
 generatePolicySelectOptions(policySelector, getCurrentYear());
 

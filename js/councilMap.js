@@ -3,7 +3,6 @@
 // Does not work with firefox 15/01/2025
 // import data from './councillors.json' with { type: 'json' };
 import { data } from "./loadData.js"
-import { openCouncillorPanel } from "./councillorList.js"
 // const councillors = []
 // export const records = data.records;
 // export const groups = data.groups;
@@ -19,10 +18,7 @@ function generateDataExport(attribute) {
 
 Record.records = generateDataExport("records");
 Group.groups = generateDataExport("groups");
-Session.sessions = generateDataExport("sessions")
-const records = Record.records;
-const sessions = Session.sessions;
-const groups = Group.groups;
+Session.sessions = generateDataExport("sessions");
 
 createMessage("council map load complete");
 createMessage(Object.keys(Record.getYear("2023/2024")).length);
@@ -121,7 +117,7 @@ function generateCouncillors(fromYear) {
         councilMap.appendChild(c.node);
     }
 }
-const yearSelector = document.getElementById("year-buttons");
+
 generateCouncillors(getCurrentYear());
 
 
@@ -131,11 +127,11 @@ vc.addEventListener("pointermove", (e) => {
     overlay.style.top = e.pageY + 20 + "px";
 })
 
-const visualisation = document.getElementById("visualisation");
+// const visualisation = document.getElementById("visualisation");
 
-let drag = false;
-const pos = {"x": 0, "y": 0};
-const offsetPos = {"x": 0, "y": 0};
+// let drag = false;
+// const pos = {"x": 0, "y": 0};
+// const offsetPos = {"x": 0, "y": 0};
 
 // visualisation.addEventListener('pointerdown', (e) => {
 //     drag = true
@@ -165,6 +161,10 @@ const offsetPos = {"x": 0, "y": 0};
 //         section.append(councilor.getNode());
 //     }
 // }
+
+const groups = Group.groups;
+const records = Record.records;
+const sessions = Session.sessions;
 
 export {records, groups, sessions, generateCouncillors}
 

@@ -6,6 +6,8 @@ import { resetVotesList } from "./selector.js";
 const councilNav = document.getElementById("council-nav");
 const content = document.getElementById("council-content");
 
+createMessage("Loading CouncilNav");
+
 const currentYear = getCurrentYear()
 
 const tabs = [];
