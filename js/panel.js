@@ -9,7 +9,7 @@ const vacantContainer = document.getElementById("cllr-panel-vacant-container");
 import { records } from "./councilMap.js"
 
 const councillorButton = document.getElementById("nav-councillors");
-export function setCouncillorClickBehaviour() {
+function setCouncillorClickBehaviour() {
     const details = document.getElementById("cllr-details");
     const councillorListContainer = document.getElementById("councillor-list-container");
     for(const councillor of Councillor.list) {
@@ -23,7 +23,7 @@ export function setCouncillorClickBehaviour() {
     }
 }
 
-export function updateMobilePanel(councillor) {
+function updateMobilePanel(councillor) {
 
     updatePanel(councillor);
 
@@ -69,5 +69,7 @@ function createHistoryRow(record, index, url) {
 
     recordTableBody.appendChild(clone);
 }
+
+export { setCouncillorClickBehaviour, updateMobilePanel }
 
 console.log("Panel Loaded");

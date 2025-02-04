@@ -77,7 +77,7 @@ backButton.addEventListener("click", e => {
 // update vote summary container
 const policySelector = document.getElementById("policy-select");
 
-export function updateSummary(e, voteSummaryID) {
+function updateSummary(e, voteSummaryID) {
     const voteSummary = document.getElementById(voteSummaryID);
     const voteSummaryContainer = document.getElementById(voteSummaryID + "-container");
     const header = voteSummary.querySelector("h3");
@@ -147,3 +147,6 @@ export function updateSummary(e, voteSummaryID) {
     // item.classList.add(vote);
     voteSummaryContainer.appendChild(item);
 }
+
+createMessage("summary loaded");
+export { updateSummary }
