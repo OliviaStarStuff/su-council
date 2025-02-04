@@ -83,6 +83,7 @@ export function generateGroupings() {
     shape.setAttribute("role", "decorate");
     svg.appendChild(shape);
     for (const [key, value] of Object.entries(Group.groups[getCurrentYear()])) {
+        createMessage(key);
         // main shape code
         const sanitisedName = sanitiseName(key);
 
