@@ -8,7 +8,7 @@ import { updateSummary } from "./summary.js";
 
 const notloaded = document.createElement("p");
 notloaded.innerText = "not loaded";
-notloaded.innerText = records["2024/2025"].policies.map( r =>   r.name);
+notloaded.innerText = Record.records["2024/2025"].policies.map( r =>   r.name);
 // document.getElementById("summary").appendChild(notloaded);
 
 
@@ -23,12 +23,12 @@ function generatePolicyListOptions(period) {
     const headerTemplate = document.getElementById("list-header-template");
 
     let sessionIndex = 0;
-    for(var i = 0; i<records[period].policies.length; i++) {
-        const record = records[period].policies[i];
+    for(var i = 0; i<Record.records[period].policies.length; i++) {
+        const record = Record.records[period].policies[i];
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
             const header = headerTemplate.content.cloneNode(true);
-            const sessionData = sessions[getCurrentYear()][sessionIndex-1];
+            const sessionData = Session.sessions[getCurrentYear()][sessionIndex-1];
 
             header.querySelector("h5").innerText = "Session " + sessionIndex;
 
@@ -52,7 +52,6 @@ function generatePolicyListOptions(period) {
         const summaryButton = clone.querySelector("button.summary-button");
         summaryButton.value = i;
         summaryButton.addEventListener("click", displaySummary);
-        console.log(clone);
         policyList.appendChild(clone);
     }
 }
@@ -66,8 +65,8 @@ function generatePolicySelectOptions(pSelector, period) {
     opt.innerText = "None";
     pSelector.append(opt);
 
-    for(var i = 0; i<records[period].policies.length; i++) {
-        const record = records[period].policies[i];
+    for(var i = 0; i<Record.records[period].policies.length; i++) {
+        const record = Record.records[period].policies[i];
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
             optGroup = document.createElement('optgroup');
@@ -122,8 +121,8 @@ policySelector.addEventListener("change", (e) => {
     if (e.target.value == "none") return;
 
     // Provide urls
-    const currentRecord = records[getCurrentYear()].policies[e.target.value];
-    const currentSession = sessions[getCurrentYear()][currentRecord.session - 1];
+    const currentRecord = Record.records[getCurrentYear()].policies[e.target.value];
+    const currentSession = Session.sessions[getCurrentYear()][currentRecord.session - 1];
 
     agenda.href = currentSession.agenda;
     logs.href = currentSession.logs;

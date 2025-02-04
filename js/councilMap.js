@@ -17,8 +17,12 @@ function generateDataExport(attribute) {
 }
 
 export const records = generateDataExport("records");
-export const groups = generateDataExport("groups");
-export const sessions = generateDataExport("sessions")
+export const groups = {};
+export const sessions = generateDataExport("sessions");
+
+Record.records = records;
+Group.groups = generateDataExport("groups");
+Session.sessions = sessions;
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
@@ -31,7 +35,6 @@ const overlayVote = document.getElementById('overlay-vote');
 // Generate all councillors
 export function generateCouncillors(fromYear) {
     let i = 0;
-    console.log(fromYear);
     // {"state", "period", "people", "councillors", "records", "groups"}
     const fromData = data[fromYear];
     Vote.styles = fromData.records.options;

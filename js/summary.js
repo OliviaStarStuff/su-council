@@ -90,7 +90,7 @@ export function updateSummary(e, voteSummaryID) {
     if (e.target.value == "none") { return; }
 
     // Get the correct record and options
-    const record = records[getCurrentYear()].policies[e.target.value];
+    const record = Record.records[getCurrentYear()].policies[e.target.value];
     const targetOptions = Vote.styles[record.style];
 
     header.innerText = record.name;
