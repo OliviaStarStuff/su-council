@@ -710,7 +710,7 @@ a.list-item-button {
     }
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1080px) and (min-height: 800px) {
     #hexagon {
         transform: scale(1);
         top:unset;
