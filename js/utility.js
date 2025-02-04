@@ -54,4 +54,13 @@ function getCurrentYear() {
     };
 }
 
+function createMessage(text) {
+    const header = document.getElementById("header");
+    const p = document.createElement("p");
+    const div = document.createElement("div");
+    p.innerText = text;
+    div.appendChild(p);
+    header.appendChild(div);
+}
+
 console.log("Utilities Loaded");

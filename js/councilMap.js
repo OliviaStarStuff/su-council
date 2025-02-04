@@ -24,6 +24,8 @@ Record.records = records;
 Group.groups = generateDataExport("groups");
 Session.sessions = sessions;
 
+createMessage(Object.keys(Group.getYear("2023/2024")).length);
+
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
 // These are overlay hooks
