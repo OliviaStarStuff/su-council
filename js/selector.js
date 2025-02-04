@@ -23,19 +23,21 @@ function generatePolicyListOptions(period) {
     const headerTemplate = document.getElementById("list-header-template");
 
     let sessionIndex = 0;
-
     for(var i = 0; i<records[period].policies.length; i++) {
         const record = records[period].policies[i];
-
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
             const header = headerTemplate.content.cloneNode(true);
             const sessionData = sessions[getCurrentYear()][sessionIndex-1];
+
             header.querySelector("h5").innerText = "Session " + sessionIndex;
-            const minutesLink = header.querySelector(".minutes-link")
+
+            const minutesLink = header.querySelector(".minutes-link");
             minutesLink.href = sessionData.logs;
-            const agendaLink = header.querySelector(".agenda-link")
+
+            const agendaLink = header.querySelector(".agenda-link");
             agendaLink.href = sessionData.agenda;
+
             policyList.appendChild(header);
         }
 
@@ -50,7 +52,7 @@ function generatePolicyListOptions(period) {
         const summaryButton = clone.querySelector("button.summary-button");
         summaryButton.value = i;
         summaryButton.addEventListener("click", displaySummary);
-
+        console.log(clone);
         policyList.appendChild(clone);
     }
 }
@@ -156,9 +158,10 @@ function selectYear(e) {
     setCouncillorClickBehaviour();
     // policyList.dispatchEvent(new Event('change'))
     // hide links
+    policyList.classList.remove("display-hidden");
+    voteSummary.classList.add("display-hidden");
     const voteSummaryPanel = document.getElementById("vote-summary-panel");
     voteSummaryPanel.classList.add("display-hidden");
-    clearChildren(policyList.id);
     clearChildren("vote-summary-panel-container");
 }
 
