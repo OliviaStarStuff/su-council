@@ -65,7 +65,6 @@ function generatePoints(shape, value) {
 
 // This is the main code we'll be running to generate the svg polygonal groups
 let svg = document.getElementById("grids");
-const yearSelector = document.getElementById("year-buttons");
 const shapes = [];
 
 export function generateGroupings() {
@@ -82,6 +81,8 @@ export function generateGroupings() {
     ]);
     shape.setAttribute("role", "decorate");
     svg.appendChild(shape);
+    createMessage("I got here to groupings");
+    createMessage(Object.keys(Group.groups[getCurrentYear()]).length);
     for (const [key, value] of Object.entries(Group.groups[getCurrentYear()])) {
         createMessage(key);
         // main shape code

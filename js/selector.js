@@ -23,7 +23,10 @@ function generatePolicyListOptions(period) {
     const headerTemplate = document.getElementById("list-header-template");
 
     let sessionIndex = 0;
+
+    createMessage("I got here to sessions");
     for(var i = 0; i<Record.records[period].policies.length; i++) {
+        createMessage("and in a loop");
         const record = Record.records[period].policies[i];
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
