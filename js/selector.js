@@ -1,5 +1,5 @@
 "use strict";
-import { records, sessions, generateCouncillors } from "./councilMap.js";
+import { generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
