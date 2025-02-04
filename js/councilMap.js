@@ -17,11 +17,11 @@ function generateDataExport(attribute) {
 }
 
 
-Record.records = records;
+Record.records = generateDataExport("records");
 Group.groups = generateDataExport("groups");
-Session.sessions = sessions;
-export const records = generateDataExport("records");
-export const sessions = generateDataExport("sessions");
+Session.sessions = generateDataExport("sessions")
+export const records = Record.records;
+export const sessions = Session.sessions;
 export const groups = Group.groups;
 
 createMessage("council map load complete");
