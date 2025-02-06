@@ -1,13 +1,10 @@
 "use strict";
-import { generateCouncillors } from "./councilMap.js";
+import { records, sessions, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
 createMessage("I am here after selector import");
-while (Object.keys(Record.records).length == 0) {
-
-}
 
 const yearSelector = document.getElementById("year-buttons");
 // Set up selector with all voting options
@@ -21,12 +18,12 @@ function generatePolicyListOptions(period) {
 
     let sessionIndex = 0;
 
-    for(var i = 0; i<Record.records[period].policies.length; i++) {
-        const record = Record.records[period].policies[i];
+    for(var i = 0; i<records[period].policies.length; i++) {
+        const record = records[period].policies[i];
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
             const header = headerTemplate.content.cloneNode(true);
-            const sessionData = Session.sessions[getCurrentYear()][sessionIndex-1];
+            const sessionData = sessions[getCurrentYear()][sessionIndex-1];
 
             header.querySelector("h5").innerText = "Session " + sessionIndex;
 
@@ -50,6 +47,11 @@ function generatePolicyListOptions(period) {
         const summaryButton = clone.querySelector("button.summary-button");
         summaryButton.value = i;
         summaryButton.addEventListener("click", displaySummary);
+
+        const policyLink = clone.querySelector("a");
+        policyLink.href = record.url;
+        policyLink.disabled = record.url === "";
+
         policyList.appendChild(clone);
     }
 }
@@ -63,8 +65,8 @@ function generatePolicySelectOptions(pSelector, period) {
     opt.innerText = "None";
     pSelector.append(opt);
 
-    for(var i = 0; i<Record.records[period].policies.length; i++) {
-        const record = Record.records[period].policies[i];
+    for(var i = 0; i<records[period].policies.length; i++) {
+        const record = records[period].policies[i];
         if(record.session > sessionIndex) {
             sessionIndex = record.session;
             optGroup = document.createElement('optgroup');
@@ -78,9 +80,6 @@ function generatePolicySelectOptions(pSelector, period) {
         optGroup.append(opt);
     }
 }
-
-generatePolicyListOptions(getCurrentYear());
-generatePolicySelectOptions(policySelector, getCurrentYear());
 
 function selectPolicy(e, summaryId) {
     // If no policy is selected, clear vote classes
@@ -105,28 +104,36 @@ const policy = document.getElementById("policy-outlink");
 const agenda = document.getElementById("agenda-outlink");
 const logs = document.getElementById("minutes-outlink");
 const voteSummaryPanel = document.getElementById("vote-summary-panel");
-policySelector.addEventListener("change", (e) => {
-    selectPolicy(e, "vote-summary-panel");
 
-    // show or hide vote summary panel
-    voteSummaryPanel.classList.toggle("display-hidden", e.target.value == "none");
-    if (e.target.value == "none") return;
+function setupSelectors() {
+    generatePolicyListOptions(getCurrentYear());
+    generatePolicySelectOptions(policySelector, getCurrentYear());
 
-    // Provide urls
-    const currentRecord = Record.records[getCurrentYear()].policies[e.target.value];
-    const currentSession = Session.sessions[getCurrentYear()][currentRecord.session - 1];
+    policySelector.addEventListener("change", (e) => {
 
-    agenda.href = currentSession.agenda;
-    logs.href = currentSession.logs;
-    policy.href = currentRecord.url;
-    policy.disabled = currentRecord.url == "";
-})
+        selectPolicy(e, "vote-summary-panel");
 
-policySelector.focus();
+        // show or hide vote summary panel
+        voteSummaryPanel.classList.toggle("display-hidden", e.target.value == "none");
+        if (e.target.value == "none") return;
 
-populateCouncillorList();
+        // Provide urls
+        const current= records[getCurrentYear()].policies[e.target.value];
+        const currentSession = sessions[getCurrentYear()][currentsession - 1];
 
-setCouncillorClickBehaviour();
+        agenda.href = currentagenda;
+        logs.href = currentlogs;
+        policy.href = currenturl;
+        policy.disabled = currenturl == "";
+    })
+
+    policySelector.focus();
+
+    populateCouncillorList();
+
+    setCouncillorClickBehaviour();
+}
+
 function selectYear(e) {
     Councillor.list = []
     // refresh the board
@@ -169,8 +176,13 @@ for (const button of yearSelector.children) {
     }
 }
 
-export function resetVotesList() {
+function resetVotesList() {
     policyList.classList.remove("display-hidden");
     voteSummary.classList.add("display-hidden");
 }
+
+export { resetVotesList, setupSelectors }
+
+
+
 console.log("Selector Loaded");

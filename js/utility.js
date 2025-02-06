@@ -50,7 +50,8 @@ function sanitiseName(name) {
 function getCurrentYear() {
     const yearSelector = document.getElementById("year-buttons")
     for(const button of yearSelector.children) {
-        if (button.classList.contains("selected")) { return button.value; }
+        if (button.classList.contains("selected")) {
+            return button.value; }
     };
 }
 

@@ -196,6 +196,13 @@
     width:20ch;
 }
 
+@media only screen and (min-width: 600px) {
+    #vote-history-container {
+        max-height: unset;
+        flex-grow: 1;
+    }
+}
+
 @media only screen and (min-width: 500px) {
     #policy-name-container {
         justify-content: unset;

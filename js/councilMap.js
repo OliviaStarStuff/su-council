@@ -16,13 +16,16 @@ function generateDataExport(attribute) {
 }
 
 
-Record.records = generateDataExport("records");
-Group.groups = generateDataExport("groups");
-Session.sessions = generateDataExport("sessions");
+const groups = generateDataExport("groups");
+const records = generateDataExport("records");
+const sessions = generateDataExport("sessions");
+// Record.records = generateDataExport("records");
+// Group.groups = generateDataExport("groups");
+// Session.sessions = generateDataExport("sessions");
 
 createMessage("council map load complete");
-createMessage(Object.keys(Record.getYear("2023/2024")).length);
-createMessage(Object.keys(Session.getYear("2023/2024")).length);
+createMessage(Object.keys(groups["2023/2024"]).length);
+createMessage(Object.keys(sessions["2023/2024"]).length);
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
@@ -118,14 +121,14 @@ function generateCouncillors(fromYear) {
     }
 }
 
-generateCouncillors(getCurrentYear());
+// generateCouncillors(getCurrentYear());
 
 
-const vc = document.getElementById("hexagon");
-vc.addEventListener("pointermove", (e) => {
-    overlay.style.left = e.pageX + 10 + "px";
-    overlay.style.top = e.pageY + 20 + "px";
-})
+// const vc = document.getElementById("hexagon");
+// vc.addEventListener("pointermove", (e) => {
+//     overlay.style.left = e.pageX + 10 + "px";
+//     overlay.style.top = e.pageY + 20 + "px";
+// })
 
 // const visualisation = document.getElementById("visualisation");
 
@@ -162,9 +165,8 @@ vc.addEventListener("pointermove", (e) => {
 //     }
 // }
 
-const groups = Group.groups;
-const records = Record.records;
-const sessions = Session.sessions;
+// const records = Record.records;
+// const sessions = Session.sessions;
 
 export {records, groups, sessions, generateCouncillors}
 

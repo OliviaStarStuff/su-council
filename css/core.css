@@ -176,6 +176,10 @@ main {
     flex-grow: 1;
 }
 
+#council-tab {
+    flex-grow: 1
+}
+
 #council-content > * {
     display: flex;
     flex-direction: column;
@@ -441,6 +445,8 @@ a.list-item-button {
     position: absolute;
     z-index: 5;
     overflow: auto;
+    /* debug on */
+    /* display: none; */
     /* pointer-events: all; */
 }
 #help-overlay a {
@@ -477,6 +483,7 @@ a.list-item-button {
 /* main transition to desktop */
 @media only screen and (min-width: 600px) {
     #bottom-panel {
+        height: 100%;
         /* display: none; */
         grid-column: 3;
         grid-row: 1 / span 2;
@@ -539,7 +546,7 @@ a.list-item-button {
 
     #cllr-details > #vote-history-container {
         max-height: none;
-        margin: 1em;
+        margin: 0em 1em 1em 1em;
         width: unset;
     }
 

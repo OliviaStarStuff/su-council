@@ -64,16 +64,6 @@ function setItem(option, totalValue, voteClass, addMouseOver=true) {
 
     return item;
 }
-
-const policyList = document.getElementById("policy-list")
-const voteSummary = document.getElementById("vote-summary");
-const backButton = voteSummary.querySelector("button");
-
-backButton.addEventListener("click", e => {
-    voteSummary.classList.add("display-hidden");
-    policyList.classList.remove("display-hidden");
-})
-
 // update vote summary container
 const policySelector = document.getElementById("policy-select");
 
@@ -90,7 +80,7 @@ function updateSummary(e, voteSummaryID) {
     if (e.target.value == "none") { return; }
 
     // Get the correct record and options
-    const record = Record.records[getCurrentYear()].policies[e.target.value];
+    const record = records[getCurrentYear()].policies[e.target.value];
     const targetOptions = Vote.styles[record.style];
 
     header.innerText = record.name;
@@ -148,5 +138,16 @@ function updateSummary(e, voteSummaryID) {
     voteSummaryContainer.appendChild(item);
 }
 
+const policyList = document.getElementById("policy-list")
+const voteSummary = document.getElementById("vote-summary");
+const backButton = voteSummary.querySelector("button");
+
+function addSummaryBackButtonListner() {
+    backButton.addEventListener("click", e => {
+        voteSummary.classList.add("display-hidden");
+        policyList.classList.remove("display-hidden");
+    })
+}
+
 createMessage("summary loaded");
-export { updateSummary }
+export { updateSummary, addSummaryBackButtonListner }

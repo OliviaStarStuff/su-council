@@ -36,7 +36,7 @@ function updateMobilePanel(councillor) {
 
     // populate vote history table;
     let i = 0
-    const currentPolicies = Record.records[getCurrentYear()].policies;
+    const currentPolicies = records[getCurrentYear()].policies;
     for(const r of councillor.history) {
         i++;
         if (r.vote == "") { continue; }

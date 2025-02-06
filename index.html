@@ -40,18 +40,11 @@
 
     <!-- Utilities functions and classes -->
     <script src="js/councillor.js"></script>
-    <script src="js/record.js"></script>
+    <!-- <script src="js/record.js"></script> -->
     <script src="js/utility.js"></script>
-    <script rel="preload" type="module" src="js/loadData.js" async></script>
-    <script type="module" src="js/helpButton.js" defer></script>
-    <script type="module" src="js/councilMap.js" async></script>
-    <script type="module" src="js/groupings.js" defer></script>
-    <script type="module" src="js/selector.js" defer></script>
-    <script type="module" src="js/councilnav.js" defer></script>
-    <script type="module" src="js/councillorList.js" defer></script>
-    <script type="module" src="js/summary.js" defer></script>
-    <script type="module" src="js/toggles.js" defer></script>
-    <script type="module" src="js/panel.js" defer></script>
+    <script type="module" src="js/helpButton.js"></script>
+    <script type="module" src="js/toggles.js"></script>
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
     <div id="content_wrapper">
@@ -238,9 +231,7 @@
                             </div>
                             <div id="info-bio">
                                 <img></img>
-                                <p class="councillor-list-item-name">
-                                    Councillor Name
-                                </p>
+                                <p class="cllr-panel-name">Steven Universe</p>
                                 <p id="cllr-panel-pronouns">(they/them)</p>
                                 <p id="cllr-panel-degree">Gem BA</p>
                                 <p id="cllr-panel-year">Year 2</p>
@@ -461,7 +452,6 @@
             </div>
         </li>
     </template>
-
     <template id="record-table-row-template">
         <tr>
             <td>

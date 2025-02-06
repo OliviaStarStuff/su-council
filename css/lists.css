@@ -241,3 +241,9 @@ li:has(.list-item-header) {
 #vote-history-container {
     padding: unset;
 }
+
+@media only screen and (min-width: 600px) {
+    #cllr-details {
+        max-height: 100%;
+    }
+}

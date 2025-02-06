@@ -23,28 +23,30 @@ function setTabAsVisible(tab) {
     }
 }
 
-for(let i = 0; i < councilNav.children.length; i++) {
-    councilNav.children[i].addEventListener("click", e => {
-        setTabAsVisible(tabs[i]);
-        for (const b of councilNav.children) {
-            b.classList.toggle("selected", b == councilNav.children[i]);
-        }
-        switch(councilNav.children[i].id) {
-            case "nav-votes":
-                resetVotesList();
-                break;
-            case "nav-councillors":
-                resetCouncillor();
-                break;
-            case "nav-summary":
+function addCouncilNavListener() {
+    for(let i = 0; i < councilNav.children.length; i++) {
+        councilNav.children[i].addEventListener("click", e => {
+            setTabAsVisible(tabs[i]);
+            for (const b of councilNav.children) {
+                b.classList.toggle("selected", b == councilNav.children[i]);
+            }
+            switch(councilNav.children[i].id) {
+                case "nav-votes":
+                    resetVotesList();
+                    break;
+                case "nav-councillors":
+                    resetCouncillor();
+                    break;
+                case "nav-summary":
 
-                break;
-        }
-    });
+                    break;
+            }
+        });
+    }
 
+    if(window.innerWidth > 600) {
+        councilNav.children[1].click();
+    }
 }
 
-if(window.innerWidth > 600) {
-    councilNav.children[1].click();
-}
-
+export { addCouncilNavListener }

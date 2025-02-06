@@ -82,7 +82,7 @@ function generateGroupings() {
     shape.setAttribute("role", "decorate");
     svg.appendChild(shape);
     createMessage("I got here to groupings");
-    for (const [key, value] of Object.entries(Group.groups[getCurrentYear()])) {
+    for (const [key, value] of Object.entries(groups[getCurrentYear()])) {
         // main shape code
         const sanitisedName = sanitiseName(key);
 
@@ -109,7 +109,7 @@ function generateGroupings() {
     }
 }
 
-generateGroupings();
+// generateGroupings();
 
 export { generateGroupings }
 

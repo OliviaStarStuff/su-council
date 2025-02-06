@@ -10,7 +10,7 @@ const councillorListContainer = document.getElementById("councillor-list-contain
 const collapsableRoots = ["arts", "engineering", "health", "science", "social-science",
     "specialised", "representative", "fto-pto"];
 
-    for (const root of collapsableRoots) {
+for (const root of collapsableRoots) {
     new Collapsable(root, false);
     lists.push(document.getElementById(root + "-list"))
 }
@@ -69,11 +69,12 @@ function resetCouncillor() {
     councillorListContainer.classList.remove("display-hidden");
 }
 
+function addCouncillorBackButtonListener() {
+    const backButton = document.getElementById("cllr-back-button");
+    backButton.addEventListener("click", () => {
+        details.classList.add("display-hidden");
+        councillorListContainer.classList.remove("display-hidden");
+    })
+}
 
-const backButton = document.getElementById("cllr-back-button");
-backButton.addEventListener("click", () => {
-    details.classList.add("display-hidden");
-    councillorListContainer.classList.remove("display-hidden");
-})
-
-export { populateCouncillorList, openCouncillorPanel, resetCouncillor }
+export { populateCouncillorList, openCouncillorPanel, resetCouncillor, addCouncillorBackButtonListener }
