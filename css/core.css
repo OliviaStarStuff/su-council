@@ -342,9 +342,10 @@ select {
 }
 
 #expand-tab {
-    overscroll-behavior-y: none;
+    /* overscroll-behavior-y: none; */
     /* pointer-events: none; */
     /* position: absolute; */
+    touch-action: pan-y;
     top: -1.5em;
     width: 100%;
     padding: 0.5em;
