@@ -109,6 +109,7 @@ li:has(.list-item-header) {
 }
 
 .councillor-list-item {
+    width: 100%;
     display: flex;
     border-radius: 0.5em;
     align-items: center;
@@ -116,8 +117,18 @@ li:has(.list-item-header) {
     justify-content: space-between;
     align-items: stretch;
     background-color: var(--member-colour);
+    text-align: left;
 
     /* align-content: stretch; */
+}
+
+.councillor-title {
+    font-size: 1.25rem;
+    text-wrap: pretty;
+}
+
+.councillor-list-item-name {
+    font-style: oblique;
 }
 
 .info-container {
@@ -141,10 +152,13 @@ li:has(.list-item-header) {
 }
 
 .councillor-more-button {
+    display: flex;
+    justify-content: center;
+    align-self: center;
     height: max-content;
     width: 3em;
     height: 100%;
-    /* padding: 1em; */
+    padding: 1em;
     color: white;
     /* background-color: var(--primary-colour-light); */
 }
