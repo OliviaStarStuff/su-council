@@ -1,8 +1,24 @@
 /* Member, Vacant, Member colours */
+#hexagon {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: var(--hexagon-height);
+    width: 100lvw;
+    transform-origin: top left;
+    transform: scale(0.45);
+
+    --size: 40px;
+    --width: calc(sqrt(3) * var(--size) / 2);
+    --height:  calc( 4 / 2 * var(--size) / 2);
+    --vert: calc(3/4 * var(--height));
+    --horiz: var(--width);
+}
+
 .member {
     /* size, border, sizing, position, colour, items, transitions */
-    height:40px;
-    width:40px;
+    height:var(--size);
+    width:var(--size);
     box-sizing: border-box;
     position: absolute;
 
@@ -27,12 +43,9 @@
     top: calc(var(--r) * var(--horiz) * 2 + var(--q) * var(--horiz) - var(--height) / 2);
 }
 
-#hexagon {
-    --size: 20px;
-    --width: calc(sqrt(3) * var(--size));
-    --height:  calc( 4 / 2 * var(--size));
-    --vert: calc(3/4 * var(--height));
-    --horiz: var(--width);
+.member.opacity-hidden {
+    opacity: 0;
+    display: none;
 }
 
 .member.hidden {
@@ -47,6 +60,7 @@
 .member p {
     font-family: unset;
     font-weight: 400;
+    font-size: 2rem;
 }
 
 .member * {
@@ -166,4 +180,72 @@
 .member-health {
     --member-colour: var(--health-colour);
     --member-border-colour: var(--health-border-colour);
+}
+
+.overlay {
+    --member-colour: #EDE;
+    position: absolute;
+    pointer-events: none;
+    background-color: #EDE;
+    background-color: var(--member-colour);
+    border: solid 0.375em var(--member-border-colour);
+    padding: 0.75em 1em 0.5em 1em;
+    border-radius: 0 1.5em 1.5em 1.5em;
+}
+
+@media only screen and (min-width: 400px) {
+    .member p {
+        font-size: 1rem;
+    }
+
+    #hexagon {
+        height: 360px;
+        top: 45%;
+        transform: scale(0.55);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #visual-container {
+        height: 100%;
+        flex-shrink: 1;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        padding: 1svw 0 0 0;
+    }
+
+    #hexagon {
+        top: 50%;
+        transform: scale(0.50);
+    }
+
+    #hexagon div {
+        transform: unset;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    #hexagon {
+        transform: scale(0.65);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #hexagon {
+        transform: scale(0.7);
+    }
+}
+
+@media only screen and (min-width: 900px) and (min-height: 720px) {
+    #hexagon {
+        transform: scale(0.85);
+    }
+}
+
+@media only screen and (min-width: 1080px) and (min-height: 800px) {
+    #hexagon {
+        transform: scale(1);
+        top:unset;
+        bottom: calc(-50% + 1em)
+    }
 }

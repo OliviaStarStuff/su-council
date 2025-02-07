@@ -70,7 +70,8 @@ const policySelector = document.getElementById("policy-select");
 function updateSummary(e, voteSummaryID) {
     const voteSummary = document.getElementById(voteSummaryID);
     const voteSummaryContainer = document.getElementById(voteSummaryID + "-container");
-    const header = voteSummary.querySelector("h3");
+    const policyTitle = voteSummary.querySelector("h3");
+    const councilSession = voteSummary.querySelector("h4");
     console.log(voteSummaryID, voteSummaryContainer);
     // clear summary list
     clearChildren(voteSummaryID + "-container");
@@ -83,7 +84,8 @@ function updateSummary(e, voteSummaryID) {
     const record = records[getCurrentYear()].policies[e.target.value];
     const targetOptions = Vote.styles[record.style];
 
-    header.innerText = record.name;
+    policyTitle.innerText = record.name;
+    councilSession.innerText = `Session ${record.session}`;
 
     /* Display Code */
     // Row 1: Result

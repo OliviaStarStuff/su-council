@@ -1,0 +1,162 @@
+.panel-title {
+    text-align: center;
+    width: var(--detail-width);
+    font-size: 1.5rem;
+    padding: 0.5em 0.5em;
+}
+
+#cllr-panel-close-button, #cllr-panel .panel-title {
+    background-color: var(--member-colour);
+}
+
+#cllr-details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0.25em 0;
+    gap: 0.75em;
+}
+
+#cllr-details.display-hidden {
+    display: none;
+}
+
+#title-container {
+    display: flex;
+    flex-direction: row;
+    padding: unset;
+    align-items: center;
+}
+
+#cllr-back-button {
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 50%;
+    background-color: var(--primary-colour);
+    vertical-align: middle;
+    line-height: 0;
+}
+
+#cllr-details > div {
+    padding-inline: 1em;
+}
+
+#info-bio {
+    display: grid;
+    gap: 0 1em;
+    grid-template-columns: 0fr 1fr;
+}
+
+#info-bio img {
+    grid-row: 1 / span 5;
+    height: 7em;
+    width: 7em;
+    border-radius: 100%;
+    border: solid 0.125em black;
+}
+
+.cllr-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+#cllr-details-buttons {
+    grid-column: span 2;
+    display: flex;
+    gap: 0;
+    padding-block: 0em;
+}
+
+/* Manifest item */
+#manifesto-container {
+    width: 100%;
+}
+
+#manifesto-container p {
+    text-align: left;
+}
+
+/* vote history container > record table */
+#vote-history-container  {
+    max-height: 15em;
+    overflow-y: auto;
+    width: 100%;
+    border: 0.125em solid rgb(152, 47, 65);
+}
+
+div#vote-history-container {
+    padding-inline: unset;
+}
+
+#vote-history-container.hidden {
+    max-height: 0em;
+}
+
+/* Record table */
+#record-table {
+    width: 100%;
+}
+
+#record-table thead td {
+    font-weight: 400;
+}
+
+#record-table button {
+    position: absolute; top:0; left:0;
+    height: 100%;
+    width: 100%;
+}
+
+#record-table tr:nth-child(odd) {
+    background-color: lightgrey;
+}
+
+#record-table tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+#record-table tr > td:last-child {
+    position:relative;
+    text-align: right;
+    padding-right: 0.75em;
+}
+
+#record-table tr > td:first-child {
+    text-align: left;
+    width:20ch;
+}
+
+@media only screen and (min-width: 600px) {
+    #vote-history-container {
+        max-height: unset;
+        flex-grow: 1;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    #policy-name-container {
+        justify-content: unset;
+        bottom: 2em;
+    }
+    #policy-name-container p {
+        padding-left: 2em;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #help-button  {
+        top: unset;
+        bottom: 5em;
+        right: 10%;
+    }
+
+    #cllr-details {
+        max-height: 100%;
+    }
+
+    #cllr-details > #vote-history-container {
+        max-height: none;
+        margin: 0em 1em 1em 1em;
+        width: unset;
+    }
+}

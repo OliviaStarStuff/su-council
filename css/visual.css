@@ -1,0 +1,202 @@
+/* visual-container > Hexagon > Member */
+#visual-container {
+    padding: 1em 0em 5.5em 0em;
+    overflow: hidden;
+    background: #0f2643;
+    position:relative;
+}
+
+/* UI for visuals, year buttons + select policy */
+#year-buttons-container {
+    bottom: 1.5em;
+}
+
+#panel-policy-select-group-container {
+    display: none;
+}
+
+#panel-policy-select-container {
+    color: white;
+}
+
+#panel-policy-select {
+    width: 100%;
+    max-width: 25em;
+    text-wrap: wrap;
+    width: 30ch;
+}
+
+/* Help Overlay */
+#help-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 0em 1em;
+    text-wrap: pretty;
+    color: white;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+    overflow: auto;
+    /* debug on */
+    /* display: none; */
+    /* pointer-events: all; */
+}
+
+#help-overlay > * {
+    max-width: 60ch;
+}
+
+#help-overlay a {
+    color: pink;
+}
+
+#help-overlay a:visited {
+    color: violet;
+}
+
+#credits {
+    display: flex;
+    gap:1em;
+}
+
+#github-logo {
+    background-color: white;
+    color: white;
+}
+
+/* Help button + help overlay + help close button */
+#help-button {
+    bottom: unset;
+    top: 1em;
+    right: 1.5em;
+    width: 6ch;
+    padding: 1em;
+
+    background-color: var(--primary-colour);
+    border-radius: 1em;
+    box-shadow: 0.25em 0.25em rgba(79, 253, 192, 0.457);
+    color: black;
+}
+
+#help-button p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#help-close-button {
+    background-color: var(--primary-colour);
+    padding: 1em;
+    border-radius: 2em;
+    font-size: 1.25em;
+}
+
+@media only screen and (min-width: 600px) {
+    #visual-container {
+        height: 100%;
+        flex-shrink: 1;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+        padding: 1svw 0 0 0;
+    }
+
+    #year-buttons-container {
+        top: 3em;
+        bottom: unset;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items:center;
+    }
+
+    #year-buttons {
+        width: 25em;
+    }
+
+    #panel-policy-select-group-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        pointer-events: none;
+    }
+
+    #panel-policy-select-container {
+        display: flex;
+        flex-direction: column;
+        pointer-events: auto;
+    }
+
+    #policy-select {
+        min-height: 3em;
+        text-wrap: wrap;
+        width: 100%;
+    }
+
+    #help-overlay {
+        padding: 2em 4em;
+    }
+
+    #help-button  {
+        top: unset;
+        bottom: 5em;
+        right: 10%;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    #year-buttons-container {
+        top: 0em;
+    }
+
+    #panel-policy-select-container {
+        flex-direction: row;
+    }
+}
+
+@media only screen and (min-width: 900px) and (min-height: 720px) {
+    #year-buttons-container {
+        flex-direction: row;
+    }
+
+    #help-overlay {
+        padding: 2em 10em;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    #help-button  {
+        right: 5em;
+    }
+
+    #panel-policy-select-container {
+        width: 15em;
+        gap: 0.5em;
+    }
+
+    #policy-select {
+        width: 26ch
+    }
+
+    #year-buttons {
+        width: 20em;
+    }
+
+    #year-buttons-container {
+        flex-direction: row;
+        top: 1em;
+        gap: 1em;
+    }
+}
+
+@media only screen and (min-width: 1080px) {
+    #panel-policy-select-group-container {
+        flex-direction: row;
+        padding-left: 1em;
+    }
+
+    #year-buttons-container {
+        gap: 1em 3em;
+    }
+}

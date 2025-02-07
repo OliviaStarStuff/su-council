@@ -22,7 +22,7 @@ function populateCouncillorList() {
     }
     for(const c of Councillor.list) {
         const clone = template.content.cloneNode(true);
-        clone.querySelector(".councillor-title").innerText = c.title;
+        clone.querySelector(".councillor-list-item-title").innerText = c.title;
         clone.querySelector("div").classList.add(c.colourClass);
         clone.querySelector("button").addEventListener("click", e => {
             openCouncillorPanel(c);

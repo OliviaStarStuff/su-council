@@ -20,12 +20,6 @@
     stroke-linejoin: round;
 }
 
-
-#grids polygon.group-background {
-    /* --group-colour: white; */
-    /* fill: var(--group-colour); */
-}
-
 .group-representative {
     --group-colour: var(--rep-colour);
 }
@@ -81,10 +75,4 @@
     height: 40px;
     width: 48px;
     position: absolute;
-}
-
-@media only screen and (min-width: 400px) {
-    #grids polygon {
-        stroke-width: 3em;
-    }
 }
