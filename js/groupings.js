@@ -26,29 +26,40 @@ function setGroupOverlay(shape, name) {
     })
 }
 
-function setArchaeologyOverlay() {
+function setArchaeologyOverlay(shape) {
     const cm = document.getElementById("council-container");
     const hiddenDiv = document.createElement("div");
     hiddenDiv.classList.add("member-lost");
 
-    const hex = new Hex({"q":4,"r":0}, [24, 20]);
+    const hex = new Hex({"q":3.85,"r":0}, [24, 20]);
     const coords = hex.position;
     // I don't know why we have to add 1 but it works
-    hiddenDiv.style.left = coords[0] + 1 + "px";
-    hiddenDiv.style.top = coords[1] + 1 + "px";
+    // hiddenDiv.style.left = coords[0] + 1 + "px";
+    // hiddenDiv.style.top = coords[1] + 1 + "px";
+    hiddenDiv.classList.add("member")
+    hiddenDiv.style.setProperty("--q", 3.85);
+    hiddenDiv.style.setProperty("--r", -0.02);
+    hiddenDiv.style.setProperty("--size", "54px");
 
-    hiddenDiv.setAttribute("aria-label", "A black hexagon where the Archaeology Councillor would be positioned at axial coordinates q: 4, r: 0")
+    hiddenDiv.setAttribute("aria-label", "A black hexagon where the Archaeology Councillor would have been positioned if they didn't shut down the Archaeology department. Located at axial coordinates q: 4, r: 0")
 
     cm.appendChild(hiddenDiv);
-    hiddenDiv.addEventListener("pointerover", (e) => {
+    hiddenDiv.addEventListener("pointerover", () => {
         overlayRole.innerText = "Archaeology Councillor";
         overlayType.innerText = "Forever Vacant";
         overlayVote.innerText = "";
         overlay.classList.remove("display-hidden");
+        console.log("seeting attribute")
+        shape.style.setProperty("--group-colour", "#333");
     })
 
-    hiddenDiv.addEventListener("pointerout", (e) => {
+    hiddenDiv.addEventListener("pointerout", () => {
         overlay.classList.add("display-hidden");
+        shape.style.removeProperty("--group-colour");
+    })
+
+    hiddenDiv.addEventListener("click", () => {
+        window.open('https://forgepress.org/more-than-45000-signatures-to-save-sheffield-archaeology/')
     })
 }
 
@@ -103,7 +114,7 @@ function generateGroupings() {
         // We don't want Grey to have any triggers
         if (key != "Grey") {
             // shape.setAttribute("tabindex", 0);
-            if(key == "Archaeology") { setArchaeologyOverlay() }
+            if(key == "Archaeology") { setArchaeologyOverlay(shape) }
             setGroupOverlay(shape, key);
         }
     }

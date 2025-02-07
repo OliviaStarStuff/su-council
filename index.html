@@ -29,16 +29,19 @@
 
     <title>SU Council Visualiser</title>
     <link rel="stylesheet" href="css/core.css">
-    <link rel="stylesheet" href="css/lists.css">
+    <link rel="stylesheet" href="css/visual.css">
     <link rel="stylesheet" href="css/member.css">
     <link rel="stylesheet" href="css/vote.css">
-    <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/grouping.css">
-    <link rel="stylesheet" href="css/councillor-panel.css">
+    <link rel="stylesheet" href="css/bottom_panel.css">
+    <link rel="stylesheet" href="css/lists.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/councillors_details.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,expand_circle_down,expand_circle_up,explore,keyboard_arrow_down,keyboard_arrow_up,link">
 
     <!-- Utilities functions and classes -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="js/councillor.js"></script>
     <script src="js/utility.js"></script>
     <script type="module" src="js/main.js"></script>
@@ -133,6 +136,7 @@
                                         expand_circle_up
                                     </span>
                                 </div>
+                                <h4>Session Num</h4>
                                 <div id="vote-summary-container" class="summary-container collapsable-container" role="menuitem">
                                 </div>
                             </div>
@@ -353,6 +357,7 @@
                                 expand_circle_up
                             </span>
                         </div>
+                        <h4>Session Num</h4>
                         <div id="policy-buttons" class="pill-buttons">
                             <a id="agenda-outlink" class="outlink" target="_blank"><div>Agenda</div></a>
                             <a id="minutes-outlink" class="outlink" target="_blank"><div>Minutes</div></a>
@@ -363,46 +368,41 @@
                     </section>
                 </section>
                 <div id="help-overlay" class="absolute-container frosted flex-center-col">
+                    <h1>Su Council Visualiser</h2>
+                    <h2>Disclaimer</h2>
+                    <p>All technology encodes ways of seeing and this tool is no exception. Do expect that any and all data collection and visualisation are inherently reductive and subjective. The stories behind every decision and conversation at council can never be fully captured in any written minutes or agenda. We do our best with what we have.</p>
+                    <p>Do use this tool as a starting point to reach out to the councillors and officers mentioned instead of a means to avoid them.</p>
                     <h2>Credits</h2>
                     <p>Data retrieved from <a target="_blank" href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a>, </p>
-                    <div class="flex-center-row">
-                        <p>Made by Olivia&copy;, </p>
-                        <div class="flex-center-row">
-                            <a href="https://fosstodon.org/@Oliviastarstuff" target="_blank">
-                                <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mastodon-link-title mastodon-link-desc">
-                                    <title id="mastodon-link-title">Olivia's social on fosstodon</title>
-                                    <desc id="mastodon-link-desc">Follow Olivia on mastodon at this url</desc>
-                                    <image width="24" height="24" xlink:href="img/logo-purple.svg">
-                                </svg>
-                            </a>
-                            <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="github-link-title github-link-desc">
-                                <title id="github-link-title">github repository for su-council</title>
-                                <desc id="github-link-desc">View the files that make up thise project</desc>
-                                <a href="https://github.com/OliviaStarStuff/su-council" target="_blank">
-                                <image width="24" height="24" xlink:href="img/github-mark.svg">
-                                </a>
+                    <p>Made by Olivia&copy;, a Computer Science Student at the University of Sheffield</p>
+                    <p>Socials and Repository</p>
+                    <div id="credits">
+                        <a href="https://fosstodon.org/@Oliviastarstuff" target="_blank">
+                            <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="mastodon-link-title mastodon-link-desc">
+                                <title id="mastodon-link-title">Olivia's social on fosstodon</title>
+                                <desc id="mastodon-link-desc">Follow Olivia on mastodon at this url</desc>
+                                <image width="24" height="24" xlink:href="img/logo-purple.svg">
                             </svg>
-                        </div>
+                        </a>
+                        <svg height="24" width="24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="github-link-title github-link-desc">
+                            <title id="github-link-title">github repository for su-council</title>
+                            <desc id="github-link-desc">View the files that make up thise project</desc>
+                            <a href="https://github.com/OliviaStarStuff/su-council" target="_blank">
+                            <image width="24" height="24" xlink:href="img/github-mark.svg">
+                            </a>
+                        </svg>
                     </div>
-                    <p>a Computer Science Student at the University of Sheffield</p>
-                    <h2>Disclaimer</h2>
-                    <p>All technology encodes ways of seeing and this tool is no exception.</p>
-                    <p>As such, all acts of data collection and visualisation are inherently reductive and subjective. The stories behind every decision and the dynamic of every meeting cannot be known except to those who were there.</p>
-                    <p>While using this tool, never forget the human being it means to represent and thus use this tool as a starting point to reach out to the councillors and officers it mentions instead of a means to avoid them.</p>
-                    <p>Take heed and be warned.</p>
-                    <h2>instructions</h2>
-                    <p>1. nodes (the circles) representing council members which are categorise by faculty or type using colour</p>
-                    <p>2. Select a policy to view what council members voted</p>
-                    <p>3. Votes are colour and shaped coded to differentiate them. View the vote summary for a legend</p>
-                    <p>4. Click on a node to view the council member</p>
+
                     <button id="help-close-button">Agree and close</button>
+
+
                 </div>
             </section>
             <section id="policies-page" class="page-content display-hidden"></section>
             <nav id="main-nav">
-                <button class="flex row stretch"><span></span><p>Rules</p></button>
-                <button class="flex row stretch selected"><span></span><p>Council</p></button>
-                <button class="flex row stretch"><span></span><p>Policies</p></button>
+                <button><span></span><p>Rules</p></button>
+                <button><span></span><p>Council</p></button>
+                <button><span></span><p>Policies</p></button>
             </nav>
         </main>
         <footer id="footer" hidden>
@@ -459,7 +459,7 @@
                 <div class="info-container">
                     <img></img>
                     <div>
-                        <p class="councillor-title">
+                        <p class="councillor-list-item-title">
                             Allied Health Professionals, Nursing and Midwifery Councillor (x2)
                         </p>
                         <p class="councillor-list-item-name">

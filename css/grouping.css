@@ -27,7 +27,7 @@
 #grids polygon.group-archaeology {
     --group-colour: black;
     fill:black;
-    stroke-width: 1em;
+    stroke-width: 0.5em;
     stroke-linejoin: miter;
 }
 
@@ -72,7 +72,11 @@
 }
 
 .member-lost {
-    height: 40px;
-    width: 48px;
+    border-style: none;
     position: absolute;
 }
+
+.member-lost:hover {
+    border-style: none;
+}
+

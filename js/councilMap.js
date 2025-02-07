@@ -15,17 +15,13 @@ function generateDataExport(attribute) {
     return recordOutput;
 }
 
-
 const groups = generateDataExport("groups");
 const records = generateDataExport("records");
 const sessions = generateDataExport("sessions");
-// Record.records = generateDataExport("records");
-// Group.groups = generateDataExport("groups");
-// Session.sessions = generateDataExport("sessions");
 
-createMessage("council map load complete");
-createMessage(Object.keys(groups["2023/2024"]).length);
-createMessage(Object.keys(sessions["2023/2024"]).length);
+// createMessage("council map load complete");
+// createMessage(Object.keys(groups["2023/2024"]).length);
+// createMessage(Object.keys(sessions["2023/2024"]).length);
 
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
@@ -116,6 +112,8 @@ function generateCouncillors(fromYear) {
             c.node.addEventListener("pointerenter", (e) => {
                 overlay.classList.remove("display-hidden");
                 overlay.classList.add(c.colourClass);
+                overlay.style.left = e.pageX + 10 + "px";
+                overlay.style.top = e.pageY + 20 + "px";
             })
         }
 
