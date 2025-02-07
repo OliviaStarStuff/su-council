@@ -17,6 +17,8 @@ function addExpandTabEventListeners() {
 let startPos = 0;
 let isClosed = true;
 const threshold = 50;
+const openPos = "-42px";
+const closePos = "335px";
 
 function handleStart(e) {
     e.preventDefault()
@@ -30,11 +32,11 @@ function handleEnd(e) {
     const touches = e.changedTouches;
     if (isClosed && startPos - touches[0].pageY >= threshold ||
         !isClosed && touches[0].pageY - startPos < threshold) {
-        bottomPanel.style.setProperty("--touch-y", "0px");
+        bottomPanel.style.setProperty("--touch-y", openPos);
         isClosed = false;
     } else if (!isClosed && touches[0].pageY - startPos >= threshold ||
         isClosed && startPos - touches[0].pageY < threshold) {
-        bottomPanel.style.setProperty("--touch-y", "335px");
+        bottomPanel.style.setProperty("--touch-y", closePos);
         isClosed = true;
     }
     bottomPanel.classList.add("height-transition");
@@ -42,7 +44,7 @@ function handleEnd(e) {
 }
 
 function handleCancel(e) {
-    bottomPanel.style.setProperty("--touch-y", isClosed ? "335px" : "0px");
+    bottomPanel.style.setProperty("--touch-y", isClosed ? closePos : openPos);
     bottomPanel.classList.add("height-transition");
     setTimeout(() => { bottomPanel.classList.remove("height-transition"); }, 800);
 }

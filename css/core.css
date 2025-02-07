@@ -310,6 +310,21 @@ select {
 
 }
 
+#council-page {
+    position: relative;
+}
+
+#rules-page {
+    padding: 1em;
+}
+.page-content {
+    height: 100%;
+    flex-direction: column;
+}
+.page-content:not(.display-hidden) {
+    display: flex;
+}
+
 .member.opacity-hidden {
     opacity: 0;
     display: none;
@@ -382,6 +397,8 @@ select {
     from {transform: rotate(0deg);}
     to {transform: rotate(360deg);}
 }
+
+
 
 .overlay {
     --member-colour: #EDE;
@@ -545,12 +562,13 @@ a.list-item-button {
         display: none;
     }
 
-    main {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 0fr;
+    .page-content {
+
     }
-    main {
+
+    #council-page {
+        display: grid;
+        grid-template-rows: 1fr 0fr;
         grid-template-columns: 1fr 1fr 16.5em;
     }
 
@@ -731,7 +749,7 @@ a.list-item-button {
         transform: scale(0.7);
     }
 
-    main {
+    #council-page {
         grid-template-columns: 1fr 1fr 19em;
     }
 }
@@ -753,7 +771,7 @@ a.list-item-button {
 
 
 
-    main {
+    #council-page {
         grid-template-columns: 1fr 1fr 21.5em;
     }
 }
