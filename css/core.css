@@ -342,13 +342,17 @@ select {
 }
 
 #expand-tab {
+    pointer-events: none;
     /* position: absolute; */
     top: -1.5em;
     width: 100%;
     padding: 0.5em;
+    display: flex;
+    justify-content: center;
 }
 
 .expand-graphic {
+    width: 50%;
     height: 0.5em;
     background-color: rgba(255, 255, 255, 0.438);
     border-radius: 1em;
@@ -357,7 +361,7 @@ select {
 /* main elements */
 /* visual-container > council-map */
 #visual-container {
-    padding: 1em 0em 3.5em 0em;
+    padding: 1em 0em 4.5em 0em;
     overflow: hidden;
     background: #0f2643;
     /* flex-shrink: 0; */
@@ -504,6 +508,11 @@ a.list-item-button {
     .member p {
         font-size: 1rem;
     }
+}
+
+#year-buttons-container {
+
+    bottom: 1em;
 }
 
 /* main transition to desktop */
