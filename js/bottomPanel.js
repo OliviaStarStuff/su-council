@@ -19,14 +19,14 @@ let isClosed = true;
 const threshold = 50;
 
 function handleStart(e) {
-    preventDefault()
+    e.preventDefault()
     const touches = e.changedTouches;
     startPos = touches[0].pageY;
     console.log(touches[0].pageY);
 }
 
 function handleEnd(e) {
-    preventDefault()
+    e.preventDefault()
     const touches = e.changedTouches;
     if (isClosed && startPos - touches[0].pageY >= threshold ||
         !isClosed && touches[0].pageY - startPos < threshold) {
@@ -44,7 +44,7 @@ function handleCancel(e) {
 }
 
 function handleMove(e) {
-    preventDefault()
+    e.preventDefault()
     const touches = e.changedTouches;
     bottomPanel.style.setProperty("--touch-y", touches[0].pageY + "px");
 }
