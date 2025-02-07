@@ -37,16 +37,20 @@ function handleEnd(e) {
         bottomPanel.style.setProperty("--touch-y", "335px");
         isClosed = true;
     }
+    bottomPanel.classList.add("height-transition");
+    setTimeout(() => { bottomPanel.classList.remove("height-transition"); }, 800);
 }
 
 function handleCancel(e) {
     bottomPanel.style.setProperty("--touch-y", isClosed ? "335px" : "0px");
+    bottomPanel.classList.add("height-transition");
+    setTimeout(() => { bottomPanel.classList.remove("height-transition"); }, 800);
 }
 
 function handleMove(e) {
     e.preventDefault()
     const touches = e.changedTouches;
-    bottomPanel.style.setProperty("--touch-y", touches[0].pageY + "px");
+    bottomPanel.style.setProperty("--touch-y", touches[0].pageY - 100 + "px");
 }
 
 export { addExpandTabEventListeners }

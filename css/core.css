@@ -98,10 +98,13 @@ main {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
-    transition: height 300ms ease-in-out;
-    bottom: 0;
 
-    margin-top: -1.5em;
+    bottom: 0;
+    margin-top: -2em;
+}
+
+.height-transition {
+    transition: height 300ms ease-in-out;
 }
 
 #bottom-panel.open {
@@ -345,7 +348,7 @@ select {
     /* overscroll-behavior-y: none; */
     /* pointer-events: none; */
     /* position: absolute; */
-    touch-action: pan-y;
+    /* touch-action: pan-y; */
     top: -1.5em;
     width: 100%;
     padding: 0.5em;
@@ -355,7 +358,7 @@ select {
 
 .expand-graphic {
     width: 50%;
-    height: 0.5em;
+    height: 1em;
     background-color: rgba(255, 255, 255, 0.438);
     border-radius: 1em;
 }
@@ -513,8 +516,7 @@ a.list-item-button {
 }
 
 #year-buttons-container {
-
-    bottom: 1em;
+    bottom: 1.5em;
 }
 
 /* main transition to desktop */
