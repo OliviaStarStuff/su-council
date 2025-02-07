@@ -91,7 +91,7 @@ main {
 }
 
 #bottom-panel {
-    height: calc(100% - min( var(--hexagon-height), var(--touch-y)) - 8.5em);
+    height: calc(100% - min( var(--hexagon-height), var(--touch-y)) - 9.5em);
     /* background: red; */
     position: relative;
     flex-grow: 1;
@@ -366,7 +366,7 @@ select {
 /* main elements */
 /* visual-container > council-map */
 #visual-container {
-    padding: 1em 0em 4.5em 0em;
+    padding: 1em 0em 5.5em 0em;
     overflow: hidden;
     background: #0f2643;
     /* flex-shrink: 0; */
