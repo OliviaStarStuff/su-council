@@ -92,29 +92,32 @@ function generateCouncillors(fromYear) {
         c.index = i;
         i++;
 
-        c.node.addEventListener("pointerover", (e) => {
-            overlayRole.innerText = c.title;
-            overlayType.innerText = "Type: " + c.type + ", Faculty: " + c.faculty;
+        // could use user agent instead to detect if on mobile
+        if (window.innerWidth > 600) {
+            c.node.addEventListener("pointerover", (e) => {
+                overlayRole.innerText = c.title;
+                overlayType.innerText = "Type: " + c.type + ", Faculty: " + c.faculty;
 
-            // Set vacant status
-            if(c.isCurrentlyVacant) {
-                overlayVote.innerText = "Vacant";
-            } else {
-                overlayVote.innerText = c.vote;
-            }
-            overlay.classList.remove("display-hidden");
-            overlay.classList.add(c.colourClass);
-        })
+                // Set vacant status
+                if(c.isCurrentlyVacant) {
+                    overlayVote.innerText = "Vacant";
+                } else {
+                    overlayVote.innerText = c.vote;
+                }
+                overlay.classList.remove("display-hidden");
+                overlay.classList.add(c.colourClass);
+            })
 
-        c.node.addEventListener("pointerout", (e) => {
-            overlay.classList.add("display-hidden");
-            overlay.classList.remove(c.colourClass);
-        })
+            c.node.addEventListener("pointerout", (e) => {
+                overlay.classList.add("display-hidden");
+                overlay.classList.remove(c.colourClass);
+            })
 
-        c.node.addEventListener("pointerenter", (e) => {
-            overlay.classList.remove("display-hidden");
-            overlay.classList.add(c.colourClass);
-        })
+            c.node.addEventListener("pointerenter", (e) => {
+                overlay.classList.remove("display-hidden");
+                overlay.classList.add(c.colourClass);
+            })
+        }
 
         Councillor.list.push(c);
         councilMap.appendChild(c.node);
