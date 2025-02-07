@@ -11,7 +11,9 @@ const yearSelector = document.getElementById("year-buttons");
 const policyList = document.getElementById("policy-list");
 const panelPolicySelector = document.getElementById("panel-policy-select");
 const policySelector = document.getElementById("policy-select");
-createMessage("Made it past id references");
+
+const bottomPanel = document.getElementById("bottom-panel");
+
 function generatePolicyListOptions(period) {
     const itemTemplate = document.getElementById("list-item-template");
     const headerTemplate = document.getElementById("list-header-template");
@@ -42,7 +44,10 @@ function generatePolicyListOptions(period) {
 
         const displayPolicyButton = clone.querySelector("button");
         displayPolicyButton.value = i;
-        displayPolicyButton.addEventListener("click", e => {selectPolicy(e, "vote-summary")});
+        displayPolicyButton.addEventListener("click", e => {
+            selectPolicy(e, "vote-summary");
+            bottomPanel.classList.remove("open");
+        });
 
         const summaryButton = clone.querySelector("button.summary-button");
         summaryButton.value = i;
@@ -132,6 +137,11 @@ function setupSelectors() {
     populateCouncillorList();
 
     setCouncillorClickBehaviour();
+
+    tab.addEventListener("scroll", (e) => {
+        bottomPanel.classList.add("open");
+        console.log("Scrolling");
+    })
 }
 
 function selectYear(e) {

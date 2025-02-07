@@ -23,6 +23,8 @@ function setTabAsVisible(tab) {
     }
 }
 
+const bottomPanel = document.getElementById("bottom-panel");
+
 function addCouncilNavListener() {
     for(let i = 0; i < councilNav.children.length; i++) {
         councilNav.children[i].addEventListener("click", e => {
@@ -30,6 +32,7 @@ function addCouncilNavListener() {
             for (const b of councilNav.children) {
                 b.classList.toggle("selected", b == councilNav.children[i]);
             }
+            bottomPanel.classList.remove("open");
             switch(councilNav.children[i].id) {
                 case "nav-votes":
                     resetVotesList();
