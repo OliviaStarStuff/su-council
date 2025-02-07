@@ -478,7 +478,7 @@
             "type": "SU",
             "faculty": "SU",
             "initial": "Soc",
-            "coords": { "q": 0, "r": -2 },
+            "coords": { "q": 1, "r": -2 },
             "isCurrentlyFilled": true
         },
         {
@@ -486,7 +486,7 @@
             "type": "SU",
             "faculty": "SU",
             "initial": "Wrk",
-            "coords": { "q": 1, "r": -2 },
+            "coords": { "q": 0, "r": -2 },
             "isCurrentlyFilled": true,
             "vacantFor": [ 1, 2 ]
         },

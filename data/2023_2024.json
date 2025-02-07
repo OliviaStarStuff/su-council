@@ -527,7 +527,7 @@
             "type": "FTO",
             "faculty": "SU",
             "initial": "Edu",
-            "coords": { "q": 0, "r": 1 },
+            "coords": { "q": -1, "r": 1 },
             "isCurrentlyFilled": true
         },
         {
@@ -535,7 +535,7 @@
             "type": "FTO",
             "faculty": "SU",
             "initial":"Intl",
-            "coords": { "q": -1, "r": 1 },
+            "coords": { "q": 0, "r": 1 },
             "isCurrentlyFilled": false,
             "vacantFor": [ 3, 4, 5, 6 ]
         },
