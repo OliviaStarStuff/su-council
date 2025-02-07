@@ -123,13 +123,13 @@ function setupSelectors() {
         if (e.target.value == "none") return;
 
         // Provide urls
-        const current= records[getCurrentYear()].policies[e.target.value];
-        const currentSession = sessions[getCurrentYear()][currentsession - 1];
+        const current = records[getCurrentYear()].policies[e.target.value];
+        const currentSession = sessions[getCurrentYear()][current.session - 1];
 
-        agenda.href = currentagenda;
-        logs.href = currentlogs;
-        policy.href = currenturl;
-        policy.disabled = currenturl == "";
+        agenda.href = currentSession.agenda;
+        logs.href = currentSession.logs;
+        policy.href = current.url;
+        policy.disabled = current.url == "";
     })
 
     policySelector.focus();

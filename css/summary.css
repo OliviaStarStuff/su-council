@@ -51,8 +51,8 @@ select#policy-select {
     flex-direction: row;
     justify-content: space-between;
     border-radius: 0.5em;
-    width: 40%;
     flex-grow: 1;
+    width: 100%;
 }
 
 .summary-container div p:last-child {
@@ -111,9 +111,6 @@ select#policy-select {
     color: black;
 }
 @media only screen and (min-width: 400px) {
-    .summary-container div {
-        width: 30%;
-    }
     .summary-container .summary-top {
         width: 40%;
     }
@@ -194,6 +191,10 @@ select#policy-select {
     }
 
     #year-buttons-container {
-        gap: 3em;
+        gap: 1em 3em;
+    }
+
+    #panel-policy-select-group-container {
+        padding-left: 1em;
     }
 }

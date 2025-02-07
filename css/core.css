@@ -169,14 +169,18 @@ main {
     background-color: var(--primary-colour-light);
     /* border: solid var(--border-width) var(--primary-colour-dark) */
     outline: var(--border-width) solid var(--primary-colour-dark);
-
 }
 
-.pill-buttons button:first-child {
+.pill-buttons a {
+    color: var(--primar-colour);
+    text-decoration: none;
+}
+
+.pill-buttons :first-child {
     border-radius: var(--radius) 0 0 var(--radius);
 }
 
-.pill-buttons button:last-child {
+.pill-buttons :last-child {
     border-radius: 0 var(--radius) var(--radius) 0;
 }
 
@@ -526,6 +530,11 @@ a.list-item-button {
         /* display: none; */
         grid-column: 3;
         grid-row: 1 / span 2;
+        margin-top: unset;
+    }
+
+    #expand-tab {
+        display: none;
     }
 
     #help-overlay {
@@ -613,13 +622,18 @@ a.list-item-button {
         grid-column: 1 / span 2;
     }
 
+    #vote-summary-panel {
+        background-color: var(--primary-colour-light);
+        padding-bottom: 0.5em;
+    }
+
+    #vote-summary-panel .pill-buttons * {
+        background-color: white;
+    }
+
     #vote-summary-panel:not(.display-hidden) {
         position: relative;
         display: flex;
-    }
-
-    #vote-summary-panel h3 {
-        color: white;
     }
 
     #vote-summary-panel .summary-container {
@@ -630,10 +644,6 @@ a.list-item-button {
     }
     #vote-summary-panel .summary-container .summary-top {
         width: 100%;
-    }
-    #vote-summary-panel .summary-container div {
-        width: 40%;
-        flex-grow: 1;
     }
 
     footer {
@@ -709,10 +719,6 @@ a.list-item-button {
         top: 1em;
     }
 
-    #vote-summary-panel .summary-container div {
-        width: 30%;
-    }
-
     #vote-summary-panel .summary-container .summary-top {
         width: 40%;
     }
@@ -727,10 +733,6 @@ a.list-item-button {
 
     main {
         grid-template-columns: 1fr 1fr 19em;
-    }
-
-    #vote-summary-panel .summary-container div {
-        width: 20%;
     }
 }
 

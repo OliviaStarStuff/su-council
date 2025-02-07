@@ -86,21 +86,7 @@
 
             <section id="desktop-right-panel">
 
-                <div id="vote-summary-panel" class="summary frosted display-hidden" role="menu">
-                    <section id="outlinks-container">
-                        <div><a id="agenda-outlink" class="outlink" target="_blank">Agenda</a></div>
-                        <div><a id="minutes-outlink" class="outlink" target="_blank">Minutes</a></div>
-                        <div><a id="policy-outlink" class="outlink" target="_blank" >Policy Info</a></div>
-                    </section>
-                    <div class="header-container" id="vote-summary-panel-header" role="button"  tabindex="0">
-                        <h3>Vote Summary</h3>
-                        <span id="vote-summary-panel-indicator" class="material-symbols-outlined">
-                            expand_circle_up
-                        </span>
-                    </div>
-                    <div id="vote-summary-panel-container" class="summary-container collapsable-container" role="menuitem">
-                    </div>
-                </div>
+
             </section>
             <div id="bottom-panel">
                 <div id="expand-tab"><div class="expand-graphic"></div></div>
@@ -333,6 +319,21 @@
                             </div>
                         </section>
                     </section>
+                </div>
+                <div id="vote-summary-panel" class="summary display-hidden" role="menu">
+                    <div class="header-container" id="vote-summary-panel-header" role="button"  tabindex="0">
+                        <h3>Vote Summary</h3>
+                        <span id="vote-summary-panel-indicator" class="material-symbols-outlined">
+                            expand_circle_up
+                        </span>
+                    </div>
+                    <div id="policy-buttons" class="pill-buttons">
+                        <a id="agenda-outlink" class="outlink" target="_blank"><div>Agenda</div></a>
+                        <a id="minutes-outlink" class="outlink" target="_blank"><div>Minutes</div></a>
+                        <a id="policy-outlink" class="outlink" target="_blank" ><div>Policy Info</div></a>
+                    </div>
+                    <div id="vote-summary-panel-container" class="summary-container collapsable-container" role="menuitem">
+                    </div>
                 </div>
             </div>
             <div id="help-overlay" class="absolute-container frosted flex-center-col">
