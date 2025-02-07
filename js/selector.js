@@ -138,10 +138,10 @@ function setupSelectors() {
 
     setCouncillorClickBehaviour();
 
-    tab.addEventListener("scroll", (e) => {
-        bottomPanel.classList.add("open");
-        console.log("Scrolling");
-    })
+    // tab.addEventListener("scroll", (e) => {
+    //     bottomPanel.classList.add("open");
+    //     console.log("Scrolling");
+    // })
 }
 
 function selectYear(e) {

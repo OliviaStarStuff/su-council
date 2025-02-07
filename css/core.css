@@ -91,20 +91,23 @@ main {
 }
 
 #bottom-panel {
-    height: calc(100% - var(--hexagon-height));
+    height: calc(100% - min( var(--hexagon-height), var(--touch-y)) - 8.5em);
     /* background: red; */
+    position: relative;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     transition: height 300ms ease-in-out;
+    bottom: 0;
+
+    margin-top: -1.5em;
 }
 
 #bottom-panel.open {
     position: relative;
     bottom: 0;
     height: calc(100% - 11em);
-    flex-shrink: 0;
-    transition: height 300ms ease-in-out;
 }
 
 .tab-buttons {
@@ -336,6 +339,19 @@ select {
 .grid-title {
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+
+#expand-tab {
+    /* position: absolute; */
+    top: -1.5em;
+    width: 100%;
+    padding: 0.5em;
+}
+
+.expand-graphic {
+    height: 0.5em;
+    background-color: rgba(255, 255, 255, 0.438);
+    border-radius: 1em;
 }
 
 /* main elements */

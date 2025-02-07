@@ -124,12 +124,13 @@ function generateCouncillors(fromYear) {
 // generateCouncillors(getCurrentYear());
 
 
-// const vc = document.getElementById("hexagon");
-// vc.addEventListener("pointermove", (e) => {
-//     overlay.style.left = e.pageX + 10 + "px";
-//     overlay.style.top = e.pageY + 20 + "px";
-// })
-
+const vc = document.getElementById("hexagon");
+function addOverlayListener() {
+    vc.addEventListener("pointermove", (e) => {
+        overlay.style.left = e.pageX + 10 + "px";
+        overlay.style.top = e.pageY + 20 + "px";
+    })
+}
 // const visualisation = document.getElementById("visualisation");
 
 // let drag = false;
@@ -168,6 +169,6 @@ function generateCouncillors(fromYear) {
 // const records = Record.records;
 // const sessions = Session.sessions;
 
-export {records, groups, sessions, generateCouncillors}
+export {records, groups, sessions, generateCouncillors, addOverlayListener}
 
 console.log("councilMap Loaded");
