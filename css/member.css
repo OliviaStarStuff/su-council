@@ -21,6 +21,18 @@
     transition: all 300ms ease-in-out, opacity 50ms ease-out, border 0ms;
 
     user-select: none;
+    --q: 0;
+    --r: 0;
+    left: calc(var(--q) * var(--vert) * 2 - var(--width) / 2);
+    top: calc(var(--r) * var(--horiz) * 2 + var(--q) * var(--horiz) - var(--height) / 2);
+}
+
+#hexagon {
+    --size: 20px;
+    --width: calc(sqrt(3) * var(--size));
+    --height:  calc( 4 / 2 * var(--size));
+    --vert: calc(3/4 * var(--height));
+    --horiz: var(--width);
 }
 
 .member.hidden {

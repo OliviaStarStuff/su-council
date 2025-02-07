@@ -211,8 +211,10 @@ class Councillor {
     // Position code
     set position(coords) {
         this.#hex.coords = coords;
-        this.#node.style.left = this.#hex.position[0]+"px";
-        this.#node.style.top = this.#hex.position[1]+"px";
+        this.#node.style.setProperty("--q", this.#hex.coords.q)
+        this.#node.style.setProperty("--r", this.#hex.coords.r)
+        // this.#node.style.left = this.#hex.position[0]+"px";
+        // this.#node.style.top = this.#hex.position[1]+"px";
     }
 
     setCurrentPosition() {
