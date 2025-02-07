@@ -495,7 +495,8 @@ a.list-item-button {
     width: 100%;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 2em 2em;
+    padding: 0em 1em;
+    text-wrap: pretty;
     color: white;
     text-align: center;
     position: absolute;
@@ -505,6 +506,21 @@ a.list-item-button {
     /* display: none; */
     /* pointer-events: all; */
 }
+
+#credits {
+    display: flex;
+    gap:1em;
+}
+
+#github-logo {
+    background-color: white;
+    color: white;
+}
+
+#help-overlay > * {
+    max-width: 60ch;
+}
+
 #help-overlay a {
     color: pink;
 }
@@ -608,6 +624,7 @@ a.list-item-button {
         flex-shrink: 1;
         grid-column: 1 / span 2;
         grid-row: 1 / span 2;
+        padding: 1svw 0 0 0;
     }
 
     #cllr-details > #vote-history-container {
@@ -734,7 +751,7 @@ a.list-item-button {
     }
 
     #year-buttons-container {
-        top: 1em;
+        top: 0em;
     }
 
     #vote-summary-panel .summary-container .summary-top {

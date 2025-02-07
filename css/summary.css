@@ -170,8 +170,8 @@ select#policy-select {
     }
 
     #year-buttons-container {
+        flex-direction: row;
         top: 1em;
-        align-items: baseline;
         gap: 1em;
     }
 
