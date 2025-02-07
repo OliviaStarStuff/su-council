@@ -342,7 +342,8 @@ select {
 }
 
 #expand-tab {
-    pointer-events: none;
+    overscroll-behavior-y: none;
+    /* pointer-events: none; */
     /* position: absolute; */
     top: -1.5em;
     width: 100%;
