@@ -213,6 +213,12 @@
     right: unset;
     left: 1em;
     width: unset;
+    display: flex;
+    align-items: center;
+}
+
+#capture-button.display-hidden {
+    display: none;
 }
 
 @media only screen and (min-width: 400px) {

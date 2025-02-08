@@ -1,6 +1,6 @@
 import { records } from "./councilMap.js";
 
-const button = document.getElementById("capture-button");
+const captureButton = document.getElementById("capture-button");
 const yearButtons = document.getElementById("year-buttons-container");
 const helpButton = document.getElementById("help-button");
 const container = document.querySelector("#visual-container");
@@ -8,8 +8,13 @@ const title = document.querySelector("#visual-container-title");
 const result = document.querySelector("#visual-container-result");
 
 const options = {
-    "windowWidth": 1024,
+    "windowWidth": 1080,
     "windowheight": 800,
+    // "width": 800,
+    // "height": 800,
+    "x": 0,
+    "y": 0,
+    // scrollX: 30
 }
 
 function downloadImage(uri, filename) {
@@ -33,40 +38,40 @@ function downloadImage(uri, filename) {
 function addCaptureButtonListener() {
     title.innerText = "";
     result.innerText = "";
-    button.addEventListener("click", () => {
+    captureButton.addEventListener("click", () => {
         const index = Councillor.list[0].voteIndex;
         const currentRecord = records[getCurrentYear()].policies[index];
         title.innerText = index > -1 ? currentRecord.name : "Su Council Visualiser";
         result.innerText = index > -1 ? currentRecord.result : "";
 
         let item = document.getElementById("grids");
-        // item.setAttribute("left", 700/2 + "px");
-        // item.setAttribute("top", 745/2 + "px");
-        // item.setAttribute("width", 700);
-        // item.setAttribute("height", 745);
+
         item.style.width = null;
         item.style.height= null;
-        // item.style.top = null;
-        // item.style.left= null;
+
         yearButtons.classList.add("display-hidden");
         helpButton.classList.add("display-hidden");
-        button.classList.add("display-hidden");
-        container.style.setProperty("width", "800px");
-        container.style.setProperty("height", "800px");
-        // container.style.setProperty("--scale", "1");
-        // container.style.setProperty("height", "100%");
+        captureButton.classList.add("display-hidden");
+
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
             // document.body.appendChild(canvas);
             console.log(title.innerText);
-            downloadImage(canvas.toDataURL(), title.innerText);
-            title.innerText = "";
+            // downloadImage(canvas.toDataURL(), title.innerText);
+            canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
         });
-        container.style.removeProperty("width");
-        container.style.removeProperty("height");
+
+        title.innerText = "";
+        captureButton.querySelector("p").innerText = "Copied!";
+        setTimeout(resetButton, 1000);
+
+        captureButton.classList.remove("display-hidden");
         yearButtons.classList.remove("display-hidden");
         helpButton.classList.remove("display-hidden");
-        button.classList.remove("display-hidden");
     })
+}
+
+function resetButton() {
+    captureButton.querySelector("p").innerText = "Copy Visual";
 }
 
 export { addCaptureButtonListener }
