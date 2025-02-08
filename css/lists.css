@@ -180,6 +180,10 @@ a.list-item-button {
     gap: 0.5em;
 }
 
+#councillor-list-container > div {
+    padding: 0.5em 0.5em;
+}
+
 #councillor-list-container .collapsable-container {
     padding: 0em 0.5em;
 }
