@@ -122,7 +122,7 @@ a.list-item-button {
 }
 
 .councillor-list-item-title {
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-wrap: pretty;
 }
 
@@ -180,10 +180,22 @@ a.list-item-button {
     gap: 0.5em;
 }
 
-#councillor-list-container > div {
-    padding: 0.5em 0.5em;
+#councillor-search-clear-button {
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
+    background-color: var(--primary-colour-light);
 }
 
-#councillor-list-container .collapsable-container {
+#councillor-list-container > div {
     padding: 0em 0.5em;
+}
+
+#councillor-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+#councillor-search-container {
+    gap: 0.25em;
 }

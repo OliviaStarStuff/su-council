@@ -1,8 +1,11 @@
 "use strict";
 
+import { openCouncillorPanel } from "./councillorList.js"
+
 const searchBox = document.getElementById("councillor-search");
 const resultBox = document.getElementById("councillor-search-results");
 const template = document.getElementById("councillor-item-template");
+const clearButton = document.getElementById("councillor-search-clear-button");
 
 const list = [
     {
@@ -64,6 +67,11 @@ function addSearchListener() {
             resultBox.appendChild(clone);
         }
     });
+
+    clearButton.addEventListener("click", () => {
+        searchBox.value = "";
+        searchBox.dispatchEvent(new Event("change"));
+    })
 }
 
 export { addSearchListener }
