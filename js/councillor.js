@@ -154,8 +154,24 @@ class Councillor {
     get vacantList() { return this.#vacantList; }
     get isCurrentlyVacant() {
         if(this.#vote.session == 0) { return this.#isVacant; }
-        return this.#vacantList.includes(this.#vote.session) }
+        return this.#vacantList.includes(this.#vote.session)
+    }
+    get effectiveGroup() {
+        switch(this.#faculty) {
+            case "AMRC":
+            case "Apprentices":
+            case "Foundation":
+            case "SU":
+                return this.#type;
+                break;
+            default:
+                return this.#faculty;
+        }
+    }
 
+    get initial() {
+        return this.#initial;
+    }
     set initial(bool) { this.#text.classList.toggle("opacity-hidden", bool) }
     set vote(recordIndex) {
         this.#vote.current = recordIndex;
@@ -230,6 +246,17 @@ class Councillor {
     }
 
     static list = [];
+
+    static getGroup(groupName) {
+        const group_list = [];
+        // return Councillor.list.filter(x => x.effectiveGroup == groupName);
+        for (const c of Councillor.list) {
+            if (c.effectiveGroup == groupName) {
+                group_list.push(c);
+            }
+        }
+        return group_list;
+    }
 }
 
 console.log("Hex, Votes, Councillor Classes Loaded");

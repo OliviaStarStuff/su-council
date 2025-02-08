@@ -31,7 +31,6 @@
     text-align: center;
     /* z-index: -1; */
     transition: all 300ms ease-in-out, opacity 50ms ease-out, border 0ms;
-
     user-select: none;
     --q: 0;
     --r: 0;
@@ -126,6 +125,52 @@
     --vacant-colour: #0000;
 }
 
+.overlay {
+    --member-colour: #EDE;
+    position: absolute;
+    pointer-events: none;
+    background-color: #EDE;
+    background-color: var(--member-colour);
+    border: solid 0.375em var(--member-border-colour);
+    padding: 0.75em 1em 0.5em 1em;
+    border-radius: 0 1.5em 1.5em 1.5em;
+}
+
+#group-title-info {
+    font-size: 1rem;
+    text-align: left;
+    width: unset;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    border-radius: 1em;
+    pointer-events: auto;
+}
+
+#group-title-info.display-hidden {
+    display: none;
+}
+
+#group-title-info button {
+    background-color: var(--member-border-colour);
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+}
+
+.overlay p {
+    color: black;
+}
+
+#overlay-list {
+    display: grid;
+    grid-template-columns: 6ch minmax(auto, 32ch);
+    gap: 0em 0.25em
+}
+#overlay-list p {
+    text-wrap: pretty;
+}
+
 .member-fto {
     --member-colour: var(--fto-colour);
     --member-border-colour: var(--fto-border-colour);
@@ -176,17 +221,6 @@
 .member-health {
     --member-colour: var(--health-colour);
     --member-border-colour: var(--health-border-colour);
-}
-
-.overlay {
-    --member-colour: #EDE;
-    position: absolute;
-    pointer-events: none;
-    background-color: #EDE;
-    background-color: var(--member-colour);
-    border: solid 0.375em var(--member-border-colour);
-    padding: 0.75em 1em 0.5em 1em;
-    border-radius: 0 1.5em 1.5em 1.5em;
 }
 
 @media only screen and (min-width: 400px) {
