@@ -136,28 +136,6 @@
     border-radius: 0 1.5em 1.5em 1.5em;
 }
 
-#group-title-info {
-    font-size: 1rem;
-    text-align: left;
-    width: unset;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    align-items: center;
-    border-radius: 1em;
-    pointer-events: auto;
-}
-
-#group-title-info.display-hidden {
-    display: none;
-}
-
-#group-title-info button {
-    background-color: var(--member-border-colour);
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
-}
-
 .overlay p {
     color: black;
 }

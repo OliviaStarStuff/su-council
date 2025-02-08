@@ -19,9 +19,8 @@ function addGroupTitleOverlayListener() {
         overlay.classList.add("display-hidden");
     })
 
-
-    if (window.innerWidth >= 600) {
-        for (const node of titlesContainer.children) {
+    for (const node of titlesContainer.children) {
+        node.addEventListener("click", (e) => {
             const searchKey = node.innerText == "Special" ? "Specialised" : node.innerText;
 
             const mymap = new Map();
@@ -33,22 +32,20 @@ function addGroupTitleOverlayListener() {
                 return false;
             })
 
-            node.addEventListener("click", (e) => {
-                overlay.classList.remove("display-hidden");
-                overlay.classList.remove(currentColour);
-                overlay.classList.add(group[0].colourClass);
-                currentColour = group[0].colourClass;
-                clearChildren("overlay-list")
-                for (const c of group) {
-                    const title = document.createElement("p");
-                    const initial = document.createElement("p");
-                    title.innerText = c.initial;
-                    initial.innerText = c.title;
-                    overlayList.appendChild(title);
-                    overlayList.appendChild(initial);
-                }
-            });
-        }
+            overlay.classList.remove("display-hidden");
+            overlay.classList.remove(currentColour);
+            overlay.classList.add(group[0].colourClass);
+            currentColour = group[0].colourClass;
+            clearChildren("overlay-list")
+            for (const c of group) {
+                const title = document.createElement("p");
+                const initial = document.createElement("p");
+                title.innerText = c.initial;
+                initial.innerText = c.title;
+                overlayList.appendChild(title);
+                overlayList.appendChild(initial);
+            }
+        });
     }
 }
 
