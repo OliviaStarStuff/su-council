@@ -14,7 +14,7 @@ const options = {
 
 function downloadImage(uri, filename) {
     let name = "SU Council Visualiser" + getCurrentYear();
-    if (filename == "") {
+    if (filename != "") {
         name += "_" + filename.replaceAll(" ", "_")
     }
     const link = document.createElement('a');
