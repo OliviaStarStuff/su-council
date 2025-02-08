@@ -57,7 +57,28 @@ function addCaptureButtonListener() {
             // document.body.appendChild(canvas);
             console.log(title.innerText);
             // downloadImage(canvas.toDataURL(), title.innerText);
-            canvas.toBlob(blob => navigator.clipboard.write([new ClipboardItem({'image/png': blob})]));
+            canvas.toBlob(blob => {
+                const share = async (title, text, blob) => {
+                    const data = {
+                        files: [
+                            new File([blob], 'file.png', {
+                            type: blob.type,
+                            }),
+                        ],
+                        title: title,
+                        text: text,
+                    };
+                    try {
+                        if (!(navigator.canShare(data))) {
+                            throw new Error("Can't share data.", data);
+                        }
+                        await navigator.share(data);
+                    } catch (err) {
+                        console.error(err.name, err.message);
+                    }
+                };
+                navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
+            });
         });
 
         title.innerText = "";
