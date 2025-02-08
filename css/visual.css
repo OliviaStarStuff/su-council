@@ -184,7 +184,7 @@
 }
 
 /* Help button + help overlay + help close button */
-#help-button {
+#help-button, #capture-button {
     bottom: unset;
     top: 1em;
     right: 1.5em;
@@ -197,7 +197,7 @@
     color: black;
 }
 
-#help-button p {
+#help-button p, #capture-button p {
     font-size: 1rem;
     font-weight: 500;
 }
@@ -207,6 +207,12 @@
     padding: 1em;
     border-radius: 2em;
     font-size: 1.25em;
+}
+
+#capture-button {
+    right: unset;
+    left: 1em;
+    width: unset;
 }
 
 @media only screen and (min-width: 400px) {
@@ -223,6 +229,12 @@
         grid-row: 1 / span 2;
         padding: unset;
         --scale: 0.50;
+    }
+
+    #capture-button {
+        top: unset;
+        left: 2em;
+        bottom: 2em;
     }
 
     #group-title-info {
@@ -244,6 +256,41 @@
         flex-direction: column;
         justify-content:center;
         align-items:center;
+    }
+
+    #year-buttons-container.display-hidden {
+        display: none;
+    }
+
+
+    #visual-container-description {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        flex-shrink: 0;
+        padding: 1em 0;
+        z-index: 1;
+    }
+    #visual-container-description * {
+        text-align: center;
+        width: 100%;
+        color: white;
+        flex-shrink: 0;
+    }
+
+    #visual-container-title {
+        /* top: 0.25em; */
+        text-wrap: pretty;
+        font-size: 2rem;
+    }
+
+    #visual-container-description p {
+        font-size: 1.5rem;
     }
 
     #year-buttons {
@@ -275,7 +322,7 @@
 
     #help-button  {
         top: unset;
-        bottom: 5em;
+        bottom: 2em;
         right: 10%;
     }
 }

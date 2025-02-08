@@ -1,12 +1,14 @@
-#grids {
+#group-container {
     --height: 745px;
     --width: 700px;
 
     position: absolute;
-    top: calc(0px - var(--height) / 2);
-    left: calc(0px - var(--width) / 2);
+    top: calc((0px - var(--height) / 2 + 50% * 1 / var(--scale)));
+    left: calc((0px - var(--width) / 2 + 50% * 1 / var(--scale)));
     height: var(--height);
     width: var(--width);
+}
+#grids {
     overflow: visible;
 }
 

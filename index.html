@@ -80,11 +80,12 @@
                     </ol>
             </section>
             <section id="council-page" class="page-content">
+
                 <section id="visual-container">
                     <div id="hexagon" role="figure graphics-document" aria-label="An 5 by 5 by 5 hexagonal grid">
                         <div id="group-container" role="graphics-object">
                             <svg id="grids" role="img" aria-labelledby="grids-title grids-desc"
-                            viewbox = "-350 -325 700 650">
+                            viewbox = "-350 -325 700 650" width="700" height="745">
                                 <title id="grids-title">councillor groups</title>
                                 <desc id="grids-desc">10 unique coloured hexagonal groups that group several councillor nodes into their type or faculty.
                                 </desc>
@@ -92,6 +93,11 @@
                         </div>
                         <div id="council-container" role="graphics-object" aria-label="A collection of councillors arranged in a hexagonal grid there are usually 77 of them.">
                         </div>
+
+                    </div>
+                    <div id="visual-container-description">
+                        <h2 id="visual-container-title">title text</h2>
+                        <p id="visual-container-result">result text</p>
                     </div>
                     <div id="overlay-group-titles" class="overlay-background">
                         <div id="group-text-container">
@@ -116,6 +122,7 @@
                     </div>
 
                     <button id="help-button" class="absolute-container"><p>?</p></button>
+                    <button id="capture-button" class="absolute-container"><p>Download</p></button>
                     <div id="overlay" class="overlay display-hidden" role="note">
                         <p id="overlay-role"></p>
                         <p id="overlay-type"></p>
@@ -135,10 +142,6 @@
                             </div>
                         </div>
                     </div>
-                </section>
-                <section id="desktop-right-panel">
-
-
                 </section>
                 <section id="bottom-panel">
                     <div id="expand-tab"><div class="expand-graphic"></div></div>
@@ -318,7 +321,7 @@
                                     <fieldset>
                                         <legend>Toggle name</legend>
                                         <div role="menuitem">
-                                            <input type="checkbox" id="toggle-names" name="toggle-names">
+                                            <input type="checkbox" id="toggle-names" name="toggle-names" checked>
                                             <label for="toggle-names">Academic</label>
                                         </div>
                                         <div role="menuitem">
@@ -326,7 +329,7 @@
                                             <label for="toggle-su-names">SU</label>
                                         </div role="menuitem">
                                         <div role="menuitem">
-                                            <input type="checkbox" id="toggle-all-names" name="toggle-all-names">
+                                            <input type="checkbox" id="toggle-all-names" name="toggle-all-names" checked>
                                             <label for="toggle-all-names">All</label>
                                         </div>
                                     </fieldset>
@@ -424,10 +427,7 @@
                             </a>
                         </svg>
                     </div>
-
                     <button id="help-close-button">Agree and close</button>
-
-
                 </div>
             </section>
             <section id="policies-page" class="page-content display-hidden"></section>

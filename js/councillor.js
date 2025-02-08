@@ -61,6 +61,7 @@ class Vote {
     get voteStyle() { return this.#index == -1 ? "" : this.#history[this.#index].style;}
     get voteClass() { return Vote.getClass(this.current, this.voteStyle); }
     get history() { return this.#history; }
+    get index() { return this.#index }
 
     static styles = [];
 
@@ -149,6 +150,7 @@ class Councillor {
     get position() { return this.#hex.position; }
     get coords() { return [this.#hex.coords.q, this.#hex.coords.r]; }
     get vote() { return this.#vote.current; }
+    get voteIndex() { return this.#vote.index; }
     get history() { return this.#vote.history; }
     get isVacant() { return this.#isVacant; }
     get vacantList() { return this.#vacantList; }

@@ -144,11 +144,6 @@ div#vote-history-container {
 }
 
 @media only screen and (min-width: 600px) {
-    #help-button  {
-        top: unset;
-        bottom: 5em;
-        right: 10%;
-    }
 
     #cllr-details {
         max-height: 100%;

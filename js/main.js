@@ -10,6 +10,7 @@ import { addExpandTabEventListeners } from "./bottomPanel.js";
 import { addMainNavEventListener } from "./mainNav.js";
 import { addGroupTitleOverlayListener } from "./explanation.js";
 import { addSearchListener } from "./search.js";
+import { addCaptureButtonListener } from "./capture.js";
 
 console.log("loading main");
 function main() {
@@ -27,6 +28,7 @@ function main() {
     addMainNavEventListener();
     addGroupTitleOverlayListener();
     addSearchListener();
+    addCaptureButtonListener();
 }
 
 document.addEventListener("DOMContentLoaded", main);
