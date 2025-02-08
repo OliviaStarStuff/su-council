@@ -8,6 +8,7 @@ import { addToggleListeners } from "./toggles.js";
 import { addHelpButtonListeners } from "./helpButton.js";
 import { addExpandTabEventListeners } from "./bottomPanel.js";
 import { addMainNavEventListener } from "./mainNav.js";
+import { addGroupTitleOverlayListener } from "./explanation.js";
 
 console.log("loading main");
 function main() {
@@ -23,6 +24,7 @@ function main() {
     addCouncilNavListener();
     addExpandTabEventListeners();
     addMainNavEventListener();
+    addGroupTitleOverlayListener();
 }
 
 document.addEventListener("DOMContentLoaded", main);
