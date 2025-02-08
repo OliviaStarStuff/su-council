@@ -13,7 +13,7 @@ const options = {
 }
 
 function downloadImage(uri, filename) {
-    let name = "SU Council Visualiser" + getCurrentYear();
+    let name = "SU Council Visualiser_" + getCurrentYear();
     if (filename != "") {
         name += "_" + filename.replaceAll(" ", "_")
     }
