@@ -196,6 +196,10 @@ a.list-item-button {
     gap: 0.5em;
 }
 
+#councillor-list-container.display-hidden {
+    display: none;
+}
+
 #councillor-search-container {
     gap: 0.25em;
 }
