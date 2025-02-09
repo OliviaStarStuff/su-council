@@ -17,7 +17,7 @@ function addExpandTabEventListeners() {
 let startPos = 0;
 let isClosed = true;
 const threshold = 50;
-const openPos = "-42px";
+const openPos = "-64px";
 const closePos = "335px";
 
 function handleStart(e) {
@@ -52,7 +52,7 @@ function handleCancel(e) {
 function handleMove(e) {
     e.preventDefault()
     const touches = e.changedTouches;
-    bottomPanel.style.setProperty("--touch-y", touches[0].pageY - 100 + "px");
+    bottomPanel.style.setProperty("--touch-y", touches[0].pageY - 168 + "px");
 }
 
 export { addExpandTabEventListeners }
