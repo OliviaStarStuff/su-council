@@ -1,11 +1,7 @@
 import { records } from "./councilMap.js";
+import { VoteSummary } from "./summary.js";
 
 const captureButton = document.getElementById("capture-button");
-const yearButtons = document.getElementById("year-buttons-container");
-const helpButton = document.getElementById("help-button");
-const container = document.querySelector("#visual-container");
-const title = document.querySelector("#visual-container-title");
-const result = document.querySelector("#visual-container-result");
 
 const options = {
     "windowWidth": 1080,
@@ -44,35 +40,65 @@ function checkMobile() {
 }
 
 function addCaptureButtonListener() {
-    title.innerText = "";
-    result.innerText = "";
+    const title = document.querySelector("#visual-container-title");
+    const councillorTotal = document.querySelector("#visual-container-councillor-total");
+    const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
+    const absent = document.querySelector("#visual-container-councillor-absent");
+    const totalVotes = document.querySelector("#visual-container-result-total");
+    const abstain = document.querySelector("#visual-container-result-abstain");
+    const result = document.querySelector("#visual-container-result");
+
+    const yearButtons = document.getElementById("year-buttons-container");
+    const helpButton = document.getElementById("help-button");
+    // title.innerText = "";
+    // result.innerText = "";
+
     captureButton.addEventListener("click", () => {
-        const index = Councillor.list[0].voteIndex;
-        const currentRecord = records[getCurrentYear()].policies[index];
-        title.innerText = index > -1 ? currentRecord.name : "Su Council Visualiser";
-        result.innerText = index > -1 ? currentRecord.result : "";
+        // Set text
+        // const currentRecord = records[getCurrentYear()].policies[index];
+        if(Councillor.list[0].voteIndex <= -1) {
+            title.innerText = "Su Council Visualiser";
+            result.innerText = "";
+        } else {
+            title.innerText = VoteSummary.name;
+            councillorTotal.innerText = `Total Councillors: ${Councillor.list.length}`;
+            councillorVacant.innerText = `Vacant: ${VoteSummary.vacant}`;
+            absent.innerText = `Absent: ${VoteSummary.absent}`;
+            totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
+            abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
+            result.innerText = `Result: ${VoteSummary.result}`;
+        }
 
-        let item = document.getElementById("grids");
 
-        item.style.width = null;
-        item.style.height= null;
+        // let item = document.getElementById("grids");
 
+        // item.style.width = null;
+        // item.style.height = null;
+
+        // Hide bits we don't want to see
+        // maybe we should iterate over a class
         yearButtons.classList.add("display-hidden");
         helpButton.classList.add("display-hidden");
         captureButton.classList.add("display-hidden");
 
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
-            // document.body.appendChild(canvas);
+            document.body.appendChild(canvas);
             console.log(title.innerText);
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
             }
-            canvas.toBlob(blob => {
-                navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
-            });
+
+            try {
+                canvas.toBlob(blob => {
+                    navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
+                });
+            } catch(err) {
+                console.err(err);
+            }
         });
 
         title.innerText = "";
+        result.innerText = "";
         captureButton.querySelector("p").innerText = "Copied!";
         setTimeout(resetButton, 1000);
 

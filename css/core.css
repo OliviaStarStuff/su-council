@@ -335,6 +335,14 @@ select {
     scroll-snap-stop: always;
 }
 
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
 /* @media ( min-resolution: 2dppx) {
     body {
         font-size: 50%;

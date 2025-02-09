@@ -43,6 +43,7 @@
     <!-- Utilities functions and classes -->
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://wzrd.in/standalone/copy-to-clipboard@latest" async></script>
     <script src="js/councillor.js"></script>
     <script src="js/utility.js"></script>
     <script type="module" src="js/main.js"></script>
@@ -80,7 +81,6 @@
                     </ol>
             </section>
             <section id="council-page" class="page-content">
-
                 <section id="visual-container">
                     <div id="hexagon" role="figure graphics-document" aria-label="An 5 by 5 by 5 hexagonal grid">
                         <div id="group-container" role="graphics-object">
@@ -97,7 +97,17 @@
                     </div>
                     <div id="visual-container-description">
                         <h2 id="visual-container-title">title text</h2>
-                        <p id="visual-container-result">result text</p>
+                        <div class="align-left">
+                            <p id="visual-container-councillor-total"></p>
+                            <p id="visual-container-councillor-vacant"></p>
+                            <p id="visual-container-councillor-absent"></p>
+                        </div>
+                        <div class="align-right">
+                            <p id="visual-container-result-total"></p>
+                            <p id="visual-container-result-abstain"></p>
+                            <p id="visual-container-result"></p>
+                        </div>
+                        <p id="visual-container-credits">Created by Olivia Starstuff&copy; at https://oliviastarstuff.github.io/su-council/</p>
                     </div>
                     <div id="overlay-group-titles" class="overlay-background display-hidden">
                         <div id="group-text-container">
