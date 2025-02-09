@@ -40,6 +40,7 @@ function checkMobile() {
 }
 
 function addCaptureButtonListener() {
+    const textContainer = document.querySelector("#visual-container-description");
     const title = document.querySelector("#visual-container-title");
     const councillorTotal = document.querySelector("#visual-container-councillor-total");
     const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
@@ -50,8 +51,7 @@ function addCaptureButtonListener() {
 
     const yearButtons = document.getElementById("year-buttons-container");
     const helpButton = document.getElementById("help-button");
-    // title.innerText = "";
-    // result.innerText = "";
+    textContainer.classList.add("display-hidden");
 
     captureButton.addEventListener("click", () => {
         // Set text
@@ -80,9 +80,11 @@ function addCaptureButtonListener() {
         yearButtons.classList.add("display-hidden");
         helpButton.classList.add("display-hidden");
         captureButton.classList.add("display-hidden");
+        textContainer.classList.remove("display-hidden");
+
 
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
-            document.body.appendChild(canvas);
+            // document.body.appendChild(canvas);
             console.log(title.innerText);
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
@@ -97,14 +99,14 @@ function addCaptureButtonListener() {
             }
         });
 
-        title.innerText = "";
-        result.innerText = "";
         captureButton.querySelector("p").innerText = "Copied!";
         setTimeout(resetButton, 1000);
 
         captureButton.classList.remove("display-hidden");
         yearButtons.classList.remove("display-hidden");
         helpButton.classList.remove("display-hidden");
+        textContainer.classList.add("display-hidden");
+
     })
 }
 

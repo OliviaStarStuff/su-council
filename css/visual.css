@@ -286,6 +286,11 @@
         padding: 1em 2em;
         z-index: 1;
     }
+
+    #visual-container-description.display-hidden {
+        display: none;
+    }
+
     #visual-container-description * {
         width: 100%;
         color: white;
