@@ -166,9 +166,11 @@ function setupSelectors() {
     setCouncillorClickBehaviour();
 
     const param = new URLSearchParams(window.location.search);
+    isChanged = false;
     let period;
     if(param.has("period")) {
         period = param.get("period").replace("-", "/");
+        isChanged = true;
     }
 
     for (const button of yearSelector.children) {
@@ -185,8 +187,10 @@ function setupSelectors() {
         policySelector.dispatchEvent(new Event('change'));
         policyName = records[getCurrentYear()].policies[policyIndex].name;
     }
-    document.querySelector('meta[name="title"]').setAttribute("content", `${period}${" " + policyName}`);
-    document.querySelector('meta[property="og:title"]').setAttribute("content", `${period}${" " + policyName}`);
+    if(isChanged) {
+        document.querySelector('meta[name="title"]').setAttribute("content", `${period}${" " + policyName}`);
+        document.querySelector('meta[property="og:title"]').setAttribute("content", `${period}${" " + policyName}`);
+    }
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");
     //     console.log("Scrolling");
