@@ -696,6 +696,7 @@
         [
             {
                 "name":"Cops off Campus",
+                "type": "policy proposal",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1bQPXhZ57LaM2n3ZMmLZsGCoYubweY1mGnODqw3I5HAk/edit?tab=t.0",
                 "result": "Passed",
@@ -783,6 +784,7 @@
             },
             {
                 "name":"Full-Time Officer Options",
+                "type": "referendum",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1NmxI4-Y9nyBrCK4NScxKu82jHwgi2jsWrdGvZkhXQco/edit?usp=sharing",
                 "result": "Option 3",
@@ -871,6 +873,7 @@
             {
                 "name":"Part-Time Officer Options",
                 "session": 1,
+                "type": "referendum",
                 "url": "https://docs.google.com/document/d/1cu_mob58tMOSRF0Z2KYxBxDfIWHLynxwUBM7qS8d8bI/edit?tab=t.0#heading=h.1358953j2pk5",
                 "result": "Liberation Facilitator",
                 "style":"duo",
@@ -957,6 +960,7 @@
             },
             {
                 "name":"Working Committees Councillor",
+                "type": "bye-law amendment",
                 "session": 2,
                 "url": "",
                 "result":"Passed",
@@ -1044,6 +1048,7 @@
             },
             {
                 "name":"Censure of Mature PTO",
+                "type": "censure",
                 "session": 3,
                 "url": "https://docs.google.com/document/d/1vaooBy1iEh0kMJJLRPFzTPuuCjVrBI3nCp5I6L-fJvQ/edit?tab=t.0",
                 "result": "Passed",
@@ -1131,6 +1136,7 @@
             },
             {
                 "name":"Make Abstentions Make Sense",
+                "type": "policy proposal",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/1/d/1R1ARuz-AjBCocGNOla1V0274Vrlu8WQtIFvYzqch9-E/edit",
                 "result": "Passed",
@@ -1218,6 +1224,7 @@
             },
             {
                 "name":"A Better Deal for Our Future",
+                "type": "policy proposal",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/1/d/1P2FiUw7qq01OzCi2uQ3ilqxOJB7Sf_4_Xt7RdoS67iA/edit",
                 "result": "Passed",
@@ -1305,6 +1312,7 @@
             },
             {
                 "name":"Officer Role Review",
+                "type": "mandate",
                 "session": 3,
                 "url": "https://docs.google.com/document/d/1qKNzfzWGb2Io2tJkq5F8Q6qF9taKkSdKT73lbDwbXtI/edit?tab=t.0#heading=h.4bs0yyixuhc",
                 "result": "Passed",
@@ -1392,6 +1400,7 @@
             },
             {
                 "name":"Policy Review (SEC Recommendations)",
+                "type": "policy review",
                 "session": 3,
                 "url": "",
                 "result": "Passed",
