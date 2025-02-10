@@ -65,7 +65,16 @@
 
 .summary-container .summary-top {
     width: 40%;
-    padding: 0;
+    padding: unset;
+}
+
+.summary-container .summary-top:nth-child(even) {
+    width: 35%;
+    padding-left: 0.5em;
+}
+
+.summary-container .summary-top:nth-child(odd) {
+    padding-right: 0.5em;
 }
 
 .summary-container .summary-top:first-of-type {
