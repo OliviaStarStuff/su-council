@@ -170,12 +170,14 @@ function setupSelectors() {
         }
     }
     const policyIndex = param.get("policy");
+    let policyName = "";
     const numberOfRecords = records[getCurrentYear()].policies.length;
     if (policyIndex >= -1&& policyIndex < numberOfRecords) {
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
+        const policyName = records[getCurrentYear()].policies[policyIndex].name;
     }
-
+    document.querySelector('meta[name="title"]').setAttribute("content", `${period}${" " + policyName}`);
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");
     //     console.log("Scrolling");
