@@ -46,12 +46,14 @@ function addCaptureButtonListener() {
     const councillorTotal = document.querySelector("#visual-container-councillor-total");
     const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
     const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
-    const absent = document.querySelector("#visual-container-councillor-absent");
+    const present = document.querySelector("#visual-container-councillor-present");
 
     const totalVotes = document.querySelector("#visual-container-result-total");
     const abstain = document.querySelector("#visual-container-result-abstain");
     const threshold = document.querySelector("#visual-container-result-threshold");
     const result = document.querySelector("#visual-container-result");
+    const period = document.querySelector("#visual-container-result-period");
+    const session = document.querySelector("#visual-container-result-session");
 
     const bottomRightContainer = document.querySelector("#visual-container-bottom-right");
 
@@ -71,13 +73,11 @@ function addCaptureButtonListener() {
 
             councillorTotal.innerText = `Total Councillors: ${Councillor.list.length}`;
             councillorOccupied.innerText = `Occupied: ${VoteSummary.occupiedSeats}`;
-            councillorVacant.innerText = `Vacant: ${VoteSummary.vacant}`;
-            absent.innerText = `Absent: ${VoteSummary.absent}`;
+            councillorVacant.innerText = `Vacant Seats: ${VoteSummary.vacant}`;
+            present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
 
             totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
             abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
-            console.log(VoteSummary.style);
-            console.log("test");
             if (VoteSummary.style == "standard") {
                 const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
                 threshold.innerText = `${recordType}: ${VoteSummary.threshold}`;
@@ -85,6 +85,9 @@ function addCaptureButtonListener() {
                 threshold.innerText = `Quota: ${VoteSummary.quota}`;
             }
             result.innerText = `Result: ${VoteSummary.result}`;
+
+
+            session.innerText = `Session ${VoteSummary.session}`;
 
             clearChildren(bottomRightContainer.id);
             for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
@@ -94,6 +97,7 @@ function addCaptureButtonListener() {
                 bottomRightContainer.appendChild(p);
             }
         }
+        period.innerText = getCurrentYear();
 
         // Hide bits we don't want to see
         // maybe we should iterate over a class
@@ -104,8 +108,6 @@ function addCaptureButtonListener() {
 
 
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
-            // document.body.appendChild(canvas);
-            console.log(title.innerText);
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
             }
