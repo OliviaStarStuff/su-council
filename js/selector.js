@@ -88,14 +88,19 @@ function generatePolicySelectOptions(pSelector, period) {
         optGroup.append(opt);
     }
 }
-
+const urlSearch = new URLSearchParams();
 function selectPolicy(e, summaryId) {
     // If no policy is selected, clear vote classes
+    urlSearch.set("period", getCurrentYear().replace("/","-"));
     const councillors = Councillor.list;
     if(e.target.value == "none") {
         for(const c of councillors) { c.vote = -1; }
+        urlSearch.delete("policy");
+        window.history.pushState(records[getCurrentYear()].policies[e.target.value].name, "", "?"+urlSearch );
     } else {
+        urlSearch.set("policy", e.target.value);
         for(const c of councillors) { c.vote = e.target.value; }
+        window.history.pushState(records[getCurrentYear()].policies[e.target.value].name, "", "?"+urlSearch );
     }
     updateSummary(e, summaryId);
     // policyList.value = e.target.value;
@@ -135,11 +140,41 @@ function setupSelectors() {
         policy.disabled = current.url == "";
     })
 
+    const tab = document.getElementById("session-tab");
+    for (const button of yearSelector.children) {
+        if (!button.disabled) {
+            button.addEventListener("click", (e) => {
+                for (const otherButton of yearSelector.children) {
+                    otherButton.classList.toggle("selected", otherButton == button)
+                    tab.scrollTop = 0;
+                }
+                selectYear(e);
+                urlSearch.set("period", getCurrentYear().replace("/","-"));
+                urlSearch.delete("policy");
+                window.history.pushState(getCurrentYear(), "", "?"+urlSearch );
+            })
+        }
+    }
+
     policySelector.focus();
 
     populateCouncillorList();
 
     setCouncillorClickBehaviour();
+
+    const param = new URLSearchParams(window.location.search);
+    const period = param.get("period").replace("-", "/");
+    for (const button of yearSelector.children) {
+        if(button.innerText == period) {
+            button.click();
+        }
+    }
+    const policyIndex = param.get("policy");
+    const numberOfRecords = records[getCurrentYear()].policies.length;
+    if (policyIndex >= -1&& policyIndex < numberOfRecords) {
+        policySelector.value = param.get("policy");
+        policySelector.dispatchEvent(new Event('change'));
+    }
 
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");
@@ -176,18 +211,7 @@ function selectYear(e) {
     clearChildren("vote-summary-panel-container");
 }
 
-const tab = document.getElementById("session-tab");
-for (const button of yearSelector.children) {
-    if (!button.disabled) {
-        button.addEventListener("click", (e) => {
-            for (const otherButton of yearSelector.children) {
-                otherButton.classList.toggle("selected", otherButton == button)
-                tab.scrollTop = 0;
-            }
-            selectYear(e);
-        })
-    }
-}
+
 
 function resetVotesList() {
     policyList.classList.remove("display-hidden");
