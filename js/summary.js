@@ -31,7 +31,7 @@ import { records }  from './councilMap.js';
 
 // collapsables
 // const policyCollapsable = new Collapsable("policy", true);
-const togglesCollapsable = new Collapsable("toggles", false);
+const togglesCollapsable = new Collapsable("toggles", true);
 const voteSummaryCollapsable = new Collapsable("vote-summary", true);
 const voteSummaryPanelCollapsable = new Collapsable("vote-summary-panel", true);
 

@@ -4,6 +4,7 @@ import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
+import { closePanel } from "./bottomPanel.js"
 createMessage("I am here after selector import");
 
 const yearSelector = document.getElementById("year-buttons");
@@ -14,6 +15,7 @@ const policySelector = document.getElementById("policy-select");
 
 const bottomPanel = document.getElementById("bottom-panel");
 
+const expandTab = document.getElementById("expand-tab");
 function generatePolicyListOptions(period) {
     const itemTemplate = document.getElementById("list-item-template");
     const headerTemplate = document.getElementById("list-header-template");
@@ -47,6 +49,7 @@ function generatePolicyListOptions(period) {
         displayPolicyButton.addEventListener("click", e => {
             selectPolicy(e, "vote-summary");
             bottomPanel.classList.remove("open");
+            closePanel();
         });
 
         const summaryButton = clone.querySelector("button.summary-button");

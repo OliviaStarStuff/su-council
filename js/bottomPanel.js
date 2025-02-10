@@ -9,6 +9,7 @@ function addExpandTabEventListeners() {
     expandTab.addEventListener("touchcancel", handleCancel);
     expandTab.addEventListener("touchmove", handleMove);
     expandTab.addEventListener("click", (e) => {
+        console.log("test");
         isClosed = !isClosed;
         handleCancel(e);
     })
@@ -20,11 +21,15 @@ const threshold = 50;
 const openPos = "-64px";
 const closePos = "335px";
 
+function closePanel() {
+    isClosed = true;
+    handleCancel();
+}
+
 function handleStart(e) {
     e.preventDefault()
     const touches = e.changedTouches;
     startPos = touches[0].pageY;
-    console.log(touches[0].pageY);
 }
 
 function handleEnd(e) {
@@ -55,4 +60,4 @@ function handleMove(e) {
     bottomPanel.style.setProperty("--touch-y", touches[0].pageY - 168 + "px");
 }
 
-export { addExpandTabEventListeners }
+export { addExpandTabEventListeners, closePanel }
