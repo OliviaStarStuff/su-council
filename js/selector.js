@@ -175,7 +175,7 @@ function setupSelectors() {
     if (policyIndex >= -1&& policyIndex < numberOfRecords) {
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
-        const policyName = records[getCurrentYear()].policies[policyIndex].name;
+        policyName = records[getCurrentYear()].policies[policyIndex].name;
     }
     document.querySelector('meta[name="title"]').setAttribute("content", `${period}${" " + policyName}`);
     document.querySelector('meta[property="og:title"]').setAttribute("content", `${period}${" " + policyName}`);
