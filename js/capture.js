@@ -62,8 +62,8 @@ function addCaptureButtonListener() {
     textContainer.classList.add("display-hidden");
 
     const urlData = updatePreviewImage();
-    document.querySelector('meta[name="og:image"]').setAttribute("content", urlData);
-    document.querySelector('meta[name="twitter:image"]').setAttribute("content", urlData);
+    document.querySelector('meta[property="og:image"]').setAttribute("content", urlData);
+    document.querySelector('meta[property="twitter:image"]').setAttribute("content", urlData);
 
     captureButton.addEventListener("click", () => {
         // Set text
