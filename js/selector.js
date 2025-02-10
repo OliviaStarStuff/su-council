@@ -178,6 +178,7 @@ function setupSelectors() {
         const policyName = records[getCurrentYear()].policies[policyIndex].name;
     }
     document.querySelector('meta[name="title"]').setAttribute("content", `${period}${" " + policyName}`);
+    document.querySelector('meta[property="og:title"]').setAttribute("content", `${period}${" " + policyName}`);
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");
     //     console.log("Scrolling");
