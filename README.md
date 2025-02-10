@@ -106,6 +106,7 @@ It is in line with the active SU policy, [Transparency And Voting](https://docs.
 ```json
 {
   "name": "Policy/vote title",
+  "type": "record type"
   "session": "#sessionID",
   "url": "url",
   "result": "Passed | Failed | <Custom Result>",
