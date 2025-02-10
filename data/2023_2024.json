@@ -662,6 +662,7 @@
         "policies": [
             {
                 "name":"Nestle (Ethical Policy) REVIEW",
+                "type": "policy proposal",
                 "date":"",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1g1moMjDf_MaiwZD0Wy-UV3MjI1edXaTu4_ObZwc2pnk/edit?usp=sharing",
@@ -744,6 +745,7 @@
             },
             {
                 "name":"Zero-Tolerance to Sexual Harassment REVIEW",
+                "type": "policy review",
                 "date":"",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/18cYeIj1ODWe8oZa3EGvas-hM-msuQYIKGT_dWY820zE/edit?usp=sharing",
@@ -826,6 +828,7 @@
             },
             {
                 "name":"Amendment to Food Policy",
+                "type": "policy amendment",
                 "date":"",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1LPaPhd2XmtG4PuTBZz8yjztk4lw8MVDUHQGXbUUencU/edit?usp=sharing",
@@ -908,6 +911,7 @@
             },
             {
                 "name":"Accessible Study Rooms",
+                "type": "policy proposal",
                 "date":"",
                 "session": 1,
                 "url": "",
@@ -990,6 +994,7 @@
             },
             {
                 "name":"Lecture Accessibility For All",
+                "type": "policy proposal",
                 "date":"",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1N5p5HKfE2i3PCH6ZPKF4v-HPC7Gw1WQdNMKuWqBwzMU/edit?usp=drive_link",
@@ -1072,6 +1077,7 @@
             },
             {
                 "name":"Menstrual Product Disposal Bins in Male Toilets",
+                "type": "policy proposal",
                 "date":"",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1j5o-d8oRhdUFkcK_0K04Ep-KKdoDMXpOE36GVzJApKQ/edit?usp=drive_link",
@@ -1154,6 +1160,7 @@
             },
             {
                 "name":"Engagement in the Sheffield Climate Movement",
+                "type": "policy proposal",
                 "date":"",
                 "session": 1,
                 "url": "https://docs.google.com/document/d/1zLihRN8aFTEpYaofIHtZGXg_WD9jczLQXNZmv2MYOc4/edit?usp=drive_link",
@@ -1236,6 +1243,7 @@
             },
             {
                 "name":"Sharps Bins in Toilets",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1VVzr_ID58QhUkIVfdj3bzOCghdskbQawWdFPLeTpWU4/edit?usp=drive_link",
@@ -1318,6 +1326,7 @@
             },
             {
                 "name":"Improving Inclusivity in Societies",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1n-UgMhkDs4FL1963RYFrnvTx06hddvZCrtQ5iFl1qwk/edit",
@@ -1400,6 +1409,7 @@
             },
             {
                 "name":"Defend Student Protest Rights AMENDMENT",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1o_8P6F-8BA71sNggGcWVS9ckCP3JyYXcJp-dIBVB8k4/edit?usp=sharing",
@@ -1482,6 +1492,7 @@
             },
             {
                 "name":"Defend Student Protest Rights (UNAMENDED)",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/10ol9Ki0791_zPGkPwbqscggF4WZ8ULdbcyacsyz7gL4/edit?usp=sharing",
@@ -1564,6 +1575,7 @@
             },
             {
                 "name":"Free The Nipple",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1LzCDQJ518asnUCM2YjXLnrRrSHBx6bJju5yRchDjz2o/edit",
@@ -1646,6 +1658,7 @@
             },
             {
                 "name":"LGBTQ+ Curriculum",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1TO4o7Bg0GzsoYCSD34v3yrzhakCn51nP/edit?usp=drive_link&ouid=112376260516163934571&rtpof=true&sd=true",
@@ -1728,6 +1741,7 @@
             },
             {
                 "name":"Supporting Student Sex Workers",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1leCML7Y788LcPmZAiit5fHHeV0KjqiHl-tE8AIgMXPs/edit",
@@ -1810,6 +1824,7 @@
             },
             {
                 "name":"Queer Self Defence",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1DBjoZirQlXT6ii-25Y6DRPvUn8qDRRBOTqA3o29Iyuk/edit",
@@ -1892,6 +1907,7 @@
             },
             {
                 "name":"Amendment to End Period Poverty",
+                "type": "policy amendment",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1RI5edaYAhsoXwi8OAxpIB6PNHHK93JOt-Lb8UnRLfbI/edit",
@@ -1974,6 +1990,7 @@
             },
             {
                 "name":"Another University is Possible",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1k3GHqUqpNr9cZ65WSS5D81W3IvzKx1wEGPnFxqAQjhQ/edit?usp=sharing",
@@ -2056,6 +2073,7 @@
             },
             {
                 "name":"Amendment to PGRs as Staff not Students",
+                "type": "policy amendment",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1UjQlytmjXBLb5pMQvG24rZAKkL7wRj2DTNtlzIugo28/edit?usp=drive_link",
@@ -2138,6 +2156,7 @@
             },
             {
                 "name":"PGR Network",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1f8-zExyyXuDW-cWp-uytdcZsP5p3qFP-DPqKjVFMVdA/edit?usp=sharing",
@@ -2220,6 +2239,7 @@
             },
             {
                 "name":"Amendment to Fast Fashion Free Campus",
+                "type": "policy amendment",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1UjQlytmjXBLb5pMQvG24rZAKkL7wRj2DTNtlzIugo28/edit?usp=drive_link",
@@ -2302,11 +2322,12 @@
             },
             {
                 "name":"Invest in Sports!",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1syADz0P_qWcxaB9tTlb7AJzx7Nit2aH-JtDet9suHmg/edit",
                 "result": "Passed",
-                "style":"standard",
+                "style": "standard",
                 "votes":
                 [
                     "For",
@@ -2384,6 +2405,7 @@
             },
             {
                 "name":"Restore Human Dissections",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/d/1evkhDNqF-pSfvxOYC1V1gctyqxPgYYbCo4lDUMX7MNk/edit?usp=drive_link",
@@ -2466,6 +2488,7 @@
             },
             {
                 "name":"Redefining Abstentions",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1Z0MLQY2rXYY8kfgq6ush4XAGv66E2Pv9rx95vLrSexU/edit",
@@ -2548,6 +2571,7 @@
             },
             {
                 "name":"SU Officer Accountability",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/1paurz6zO6-mz3lHs-WHPoIWttA0kGYxLRrKHIRK_y8U/edit",
@@ -2630,6 +2654,7 @@
             },
             {
                 "name":"Mature Students Week",
+                "type": "policy proposal",
                 "date":"",
                 "session": 2,
                 "url": "https://docs.google.com/document/u/5/d/12AlKb2n5TxyzR802hv6EXSLlZdxWOW5TriV3WWW1H4A/edit",
@@ -2712,6 +2737,7 @@
             },
             {
                 "name":"Trustee Board Deputy Chair Appointment",
+                "type": "appointment",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/2/d/1lIjTifuoe4JUtspUtW9H6IlS3J9-ByTU-peIlFt28Ko/edit",
@@ -2794,6 +2820,7 @@
             },
             {
                 "name":"Decolonising Language",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/2/d/1GlUcJ1U9Gu_vTrxyjF2DKqfM8_rXEDQVBAB7GKgor9Y/edit",
@@ -2876,6 +2903,7 @@
             },
             {
                 "name":"Ethical Investments and Banking",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/d/19uOBoRgZUL8flZD688nKxrbQmZ44-sXCseuWuzwmUMk/edit?usp=sharing",
@@ -2958,6 +2986,7 @@
             },
             {
                 "name":"Cops Off Campus",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/2/d/1SZoEGv0TfJDzZRxVjn2alpx5HpBrKtSyaHnxYVjsRp8/edit",
@@ -3040,6 +3069,7 @@
             },
             {
                 "name":"Sustainable Transport Pledge",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/d/1zActnTNC6P5pKnz32W4bTYDQJHL7kzaKACM6Iso-lYo/edit?usp=sharing",
@@ -3122,6 +3152,7 @@
             },
             {
                 "name":"Plant Based University",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/2/d/1b7MmWQ2SaPLUMQhAKIHObdeREwCIe9hjMyISQr8q5Go/edit",
@@ -3204,6 +3235,7 @@
             },
             {
                 "name":"Democratic Reform",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/2/d/1mvdVA2TWLBVyDRunZnIa3V8hjwXZ4je6TVfi-PFLnMY/edit",
@@ -3286,6 +3318,7 @@
             },
             {
                 "name":"A Pro-Choice SU",
+                "type": "policy proposal",
                 "date":"",
                 "session": 3,
                 "url": "https://docs.google.com/document/u/2/d/1lOx8k0Uyk9V2xG74Y7YpO5QGyWN590nzIyvnQxfxrgU/edit",
@@ -3368,6 +3401,7 @@
             },
             {
                 "name":"Vote of No Confidence in the Chair",
+                "type": "vonc chair",
                 "date":"",
                 "session": 4,
                 "url": "",
@@ -3450,6 +3484,7 @@
             },
             {
                 "name":"Student Welfare and Safety",
+                "type": "policy proposal",
                 "date":"",
                 "session": 4,
                 "url": "https://docs.google.com/document/d/1IutZnSSo_IgAZv7KiIjDa3a86uznQu8JoJPrDAvQCpY/edit?usp=sharing",
@@ -3532,6 +3567,7 @@
             },
             {
                 "name":"Amendment to Supporting Student Protestors",
+                "type": "policy amendment",
                 "date":"",
                 "session": 4,
                 "url": "https://docs.google.com/document/d/1i8f2LY1H0DwCMFP-xBl0bkLkhk36YiIV3CDI6hbHCCg/edit?usp=sharing",
@@ -3614,6 +3650,7 @@
             },
             {
                 "name":"Your UCard, A Card For You",
+                "type": "policy proposal",
                 "date":"",
                 "session": 4,
                 "url": "https://docs.google.com/document/d/19RAl6BKnGz1EDBjIWdDzwhwWAz4URZVjv5Z2P5ip_cQ/edit?usp=sharing",
@@ -3696,6 +3733,7 @@
             },
             {
                 "name":"Plugs For All",
+                "type": "policy proposal",
                 "date":"",
                 "session": 4,
                 "url": "https://docs.google.com/document/d/1b1yjddqVjfSTGAuE0bRuCmD5hGe3vOio3gG5VeRnd0I/edit?usp=sharing",
@@ -3778,6 +3816,7 @@
             },
             {
                 "name":"Constitution for International Committee",
+                "type": "committee constitution",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/185BNH8O540z0AgHMinTSxp7sbmNqsagB/edit?usp=sharing&ouid=112067767081350042820&rtpof=true&sd=true",
@@ -3860,6 +3899,7 @@
             },
             {
                 "name":"Constitution for Welfare Committee",
+                "type": "committee constitution",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1LoEPNdf2D7V2gdx2XzE2Z_S9QRrpmvhE8PTG8O5ZSus/edit?usp=sharing",
@@ -3942,6 +3982,7 @@
             },
             {
                 "name":"Appointment of Student Trustees",
+                "type": "appointment",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1VE4x35cQGDtCepCm7E8HF_Z6fTQyykRKKfg-LPguAyA/edit?usp=sharing",
@@ -4024,6 +4065,7 @@
             },
             {
                 "name":"SU bye-law amendments",
+                "type": "bye-law amendment",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1ci3hOCa32wJl5Qr9KP_3TcsauvQe2dg1Gq3xjgPLc8A/edit?usp=sharing",
@@ -4106,6 +4148,7 @@
             },
             {
                 "name":"SEC Policy Review",
+                "type": "policy review",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1W3ukXKiSETjA5e1fCM_NZjG75h-SZhtVaVyTBP1K-Ak/edit?usp=sharing",
@@ -4188,6 +4231,7 @@
             },
             {
                 "name":"Accessible Activities",
+                "type": "policy proposal",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1rHG6ZZ_z1_0SqnLzPEVtcI0i8ZHVkXU9EmX-xsVgAs0/edit?usp=sharing",
@@ -4270,6 +4314,7 @@
             },
             {
                 "name":"Amendment to Lecture Accessiblity For All",
+                "type": "policy amendment",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1KrbLNFIf5dPhOnjdFkb0cNOqID-g8Okiz5aS2p9mfXE/edit?usp=sharing",
@@ -4352,6 +4397,7 @@
             },
             {
                 "name":"Transparency And Voting",
+                "type": "policy proposal",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1KrbLNFIf5dPhOnjdFkb0cNOqID-g8Okiz5aS2p9mfXE/edit?usp=sharing",
@@ -4434,6 +4480,7 @@
             },
             {
                 "name":"Amendment to Food For Future",
+                "type": "policy amendment",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1GNS8WtkWu1CPiyVT0rIvoRhrmQVlrxR8eQnRS1K8jzo/edit?usp=sharing",
@@ -4516,6 +4563,7 @@
             },
             {
                 "name":"Inclusive Democracy",
+                "type": "policy proposal",
                 "date":"",
                 "session": 6,
                 "url": "https://docs.google.com/document/d/1nDY0kAfC6bAO2tHSiWDQKO1gjJowCKR8I1duzozYrJA/edit?usp=sharing",

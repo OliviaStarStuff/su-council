@@ -70,8 +70,10 @@ const policySelector = document.getElementById("policy-select");
 class VoteSummary {
     static #breakdown = {}
     static #targetOptions = [];
+    static #style = [];
     static #name = "";
     static #session = "";
+    static #recordType = "";
     static #result = "";
     static #total = 0;
     static #absent = 0;
@@ -85,7 +87,22 @@ class VoteSummary {
     static get total() { return VoteSummary.#total; }
     static get absent() { return VoteSummary.#absent; }
     static get vacant() { return VoteSummary.#vacant; }
-
+    static get style() { return VoteSummary.#style; }
+    static get type() { return VoteSummary.#recordType; }
+    static get occupiedSeats() { return Councillor.list.length - VoteSummary.#vacant; }
+    /* https://docs.google.com/document/d/1yz1t0o724tRYjlT8UlQK5moOQSXoWxgKw75YGB3zIMc/edit?tab=t.0
+    Quoracy is the number of SU council members that must be present in
+    order for the meeting to happen and make valid decisions.
+    The threshold set for quoracy is 2/3rds of SU Council members,
+    excluding positions that are vacant.
+    Programmers note: This appears to be rounded up.
+    E.g. 60 Councillors means 44 councillor quorum */
+    static get quorum() { return Math.ceil(this.occupiedSeats * 2/3); }
+    static get threshold() {
+        return Math.ceil(
+                VoteSummary.adjustedTotal
+                * (VoteSummary.isSuperMajority(VoteSummary.#recordType) ? 2/3 : 1/2));
+    }
 
     static set breakdown(record) {
         VoteSummary.#breakdown = {};
@@ -93,9 +110,11 @@ class VoteSummary {
         VoteSummary.#name = record.name;
         VoteSummary.#session = record.session;
         VoteSummary.#result = record.result;
+        VoteSummary.#style = record.style;
         VoteSummary.#absent = 0;
         VoteSummary.#vacant = 0;
         VoteSummary.#total = VoteSummary.getTotalVotes(record.votes);
+        VoteSummary.#recordType = record.type;
 
         for (let i = 0; i< Councillor.list.length; i++) {
             if(Councillor.list[i].isCurrentlyVacant || record.votes[i] == "")
@@ -107,7 +126,6 @@ class VoteSummary {
         for (const option of (VoteSummary.#targetOptions)) {
             let total = 0;
 
-
             if (option == "No Vote") {
                 for (const c of Councillor.list) {
                     if (c.vote == "Absent") {
@@ -115,15 +133,14 @@ class VoteSummary {
                         VoteSummary.#absent +=1;
                     }
                 }
+
             } else {
                 total = record.votes.filter(x => x == option).length;
             }
 
             const chosenOption = option == "No Vote" ? "Absent" : option;
 
-            console.log(chosenOption);
             VoteSummary.#breakdown[chosenOption] = total;
-            console.log(VoteSummary.#breakdown[chosenOption])
         }
     }
 
@@ -131,21 +148,36 @@ class VoteSummary {
         return votes.filter(x => x != "No Vote" && x != "blank" && x != "" && x != "Absent").length
     }
 
-    static getThreshold() {
-        return Math.ceil((VoteSummary.#total - VoteSummary.#breakdown.abstain) * 2 / 3)
+    static get quota() {
+        return Math.ceil(VoteSummary.adjustedTotal / (1 + 1) + 1);
     }
 
-    static getOldThreshold() {
-        return Math.ceil(VoteSummary.#total * 2 / 3)
-    }
-
-    static isPassed() {
-        // this condition could be better
-        if(getCurrentYear() == "2024/2025") {
-            return VoteSummary.#breakdown.for > VoteSummary.getThreshold();
+    static get adjustedTotal() {
+        let totalVotes = VoteSummary.#total;
+        // this check is not ideal, we need a check that says
+        // after 2023/2024 instead of this
+        if(getCurrentYear() != "2024/2025") {
+            totalVotes -= VoteSummary.#breakdown.Abstain;
         }
-        else {
-            return VoteSummary.#breakdown.for > VoteSummary.getOldThreshold();
+        return totalVotes;
+    }
+
+    static isPassed() { return VoteSummary.#breakdown.For > VoteSummary.threshold; }
+
+    static isSuperMajority(recordType=VoteSummary.#recordType) {
+        switch(recordType) {
+            case "policy proposal":
+            case "bye-law amendment":
+            case "censure":
+            case "vonc chair":
+            case "vonc officer":
+            case "overturn committee":
+            case "mandate":
+            case "challenge chair":
+                return true;
+                break;
+            default:
+                return false;
         }
     }
 }
@@ -168,7 +200,7 @@ function updateSummary(e, voteSummaryID) {
     VoteSummary.breakdown = record;
 
     policyTitle.innerText = record.name;
-    councilSession.innerText = `Session ${record.session}`;
+    councilSession.innerText = `Session ${record.session} - ${VoteSummary.type}`;
 
     /* Display Code */
     // Row 1: Result
@@ -177,12 +209,26 @@ function updateSummary(e, voteSummaryID) {
     voteSummaryContainer.appendChild(item);
 
     // Row 2: Total votes
+    item = setItem("Councillors", VoteSummary.occupiedSeats, undefined, false);
+    item.classList.add("summary-top");
+    voteSummaryContainer.appendChild(item);
+
     item = setItem("Total Votes", VoteSummary.total, undefined, false);
     item.classList.add("summary-top");
     voteSummaryContainer.appendChild(item);
 
+    if(VoteSummary.style == "standard") {
+        const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
+        item = setItem(recordType, VoteSummary.threshold, undefined, false);
+    } else {
+        item = setItem("Quota", VoteSummary.quota, undefined, false);
+    }
+    item.classList.add("summary-top");
+    voteSummaryContainer.appendChild(item);
+
+
+
     // Row 3.. number of votes for each option
-    console.log(VoteSummary.targetOptions);
 
     for (const option of (VoteSummary.targetOptions)) {
         const voteClass = Vote.getClass(option, record.style);
@@ -191,7 +237,8 @@ function updateSummary(e, voteSummaryID) {
         voteSummaryContainer.appendChild(item);
     }
 
-    console.log(VoteSummary["For"] + " out of " + (VoteSummary.total - VoteSummary["Abstain"]) + " votes. Threshold is " + VoteSummary.getThreshold());
+    console.log(
+            `${VoteSummary.breakdown.For} out of ${VoteSummary.adjustedTotal} votes. Threshold is ${VoteSummary.threshold}`);
     console.log("Vote " + (VoteSummary.isPassed() ? "passes" : "fails"));
 
     // Last Row: Total vacant seats
@@ -199,9 +246,9 @@ function updateSummary(e, voteSummaryID) {
     for (let i = 0; i< Councillor.list.length; i++) {
         if(Councillor.list[i].isCurrentlyVacant || record.votes[i] == "") { vacantTotal++; }
     }
-    item = setItem("Vacant", vacantTotal, "vote-vacant");
-    // item.classList.add(vote);
-    voteSummaryContainer.appendChild(item);
+    const itemVacant = setItem("Vacant", vacantTotal, "vote-vacant");
+    itemVacant.classList.add("summary-top");
+    item.before(itemVacant);
 }
 
 function addSummaryBackButtonListner() {
@@ -213,6 +260,20 @@ function addSummaryBackButtonListner() {
         voteSummary.classList.add("display-hidden");
         policyList.classList.remove("display-hidden");
     })
+    const helpDefinitions = document.getElementById("summary-definitions-template")
+    for (const root of ["vote-summary", "vote-summary-panel"]) {
+        const rootNode = document.getElementById(root)
+        const helpOverlay = rootNode.querySelector(`#${root}-help-overlay`);
+        const helpButton = rootNode.querySelector(`#${root}-help-button`);
+        helpButton.addEventListener("click", e => {
+            helpOverlay.classList.remove("display-hidden");
+        })
+
+        helpOverlay.addEventListener("click", e => {
+            helpOverlay.classList.add("display-hidden");
+        })
+        helpOverlay.append(helpDefinitions.content.cloneNode(true))
+    }
 }
 
 createMessage("summary loaded");

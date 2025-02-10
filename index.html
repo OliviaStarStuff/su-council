@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/councillors_details.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,content_copy,expand_circle_down,expand_circle_up,explore,keyboard_arrow_down,keyboard_arrow_up,link">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,content_copy,expand_circle_down,expand_circle_up,explore,help,keyboard_arrow_down,keyboard_arrow_up,link">
 
     <!-- Utilities functions and classes -->
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
@@ -95,18 +95,25 @@
                         </div>
 
                     </div>
-                    <div id="visual-container-description">
+                    <div id="visual-container-description" class="display-hidden">
                         <h2 id="visual-container-title">title text</h2>
+                        <p id="visual-container-result"></p>
                         <div class="align-left">
                             <p id="visual-container-councillor-total"></p>
+                            <p id="visual-container-councillor-occupied"></p>
                             <p id="visual-container-councillor-vacant"></p>
                             <p id="visual-container-councillor-absent"></p>
                         </div>
                         <div class="align-right">
                             <p id="visual-container-result-total"></p>
+                            <p id="visual-container-result-threshold"></p>
                             <p id="visual-container-result-abstain"></p>
-                            <p id="visual-container-result"></p>
                         </div>
+                        <div id="visual-container-bottom-left" class="align-left">
+                        </div>
+                        <div id="visual-container-bottom-right" class="align-right">
+                        </div>
+
                         <p id="visual-container-credits">Created by Olivia Starstuff&copy; at https://oliviastarstuff.github.io/su-council/</p>
                     </div>
                     <div id="overlay-group-titles" class="overlay-background display-hidden">
@@ -172,15 +179,31 @@
                             <ul id="policy-list" class="list-container">
                             </ul>
                             <div id="vote-summary" class="summary frosted display-hidden" role="menu" hidden>
-                                <button>back</button>
-                                <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
-                                    <h3>Vote Summary</h3>
-                                    <span id="vote-summary-indicator" class="material-symbols-outlined">
-                                        expand_circle_up
-                                    </span>
+                                <div id="vote-summary-header-back-button-container">
+                                    <button>
+                                        <span class="material-symbols-outlined">
+                                            chevron_left
+                                        </span>
+                                    </button>
+                                    <div class="header-container" id="vote-summary-header" role="button"  tabindex="0">
+                                        <h3>Vote Summary</h3>
+                                        <span id="vote-summary-indicator" class="material-symbols-outlined">
+                                            expand_circle_up
+                                        </span>
+                                    </div>
                                 </div>
-                                <h4>Session Num</h4>
+                                <div class="header-container">
+                                    <h4>Session Num</h4>
+                                    <button id="vote-summary-help-button">
+                                        <span class="material-symbols-outlined">
+                                            help
+                                        </span>
+                                    </button>
+                                </div>
                                 <div id="vote-summary-container" class="summary-container collapsable-container" role="menuitem">
+                                </div>
+                                <div id="vote-summary-help-overlay" class="overlay-background display-hidden summary-overlay">
+
                                 </div>
                             </div>
                         </section>
@@ -409,7 +432,14 @@
                                 expand_circle_up
                             </span>
                         </div>
-                        <h4>Session Num</h4>
+                        <div class="header-container">
+                            <h4>Session Num</h4>
+                            <button id="vote-summary-panel-help-button">
+                                <span class="material-symbols-outlined">
+                                    help
+                                </span>
+                            </button>
+                        </div>
                         <div id="policy-buttons" class="pill-buttons">
                             <a id="agenda-outlink" class="outlink" target="_blank"><div>Agenda</div></a>
                             <a id="minutes-outlink" class="outlink" target="_blank"><div>Minutes</div></a>
@@ -417,6 +447,9 @@
                         </div>
                         <div id="vote-summary-panel-container" class="summary-container collapsable-container" role="menuitem">
                         </div>
+                    <div id="vote-summary-panel-help-overlay" class="overlay-background display-hidden summary-overlay">
+
+                    </div>
                     </section>
                 </section>
                 <div id="help-overlay" class="absolute-container frosted flex-center-col">
@@ -532,6 +565,50 @@
                 <button></button>
             </td>
         </tr>
+    </template>
+
+    <template id="summary-definitions-template">
+        <dl>
+            <dt><dfn>Session</dfn></dt>
+            <dd>SU Council meets roughly 6 times a year to make decision.</dd>
+            <dt><dfn>Councillors</dfn></dt>
+            <dd>Represents the number of seated councillors. It excludes vacant seats.</dd>
+            <dt><dfn>Quorum</dfn></dt>
+            <dd>Each Council Session must meet Quorum in order to make valid decisions. To achieve Quoracy each session must contain &#8532;rd of SU Council members excluding vacant positions.</dd>
+            <dt><dfn>Threshold</dfn></dt>
+            <dd>Votes to pass policy require a &#8532;rd majority of <mark>total votes</mark>, rounded up. e.g. 50 total votes means a threshold of 34, rounded up from 33&#8531;.</dd>
+            <dt><dfn>Total Votes</dfn></dt>
+            <dd>Represents the total number votes cast for the purpose of determining <mark>threshold</mark> or <mark>quota</mark>. After 2023/2024 abstanations count towards the total number of votes.</dd>
+            <dt><dfn>Quota</dfn></dt>
+            <dd>When a vote has multiple options, Single Transferrable Voting may be used. Which means in order to pass, a vote needs to meet quota.
+                quota is calculated using the droop quota method where
+                <math>
+                    <mfrac>
+                        <mn>Number of Votes</mn>
+                        <mrow>
+                            <mn>number of openings</mn>
+                            <mo>+</mo>
+                            <mn>1</mn>
+                        </mrow>
+                    </mfrac>
+                    <mo>+</mo>
+                    <mn>1</mn>
+                </math>
+            </dd>
+            <dt>
+                <dfn>Voting</dfn>
+            </dt>
+            <dd>A simple majority of those present shall be required in all votes, except that a 2/3rds majority shall be required to
+                <ul>
+                    <li>Decide Ideas/Policy of the SU</li>
+                    <li>Amend the SU Bye-laws</li>
+                    <li>Mandate SEC or individual SU Officers, or block decisions of SEC (triggers Ref)</li>
+                    <li>Call a referendum seeking to remove a Union Officer or elected official.</li>
+                    <li>Set the agenda or Overturn the decision of a Forum or Committee.</li>
+                    <li>Challenge the Chair’s ruling.</li>
+                    <li>Agreeing no confidence in the Chair.</li>
+                </ul></dd>
+            </dl>
     </template>
 </body>
 </html>

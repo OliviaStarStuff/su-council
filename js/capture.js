@@ -42,12 +42,18 @@ function checkMobile() {
 function addCaptureButtonListener() {
     const textContainer = document.querySelector("#visual-container-description");
     const title = document.querySelector("#visual-container-title");
+
     const councillorTotal = document.querySelector("#visual-container-councillor-total");
+    const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
     const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
     const absent = document.querySelector("#visual-container-councillor-absent");
+
     const totalVotes = document.querySelector("#visual-container-result-total");
     const abstain = document.querySelector("#visual-container-result-abstain");
+    const threshold = document.querySelector("#visual-container-result-threshold");
     const result = document.querySelector("#visual-container-result");
+
+    const bottomRightContainer = document.querySelector("#visual-container-bottom-right");
 
     const yearButtons = document.getElementById("year-buttons-container");
     const helpButton = document.getElementById("help-button");
@@ -60,20 +66,34 @@ function addCaptureButtonListener() {
             title.innerText = "Su Council Visualiser";
             result.innerText = "";
         } else {
+
             title.innerText = VoteSummary.name;
+
             councillorTotal.innerText = `Total Councillors: ${Councillor.list.length}`;
+            councillorOccupied.innerText = `Occupied: ${VoteSummary.occupiedSeats}`;
             councillorVacant.innerText = `Vacant: ${VoteSummary.vacant}`;
             absent.innerText = `Absent: ${VoteSummary.absent}`;
+
             totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
             abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
+            console.log(VoteSummary.style);
+            console.log("test");
+            if (VoteSummary.style == "standard") {
+                const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
+                threshold.innerText = `${recordType}: ${VoteSummary.threshold}`;
+            } else {
+                threshold.innerText = `Quota: ${VoteSummary.quota}`;
+            }
             result.innerText = `Result: ${VoteSummary.result}`;
+
+            clearChildren(bottomRightContainer.id);
+            for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
+                if (key == "Abstain" || key == "Absent") { continue; }
+                const p = document.createElement("p");
+                p.innerText = `${key}: ${value}`;
+                bottomRightContainer.appendChild(p);
+            }
         }
-
-
-        // let item = document.getElementById("grids");
-
-        // item.style.width = null;
-        // item.style.height = null;
 
         // Hide bits we don't want to see
         // maybe we should iterate over a class
@@ -84,7 +104,7 @@ function addCaptureButtonListener() {
 
 
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
-            // document.body.appendChild(canvas);
+            document.body.appendChild(canvas);
             console.log(title.innerText);
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
