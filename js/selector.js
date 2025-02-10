@@ -166,7 +166,7 @@ function setupSelectors() {
     setCouncillorClickBehaviour();
 
     const param = new URLSearchParams(window.location.search);
-    isChanged = false;
+    let isChanged = false;
     let period;
     if(param.has("period")) {
         period = param.get("period").replace("-", "/");
