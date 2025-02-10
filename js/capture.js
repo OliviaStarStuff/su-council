@@ -137,6 +137,25 @@ function addCaptureButtonListener() {
 }
 
 function updatePreviewImage() {
+    const textContainer = document.querySelector("#visual-container-description");
+    const title = document.querySelector("#visual-container-title");
+
+    const councillorTotal = document.querySelector("#visual-container-councillor-total");
+    const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
+    const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
+    const present = document.querySelector("#visual-container-councillor-present");
+
+    const totalVotes = document.querySelector("#visual-container-result-total");
+    const abstain = document.querySelector("#visual-container-result-abstain");
+    const threshold = document.querySelector("#visual-container-result-threshold");
+    const result = document.querySelector("#visual-container-result");
+    const period = document.querySelector("#visual-container-result-period");
+    const session = document.querySelector("#visual-container-result-session");
+
+    const bottomRightContainer = document.querySelector("#visual-container-bottom-right");
+
+    const yearButtons = document.getElementById("year-buttons-container");
+    const helpButton = document.getElementById("help-button");
     if(Councillor.list[0].voteIndex <= -1) {
         title.innerText = "Su Council Visualiser";
         result.innerText = "";
