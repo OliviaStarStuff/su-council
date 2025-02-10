@@ -61,10 +61,6 @@ function addCaptureButtonListener() {
     const helpButton = document.getElementById("help-button");
     textContainer.classList.add("display-hidden");
 
-    const urlData = updatePreviewImage();
-    document.querySelector('meta[property="og:image"]').setAttribute("content", urlData);
-    document.querySelector('meta[property="twitter:image"]').setAttribute("content", urlData);
-
     captureButton.addEventListener("click", () => {
         // Set text
         // const currentRecord = records[getCurrentYear()].policies[index];
@@ -134,84 +130,6 @@ function addCaptureButtonListener() {
         textContainer.classList.add("display-hidden");
 
     })
-}
-
-function updatePreviewImage() {
-    const textContainer = document.querySelector("#visual-container-description");
-    const title = document.querySelector("#visual-container-title");
-
-    const councillorTotal = document.querySelector("#visual-container-councillor-total");
-    const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
-    const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
-    const present = document.querySelector("#visual-container-councillor-present");
-
-    const totalVotes = document.querySelector("#visual-container-result-total");
-    const abstain = document.querySelector("#visual-container-result-abstain");
-    const threshold = document.querySelector("#visual-container-result-threshold");
-    const result = document.querySelector("#visual-container-result");
-    const period = document.querySelector("#visual-container-result-period");
-    const session = document.querySelector("#visual-container-result-session");
-
-    const bottomRightContainer = document.querySelector("#visual-container-bottom-right");
-
-    const yearButtons = document.getElementById("year-buttons-container");
-    const helpButton = document.getElementById("help-button");
-    if(Councillor.list[0].voteIndex <= -1) {
-        title.innerText = "Su Council Visualiser";
-        result.innerText = "";
-    } else {
-
-        title.innerText = VoteSummary.name;
-
-        councillorTotal.innerText = `Total Councillors: ${Councillor.list.length}`;
-        councillorOccupied.innerText = `Occupied: ${VoteSummary.occupiedSeats}`;
-        councillorVacant.innerText = `Vacant Seats: ${VoteSummary.vacant}`;
-        present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
-
-        totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
-        abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
-        if (VoteSummary.style == "standard") {
-            const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
-            threshold.innerText = `${recordType}: ${VoteSummary.threshold}`;
-        } else {
-            threshold.innerText = `Quota: ${VoteSummary.quota}`;
-        }
-        result.innerText = `Result: ${VoteSummary.result}`;
-
-
-        session.innerText = `Session ${VoteSummary.session}`;
-
-        clearChildren(bottomRightContainer.id);
-        for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
-            if (key == "Abstain" || key == "Absent") { continue; }
-            const p = document.createElement("p");
-            p.innerText = `${key}: ${value}`;
-            bottomRightContainer.appendChild(p);
-        }
-    }
-    period.innerText = getCurrentYear();
-
-    // Hide bits we don't want to see
-    // maybe we should iterate over a class
-    yearButtons.classList.add("display-hidden");
-    helpButton.classList.add("display-hidden");
-    captureButton.classList.add("display-hidden");
-    textContainer.classList.remove("display-hidden");
-
-    let canvasURL;
-    html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
-        canvasURL = canvas.toDataURL();
-    });
-
-    captureButton.querySelector("p").innerText = "Copied!";
-    setTimeout(resetButton, 1000);
-
-    captureButton.classList.remove("display-hidden");
-    yearButtons.classList.remove("display-hidden");
-    helpButton.classList.remove("display-hidden");
-    textContainer.classList.add("display-hidden");
-
-    return canvasURL;
 }
 
 function resetButton() {

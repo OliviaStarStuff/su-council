@@ -127,7 +127,10 @@ function setupSelectors() {
         selectPolicy(e, "vote-summary-panel");
 
         // show or hide vote summary panel
-        voteSummaryPanel.classList.toggle("display-hidden", e.target.value == "none");
+        if (window.innerWidth >= 600) {
+            voteSummaryPanel.classList.toggle("display-hidden", e.target.value == "none");
+        }
+
         if (e.target.value == "none") return;
 
         // Provide urls
@@ -163,7 +166,11 @@ function setupSelectors() {
     setCouncillorClickBehaviour();
 
     const param = new URLSearchParams(window.location.search);
-    const period = param.get("period").replace("-", "/");
+    let period;
+    if(param.has("period")) {
+        period = param.get("period").replace("-", "/");
+    }
+
     for (const button of yearSelector.children) {
         if(button.innerText == period) {
             button.click();
@@ -172,7 +179,8 @@ function setupSelectors() {
     const policyIndex = param.get("policy");
     let policyName = "";
     const numberOfRecords = records[getCurrentYear()].policies.length;
-    if (policyIndex >= -1&& policyIndex < numberOfRecords) {
+    if (policyIndex && policyIndex >= -1 && policyIndex < numberOfRecords) {
+        console.log(policyIndex);
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
         policyName = records[getCurrentYear()].policies[policyIndex].name;
