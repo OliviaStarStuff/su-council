@@ -104,7 +104,7 @@ function addCaptureButtonListener() {
 
 
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
-            document.body.appendChild(canvas);
+            // document.body.appendChild(canvas);
             console.log(title.innerText);
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
