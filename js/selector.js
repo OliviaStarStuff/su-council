@@ -96,7 +96,7 @@ function selectPolicy(e, summaryId) {
     if(e.target.value == "none") {
         for(const c of councillors) { c.vote = -1; }
         urlSearch.delete("policy");
-        window.history.pushState(records[getCurrentYear()].policies[e.target.value].name, "", "?"+urlSearch );
+        window.history.pushState(getCurrentYear(), "", "?"+urlSearch );
     } else {
         urlSearch.set("policy", e.target.value);
         for(const c of councillors) { c.vote = e.target.value; }
@@ -173,11 +173,15 @@ function setupSelectors() {
         isChanged = true;
     }
 
-    for (const button of yearSelector.children) {
-        if(button.innerText == period) {
-            button.click();
+    if(period != "2024/2025") {
+        for (const button of yearSelector.children) {
+            if(button.innerText == period) {
+                button.click();
+                break;
+            }
         }
     }
+
     const policyIndex = param.get("policy");
     let policyName = "";
     const numberOfRecords = records[getCurrentYear()].policies.length;
@@ -186,10 +190,6 @@ function setupSelectors() {
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
         policyName = records[getCurrentYear()].policies[policyIndex].name;
-    }
-    if(isChanged) {
-        document.querySelector('meta[name="title"]').setAttribute("content", `${period}${" " + policyName}`);
-        document.querySelector('meta[property="og:title"]').setAttribute("content", `${period}${" " + policyName}`);
     }
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");

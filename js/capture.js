@@ -4,10 +4,10 @@ import { VoteSummary } from "./summary.js";
 const captureButton = document.getElementById("capture-button");
 
 const options = {
-    "windowWidth": 1080,
+    "windowWidth": 1120,
     "windowheight": 800,
-    // "width": 800,
-    // "height": 800,
+    "width": 800,
+    "height": 800,
     "x": 0,
     "y": 0,
     // scrollX: 30
@@ -60,6 +60,7 @@ function addCaptureButtonListener() {
     const yearButtons = document.getElementById("year-buttons-container");
     const helpButton = document.getElementById("help-button");
     textContainer.classList.add("display-hidden");
+    // textContainer.classList.remove("display-hidden");
 
     captureButton.addEventListener("click", () => {
         // Set text
@@ -109,6 +110,7 @@ function addCaptureButtonListener() {
 
         html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
             if(checkMobile()) {
+                // document.body.appendChild(canvas)
                 downloadImage(canvas.toDataURL(), title.innerText);
             }
 
