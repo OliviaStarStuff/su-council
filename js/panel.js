@@ -21,7 +21,6 @@ function setCouncillorClickBehaviour() {
             councillorButton.click();
             councillorListContainer.classList.add("display-hidden");
             details.classList.remove("display-hidden");
-            console.log("councilor clicked!");
         })
     }
 }
@@ -97,10 +96,8 @@ function updatePanel(councillor) {
     if (splitLines.length == 1) {
         splitLines = councillor.bio.manifesto.split("\\n")
     }
-    console.log(splitLines)
     clearChildren(manifesto.id)
     for(const line of splitLines) {
-        console.log(line);
         const p = document.createElement('p');
         p.innerText = line;
         manifesto.appendChild(p);

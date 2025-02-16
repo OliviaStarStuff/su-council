@@ -79,10 +79,10 @@ function addCaptureButtonListener() {
             councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`;
             councillorVacant.innerText = `Vacant Seats: ${VoteSummary.vacant}`;
             present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
-            absent.innerText = `Present: ${VoteSummary.absent}`;
+            absent.innerText = `Absent: ${VoteSummary.absent}`;
 
             totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
-            abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
+            // abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
             if (VoteSummary.style == "standard") {
                 const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
                 threshold.innerText = `${recordType}: ${VoteSummary.threshold}`;
@@ -96,7 +96,7 @@ function addCaptureButtonListener() {
 
             clearChildren(bottomRightContainer.id);
             for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
-                if (key == "Abstain" || key == "Absent" || key =="Blank") { continue; }
+                if (key == "Absent") { continue; }
 
                 const row = template.content.cloneNode(true);
                 const p = row.querySelector(".legend-row-title");
@@ -104,9 +104,12 @@ function addCaptureButtonListener() {
                 const icon = row.querySelector(".fa-solid");
                 p.innerText = `${key}: `;
                 p2.innerText = `${value}`;
-                console.log(key);
                 icon.classList.add(Vote.getClass(key, VoteSummary.style));
-                bottomRightContainer.appendChild(row);
+                if ((key =="Abstain" ||  key =="Blank") && VoteSummary.style != "standard") {
+                    bottomRightContainer.insertBefore(row, bottomRightContainer.firstChild);
+                } else {
+                    bottomRightContainer.appendChild(row);
+                }
             }
         }
         period.innerText = getCurrentYear();
@@ -119,9 +122,9 @@ function addCaptureButtonListener() {
         textContainer.classList.remove("display-hidden");
 
 
-    html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
+        html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
             // comment out before push
-            // document.body.appendChild(canvas)
+            document.body.appendChild(canvas)
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
             }
@@ -140,7 +143,7 @@ function addCaptureButtonListener() {
         captureButton.classList.remove("display-hidden");
         yearButtons.classList.remove("display-hidden");
         helpButton.classList.remove("display-hidden");
-        textContainer.classList.add("display-hidden");
+        // textContainer.classList.add("display-hidden");
 
     })
 }

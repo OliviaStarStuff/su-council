@@ -273,6 +273,7 @@
     font-size: 1.5rem;
     width: 24px;
     display: block;
+    text-align: center;
 }
 
 .legend-row .vote-option-1 {
