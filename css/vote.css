@@ -1,4 +1,4 @@
-#council-container, .summary-container, #vote-history-container {
+#council-container, .summary-container, #cllr-details-summary-container {
     --for-colour: #06d6a0;
     --against-colour: red;
     --abstain-colour: yellow;
@@ -51,10 +51,6 @@ p.vote-text {
     border: none;
     background-color: unset;
     color: black;
-}
-
-.vote-absent {
-
 }
 
 .vote-for, .vote-against, .vote-absent, .vote-abstain {

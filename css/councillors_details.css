@@ -3,6 +3,7 @@
     width: var(--detail-width);
     font-size: 1.125rem;
     flex-grow: 1;
+    text-wrap: pretty;
 }
 .cllr-panel-name {
     grid-column: 2 / span 4;
@@ -153,6 +154,8 @@
     position: absolute; top:0; left:0;
     height: 100%;
     width: 100%;
+    background-color: var(--vote-colour);
+    /* border-radius: em; */
 }
 
 #manifesto {

@@ -71,7 +71,7 @@ function updatePanel(councillor) {
     if (councillor.bio.picture) {
         details.querySelector("img").src = councillor.bio.picture;
     } else {
-        details.querySelector("img").src = "/img/defaultImage.webp";
+        details.querySelector("img").src = "./img/defaultImage.webp";
     }
     details.classList.add(councillor.colourClass);
     expandTab.classList.add(councillor.colourClass);
@@ -93,8 +93,12 @@ function updatePanel(councillor) {
     bioDegree.innerText = councillor.bio.degree;
     emailLink.href = "mailto:" + councillor.bio.email;
 
-    const splitLines = councillor.bio.manifesto.split("\\n");
-
+    let splitLines = councillor.bio.manifesto.split("\n");
+    if (splitLines.length == 1) {
+        splitLines = councillor.bio.manifesto.split("\\n")
+    }
+    console.log(splitLines)
+    clearChildren(manifesto.id)
     for(const line of splitLines) {
         console.log(line);
         const p = document.createElement('p');

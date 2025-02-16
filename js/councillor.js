@@ -171,7 +171,8 @@ class Bio {
                 "That's why the people of this world believe in\n" +
                 "Garnet, Amethyst, and Pearl and Steven!";
     #socials = {
-        "mastodon": "https://fosstodon.org/@Oliviastarstuff"
+        "Mastodon": "https://fosstodon.org/@Oliviastarstuff",
+        "Bluesky": "https://bsky.app/profile/erininthemorning.com"
     }
 
     constructor(bioData) {
