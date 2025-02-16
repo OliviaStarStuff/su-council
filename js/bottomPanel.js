@@ -21,8 +21,12 @@ const threshold = 50;
 const openPos = "-64px";
 const closePos = "335px";
 
-function closePanel() {
-    isClosed = true;
+function isPanelClosed() {
+    return isClosed;
+}
+
+function setPanel(isClosedBoolean) {
+    isClosed = isClosedBoolean;
     handleCancel();
 }
 
@@ -60,4 +64,4 @@ function handleMove(e) {
     bottomPanel.style.setProperty("--touch-y", touches[0].pageY - 168 + "px");
 }
 
-export { addExpandTabEventListeners, closePanel }
+export { addExpandTabEventListeners, setPanel, isPanelClosed }

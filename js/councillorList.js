@@ -69,11 +69,13 @@ function resetCouncillor() {
     councillorListContainer.classList.remove("display-hidden");
 }
 
+const expandTab = document.getElementById("expand-tab");
 function addCouncillorBackButtonListener() {
     const backButton = document.getElementById("cllr-back-button");
     backButton.addEventListener("click", () => {
         details.classList.add("display-hidden");
         councillorListContainer.classList.remove("display-hidden");
+        expandTab.className = "expand-tab";
     })
 }
 

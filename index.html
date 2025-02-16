@@ -31,10 +31,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/visual.css">
+    <link rel="stylesheet" href="css/bottom_panel.css">
     <link rel="stylesheet" href="css/member.css">
     <link rel="stylesheet" href="css/vote.css">
     <link rel="stylesheet" href="css/grouping.css">
-    <link rel="stylesheet" href="css/bottom_panel.css">
     <link rel="stylesheet" href="css/lists.css">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/councillors_details.css">
@@ -145,14 +145,12 @@
                         </div>
                     </div>
 
-                    <button id="help-button" class="absolute-container"><p>?</p></button>
+                    <button id="help-button" class="absolute-container"><p>Explain</p></button>
                     <button id="capture-button" class="absolute-container">
                         <span class="material-symbols-outlined">
                             content_copy
                         </span>
-                        <p>
-                            Copy Visual
-                        </p>
+                        <p>Save</p>
                     </button>
                     <div id="overlay" class="overlay display-hidden" role="note">
                         <p id="overlay-role"></p>
@@ -175,17 +173,17 @@
                     </div>
                 </section>
                 <section id="bottom-panel">
-                    <div id="expand-tab"><div class="expand-graphic"></div></div>
-                    <div id="council-nav" class="tab-buttons">
-                        <button id="nav-votes" class="selected"><p>Votes</p></button>
-                        <button id="nav-councillors"><p>Councillors</p></button>
-                        <button id="nav-summary"><p>Options</p></button>
-                    </div>
+                    <div id="expand-tab" class="expand-tab"><div class="expand-graphic"></div></div>
                     <div id="council-content" class="tab-content">
+
                         <section id="session-tab" class="tab-container">
+                            <div id="policy-search-container" class="search-container flex-center-row">
+                                <input type="text" class="search-input" name="" id="policy-search">
+                                <button id="policy-search-clear-button">Clear</button>
+                            </div>
                             <ul id="policy-list" class="list-container">
                             </ul>
-                            <div id="vote-summary" class="summary frosted display-hidden" role="menu" hidden>
+                            <div id="vote-summary" class="summary display-hidden" role="menu" hidden>
                                 <div id="vote-summary-header-back-button-container">
                                     <button>
                                         <span class="material-symbols-outlined">
@@ -215,9 +213,9 @@
                             </div>
                         </section>
                         <section id="councillors-tab" class="tab-container display-hidden">
-                            <div id="councillor-list-container">
-                                <div id="councillor-search-container" class="flex-center-row">
-                                <input type="text" name="" id="councillor-search">
+                            <div id="councillor-list-container" class="councillor-list-container">
+                                <div id="councillor-search-container" class="search-container flex-center-row">
+                                <input type="text" class="search-input" name="" id="councillor-search">
                                 <button id="councillor-search-clear-button">Clear</button>
                                 </div>
                                 <div>
@@ -225,7 +223,7 @@
 
                                     </ul>
                                 </div>
-                                <div id="arts-list-collapable" class="member-arts-and-humanities">
+                                <div id="arts-list-collapable" class="councillor-list-collapsable member-arts-and-humanities">
                                     <div class="header-container" id="arts-header" role="button" tabindex="0">
                                         <h3>Arts & Humanities</h3>
                                         <span id="arts-indicator" class="material-symbols-outlined">
@@ -236,7 +234,7 @@
                                         <ul id="arts-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="engineering-list-collapable" class="member-engineering">
+                                <div id="engineering-list-collapable" class="councillor-list-collapsable member-engineering">
                                     <div class="header-container" id="engineering-header" role="button" tabindex="0">
                                         <h3>Engineering</h3>
                                         <span id="engineering-indicator" class="material-symbols-outlined">
@@ -247,7 +245,7 @@
                                         <ul id="engineering-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="health-list-collapable" class="member-health">
+                                <div id="health-list-collapable" class="councillor-list-collapsable member-health">
                                     <div class="header-container" id="health-header" role="button" tabindex="0">
                                         <h3>Health</h3>
                                         <span id="health-indicator" class="material-symbols-outlined">
@@ -258,7 +256,7 @@
                                         <ul id="health-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="science-list-collapable" class="member-science">
+                                <div id="science-list-collapable" class="councillor-list-collapsable member-science">
                                     <div class="header-container" id="science-header" role="button" tabindex="0">
                                         <h3>Science</h3>
                                         <span id="science-indicator" class="material-symbols-outlined">
@@ -269,7 +267,7 @@
                                         <ul id="science-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="social-science-list-collapable" class="member-social-science">
+                                <div id="social-science-list-collapable" class="councillor-list-collapsable member-social-science">
                                     <div class="header-container" id="social-science-header" role="button" tabindex="0">
                                         <h3>Social Science</h3>
                                         <span id="social-science-indicator" class="material-symbols-outlined">
@@ -280,7 +278,7 @@
                                         <ul id="social-science-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="specialised-collapable" class="member-specialised">
+                                <div id="specialised-collapable" class="councillor-list-collapsable member-specialised">
                                     <div class="header-container" id="specialised-header" role="button" tabindex="0">
                                         <h3>Specialised</h3>
                                         <span id="specialised-indicator" class="material-symbols-outlined">
@@ -291,9 +289,9 @@
                                         <ul id="specialised-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="representative-collapable" class="member-representative">
+                                <div id="representative-collapable" class="councillor-list-collapsable member-representative">
                                     <div class="header-container" id="representative-header" role="button" tabindex="0">
-                                        <h3>Representative & Specialised</h3>
+                                        <h3>Representatives</h3>
                                         <span id="representative-indicator" class="material-symbols-outlined">
                                             expand_circle_down
                                         </span>
@@ -302,7 +300,7 @@
                                         <ul id="representative-list" class="list-container"></ul>
                                     </div>
                                 </div>
-                                <div id="fto-pto-collapable" class="member-pto">
+                                <div id="fto-pto-collapable" class="councillor-list-collapsable member-pto">
                                     <div class="header-container" id="fto-pto-header" role="button" tabindex="0">
                                         <h3>FTOs & PTOs</h3>
                                         <span id="fto-pto-indicator" class="material-symbols-outlined">
@@ -337,17 +335,20 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="cllr-panel-socials" class="cllr-socials">
+                                <div id="cllr-panel-contact-container">
                                     <a href="" id="cllr-panel-contact-link" target="_blank">contact</a>
-                                    <a id="cllr-panel-social-link" href="">Socials</a>
+                                    <div id="cllr-panel-socials" class="cllr-socials">
+
+                                    </div>
                                 </div>
+
                                 <div id="cllr-details-buttons" class="pill-buttons">
                                     <button id="record-table-button" class="selected">Voting History</button>
                                     <button id="manifesto-button">Manifesto</button>
                                 </div>
                                 <div id="cllr-details-summary-container" tabindex="0" >
                                     <div id="manifesto-container" class="display-hidden" tabindex="0" role="menu">
-                                        <div id="manifesto">Build better tomorrows</div>
+                                        <div id="manifesto"></div>
                                     </div>
                                     <div id="record-table-container">
                                         <table id="record-table">
@@ -434,6 +435,13 @@
                                                 <label for="toggle-vacant">Vacant</label>
                                             </div>
                                         </fieldset>
+                                        <fieldset>
+                                            <legend>Graphic</legend>
+                                            <div>
+                                                <input type="checkbox" id="toggle-graphic" name="toggle-graphic" checked>
+                                                <label for="toggle-graphic">Toggle Simple Graphic</label>
+                                            </div>
+                                        </fieldset>
                                     </fieldset>
                                 </div>
                             </section>
@@ -465,6 +473,11 @@
 
                     </div>
                     </section>
+                    <div id="council-nav" class="tab-buttons">
+                        <button id="nav-votes" class="selected"><p>Votes</p></button>
+                        <button id="nav-councillors"><p>Councillors</p></button>
+                        <button id="nav-summary"><p>Options</p></button>
+                    </div>
                 </section>
                 <div id="help-overlay" class="absolute-container frosted flex-center-col">
                     <h1>Su Council Visualiser</h2>

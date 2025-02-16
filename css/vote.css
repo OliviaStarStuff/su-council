@@ -2,11 +2,13 @@
     --for-colour: #06d6a0;
     --against-colour: red;
     --abstain-colour: yellow;
-    --absent-colour: rgb(255, 255, 255);
+    --absent-colour: rgb(0, 0, 0);
+    --text-colour: black;
 
     --option-1-colour: #26547c;
     --option-2-colour: #ffd166;
-    --option-3-colour: #ef476f;
+    /* --option-3-colour: #ef476f; */
+    --option-3-colour: #ff82cf;
     --option-4-colour: #06d6a0;
 }
 
@@ -14,24 +16,78 @@ p.vote-text {
     margin: 0.3rem 0 0.5rem 0;
 }
 
-.vote-for, .vote-abstain, .vote-against, .vote-absent,
-.vote-option-1, .vote-option-2, .vote-option-3, .vote-option-4
+.fa-solid {
+    /* text-align: center; */
+    font-size: 3rem;
+}
+.vote {
+    --shadow-size: 0.25rem;
+    /* --hover-y: 0; */
+    --negative-size: calc(0rem - var(--shadow-size));
+    --translate: translate(var(--negative-size), var(--negative-size));
+    /* transform: var(--translate); */
+}
+
+.vote:hover {
+    /* --shadow-size: 0.25rem; */
+    --hover-y: -0.5rem;
+    --translate: translate(var(--negative-size), var(--hover-y));
+}
+/* .fa-solid:hover::before {
+    -webkit-filter: drop-shadow(0.125em 0.250em 0 var(--member-border-colour));
+    filter        : drop-shadow(0.125em 0.250em 0 var(--member-border-colour));
+} */
+.fa-solid::before {
+    position: absolute;
+    -webkit-filter: drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
+    filter        : drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
+    color: var(--vote-colour);
+    transition: filter 300ms ease-in-out;
+}
+.vote.fa-certificate, .vote.fa-cloud, .vote.fa-star
 {
     border-style:none;
-    border-color: var(--member-colour);
-    background-color: var(--vote-colour);
+    box-shadow: none;
+    border: none;
+    background-color: unset;
     color: black;
 }
 
-.vote-for {
+.vote-absent {
+
+}
+
+.vote-for, .vote-against, .vote-absent, .vote-abstain {
+    border:none;
+}
+
+.vote-absent, .member.vote-for, .member.vote-against, .member.vote-abstain,
+.vote-option-1, .vote-option-2,.vote-option-2, .vote-option-3, .vote-option-4 {
+    box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour);
+    background-color: var(--vote-colour);
+}
+
+.vote-option-1, .vote-option-2,.vote-option-2, .vote-option-3, .vote-option-4 {
+    border: none;
+}
+
+/* .vote-absent:hover, .vote-option-1:hover, .vote-option-2:hover,
+.vote-option-2:hover, .vote-option-3:hover, .vote-option-4:hover {
+    box-shadow: 0.125em 0.425em 0 var(--member-border-colour);
+    transition: box-shadow 300ms ease-in-out;
+} */
+
+
+.vote-for, .fa-star {
     --vote-colour: var(--for-colour);
 }
 
-.vote-against {
+.vote-against, .fa-certificate, .fa-burst,
+.fa-heart-crack, .fa-hand-back-fist, .fa-virus {
     --vote-colour: var(--against-colour);
 }
 
-.vote-abstain {
+.vote-abstain, .fa-cloud, .fa-ghost {
     --vote-colour: var(--abstain-colour);
 }
 
@@ -49,29 +105,26 @@ p.vote-text {
 
 .vote-absent {
     --vote-colour: var(--absent-colour);
-    background-color: black;
-    color: var(--vote-colour);
+    color: white;
+    border-color: var(--member-colour);
 }
 
-.member.vote-absent:hover {
-    transform: unset;
-}
 
 .member.vote-absent {
     border-style: solid;
     color: white;
 }
 
-.vote-option-1 {
+.vote-option-1, .fa-heart {
     --vote-colour: var(--option-1-colour);
     color: cornsilk;
 }
 
-.vote-option-2 {
+.vote-option-2, .fa-diamond {
     --vote-colour: var(--option-2-colour);
 }
 
-.vote-option-3 {
+.vote-option-3, .fa-rocket {
     --vote-colour: var(--option-3-colour);
 }
 

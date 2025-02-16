@@ -2,6 +2,7 @@
     text-align: center;
     width: var(--detail-width);
     font-size: 1.125rem;
+    flex-grow: 1;
 }
 .cllr-panel-name {
     grid-column: 2 / span 4;
@@ -82,16 +83,23 @@
     /* height: 4em; */
     width: 5em;
     border-radius: 100%;
-    border: solid 0.3em #ffffff;
+    border: solid 0.3em var(--panel-bg-colour);
     /* box-sizing: content-box; */
     aspect-ratio: 1;
 }
 
 .cllr-socials {
-    align-self: center;
     display: flex;
     flex-direction: row;
     gap: 1em;
+}
+
+#cllr-panel-contact-container {
+    /* align-self: center; */
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    gap: 1em
 }
 
 #cllr-details-buttons {

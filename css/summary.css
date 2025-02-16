@@ -4,7 +4,7 @@
     top:0;
     width: 100%;
     flex-direction: column;
-    gap:0.25em;
+    /* gap:0.25em; */
 }
 
 .summary:not(.display-hidden) {
@@ -127,6 +127,7 @@
 
 #vote-summary-panel .pill-buttons * {
     background-color: white;
+    flex-basis: 11ch;
 }
 
 

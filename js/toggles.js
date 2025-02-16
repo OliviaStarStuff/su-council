@@ -35,6 +35,13 @@ function addToggleListeners() {
         toggleSUNames.checked = this.checked;
     });
 
+    const toggleGraphic = document.getElementById("toggle-graphic");
+    toggleGraphic.addEventListener('change', function() {
+        Vote.isSimple = this.checked;
+        console.log(Vote.isSimple);
+        for(const c of Councillor.list) {c.updateVoteClasses(); }
+    });
+
 
     const toggleReps = document.getElementById("toggle-reps");
     toggleReps.addEventListener('change', function() { toggleHidden("Representative", !this.checked); });

@@ -126,7 +126,7 @@
 
 /* UI for visuals, year buttons + select policy */
 #year-buttons-container {
-    bottom: 1.5em;
+    bottom: 1.3em;
 }
 
 #panel-policy-select-group-container {
@@ -190,7 +190,7 @@
     bottom: unset;
     top: 1em;
     right: 1.5em;
-    width: 6ch;
+    width: fit-content;
     padding: 1em;
 
     background-color: var(--primary-colour);

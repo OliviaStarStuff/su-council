@@ -1,10 +1,12 @@
 "use strict";
 
 import { resetCouncillor } from "./councillorList.js";
+import { isPanelClosed, setPanel } from "./bottomPanel.js";
 import { resetVotesList } from "./selector.js";
 
 const councilNav = document.getElementById("council-nav");
 const content = document.getElementById("council-content");
+const expandTab = document.getElementById("expand-tab");
 
 createMessage("Loading CouncilNav");
 
@@ -48,7 +50,17 @@ function addCouncilNavListener() {
                 }
             }
             bottomPanel.classList.remove("open");
+            bottomPanel.classList.remove("open");
+            expandTab.className = "expand-tab";
         });
+    }
+
+    for(const tab of tabs) {
+        tab.addEventListener("scroll", e=> {
+            if (isPanelClosed) {
+                setPanel(false);
+            }
+        })
     }
 
     if(window.innerWidth > 600) {

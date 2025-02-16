@@ -63,9 +63,13 @@ class Vote {
     get history() { return this.#history; }
     get index() { return this.#index }
 
+    static #isSimple = false;
+    static set isSimple(bool) { Vote.#isSimple = bool; }
+    static get isSimple() { return Vote.#isSimple; }
     static styles = [];
 
     static classes = [
+        "vote",
         "vote-for", "vote-against", "vote-abstain",
         "vote-absent", "vote-vacant", "hidden-vacant",
         "vote-option-1", "vote-option-2",
@@ -83,39 +87,64 @@ class Vote {
     }
 
     static getClass(state, style) {
-        switch(state) {
-            case "Recommend Against":
-                // return "fa-heart-crack";
-                return "fa-certificate";
-                // return "vote-against";
-            case "Blank":
-                return "fa-cloud";
-                return "vote-abstain";
-            case "No Vote":
-                return "vote-absent";
-            case "":
-                return "vote-vacant";
-            case "For":
-                return "fa-star";
-            case "Against":
-                // return "fa-skull";
-                // return "fa-heart-crack";
-                // return "fa-burst";
-                // return "fa-hand-back-fist";
-                // return "fa-rocket";
-                // return "fa-virus";
-                return "fa-certificate";
-            case "Abstain":
-                return "fa-cloud";
-            case "Absent":
-            case "Vacant":
-                return "vote-"+state.toLowerCase();
-            default:
-                if (Vote.styles[style].indexOf(state) == -1) {
-                    console.error("Invalid Vote Found", state, style);
-                }
-                return Vote.multiVote[Vote.styles[style].indexOf(state)]
-                return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
+        if (Vote.#isSimple) {
+            switch(state) {
+                case "Recommend Against":
+                    return "vote-against";
+                case "Blank":
+                    return "vote-abstain";
+                case "No Vote":
+                    return "vote-absent";
+                case "":
+                    return "vote-vacant";
+                case "For":
+                case "Against":
+                case "Abstain":
+                case "Absent":
+                case "Vacant":
+                    return "vote-"+state.toLowerCase();
+                default:
+                    if (Vote.styles[style].indexOf(state) == -1) {
+                        console.error("Invalid Vote Found", state, style);
+                    }
+                    return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
+            }
+        } else {
+            switch(state) {
+                case "Recommend Against":
+                    // return "fa-heart-crack";
+                    return "fa-certificate";
+                    // return "vote-against";
+                case "Blank":
+                    return "fa-cloud";
+                    return "vote-abstain";
+                case "No Vote":
+                    return "vote-absent";
+                case "":
+                    return "vote-vacant";
+                case "For":
+                    return "fa-star";
+                case "Against":
+                    // return "fa-skull";
+                    // return "fa-heart-crack";
+                    // return "fa-burst";
+                    // return "fa-hand-back-fist";
+                    // return "fa-rocket";
+                    // return "fa-virus";
+                    return "fa-certificate";
+                case "Abstain":
+                    return "fa-ghost";
+                    return "fa-cloud";
+                case "Absent":
+                case "Vacant":
+                    return "vote-"+state.toLowerCase();
+                default:
+                    if (Vote.styles[style].indexOf(state) == -1) {
+                        console.error("Invalid Vote Found", state, style);
+                    }
+                    // return Vote.multiVote[Vote.styles[style].indexOf(state)]
+                    return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
+            }
         }
     }
 
@@ -141,6 +170,9 @@ class Bio {
                 "We'll always find a way!\n" +
                 "That's why the people of this world believe in\n" +
                 "Garnet, Amethyst, and Pearl and Steven!";
+    #socials = {
+        "mastodon": "https://fosstodon.org/@Oliviastarstuff"
+    }
 
     constructor(bioData) {
         if(!bioData) { return; }
@@ -151,6 +183,7 @@ class Bio {
         this.#year = bioData.year;
         this.#picture = bioData.picture;
         this.#manifesto = bioData.manifesto;
+        this.#socials = bioData.socials;
     }
 
     get name() { return this.#name }
@@ -161,6 +194,7 @@ class Bio {
     get picture() { return this.#picture }
     get email() { return this.#email }
     get manifesto() { return this.#manifesto }
+    get socials() { return this.#socials }
 }
 
 class Councillor {
@@ -237,17 +271,7 @@ class Councillor {
     set vote(recordIndex) {
         this.#vote.current = recordIndex;
         // Add the right classes for the current vote
-        Vote.removeVoteClasses(this.#node);
-
-        if (this.#vote.vote == "") {
-            const toggleVacant = document.getElementById("toggle-vacant");
-            this.#node.classList.toggle("hidden-vacant", !toggleVacant.checked);
-        }
-
-        this.#node.classList.toggle("vacant", this.isCurrentlyVacant);
-        if (recordIndex == -1) { return }
-
-        this.#node.classList.add(this.#vote.voteClass);
+        this.updateVoteClasses();
     }
 
     get voteClass() { return this.#vote.voteClass; }
@@ -307,6 +331,11 @@ class Councillor {
             const toggleVacant = document.getElementById("toggle-vacant");
             this.#node.classList.toggle("hidden-vacant", !toggleVacant.checked);
         }
+
+        this.#node.classList.toggle("vacant", this.isCurrentlyVacant);
+        if (this.#vote.index == -1) { return }
+        this.#node.classList.add("vote");
+        this.#node.classList.add(this.#vote.voteClass);
     }
 
     static list = [];

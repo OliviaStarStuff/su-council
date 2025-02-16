@@ -4,7 +4,7 @@ import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
-import { closePanel } from "./bottomPanel.js"
+import { setPanel } from "./bottomPanel.js"
 createMessage("I am here after selector import");
 
 const yearSelector = document.getElementById("year-buttons");
@@ -49,7 +49,7 @@ function generatePolicyListOptions(period) {
         displayPolicyButton.addEventListener("click", e => {
             selectPolicy(e, "vote-summary");
             bottomPanel.classList.remove("open");
-            closePanel();
+            setPanel(true);
         });
 
         const summaryButton = clone.querySelector("button.summary-button");

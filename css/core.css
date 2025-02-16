@@ -169,7 +169,7 @@ select {
     flex-basis: 0;
     flex-grow: 1;
     flex-shrink: 1;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: white;
 }
 
@@ -189,7 +189,7 @@ select {
     --radius: 2em;
     display: flex;
     flex-direction: row;
-    justify-content: stretch;
+    justify-content: center;
     padding: 1em 1em;
     /* background-color: var(--primary-colour-light); */
 }
@@ -198,9 +198,9 @@ select {
     /* width: 10ch; */
     --border-width: 0.1em;
     flex-shrink: 0;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     flex-basis: 7ch;
-    padding: 0.5em;
+    padding: 0.25em 0.5em;
     text-align: center;
     background-color: var(--primary-colour-light);
     /* border: solid var(--border-width) var(--primary-colour-dark) */
@@ -252,6 +252,7 @@ select {
     max-height: 0;
     transition: max-height 300ms, opacity ease-in 100ms;
     visibility: unset;
+    padding-block: 0;
 }
 
 /* layout and positioning styles */

@@ -34,8 +34,16 @@
     user-select: none;
     --q: 0;
     --r: 0;
-    left: calc(var(--q) * var(--vert) * 2 - var(--width) / 2);
+    left: calc(var(--q) * var(--vert) * 2 - var(--width) / 2 - 3px);
     top: calc(var(--r) * var(--horiz) * 2 + var(--q) * var(--horiz) - var(--height) / 2);
+    --translate: translate(0, 0);
+    /* --translateY: 0; */
+}
+
+.member div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .member.opacity-hidden {
@@ -48,12 +56,11 @@
 }
 
 .member:hover {
-    border-style: solid;
-    transform: scale(1.0)
+    transform: scale(1.0) var(--translate);
+    transition: transform 300ms;
 }
 
 .member p {
-    font-family: unset;
     font-weight: 400;
     font-size: 1rem;
 }
@@ -88,7 +95,7 @@
   } */
 
 /* Member colours */
-#council-container .member, #grids, .panel-title, .panel-close-button, .overlay, #councillors-tab {
+#council-container .member, #grids, .panel-title, .panel-close-button, .overlay, #bottom-panel {
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 
@@ -157,7 +164,7 @@
 .member-pto {
     --member-colour: var(--pto-colour);
     --member-border-colour: var(--pto-border-colour);
-    color: white;
+    /* color: white; */
 }
 
 .member-representative {
@@ -216,7 +223,7 @@
         height: 100%;
     }
 
-    #hexagon div {
+    #hexagon > div {
         transform: unset;
     }
 }

@@ -122,11 +122,12 @@ a.list-item-button {
 }
 
 .councillor-list-item-title {
-    font-size: 1rem;
+    font-size: 1em;
     text-wrap: pretty;
 }
 
 .councillor-list-item-name {
+    font-size: 0.9em;
     font-style: oblique;
 }
 
@@ -134,7 +135,7 @@ a.list-item-button {
     display: flex;
     gap: 1em;
     padding: 0.75em 0 0.75em 0.75em;
-
+    font-size: 1rem;
     flex-grow: 1;
 }
 
@@ -163,7 +164,7 @@ a.list-item-button {
 }
 
 #councillors-tab .header-container {
-    padding: 0.75em 1em;
+    padding: 0.5em 1em;
 }
 
 #councillors-tab h3 {
@@ -186,20 +187,25 @@ a.list-item-button {
     background-color: var(--primary-colour-light);
 }
 
-#councillor-list-container > div {
+.councillor-list-collapsable  {
     padding: 0em 0.5em;
 }
 
 #councillor-list-container {
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
 }
 
 #councillor-list-container.display-hidden {
     display: none;
 }
 
-#councillor-search-container {
+.search-input {
+    flex-grow: 1;
+    border-width: thin;
+}
+
+.search-container {
     gap: 0.25em;
+    padding: 0.5em 1.5em;
 }

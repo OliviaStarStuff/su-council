@@ -1,4 +1,5 @@
 #bottom-panel {
+    --panel-bg-colour: white;
     height: calc(100% - min( var(--hexagon-height), var(--touch-y)) - 9.5em);
     /* background: red; */
     position: relative;
@@ -7,7 +8,13 @@
     flex-direction: column;
     flex-shrink: 0;
     bottom: 0;
-    margin-top: -2em;
+    margin-top: -1.5em;
+    --touch-y: 335px
+
+}
+
+.tab-content {
+    background-color: var(--panel-bg-colour);
 }
 
 #bottom-panel.open {
@@ -16,19 +23,24 @@
     height: calc(100% - 11em);
 }
 
-#expand-tab {
+.expand-tab {
+    --member-colour: var(--panel-bg-colour);
     /* touch-action: pan-y; */
     top: -1.5em;
     width: 100%;
     padding: 0.5em;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: var(--member-colour);
+    flex-grow: 0;
+    border-radius: 1.5em 1.5em 0 0;
 }
 
 .expand-graphic {
-    width: 50%;
-    height: 1em;
-    background-color: rgba(255, 255, 255, 0.438);
+    width: 30%;
+    height: 0.5em;
+    background-color: var(--primary-colour-dark);
     border-radius: 1em;
 }
 

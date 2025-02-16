@@ -54,6 +54,7 @@ const bioYear = document.getElementById("info-bio-year");
 const manifesto = document.getElementById("manifesto");
 const emailLink = document.getElementById("cllr-panel-contact-link");
 const socialContainer = document.getElementById("cllr-panel-socials")
+const expandTab = document.getElementById("expand-tab")
 
 // var compilerInfoTemplate = Handlebars.compile($('#info-template').html());
 
@@ -63,18 +64,20 @@ const classes = ["fto", "pto", "representative", "specialised",
 
 function updatePanel(councillor) {
     details.className = "";
+    expandTab.className = "expand-tab";
     socialContainer.classList.add("display-hidden");
     details.querySelector("img").removeAttribute("src");
 
-
-    const link = document.getElementById("cllr-panel-social-link");
     if (councillor.bio.picture) {
         details.querySelector("img").src = councillor.bio.picture;
     } else {
         details.querySelector("img").src = "/img/defaultImage.webp";
     }
     details.classList.add(councillor.colourClass);
+    expandTab.classList.add(councillor.colourClass);
     panelTitle.innerText = councillor.title;
+
+
     // $('#info-bio').sheetrock({
     //     url: bioSheet,
     //     query: "select B,C,D,E,F,G where A = " + councillor.id,
@@ -100,8 +103,15 @@ function updatePanel(councillor) {
         // manifesto.innerText = councillor.bio.manifesto;
     }
     if (councillor.bio.socials) {
+        clearChildren(socialContainer.id);
         socialContainer.classList.remove("display-hidden");
-        link.href = councillor.bio.socials;
+        for(const [key, value] of Object.entries(councillor.bio.socials)) {
+            const socialLink = document.createElement("a");
+            socialLink.href = value;
+            socialLink.innerText = key;
+            socialLink.id = `bio-social-${key}-link`
+            socialContainer.appendChild(socialLink);
+        }
     }
 
 }
@@ -136,7 +146,6 @@ for (const button of detailSelector.children) {
                 // tab.scrollTop = 0;
                 const otherId = otherButton.id.replace("button", "container");
                 const otherButtonTab = document.getElementById(otherId);
-                console.log(otherId);
                 otherButtonTab.classList.toggle("display-hidden", otherButton != button)
             }
         })

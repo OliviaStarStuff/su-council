@@ -27,10 +27,10 @@ const sessions = generateDataExport("sessions");
 // We'll add all councillor objects to this section
 const councilMap = document.getElementById('council-container');
 // These are overlay hooks
-const overlay = document.getElementById('overlay');
-const overlayRole = document.getElementById('overlay-role');
-const overlayType = document.getElementById('overlay-type');
-const overlayVote = document.getElementById('overlay-vote');
+const tooltip = document.getElementById('overlay');
+const tooltipRole = document.getElementById('overlay-role');
+const tooltipType = document.getElementById('overlay-type');
+const tooltipVote = document.getElementById('overlay-vote');
 
 // Generate all councillors
 function generateCouncillors(fromYear) {
@@ -93,29 +93,29 @@ function generateCouncillors(fromYear) {
         // could use user agent instead to detect if on mobile
         if (window.innerWidth > 600) {
             c.node.addEventListener("pointerover", (e) => {
-                overlayRole.innerText = c.title;
-                overlayType.innerText = "Type: " + c.type + ", Faculty: " + c.faculty;
+                tooltipRole.innerText = c.title;
+                tooltipType.innerText = "Type: " + c.type + ", Faculty: " + c.faculty;
 
                 // Set vacant status
                 if(c.isCurrentlyVacant) {
-                    overlayVote.innerText = "Vacant";
+                    tooltipVote.innerText = "Vacant";
                 } else {
-                    overlayVote.innerText = c.vote;
+                    tooltipVote.innerText = c.vote;
                 }
-                overlay.classList.remove("display-hidden");
-                overlay.classList.add(c.colourClass);
+                tooltip.classList.remove("display-hidden");
+                tooltip.classList.add(c.colourClass);
             })
 
             c.node.addEventListener("pointerout", (e) => {
-                overlay.classList.add("display-hidden");
-                overlay.classList.remove(c.colourClass);
+                tooltip.classList.add("display-hidden");
+                tooltip.classList.remove(c.colourClass);
             })
 
             c.node.addEventListener("pointerenter", (e) => {
-                overlay.classList.remove("display-hidden");
-                overlay.classList.add(c.colourClass);
-                overlay.style.left = e.pageX + 10 + "px";
-                overlay.style.top = e.pageY + 20 + "px";
+                tooltip.classList.remove("display-hidden");
+                tooltip.classList.add(c.colourClass);
+                tooltip.style.left = e.pageX + 10 + "px";
+                tooltip.style.top = e.pageY + 20 + "px";
             })
         }
 
@@ -130,8 +130,15 @@ function generateCouncillors(fromYear) {
 const vc = document.getElementById("hexagon");
 function addOverlayListener() {
     vc.addEventListener("pointermove", (e) => {
-        overlay.style.left = e.pageX + 10 + "px";
-        overlay.style.top = e.pageY + 20 + "px";
+        tooltip.style.left = e.pageX + 10 + "px";
+        if(window.innerHeight-e.clientY > 130) {
+            tooltip.style.removeProperty("bottom")
+            tooltip.style.top = e.pageY + 0 + "px";
+        } else {
+            const diff = window.innerHeight-e.clientY;
+            tooltip.style.removeProperty("top")
+            tooltip.style.bottom = 0;
+        }
     })
 }
 // const visualisation = document.getElementById("visualisation");
