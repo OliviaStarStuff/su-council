@@ -69,8 +69,12 @@ class Vote {
         "vote-for", "vote-against", "vote-abstain",
         "vote-absent", "vote-vacant", "hidden-vacant",
         "vote-option-1", "vote-option-2",
-        "vote-option-3", "vote-option-4"
+        "vote-option-3", "vote-option-4",
+        "fa-certificate", "fa-cloud", "fa-star",
+        "fa-heart", "fa-diamond", "fa-ghost", "fa-burst", "fa-heart-crack",
+        "fa-skull", "fa-rocket", "fa-hand-back-fist", "fa-virus"
     ];
+    static multiVote = ["fa-heart", "fa-diamond", "fa-rocket", "fa-ghost"]
 
     static sanitise(state) {
         if (state == "No Vote") { return "Absent"; }
@@ -81,16 +85,28 @@ class Vote {
     static getClass(state, style) {
         switch(state) {
             case "Recommend Against":
-                return "vote-against";
+                // return "fa-heart-crack";
+                return "fa-certificate";
+                // return "vote-against";
             case "Blank":
+                return "fa-cloud";
                 return "vote-abstain";
             case "No Vote":
                 return "vote-absent";
             case "":
                 return "vote-vacant";
             case "For":
+                return "fa-star";
             case "Against":
+                // return "fa-skull";
+                // return "fa-heart-crack";
+                // return "fa-burst";
+                // return "fa-hand-back-fist";
+                // return "fa-rocket";
+                // return "fa-virus";
+                return "fa-certificate";
             case "Abstain":
+                return "fa-cloud";
             case "Absent":
             case "Vacant":
                 return "vote-"+state.toLowerCase();
@@ -98,6 +114,7 @@ class Vote {
                 if (Vote.styles[style].indexOf(state) == -1) {
                     console.error("Invalid Vote Found", state, style);
                 }
+                return Vote.multiVote[Vote.styles[style].indexOf(state)]
                 return "vote-option-"+(Vote.styles[style].indexOf(state) + 1);
         }
     }
@@ -105,6 +122,45 @@ class Vote {
     static removeVoteClasses(node) {
         for(const vc of Vote.classes) { node.classList.remove(vc); }
     }
+}
+
+class Bio {
+    #name = "Steven Universe";
+    #pronouns = "They/Them";
+    #degree = "Gem BA";
+    #email = "";
+    #year = "2nd Year";
+    #picture;
+    #manifesto = "If you're evil and you're on the rise\n" +
+                "You can count on the four of us taking you down\n" +
+                "'Cause we're good and evil never beats us\n" +
+                "We'll win the fight and then go out for pizzas\n" +
+                "We are the Crystal Gems\n" +
+                "We'll always save the day!\n" +
+                "And if you think we can't\n" +
+                "We'll always find a way!\n" +
+                "That's why the people of this world believe in\n" +
+                "Garnet, Amethyst, and Pearl and Steven!";
+
+    constructor(bioData) {
+        if(!bioData) { return; }
+        this.#name = bioData.name;
+        this.#email = bioData.email;
+        this.#pronouns = bioData.pronouns;
+        this.#degree = bioData.degree;
+        this.#year = bioData.year;
+        this.#picture = bioData.picture;
+        this.#manifesto = bioData.manifesto;
+    }
+
+    get name() { return this.#name }
+    get pronouns() { return this.#pronouns }
+    get degree() { return this.#degree }
+    get email() { return this.#email }
+    get year() { return this.#year }
+    get picture() { return this.#picture }
+    get email() { return this.#email }
+    get manifesto() { return this.#manifesto }
 }
 
 class Councillor {
@@ -120,12 +176,14 @@ class Councillor {
     // components
     #hex; //for positioning
     #vote;
+    #bio;
 
     // nodes
     #node;
     #text;
+    #icon;
 
-    constructor(data) {
+    constructor(data, bioData) {
         this.#title = data.title;
         this.#type = data.type;
         this.#faculty = data.faculty;
@@ -136,7 +194,7 @@ class Councillor {
         this.#hex = new Hex(data.coords);
         this.#member_class = this.setMemberType();
         this.#vote = new Vote(data.history);
-
+        this.#bio = new Bio(bioData);
         this.#node = this.createNode();
         this.setCurrentPosition();
     }
@@ -152,6 +210,7 @@ class Councillor {
     get vote() { return this.#vote.current; }
     get voteIndex() { return this.#vote.index; }
     get history() { return this.#vote.history; }
+    get bio() { return this.#bio; }
     get isVacant() { return this.#isVacant; }
     get vacantList() { return this.#vacantList; }
     get isCurrentlyVacant() {
@@ -218,10 +277,13 @@ class Councillor {
         node.classList.add(this.#member_class);
         if (this.#isVacant) { node.classList.add("vacant"); }
 
+        this.#icon = document.createElement("div");
+        this.#icon.classList.add("fa-solid");
         this.#text = document.createElement("p")
 
         this.#text.innerText = this.#initial;
-        node.appendChild(this.#text)
+        node.appendChild(this.#icon);
+        this.#icon.appendChild(this.#text)
 
         return node;
     }

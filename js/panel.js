@@ -4,15 +4,16 @@
 // fill details
 const panelTitle = document.getElementById("cllr-panel-title");
 const recordTableBody = document.getElementById("cllr-record-body");
-const vacantContainer = document.getElementById("cllr-panel-vacant-container");
+
+var bioSheet = 'https://docs.google.com/spreadsheets/d/1prdcSBqtElLL69KtSkQpQ-WCFnzxP1MmPfLoIbR_Enw/edit?gid=0#gid=0';
 
 import { records } from "./councilMap.js"
 
 createMessage("Loading panel");
 
+const details = document.getElementById("cllr-details");
 const councillorButton = document.getElementById("nav-councillors");
 function setCouncillorClickBehaviour() {
-    const details = document.getElementById("cllr-details");
     const councillorListContainer = document.getElementById("councillor-list-container");
     for(const councillor of Councillor.list) {
         councillor.node.addEventListener("click", (e) => {
@@ -45,11 +46,64 @@ function updateMobilePanel(councillor) {
     // vacantContainer.classList.add("display-hidden")
 }
 
+
+const bioName = document.getElementById("info-bio-name");
+const bioPronouns = document.getElementById("info-bio-pronouns");
+const bioDegree = document.getElementById("info-bio-degree");
+const bioYear = document.getElementById("info-bio-year");
+const manifesto = document.getElementById("manifesto");
+const emailLink = document.getElementById("cllr-panel-contact-link");
+const socialContainer = document.getElementById("cllr-panel-socials")
+
+// var compilerInfoTemplate = Handlebars.compile($('#info-template').html());
+
+const classes = ["fto", "pto", "representative", "specialised",
+    "health", "arts-and-humanities", "social-science",
+    "science", "engineering"]
+
 function updatePanel(councillor) {
-    panelTitle.className = '';
-    panelTitle.classList.add("panel-title");
-    panelTitle.classList.add(councillor.colourClass);
-    panelTitle.innerText =  councillor.title;
+    details.className = "";
+    socialContainer.classList.add("display-hidden");
+    details.querySelector("img").removeAttribute("src");
+
+
+    const link = document.getElementById("cllr-panel-social-link");
+    if (councillor.bio.picture) {
+        details.querySelector("img").src = councillor.bio.picture;
+    } else {
+        details.querySelector("img").src = "/img/defaultImage.webp";
+    }
+    details.classList.add(councillor.colourClass);
+    panelTitle.innerText = councillor.title;
+    // $('#info-bio').sheetrock({
+    //     url: bioSheet,
+    //     query: "select B,C,D,E,F,G where A = " + councillor.id,
+    //     fetchSize: 1,
+    //     rowTemplate: compilerInfoTemplate,
+    //     callback: function (error, options, response) {
+    //         console.log(response.rows);
+    //     }
+    //   })
+    bioName.innerText = councillor.bio.name;
+    bioYear.innerText = councillor.bio.year;
+    bioPronouns.innerText = councillor.bio.pronouns;
+    bioDegree.innerText = councillor.bio.degree;
+    emailLink.href = "mailto:" + councillor.bio.email;
+
+    const splitLines = councillor.bio.manifesto.split("\\n");
+
+    for(const line of splitLines) {
+        console.log(line);
+        const p = document.createElement('p');
+        p.innerText = line;
+        manifesto.appendChild(p);
+        // manifesto.innerText = councillor.bio.manifesto;
+    }
+    if (councillor.bio.socials) {
+        socialContainer.classList.remove("display-hidden");
+        link.href = councillor.bio.socials;
+    }
+
 }
 
 const rowTemplate = document.getElementById("record-table-row-template");
@@ -70,6 +124,23 @@ function createHistoryRow(record, index, url) {
     })
 
     recordTableBody.appendChild(clone);
+}
+
+const detailSelector = document.getElementById("cllr-details-buttons");
+// const tab = document.getElementById("record-table-container");
+for (const button of detailSelector.children) {
+    if (!button.disabled) {
+        button.addEventListener("click", (e) => {
+            for (const otherButton of detailSelector.children) {
+                otherButton.classList.toggle("selected", otherButton == button)
+                // tab.scrollTop = 0;
+                const otherId = otherButton.id.replace("button", "container");
+                const otherButtonTab = document.getElementById(otherId);
+                console.log(otherId);
+                otherButtonTab.classList.toggle("display-hidden", otherButton != button)
+            }
+        })
+    }
 }
 
 export { setCouncillorClickBehaviour, updateMobilePanel }

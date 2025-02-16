@@ -28,6 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>SU Council Visualiser</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/visual.css">
     <link rel="stylesheet" href="css/member.css">
@@ -37,10 +38,12 @@
     <link rel="stylesheet" href="css/lists.css">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/councillors_details.css">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,content_copy,expand_circle_down,expand_circle_up,explore,help,keyboard_arrow_down,keyboard_arrow_up,link">
 
     <!-- Utilities functions and classes -->
+    <script src="https://unpkg.com/handlebars@4.5.0/dist/handlebars.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://unpkg.com/sheetrock@1.2.0/dist/sheetrock.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.1.0"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
     <script src="https://wzrd.in/standalone/copy-to-clipboard@latest" async></script>
@@ -312,44 +315,51 @@
                                 </div>
                             </div>
                             <div id="cllr-details" class="display-hidden">
-                                <div id="title-container">
-                                    <button id="cllr-back-button">
-                                        <span class="material-symbols-outlined">
-                                            chevron_left
-                                        </span>
-                                    </button>
-                                    <p id="cllr-panel-title" class="councillor-title">
-                                        Allied Health Professionals, Nursing and Midwifery Councillor (x2)
-                                    </p>
-                                </div>
-                                <div id="info-bio">
-                                    <img></img>
-                                    <p class="cllr-panel-name">Steven Universe</p>
-                                    <p id="cllr-panel-pronouns">(they/them)</p>
-                                    <p id="cllr-panel-degree">Gem BA</p>
-                                    <p id="cllr-panel-year">Year 2</p>
-                                    <div class="cllr-socials">
-                                        <button id="cllr-panel-contact-button">contact</button>
-                                        <a href="">Socials</a>
+                                <div class="cllr-details-top-container">
+                                    <div id="" class="cllr-top-bg"></div>
+                                    <div id="title-container">
+                                        <button id="cllr-back-button">
+                                            <span class="material-symbols-outlined">
+                                                chevron_left
+                                            </span>
+                                        </button>
+                                        <p id="cllr-panel-title" class="panel-title">
+                                            Allied Health Professionals, Nursing and Midwifery Councillor (x2)
+                                        </p>
                                     </div>
+                                    <img class="councillor-image"></img>
+                                    <p id="info-bio-name" class="cllr-panel-name">Steven Universe</p>
+                                    <div id="bio-box">
+                                        <p id="info-bio-pronouns" class="cllr-panel-pronouns">(they/them)</p>
+                                        <div id="degree-box">
+                                            <p id="info-bio-degree" id="cllr-panel-degree">Gem BA</p>
+                                            <p id="info-bio-year" id="cllr-panel-year">Year 2</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="cllr-panel-socials" class="cllr-socials">
+                                    <a href="" id="cllr-panel-contact-link" target="_blank">contact</a>
+                                    <a id="cllr-panel-social-link" href="">Socials</a>
                                 </div>
                                 <div id="cllr-details-buttons" class="pill-buttons">
-                                    <button class="selected">Voting History</button>
-                                    <button>Manifesto</button>
+                                    <button id="record-table-button" class="selected">Voting History</button>
+                                    <button id="manifesto-button">Manifesto</button>
                                 </div>
-                                <div id="vote-history-container" tabindex="0" >
-                                    <div id="manifesto-container" class="hidden display-hidden" tabindex="0" role="menu">
-                                        <p>Build better tomorrows</p>
+                                <div id="cllr-details-summary-container" tabindex="0" >
+                                    <div id="manifesto-container" class="display-hidden" tabindex="0" role="menu">
+                                        <div id="manifesto">Build better tomorrows</div>
                                     </div>
-                                    <table id="record-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Policy Voted On</th>
-                                                <th>Vote</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="cllr-record-body"></tbody>
-                                    </table>
+                                    <div id="record-table-container">
+                                        <table id="record-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Policy Voted On</th>
+                                                    <th>Vote</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="cllr-record-body"></tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </section>

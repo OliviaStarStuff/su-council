@@ -3,6 +3,7 @@
 // Does not work with firefox 15/01/2025
 // import data from './councillors.json' with { type: 'json' };
 import { data } from "./loadData.js"
+import { bioData } from "./firestore.js";
 // const councillors = []
 // export const records = data.records;
 // export const groups = data.groups;
@@ -52,7 +53,8 @@ function generateCouncillors(fromYear) {
                 "session": record.session
             });
         };
-        const c = new Councillor(cData);
+        const foundData = bioData.filter(x => x.id == i)
+        const c = new Councillor(cData, foundData[0]);
         c.node.setAttribute("tabindex", 0);
         c.node.setAttribute("role", "graphics-symbol");
         let an = "a"
