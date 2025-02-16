@@ -1,4 +1,4 @@
-#council-container, .summary-container, #cllr-details-summary-container {
+#council-container, .summary-container, #cllr-details-summary-container, .legend-row {
     --for-colour: #06d6a0;
     --against-colour: red;
     --abstain-colour: yellow;
@@ -38,7 +38,6 @@ p.vote-text {
     filter        : drop-shadow(0.125em 0.250em 0 var(--member-border-colour));
 } */
 .fa-solid::before {
-    position: absolute;
     -webkit-filter: drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
     filter        : drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
     color: var(--vote-colour);
@@ -92,7 +91,7 @@ p.vote-text {
 }
 
 .member.vote-against {
-    border-radius: 0.25em 0.25em 50% 50% ;
+    border-radius: 0.25em 0.25em 50% 50%;
 }
 
 .member.vote-abstain {

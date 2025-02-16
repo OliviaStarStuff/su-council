@@ -106,6 +106,7 @@
                             <p id="visual-container-councillor-occupied"></p>
                             <p id="visual-container-councillor-vacant"></p>
                             <p id="visual-container-councillor-present"></p>
+                            <p id="visual-container-councillor-absent"></p>
                         </div>
                         <div class="align-right">
                             <p id="visual-container-result-total"></p>
@@ -593,7 +594,6 @@
             </td>
         </tr>
     </template>
-
     <template id="summary-definitions-template">
         <dl>
             <dt><dfn>Session</dfn></dt>
@@ -636,6 +636,13 @@
                     <li>Agreeing no confidence in the Chair.</li>
                 </ul></dd>
             </dl>
+    </template>
+    <template id="legend-row-template">
+        <div class="legend-row">
+            <p class="legend-row-title">vote:</p>
+            <p class="legend-row-value">0</p>
+            <div class="fa-solid"></div>
+        </div>
     </template>
 </body>
 </html>

@@ -75,7 +75,7 @@ function updatePanel(councillor) {
     }
     details.classList.add(councillor.colourClass);
     expandTab.classList.add(councillor.colourClass);
-    panelTitle.innerText = councillor.title;
+    panelTitle.innerText = councillor.title.replace(" (x2)","");
 
 
     // $('#info-bio').sheetrock({

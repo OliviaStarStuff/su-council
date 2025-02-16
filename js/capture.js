@@ -2,6 +2,7 @@ import { records } from "./councilMap.js";
 import { VoteSummary } from "./summary.js";
 
 const captureButton = document.getElementById("capture-button");
+const template = document.getElementById("legend-row-template");
 
 const options = {
     "windowWidth": 1120,
@@ -12,6 +13,7 @@ const options = {
     "y": 0,
     // scrollX: 30
 }
+
 
 function downloadImage(uri, filename) {
     let name = "SU Council Visualiser_" + getCurrentYear();
@@ -47,6 +49,7 @@ function addCaptureButtonListener() {
     const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
     const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
     const present = document.querySelector("#visual-container-councillor-present");
+    const absent = document.querySelector("#visual-container-councillor-absent");
 
     const totalVotes = document.querySelector("#visual-container-result-total");
     const abstain = document.querySelector("#visual-container-result-abstain");
@@ -72,10 +75,11 @@ function addCaptureButtonListener() {
 
             title.innerText = VoteSummary.name;
 
-            councillorTotal.innerText = `Total Councillors: ${Councillor.list.length}`;
-            councillorOccupied.innerText = `Occupied: ${VoteSummary.occupiedSeats}`;
+            councillorTotal.innerText = `Total Seats: ${Councillor.list.length}`;
+            councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`;
             councillorVacant.innerText = `Vacant Seats: ${VoteSummary.vacant}`;
             present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
+            absent.innerText = `Present: ${VoteSummary.absent}`;
 
             totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
             abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
@@ -92,10 +96,17 @@ function addCaptureButtonListener() {
 
             clearChildren(bottomRightContainer.id);
             for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
-                if (key == "Abstain" || key == "Absent") { continue; }
-                const p = document.createElement("p");
-                p.innerText = `${key}: ${value}`;
-                bottomRightContainer.appendChild(p);
+                if (key == "Abstain" || key == "Absent" || key =="Blank") { continue; }
+
+                const row = template.content.cloneNode(true);
+                const p = row.querySelector(".legend-row-title");
+                const p2 = row.querySelector    (".legend-row-value");
+                const icon = row.querySelector(".fa-solid");
+                p.innerText = `${key}: `;
+                p2.innerText = `${value}`;
+                console.log(key);
+                icon.classList.add(Vote.getClass(key, VoteSummary.style));
+                bottomRightContainer.appendChild(row);
             }
         }
         period.innerText = getCurrentYear();
@@ -108,12 +119,12 @@ function addCaptureButtonListener() {
         textContainer.classList.remove("display-hidden");
 
 
-        html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
+    html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
+            // comment out before push
+            document.body.appendChild(canvas)
             if(checkMobile()) {
-                // document.body.appendChild(canvas)
                 downloadImage(canvas.toDataURL(), title.innerText);
             }
-
             try {
                 canvas.toBlob(blob => {
                     navigator.clipboard.write([new ClipboardItem({'image/png': blob})])
@@ -129,7 +140,7 @@ function addCaptureButtonListener() {
         captureButton.classList.remove("display-hidden");
         yearButtons.classList.remove("display-hidden");
         helpButton.classList.remove("display-hidden");
-        textContainer.classList.add("display-hidden");
+        // textContainer.classList.add("display-hidden");
 
     })
 }

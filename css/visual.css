@@ -246,9 +246,77 @@
     display: none;
 }
 
-#visual-container-description * {
+#visual-container-description > * {
     width: 100%;
     color: white;
+    flex-shrink: 0;
+}
+
+#visual-container-top-right {
+
+    justify-content: end;
+}
+
+.legend-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap:0.5em;
+}
+
+.legend-row .fa-solid {
+    position: unset;
+    font-size: unset;
+}
+
+.legend-row div:before {
+    font-size: 1.5rem;
+    width: 24px;
+    display: block;
+}
+
+.legend-row .vote-option-1 {
+    width: 1.5em;
+    border-radius: 0.125em 50% 50% 50%;
+    background-color: var(--option-1-colour);
+}
+
+.legend-row .vote-option-2 {
+    width: 1.5em;
+    border-radius: 50% 0.125em 50% 50%;
+    background-color: var(--option-2-colour);
+}
+
+.legend-row .vote-option-3 {
+    width: 1.5em;
+    border-radius: 50% 50% 0.125em 50%;
+    background-color: var(--option-3-colour);
+}
+
+.legend-row .vote-option-4 {
+    width: 1.5em;
+    border-radius: 50% 50% 50% 0.125em;
+    background-color: var(--option-4-colour);
+}
+
+.legend-row .vote-for {
+    width: 1.5em;
+    border-radius: 50% 50% 0.125em 0.125em;
+    background-color: var(--for-colour);
+}
+
+.legend-row .vote-against {
+    width: 1.5em;
+    border-radius: 0.125em 0.125em 50% 50% ;
+    background-color: var(--against-colour);
+}
+
+.legend-row div {
+    position: relative;
+}
+
+.legend-row-value {
+    width: 2ch;
     flex-shrink: 0;
 }
 
@@ -292,6 +360,11 @@ p#visual-container-credits {
 #visual-container-bottom-right {
     grid-column: 2;
     grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125em;
+
+    /* font-size: 1rem; */
 }
 
 #visual-container-bottom-left p, #visual-container-bottom-right p {
