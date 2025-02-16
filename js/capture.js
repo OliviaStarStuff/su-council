@@ -121,7 +121,7 @@ function addCaptureButtonListener() {
 
     html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
             // comment out before push
-            document.body.appendChild(canvas)
+            // document.body.appendChild(canvas)
             if(checkMobile()) {
                 downloadImage(canvas.toDataURL(), title.innerText);
             }
@@ -140,7 +140,7 @@ function addCaptureButtonListener() {
         captureButton.classList.remove("display-hidden");
         yearButtons.classList.remove("display-hidden");
         helpButton.classList.remove("display-hidden");
-        // textContainer.classList.add("display-hidden");
+        textContainer.classList.add("display-hidden");
 
     })
 }
