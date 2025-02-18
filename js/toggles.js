@@ -38,8 +38,12 @@ function addToggleListeners() {
     const toggleGraphic = document.getElementById("toggle-graphic");
     toggleGraphic.addEventListener('change', function() {
         Vote.isSimple = this.checked;
-        console.log(Vote.isSimple);
         for(const c of Councillor.list) {c.updateVoteClasses(); }
+    });
+
+    const toggleQR = document.getElementById("toggle-qr");
+    toggleQR.addEventListener('change', function() {
+        document.getElementById("qrcode").classList.toggle("display-hidden", !this.checked);
     });
 
 
