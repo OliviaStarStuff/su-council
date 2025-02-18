@@ -208,7 +208,7 @@ function updateSummary(e, voteSummaryID) {
     item.classList.add("summary-top");
     voteSummaryContainer.appendChild(item);
 
-    // Row 2: Total votes
+    // Row 2: councillors + Total votes
     item = setItem("Councillors", VoteSummary.occupiedSeats, undefined, false);
     item.classList.add("summary-top");
     item.addEventListener("mouseover", (e) =>  {
@@ -240,6 +240,16 @@ function updateSummary(e, voteSummaryID) {
     })
     voteSummaryContainer.appendChild(item);
 
+    // Row 3: vacant + quota
+    // Last Row: Total vacant seats
+    let vacantTotal = 0;
+    for (let i = 0; i< Councillor.list.length; i++) {
+        if(Councillor.list[i].isCurrentlyVacant || record.votes[i] == "") { vacantTotal++; }
+    }
+    const itemVacant = setItem("Vacant", vacantTotal, "vote-vacant");
+    itemVacant.classList.add("summary-top");
+    item.before(itemVacant);
+
     if(VoteSummary.style == "standard") {
         const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
         item = setItem(recordType, VoteSummary.threshold, undefined, false);
@@ -249,9 +259,7 @@ function updateSummary(e, voteSummaryID) {
     item.classList.add("summary-top");
     voteSummaryContainer.appendChild(item);
 
-
-
-    // Row 3.. number of votes for each option
+    // number of votes for each option
 
     for (const option of (VoteSummary.targetOptions)) {
         const voteClass = Vote.getClass(option, record.style);
@@ -261,18 +269,6 @@ function updateSummary(e, voteSummaryID) {
         voteSummaryContainer.appendChild(item);
     }
 
-    console.log(
-            `${VoteSummary.breakdown.For} out of ${VoteSummary.adjustedTotal} votes. Threshold is ${VoteSummary.threshold}`);
-    console.log("Vote " + (VoteSummary.isPassed() ? "passes" : "fails"));
-
-    // Last Row: Total vacant seats
-    let vacantTotal = 0;
-    for (let i = 0; i< Councillor.list.length; i++) {
-        if(Councillor.list[i].isCurrentlyVacant || record.votes[i] == "") { vacantTotal++; }
-    }
-    const itemVacant = setItem("Vacant", vacantTotal, "vote-vacant");
-    itemVacant.classList.add("summary-top");
-    item.before(itemVacant);
 }
 
 function addSummaryBackButtonListner() {
