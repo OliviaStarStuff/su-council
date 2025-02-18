@@ -1,6 +1,7 @@
 "use strict";
 
 import { resetCouncillor } from "./councillorList.js";
+// import { clearSelectedCouncillor } from "./panel.js";
 import { isPanelClosed, setPanel } from "./bottomPanel.js";
 import { resetVotesList } from "./selector.js";
 
@@ -35,6 +36,7 @@ function addCouncilNavListener() {
             for (const b of councilNav.children) {
                 b.classList.toggle("selected", b == councilNav.children[i]);
             }
+            // clearSelectedCouncillor();
 
             if (!councilNav.children[i].classList.contains("display-hidden")) {
                 switch(councilNav.children[i].id) {
@@ -42,10 +44,9 @@ function addCouncilNavListener() {
                         resetVotesList();
                         break;
                     case "nav-councillors":
-                        resetCouncillor();
+                        // resetCouncillor();
                         break;
                     case "nav-summary":
-
                         break;
                 }
             }

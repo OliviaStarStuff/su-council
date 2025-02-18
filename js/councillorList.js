@@ -1,4 +1,4 @@
-import { updateMobilePanel } from "./panel.js";
+import { updateMobilePanel} from "./panel.js";
 
 createMessage("Loading CouncilList");
 
@@ -76,6 +76,7 @@ function addCouncillorBackButtonListener() {
         details.classList.add("display-hidden");
         councillorListContainer.classList.remove("display-hidden");
         expandTab.className = "expand-tab";
+        // clearSelectedCouncillor();
     })
 }
 

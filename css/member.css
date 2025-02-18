@@ -37,6 +37,8 @@
     left: calc(var(--q) * var(--vert) * 2 - var(--width) / 2 - 3px);
     top: calc(var(--r) * var(--horiz) * 2 + var(--q) * var(--horiz) - var(--height) / 2);
     --translate: translate(0, 0);
+    --hover-y: -0.5rem;
+    /* transform: scale(1.0) var(--translate); */
     /* --translateY: 0; */
 }
 
@@ -55,9 +57,42 @@
     transition: opacity 300ms;
 }
 
+@keyframes bounce {
+    0% {
+      translate: 0 0;
+    }
+
+    50% {
+      translate: 0 -0.5em;
+    }
+
+    100% {
+        translate: 0 0;
+    }
+
+    /* 75% {
+        translate: 0 0.25em;
+    }
+
+    100% {
+        translate: 0 0;
+    } */
+  }
+
+
+
 .member:hover {
+    --translate: translate(0, var(--hover-y));
     transform: scale(1.0) var(--translate);
     transition: transform 300ms;
+
+}
+
+.member.selected {
+    --translate: translate(0, var(--hover-y));
+    transform: var(--translate);
+    transition: all 300ms ease-in-out;
+    /* animation: 2s infinite ease-in-out bounce; */
 }
 
 .member p {

@@ -11,14 +11,30 @@ import { records } from "./councilMap.js"
 
 createMessage("Loading panel");
 
+let SelectedCouncillor;
+
+function clearSelectedCouncillor() {
+    if(SelectedCouncillor) {
+        SelectedCouncillor.classList.remove("selected");
+        SelectedCouncillor = undefined;
+    }
+}
+
 const details = document.getElementById("cllr-details");
 const councillorButton = document.getElementById("nav-councillors");
 function setCouncillorClickBehaviour() {
     const councillorListContainer = document.getElementById("councillor-list-container");
     for(const councillor of Councillor.list) {
         councillor.node.addEventListener("click", (e) => {
-            updateMobilePanel(councillor);
             councillorButton.click();
+            updateMobilePanel(councillor);
+
+            // if(SelectedCouncillor) {
+            //     SelectedCouncillor.classList.remove("selected");
+            // }
+            // SelectedCouncillor = councillor;
+            councillor.classList.add("selected");
+
             councillorListContainer.classList.add("display-hidden");
             details.classList.remove("display-hidden");
         })
@@ -73,7 +89,9 @@ function updatePanel(councillor) {
         details.querySelector("img").src = "./img/defaultImage.webp";
     }
     details.classList.add(councillor.colourClass);
+    console.log("We got to the expand tab")
     expandTab.classList.add(councillor.colourClass);
+    console.log("we assigned the class to expand tab" + expandTab.classList)
     panelTitle.innerText = councillor.title.replace(" (x2)","");
 
 
@@ -153,6 +171,6 @@ for (const button of detailSelector.children) {
     }
 }
 
-export { setCouncillorClickBehaviour, updateMobilePanel }
+export { setCouncillorClickBehaviour, updateMobilePanel, clearSelectedCouncillor }
 
 console.log("Panel Loaded");

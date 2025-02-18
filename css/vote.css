@@ -26,24 +26,22 @@ p.vote-text {
     --negative-size: calc(0rem - var(--shadow-size));
     --translate: translate(var(--negative-size), var(--negative-size));
     /* transform: var(--translate); */
+    border:none;
 }
 
-.vote:hover {
-    /* --shadow-size: 0.25rem; */
-    --hover-y: -0.5rem;
-    --translate: translate(var(--negative-size), var(--hover-y));
-}
-/* .fa-solid:hover::before {
-    -webkit-filter: drop-shadow(0.125em 0.250em 0 var(--member-border-colour));
-    filter        : drop-shadow(0.125em 0.250em 0 var(--member-border-colour));
-} */
 .fa-solid::before {
+    color: var(--vote-colour);
+}
+
+.vote .fa-solid::before {
     -webkit-filter: drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
     filter        : drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
-    color: var(--vote-colour);
-    transition: filter 300ms ease-in-out;
+
+    transition: all 300ms ease-in-out;
 }
-.vote.fa-certificate, .vote.fa-cloud, .vote.fa-star
+
+/* .fa-certificate, .vote.fa-cloud, .vote.fa-star */
+.vote[class*="fa-"]
 {
     border-style:none;
     box-shadow: none;
@@ -52,95 +50,62 @@ p.vote-text {
     color: black;
 }
 
-.vote-for, .vote-against, .vote-absent, .vote-abstain {
-    border:none;
-}
-
-.vote-absent, .member.vote-for, .member.vote-against, .member.vote-abstain,
-.vote-option-1, .vote-option-2,.vote-option-2, .vote-option-3, .vote-option-4 {
+/* .vote-absent, .member.vote-for, .member.vote-against, .member.vote-abstain,
+.vote-option-1, .vote-option-2,.vote-option-2, .vote-option-3, .vote-option-4*/
+.member[class*="vote-"] {
     box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour);
     background-color: var(--vote-colour);
+    border-radius: var(--vote-shape);
 }
-
-.vote-option-1, .vote-option-2,.vote-option-2, .vote-option-3, .vote-option-4 {
-    border: none;
-}
-
-/* .vote-absent:hover, .vote-option-1:hover, .vote-option-2:hover,
-.vote-option-2:hover, .vote-option-3:hover, .vote-option-4:hover {
-    box-shadow: 0.125em 0.425em 0 var(--member-border-colour);
-    transition: box-shadow 300ms ease-in-out;
-} */
 
 
 .vote-for, .fa-star {
     --vote-colour: var(--for-colour);
+    --vote-shape: 50% 50% 0.25em 0.25em;
 }
 
 .vote-against, .fa-certificate, .fa-burst,
 .fa-heart-crack, .fa-hand-back-fist, .fa-virus {
     --vote-colour: var(--against-colour);
+    --vote-shape: 0.25em 0.25em 50% 50%;
 }
 
 .vote-abstain, .fa-cloud, .fa-ghost {
     --vote-colour: var(--abstain-colour);
-}
-
-.member.vote-for {
-    border-radius: 50% 50% 0.25em 0.25em;
-}
-
-.member.vote-against {
-    border-radius: 0.25em 0.25em 50% 50%;
-}
-
-.member.vote-abstain {
-    border-radius: 0.25em;
+    --vote-shape: 0.25em;
 }
 
 .vote-absent {
     --vote-colour: var(--absent-colour);
     color: white;
     border-color: var(--member-colour);
+    --vote-shape: 50%;
 }
 
 
 .member.vote-absent {
     border-style: solid;
-    color: white;
 }
 
 .vote-option-1, .fa-heart {
     --vote-colour: var(--option-1-colour);
+    --vote-shape: 0.25em 50% 50% 50%;
     color: cornsilk;
 }
 
 .vote-option-2, .fa-diamond {
     --vote-colour: var(--option-2-colour);
+    --vote-shape: 50% 0.25em 50% 50%;
 }
 
 .vote-option-3, .fa-rocket {
     --vote-colour: var(--option-3-colour);
+    --vote-shape: 50% 50% 0.25em 50%;
 }
 
 .vote-option-4 {
     --vote-colour: var(--option-4-colour);
-}
-
-.member.vote-option-1 {
-    border-radius: 0.25em 50% 50% 50%;
-}
-
-.member.vote-option-2 {
-    border-radius: 50% 0.25em 50% 50%;
-}
-
-.member.vote-option-3 {
-    border-radius: 50% 50% 0.25em 50%;
-}
-
-.member.vote-option-4 {
-    border-radius: 50% 50% 50% 0.25em;
+    --vote-shape: 50% 50% 50% 0.25em;
 }
 
 .vote-hidden {
@@ -148,11 +113,16 @@ p.vote-text {
     transition: opacity 200ms ease-in-out;
 }
 
+.member[class*="vote-"]:hover {
+    /* --translate: translate(0, 0); */
+    border: solid 0.25em var(--member-colour);
+}
+
 .member.vote-vacant {
     /* background-color: var(--vacant-colour); */
     background-color: var(--member-border-colour);
     border-width: 0.25em;
+    --vote-shape: 50%;
     /* border-style: dashed; */
-    transform: scale(0.7);
     color: #424242;
 }
