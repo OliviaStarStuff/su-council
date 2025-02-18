@@ -23,6 +23,7 @@ async function getBioData(db) {
     const bioCollection = collection(db, 'biodata');
     const bioDocs = await getDocs(bioCollection);
     const docs = bioDocs.docs.map(doc => doc.data());
+    console.log("getting bioData")
     return docs;
 }
 

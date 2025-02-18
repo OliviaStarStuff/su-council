@@ -16,6 +16,32 @@ const policySelector = document.getElementById("policy-select");
 const bottomPanel = document.getElementById("bottom-panel");
 
 const expandTab = document.getElementById("expand-tab");
+
+
+function createPolicyItem(record) {
+    const template = document.getElementById("list-item-template");
+    const clone = template.content.cloneNode(true);
+    clone.querySelector("p").innerText = record.name;
+
+    const displayPolicyButton = clone.querySelector("button");
+    // displayPolicyButton.value = i;
+    displayPolicyButton.addEventListener("click", e => {
+        selectPolicy(e, "vote-summary");
+        bottomPanel.classList.remove("open");
+        setPanel(true);
+    });
+
+    const summaryButton = clone.querySelector("button.summary-button");
+    // summaryButton.value = i;
+    summaryButton.addEventListener("click", displaySummary);
+
+    const policyLink = clone.querySelector("a");
+    policyLink.href = record.url;
+    policyLink.disabled = record.url === "";
+
+    return clone;
+}
+
 function generatePolicyListOptions(period) {
     const itemTemplate = document.getElementById("list-item-template");
     const headerTemplate = document.getElementById("list-header-template");
@@ -233,7 +259,7 @@ function resetVotesList() {
     voteSummary.classList.add("display-hidden");
 }
 
-export { resetVotesList, setupSelectors }
+export { resetVotesList, setupSelectors, createPolicyItem }
 
 
 

@@ -181,7 +181,7 @@ a.list-item-button {
     gap: 0.5em;
 }
 
-#councillor-search-clear-button {
+.search-container button {
     padding: 0.25em 0.5em;
     border-radius: 0.25em;
     background-color: var(--primary-colour-light);
@@ -202,6 +202,7 @@ a.list-item-button {
 
 .search-input {
     flex-grow: 1;
+    font-size: 1rem;
     border-width: thin;
 }
 

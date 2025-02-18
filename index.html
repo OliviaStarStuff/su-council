@@ -179,8 +179,13 @@
 
                         <section id="session-tab" class="tab-container">
                             <div id="policy-search-container" class="search-container flex-center-row">
-                                <input type="text" class="search-input" name="" id="policy-search">
+                                <input type="text" placeholder="Find Policy" class="search-input" name="" id="policy-search">
                                 <button id="policy-search-clear-button">Clear</button>
+                            </div>
+                            <div>
+                                <ul id="policy-search-results" class="list-container">
+
+                                </ul>
                             </div>
                             <ul id="policy-list" class="list-container">
                             </ul>
@@ -216,7 +221,7 @@
                         <section id="councillors-tab" class="tab-container display-hidden">
                             <div id="councillor-list-container" class="councillor-list-container">
                                 <div id="councillor-search-container" class="search-container flex-center-row">
-                                <input type="text" class="search-input" name="" id="councillor-search">
+                                <input type="text" placeholder="Find councillor" class="search-input" name="" id="councillor-search">
                                 <button id="councillor-search-clear-button">Clear</button>
                                 </div>
                                 <div>
@@ -224,6 +229,7 @@
 
                                     </ul>
                                 </div>
+                                <div id="councillor-list">
                                 <div id="arts-list-collapable" class="councillor-list-collapsable member-arts-and-humanities">
                                     <div class="header-container" id="arts-header" role="button" tabindex="0">
                                         <h3>Arts & Humanities</h3>
@@ -311,6 +317,7 @@
                                     <div id="fto-pto-container" class ="hidden collapsable-container">
                                         <ul id="fto-pto-list" class="list-container"></ul>
                                     </div>
+                                </div>
                                 </div>
                             </div>
                             <div id="cllr-details" class="display-hidden">

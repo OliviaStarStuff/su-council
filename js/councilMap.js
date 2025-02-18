@@ -53,7 +53,7 @@ function generateCouncillors(fromYear) {
                 "session": record.session
             });
         };
-        const foundData = bioData.filter(x => x.id == i)
+        const foundData = bioData.filter(x => x.id == i && x.period == fromYear)
         const c = new Councillor(cData, foundData[0]);
         c.node.setAttribute("tabindex", 0);
         c.node.setAttribute("role", "graphics-symbol");
