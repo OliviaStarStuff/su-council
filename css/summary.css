@@ -22,6 +22,8 @@
     padding: 0 1em;
 }
 
+
+
 .summary h4 {
     padding: unset;
 }
@@ -42,6 +44,8 @@
     color: rgb(255, 45, 45);
     font-weight: 500;
 }
+
+
 .summary-overlay dd {
     margin-bottom: 0.5em;
 }
@@ -63,6 +67,23 @@
     width: 100%;
 }
 
+.summary-container div.fa-solid:not([class^="vote-"]):not(.summary-top):before {
+    width: 1em;
+}
+
+.summary-container div.fa-solid {
+    font-size: 1em;
+    gap: 0 0.5em;
+}
+
+.summary-container div:not(.summary-top)[class^="vote-"] {
+    background-color: var(--vote-colour);
+}
+
+.summary-container div p:first-of-type {
+    flex-grow: 1;
+}
+
 .summary-container .summary-top {
     width: 40%;
     padding: unset;
@@ -79,6 +100,7 @@
 
 .summary-container .summary-top:first-of-type {
     width: 100%;
+    padding-inline: 0.5em;
 }
 
 .summary-container div p:last-child {

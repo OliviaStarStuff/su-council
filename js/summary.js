@@ -211,10 +211,33 @@ function updateSummary(e, voteSummaryID) {
     // Row 2: Total votes
     item = setItem("Councillors", VoteSummary.occupiedSeats, undefined, false);
     item.classList.add("summary-top");
+    item.addEventListener("mouseover", (e) =>  {
+        for (const c of Councillor.list) {
+            c.classList.toggle("vote-hidden", c.isCurrentlyVacant);
+        }
+    })
+
+    item.addEventListener("mouseout", (e) =>  {
+        for (const c of Councillor.list) {
+            c.classList.remove("vote-hidden");
+        }
+    })
+
     voteSummaryContainer.appendChild(item);
 
     item = setItem("Total Votes", VoteSummary.total, undefined, false);
     item.classList.add("summary-top");
+    item.addEventListener("mouseover", (e) =>  {
+        for (const c of Councillor.list) {
+            c.classList.toggle("vote-hidden", c.isCurrentlyVacant || c.vote == "Absent");
+        }
+    })
+
+    item.addEventListener("mouseout", (e) =>  {
+        for (const c of Councillor.list) {
+            c.classList.remove("vote-hidden");
+        }
+    })
     voteSummaryContainer.appendChild(item);
 
     if(VoteSummary.style == "standard") {
@@ -234,6 +257,7 @@ function updateSummary(e, voteSummaryID) {
         const voteClass = Vote.getClass(option, record.style);
         const chosenOption = option == "No Vote" ? "Absent" : option;
         const item = setItem(chosenOption, VoteSummary.breakdown[chosenOption], voteClass);
+        item.classList.add("fa-solid");
         voteSummaryContainer.appendChild(item);
     }
 
