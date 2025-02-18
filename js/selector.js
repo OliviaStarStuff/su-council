@@ -42,6 +42,15 @@ function createPolicyItem(record) {
     return clone;
 }
 
+const qrCode = new QRCode(document.getElementById('qrcode'), {
+    text: window.location.href,
+    width: 128,
+    height: 128,
+    colorDark : '#0f2643',
+    colorLight : '#fff',
+    correctLevel : QRCode.CorrectLevel.H
+});
+
 function generatePolicyListOptions(period) {
     const itemTemplate = document.getElementById("list-item-template");
     const headerTemplate = document.getElementById("list-header-template");
@@ -124,9 +133,12 @@ function selectPolicy(e, summaryId) {
         urlSearch.delete("policy");
         window.history.pushState(getCurrentYear(), "", "?"+urlSearch );
     } else {
+        const policy = records[getCurrentYear()].policies[e.target.value]
         urlSearch.set("policy", e.target.value);
         for(const c of councillors) { c.vote = e.target.value; }
-        window.history.pushState(records[getCurrentYear()].policies[e.target.value].name, "", "?"+urlSearch );
+        window.history.pushState(policy.name, "", "?"+urlSearch );
+        console.log(window.location.href);
+        qrCode.makeCode(window.location.href);
     }
     updateSummary(e, summaryId);
     // policyList.value = e.target.value;

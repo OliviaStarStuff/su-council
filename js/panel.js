@@ -33,7 +33,7 @@ function setCouncillorClickBehaviour() {
             //     SelectedCouncillor.classList.remove("selected");
             // }
             // SelectedCouncillor = councillor;
-            councillor.classList.add("selected");
+            // councillor.classList.add("selected");s
 
             councillorListContainer.classList.add("display-hidden");
             details.classList.remove("display-hidden");
