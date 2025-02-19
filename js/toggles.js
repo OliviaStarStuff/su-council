@@ -46,6 +46,20 @@ function addToggleListeners() {
         document.getElementById("qrcode").classList.toggle("display-hidden", !this.checked);
     });
 
+    const toggleCapture = document.getElementById("toggle-capture");
+    toggleCapture.addEventListener('change', function() {
+
+        const captureButton = document.getElementById("capture-button");
+        const textContainer = document.querySelector("#visual-container-description");
+        const yearButtons = document.getElementById("year-buttons-container");
+        const helpButton = document.getElementById("help-button");
+
+        yearButtons.classList.toggle("display-hidden", this.checked);
+        helpButton.classList.toggle("display-hidden", this.checked);
+        captureButton.classList.toggle("display-hidden", this.checked);
+        textContainer.classList.toggle("display-hidden", !this.checked);
+    });
+
 
     const toggleReps = document.getElementById("toggle-reps");
     toggleReps.addEventListener('change', function() { toggleHidden("Representative", !this.checked); });
