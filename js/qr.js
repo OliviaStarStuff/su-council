@@ -5,7 +5,8 @@ const qrCode = new QRCode(document.getElementById('qrcode'), {
     height: 128,
     colorDark : '#0f2643',
     colorLight : '#fff',
-    correctLevel : QRCode.CorrectLevel.H
+    // L M Q H
+    correctLevel : QRCode.CorrectLevel.L
 });
 
 export { qrCode }
