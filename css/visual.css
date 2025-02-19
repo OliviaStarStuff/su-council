@@ -32,6 +32,7 @@
     top:calc(50% - 2em);
     left:50%;
     z-index: 0;
+    font-size: 2.5rem;
     /* width: 0; */
 }
 
@@ -43,9 +44,18 @@
     --offset-width: 10ch;
     text-wrap: pretty;
     width: var(--offset-width);
-    font-size: 2.5rem;
+    font-size: 1em;
     left: calc(var(--q) * var(--vert) * 2 - var(--offset-width) / 2);
     top: calc(var(--r) * var(--horiz) * 2 + var(--q) * var(--horiz) - var(--height) / 2);
+}
+
+
+
+#group-text-container p:hover {
+    color: var(--member-colour);
+    font-size: 1.2em;
+    /* font-weight: 400; */
+    transition: font-size 200ms ease-out;
 }
 
 #group-title-info {

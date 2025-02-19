@@ -131,7 +131,7 @@
   } */
 
 /* Member colours */
-#council-container .member, #grids, .panel-title, .panel-close-button, .overlay, #bottom-panel {
+#council-container .member, #grids, .panel-title, .panel-close-button, .overlay, #bottom-panel, #group-text-container{
     --fto-colour:  #fff42d;
     --fto-border-colour: #e8df27;
 

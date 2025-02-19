@@ -20,12 +20,16 @@ p.vote-text {
     /* text-align: center; */
     font-size: 3rem;
 }
+
+.vote:hover {
+    --translate: translate(var(--negative-size), calc(var(--hover-y) + var(--negative-size)));
+}
 .vote {
     --shadow-size: 0.25rem;
     /* --hover-y: 0; */
     --negative-size: calc(0rem - var(--shadow-size));
     --translate: translate(var(--negative-size), var(--negative-size));
-    /* transform: var(--translate); */
+    transform: var(--translate);
     border:none;
 }
 
