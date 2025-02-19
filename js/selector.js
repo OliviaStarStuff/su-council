@@ -4,7 +4,8 @@ import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
 import { updateSummary } from "./summary.js";
-import { setPanel } from "./bottomPanel.js"
+import { setPanel } from "./bottomPanel.js";
+import { qrCode } from "./qr.js";
 createMessage("I am here after selector import");
 
 const yearSelector = document.getElementById("year-buttons");
@@ -41,16 +42,6 @@ function createPolicyItem(record) {
 
     return clone;
 }
-
-// https://stackoverflow.com/questions/67403923/how-do-i-generate-qr-code-from-url-in-javascript
-const qrCode = new QRCode(document.getElementById('qrcode'), {
-    text: window.location.href,
-    width: 128,
-    height: 128,
-    colorDark : '#0f2643',
-    colorLight : '#fff',
-    correctLevel : QRCode.CorrectLevel.H
-});
 
 function generatePolicyListOptions(period) {
     const itemTemplate = document.getElementById("list-item-template");
@@ -138,9 +129,8 @@ function selectPolicy(e, summaryId) {
         urlSearch.set("policy", e.target.value);
         for(const c of councillors) { c.vote = e.target.value; }
         window.history.pushState(policy.name, "", "?"+urlSearch );
-        console.log(window.location.href);
-        qrCode.makeCode(window.location.href);
     }
+    qrCode.makeCode(window.location.href);
     updateSummary(e, summaryId);
     // policyList.value = e.target.value;
 }

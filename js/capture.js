@@ -14,7 +14,6 @@ const options = {
     // scrollX: 30
 }
 
-
 function downloadImage(uri, filename) {
     let name = "SU Council Visualiser_" + getCurrentYear();
     if (filename != "") {
