@@ -162,7 +162,14 @@ class VoteSummary {
         return totalVotes;
     }
 
-    static isPassed() { return VoteSummary.#breakdown.For > VoteSummary.threshold; }
+    static isPassed() {
+        if (VoteSummary.style == "standard")
+            return VoteSummary.#breakdown.For > VoteSummary.threshold;
+        else {
+            for (const value of Object.values(VoteSummary.#breakdown))
+            return value > VoteSummary.quota;
+        }
+    }
 
     static isSuperMajority(recordType=VoteSummary.#recordType) {
         switch(recordType) {
@@ -204,7 +211,13 @@ function updateSummary(e, voteSummaryID) {
 
     /* Display Code */
     // Row 1: Result
-    let item = setItem("Result", VoteSummary.result, undefined, false);
+    let actualResult = VoteSummary.result;
+    if (!VoteSummary.isPassed() && actualResult == "Passed") {
+        console.log(actualResult, actualResult, VoteSummary.threshold)
+        actualResult = "Passed but shouldn't have";
+    }
+
+    let item = setItem("Result", actualResult, undefined, false);
     item.classList.add("summary-top");
     voteSummaryContainer.appendChild(item);
 
