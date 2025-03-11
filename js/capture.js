@@ -89,6 +89,9 @@ function addCaptureButtonListener() {
                 threshold.innerText = `Quota: ${VoteSummary.quota}`;
             }
             result.innerText = `Result: ${VoteSummary.result}`;
+            if (!VoteSummary.isPassed() && VoteSummary.result == "Passed") {
+                result.innerText = `Result: Passed but shouldn't have`
+            }
 
 
             session.innerText = `Session ${VoteSummary.session}`;
