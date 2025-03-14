@@ -8,6 +8,7 @@ const recordTableBody = document.getElementById("cllr-record-body");
 var bioSheet = 'https://docs.google.com/spreadsheets/d/1prdcSBqtElLL69KtSkQpQ-WCFnzxP1MmPfLoIbR_Enw/edit?gid=0#gid=0';
 
 import { records } from "./councilMap.js"
+import { selectYear } from "./selector.js"
 
 createMessage("Loading panel");
 
@@ -53,7 +54,7 @@ function updateMobilePanel(councillor) {
     // populate vote history table;
     let i = 0
     const currentPolicies = records[getCurrentYear()].policies;
-    for(const r of councillor.history) {
+    for(const r of councillor.voteHistory) {
         i++;
         if (r.vote == "") { continue; }
         createHistoryRow(r, i, currentPolicies[i-1].url);
@@ -73,28 +74,35 @@ const expandTab = document.getElementById("expand-tab")
 
 // var compilerInfoTemplate = Handlebars.compile($('#info-template').html());
 
+const career = document.getElementById("career");
+
 const classes = ["fto", "pto", "representative", "specialised",
     "health", "arts-and-humanities", "social-science",
     "science", "engineering"]
 
+const yearSelector = document.getElementById("year-buttons");
+
 function updatePanel(councillor) {
+    // reset panel UI
     details.className = "";
     expandTab.className = "expand-tab";
     socialContainer.classList.add("display-hidden");
     details.querySelector("img").removeAttribute("src");
 
+    // Set picture
     if (councillor.bio.picture) {
         details.querySelector("img").src = councillor.bio.picture;
     } else {
         details.querySelector("img").src = "./img/defaultImage.webp";
     }
+
+    // Set faculty colour and councillor title
     details.classList.add(councillor.colourClass);
-    console.log("We got to the expand tab")
     expandTab.classList.add(councillor.colourClass);
-    console.log("we assigned the class to expand tab" + expandTab.classList)
     panelTitle.innerText = councillor.title.replace(" (x2)","");
 
-
+    // Set bio info
+    // sheetrock was a potential explored way of doing it that isn't used
     // $('#info-bio').sheetrock({
     //     url: bioSheet,
     //     query: "select B,C,D,E,F,G where A = " + councillor.id,
@@ -110,6 +118,7 @@ function updatePanel(councillor) {
     bioDegree.innerText = councillor.bio.degree;
     emailLink.href = "mailto:" + councillor.bio.email;
 
+    // Manifesto
     let splitLines = councillor.bio.manifesto.split("\n");
     if (splitLines.length == 1) {
         splitLines = councillor.bio.manifesto.split("\\n")
@@ -121,6 +130,8 @@ function updatePanel(councillor) {
         manifesto.appendChild(p);
         // manifesto.innerText = councillor.bio.manifesto;
     }
+
+    // Councillor socials
     if (councillor.bio.socials) {
         clearChildren(socialContainer.id);
         socialContainer.classList.remove("display-hidden");
@@ -132,6 +143,35 @@ function updatePanel(councillor) {
                 socialLink.id = `bio-social-${key}-link`
                 socialContainer.appendChild(socialLink);
             }
+        }
+    }
+
+    clearChildren(career.id)
+    if (councillor.career.length == 0) {
+        const p = document.createElement('p');
+        p.innerText = "No known prior representational history."
+        career.appendChild(p);
+    } else {
+        for(const item of councillor.career) {
+            const period = document.createElement('p');
+            period.innerText = item.period;
+            const careerTitle = document.createElement('p');
+            const careerTitleButton = document.createElement('button');
+            careerTitleButton.innerText = item.position;
+            careerTitleButton.value = item.period
+            career.appendChild(period);
+            career.appendChild(careerTitleButton);
+            careerTitleButton.addEventListener("click", (e) => {
+                console.log("career clicked");
+                for (const button of yearSelector.children) {
+                    if(button.innerText == item.period) {
+                        button.click();
+                        selectYear(e);
+                        updateMobilePanel(Councillor.list[item.id])
+                        break;
+                    }
+                }
+            })
         }
     }
 

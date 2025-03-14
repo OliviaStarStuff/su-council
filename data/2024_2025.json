@@ -10,11 +10,12 @@
             "course": "Gemology",
             "year": "3rd",
             "manifesto": "",
-            "history":
+            "career":
             [
                 {
+                    "id": 0,
                     "position": "Mathematical & Physical Sciences Councillor (x2)",
-                    "year": "2023/2024"
+                    "period": "2023/2024"
                 }
             ],
             "email": "",
@@ -76,7 +77,15 @@
             "faculty": "Science",
             "initial": "Bio",
             "coords": { "q": 4, "r": -4 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 66,
+                    "position": "Disabled & Neurodivergent Students Officer",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Biosciences Councillor (x2)",
@@ -92,7 +101,15 @@
             "faculty": "Engineering",
             "initial": "CMBE",
             "coords": { "q": 2, "r": 2 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 29,
+                    "position": "Material Science and Engineering Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Chemical, Materials and Biological Engineering Councillor (x2)",
@@ -108,7 +125,15 @@
             "faculty": "Health",
             "initial": "Dent",
             "coords": { "q": -4, "r": 3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 11,
+                    "position": "Clinical Dentistry Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Clinical Dentistry Councillor (x2)",
@@ -232,7 +257,15 @@
             "faculty": "Arts & Humanities",
             "initial": "HPDH",
             "coords": { "q": 5, "r": 0 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 34,
+                    "position": "Philosophy Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Information School Councillor",
@@ -299,7 +332,15 @@
             "initial": "MPS",
             "coords": { "q": 3, "r": -3 },
             "isCurrentlyFilled": true,
-            "personID": 1
+            "personID": 1,
+            "career":
+            [
+                {
+                    "id": 35,
+                    "position": "Physics and Astronomy Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
@@ -341,7 +382,15 @@
             "faculty": "Health",
             "initial": "MPH",
             "coords": { "q": -4, "r": 1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 32,
+                    "position": "Medicine and Population Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Medicine and Population Health Councillor (x2)",
@@ -366,7 +415,15 @@
             "faculty": "Social Science",
             "initial": "PIR",
             "coords": { "q": -4, "r": 4 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 36,
+                    "position": "Politics & International Relations Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Psychology Councillor (x2)",
@@ -390,7 +447,15 @@
             "faculty": "Social Science",
             "initial": "Socio",
             "coords": { "q": -3, "r": 3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 39,
+                    "position": "Sociological Studies Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "International Students Rep Councillor",
@@ -566,7 +631,15 @@
             "faculty": "SU",
             "initial":"Pres",
             "coords": { "q": 0, "r": 0 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 47,
+                    "position": "Ethical & Environmental Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Activities and Development Officer",
@@ -574,7 +647,15 @@
             "faculty": "SU",
             "initial":"Act",
             "coords": { "q": 0, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 59,
+                    "position": "Activities and Development Officer",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Education Officer",
@@ -582,15 +663,31 @@
             "faculty": "SU",
             "initial": "Edu",
             "coords": { "q": -1, "r": 1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 60,
+                    "position": "Education Officer",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
-            "title": "Welbeing & Sports Officer",
+            "title": "Wellbeing & Sports Officer",
             "type": "FTO",
             "faculty": "SU",
             "initial":"Sport",
             "coords": { "q": 1, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 62,
+                    "position": "Wellbeing & Sports Officer",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Welfare & Sustainability Officer",
@@ -606,7 +703,15 @@
             "faculty": "SU",
             "initial":"Intl",
             "coords": { "q": 0, "r": 1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 67,
+                    "position": "LGBT+ Students Officer",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Liberation & Inclusions Officer",
@@ -614,7 +719,15 @@
             "faculty": "SU",
             "initial":"Lib",
             "coords": { "q": -1, "r": 0 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 63,
+                    "position": "Liberation Officer",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Postgraduate Officer",
@@ -654,7 +767,15 @@
             "faculty": "SU",
             "initial":"ED",
             "coords": { "q": 2, "r": -3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 48,
+                    "position": "BAME Students' Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         },
         {
             "title": "Mature Students Officer",
@@ -662,7 +783,15 @@
             "faculty": "SU",
             "initial":"M",
             "coords": { "q": -1, "r": -2 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 13,
+                    "position": "Department for Lifelong Learning Councillor",
+                    "period": "2023/2024"
+                }
+            ]
         }
     ],
     "sessions":

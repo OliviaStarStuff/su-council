@@ -183,6 +183,25 @@
     width:20ch;
 }
 
+#career {
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+}
+
+#career > *:nth-child(odd) {
+
+    justify-self: center;
+}
+
+#career button {
+    padding: 0.5em;
+}
+
+#career button:hover {
+    color: var(--primary-colour-dark);
+}
+
 @media only screen and (min-width: 600px) {
     #cllr-details-summary-container {
         max-height: unset;

@@ -61,8 +61,8 @@ class Vote {
     get voteStyle() { return this.#index == -1 ? "" : this.#history[this.#index].style;}
     get voteClass() { return Vote.getClass(this.current, this.voteStyle); }
     get history() { return this.#history; }
-    get isProxy() { return this.#history[this.#index].isProxy }
-    get index() { return this.#index }
+    get isProxy() { return this.#index == -1 ? false : this.#history[this.#index].isProxy; }
+    get index() { return this.#index; }
 
     static #isSimple = false;
     static set isSimple(bool) { Vote.#isSimple = bool; }
@@ -208,6 +208,7 @@ class Councillor {
     #isVacant = true;
     #vacantList;
     #member_class;
+    #career;
 
     // components
     #hex; //for positioning
@@ -225,7 +226,8 @@ class Councillor {
         this.#faculty = data.faculty;
         this.#initial = data.initial;
         this.#isVacant = !data.isCurrentlyFilled;
-        this.#vacantList = data.vacantFor ? data.vacantFor: [];
+        this.#vacantList = data.vacantFor ? data.vacantFor : [];
+        this.#career = data.career ? data.career : [];
 
         this.#hex = new Hex(data.coords);
         this.#member_class = this.setMemberType();
@@ -243,9 +245,12 @@ class Councillor {
     get classList() { return this.#node.classList; }
     get position() { return this.#hex.position; }
     get coords() { return [this.#hex.coords.q, this.#hex.coords.r]; }
+    get career() { return this.#career; }
+
     get vote() { return this.#vote.current; }
     get voteIndex() { return this.#vote.index; }
-    get history() { return this.#vote.history; }
+    get voteHistory() { return this.#vote.history; }
+
     get bio() { return this.#bio; }
     get isVacant() { return this.#isVacant; }
     get vacantList() { return this.#vacantList; }

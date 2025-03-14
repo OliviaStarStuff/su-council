@@ -262,7 +262,7 @@ function resetVotesList() {
     voteSummary.classList.add("display-hidden");
 }
 
-export { resetVotesList, setupSelectors, createPolicyItem }
+export { resetVotesList, setupSelectors, createPolicyItem, selectYear }
 
 
 
