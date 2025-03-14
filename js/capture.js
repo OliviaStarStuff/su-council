@@ -6,7 +6,7 @@ const template = document.getElementById("legend-row-template");
 
 const options = {
     "windowWidth": 1120,
-    "windowheight": 900,
+    "windowheight": 1120,
     "width": 800,
     "height": 800,
     "x": 0,
