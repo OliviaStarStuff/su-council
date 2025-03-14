@@ -45,12 +45,12 @@ function generateCouncillors(fromYear) {
 
         for (const record of fromData.records.policies) {
             const vote = record.votes[i] == "No Vote" ? "Absent" : record.votes[i];
-
             cData.history.push({
                 "name": record.name,
                 "style": record.style,
                 "vote": vote,
-                "session": record.session
+                "session": record.session,
+                "isProxy": cData.proxiedFor ? cData.proxiedFor.includes(record.session) : false
             });
         };
         const foundData = bioData.filter(x => x.id == i && x.period == fromYear)
@@ -100,7 +100,8 @@ function generateCouncillors(fromYear) {
                 if(c.isCurrentlyVacant) {
                     tooltipVote.innerText = "Vacant";
                 } else {
-                    tooltipVote.innerText = c.vote;
+                    const voteStatus = c.isVoteProxied ? " (proxied)" : "";
+                    tooltipVote.innerText = c.vote + voteStatus;
                 }
                 tooltip.classList.remove("display-hidden");
                 tooltip.classList.add(c.colourClass);

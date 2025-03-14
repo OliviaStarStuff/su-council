@@ -105,7 +105,7 @@ function updatePanel(councillor) {
     //     }
     //   })
     bioName.innerText = councillor.bio.name;
-    bioYear.innerText = councillor.bio.year;
+    bioYear.innerText = councillor.bio.year + " Year";
     bioPronouns.innerText = councillor.bio.pronouns;
     bioDegree.innerText = councillor.bio.degree;
     emailLink.href = "mailto:" + councillor.bio.email;
@@ -125,16 +125,20 @@ function updatePanel(councillor) {
         clearChildren(socialContainer.id);
         socialContainer.classList.remove("display-hidden");
         for(const [key, value] of Object.entries(councillor.bio.socials)) {
-            const socialLink = document.createElement("a");
-            socialLink.href = value;
-            socialLink.innerText = key;
-            socialLink.id = `bio-social-${key}-link`
-            socialContainer.appendChild(socialLink);
+            if (value) {
+                const socialLink = document.createElement("a");
+                socialLink.href = value;
+                socialLink.innerText = key;
+                socialLink.id = `bio-social-${key}-link`
+                socialContainer.appendChild(socialLink);
+            }
         }
     }
 
 }
-
+const span = document.createElement("span");
+span.title = "proxied";
+span.innerText = "(p)";
 const rowTemplate = document.getElementById("record-table-row-template");
 const policySelector = document.getElementById("policy-select");
 function createHistoryRow(record, index, url) {
@@ -146,7 +150,15 @@ function createHistoryRow(record, index, url) {
 
     const voteCell = clone.querySelector("button");
     voteCell.classList.add(Vote.getClass(record.vote, record.style));
-    voteCell.innerText = record.vote;
+    const voteStatus = record.isProxy ? " " : "";
+    voteCell.innerText = record.vote + voteStatus;
+    if (voteStatus) {
+        const span = document.createElement("span");
+        span.title = "proxied";
+        span.innerText = "(p)";
+        voteCell.appendChild(span.cloneNode(true));
+    }
+
     voteCell.addEventListener("click", (e) => {
         policySelector.selectedIndex = index;
         policySelector.dispatchEvent(new Event("change"))

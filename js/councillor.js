@@ -61,6 +61,7 @@ class Vote {
     get voteStyle() { return this.#index == -1 ? "" : this.#history[this.#index].style;}
     get voteClass() { return Vote.getClass(this.current, this.voteStyle); }
     get history() { return this.#history; }
+    get isProxy() { return this.#history[this.#index].isProxy }
     get index() { return this.#index }
 
     static #isSimple = false;
@@ -158,7 +159,7 @@ class Bio {
     #pronouns = "They/Them";
     #degree = "Gem BA";
     #email = "";
-    #year = "2nd Year";
+    #year = "2nd";
     #picture;
     #manifesto = "If you're evil and you're on the rise\n" +
                 "You can count on the four of us taking you down\n" +
@@ -264,6 +265,8 @@ class Councillor {
                 return this.#faculty;
         }
     }
+
+    get isVoteProxied() { return this.#vote.isProxy }
 
     get initial() {
         return this.#initial;

@@ -56,12 +56,11 @@ It should be ready to view.
 5. in `js/firestore.js` update `firebaseConfig` with the required details you get when you setup the [firestore database](https://console.firebase.google.com/).
 
 ## Known issues
-1. Does not display councillors who used a proxy
-2. Unsure what the difference between no vote given, blank and absent.
-3. Abstain Votes and its effect on the passing threshold is broken due to the way it was amended.\
+1. Unsure what the difference between no vote given, blank and absent.
+2. Abstain Votes and its effect on the passing threshold is broken due to the way it was amended.\
    See: [Make Abstentions Make Sense Again](https://docs.google.com/document/d/1R1ARuz-AjBCocGNOla1V0274Vrlu8WQtIFvYzqch9-E/edit?tab=t.0#heading=h.2dqxjgoqdozu)
-4. Wasn't able to figure out how to copy image to clipboard for mobile, so download was done instead
-5. Ideally it would be good to move away from google services like firestore for the time being.
+3. Wasn't able to figure out how to copy image to clipboard for mobile, so download was done instead
+4. Ideally it would be good to move away from google services like firestore for the time being.
 
 ## Known bugs:
 1. Mobile image copying is in the wrong resolution
