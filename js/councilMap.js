@@ -40,9 +40,11 @@ function generateCouncillors(fromYear) {
     Vote.styles = fromData.records.options;
     councilMap.setAttribute("aria-label",
             `There are ${fromData.councillors.length} councillors arranged in the shape of a hexagon`);
+
     for(const cData of fromData.councillors) {
         cData.history = [];
 
+        // set voting history
         for (const record of fromData.records.policies) {
             const vote = record.votes[i] == "No Vote" ? "Absent" : record.votes[i];
             cData.history.push({
@@ -53,8 +55,11 @@ function generateCouncillors(fromYear) {
                 "isProxy": cData.proxiedFor ? cData.proxiedFor.includes(record.session) : false
             });
         };
+
         const foundData = bioData.filter(x => x.id == i && x.period == fromYear)
         const c = new Councillor(cData, foundData[0]);
+
+        // set attributes of node
         c.node.setAttribute("tabindex", 0);
         c.node.setAttribute("role", "graphics-symbol");
         let an = "a"
@@ -78,6 +83,7 @@ function generateCouncillors(fromYear) {
                           + `councillor ${definite} at axial `
                           + `coordinates, q: ${c.coords[0]}, r:${c.coords[1]}`)
         c.node.setAttribute("tabindex", 0);
+
         const toggleNames = document.getElementById("toggle-names");
         switch(c.type) {
             case "Academic":

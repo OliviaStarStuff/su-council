@@ -215,7 +215,6 @@ function setupSelectors() {
     let policyName = "";
     const numberOfRecords = records[getCurrentYear()].policies.length;
     if (policyIndex && policyIndex >= -1 && policyIndex < numberOfRecords) {
-        console.log(policyIndex);
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
         policyName = records[getCurrentYear()].policies[policyIndex].name;

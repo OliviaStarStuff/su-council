@@ -62,6 +62,7 @@ function populateCouncillorList() {
 function openCouncillorPanel(councillor) {
     details.classList.remove("display-hidden");
     councillorListContainer.classList.add("display-hidden");
+
     updateMobilePanel(councillor);
 }
 

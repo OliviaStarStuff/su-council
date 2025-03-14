@@ -14,6 +14,19 @@ body {
     /* font-size: 0.6em; */
 }
 
+#full-svg {
+    position: absolute;
+    overflow: visible;
+}
+
+.darken {
+    filter: brightness(0.5);
+}
+
+.lighten {
+    filter: brightness(1.0);
+}
+
 #content_wrapper {
     /* height: 100svh; */
     --highlight-colour: rgb(179, 228, 255);

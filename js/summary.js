@@ -213,7 +213,7 @@ function updateSummary(e, voteSummaryID) {
     // Row 1: Result
     let actualResult = VoteSummary.result;
     if (!VoteSummary.isPassed() && actualResult == "Passed") {
-        console.log(actualResult, actualResult, VoteSummary.threshold)
+        // console.log(actualResult, actualResult, VoteSummary.threshold)
         actualResult = "Passed but shouldn't have";
     }
 

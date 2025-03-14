@@ -124,7 +124,15 @@
             "faculty": "Health",
             "initial": "Dent",
             "coords": { "q": -5, "r": 3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 9,
+                    "position": "Clinical Dentistry Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Computer Science Councillor",
@@ -140,7 +148,15 @@
             "faculty": "Social Science",
             "initial": "LLC",
             "coords": { "q": -1, "r": 3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 76,
+                    "position": "Mature Students Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Digital Humanities Councillor",
@@ -269,12 +285,20 @@
             "isCurrentlyFilled": true
         },
         {
-            "title": "Material Science Councillor",
+            "title": "Material Science and Engineering Councillor",
             "type": "Academic",
             "faculty": "Science",
             "initial": "MSci",
             "coords": { "q": 4, "r": -4 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 7,
+                    "position": "Chemical, Materials and Biological Engineering Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Mathematical & Statistics Councillor (x2)",
@@ -299,7 +323,15 @@
             "faculty": "Health",
             "initial": "MPH",
             "coords": { "q": -4, "r": 2 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 37,
+                    "position": "Medicine and Population Health Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Music Councillor",
@@ -315,7 +347,15 @@
             "faculty": "Arts & Humanities",
             "initial": "Philo",
             "coords": { "q": 5, "r": 0 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 24,
+                    "position": "History, Philosophy & Digital Humanities Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Physics and Astronomy Councillor",
@@ -323,7 +363,15 @@
             "faculty": "Science",
             "initial": "Phys",
             "coords": { "q": 4, "r": -2 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 32,
+                    "position": "Mathematical & Physical Sciences Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Politics & International Relations Councillor",
@@ -331,7 +379,15 @@
             "faculty": "Social Science",
             "initial": "PIR",
             "coords": { "q": -4, "r": 4 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 40,
+                    "position": "Politics & International Relations Councillor",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Psychology Councillor",
@@ -356,7 +412,15 @@
             "faculty": "Social Science",
             "initial": "Socio",
             "coords": { "q": -3, "r": 3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 43,
+                    "position": "Sociological Studies Councillor",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Urban Studies and Planning Rep Councillor",
@@ -405,7 +469,15 @@
             "faculty": "SU",
             "initial": "Dis",
             "coords": { "q": -3, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 5,
+                    "position": "Biosciences Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Women's Rep Councillor",
@@ -421,7 +493,15 @@
             "faculty": "SU",
             "initial": "Env",
             "coords": { "q": 2, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 65,
+                    "position": "SU President",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "BAME Student' Councillor",
@@ -520,7 +600,15 @@
             "faculty": "SU",
             "initial":"Act",
             "coords": { "q": 0, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 65,
+                    "position": "Activities and Development Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Education Officer",
@@ -528,7 +616,15 @@
             "faculty": "SU",
             "initial": "Edu",
             "coords": { "q": -1, "r": 1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 66,
+                    "position": "Education Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "International & Community Officer",
@@ -545,15 +641,31 @@
             "faculty": "SU",
             "initial":"Sport",
             "coords": { "q": 1, "r": -1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 67,
+                    "position": "Wellbeing & Sports Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
-            "title": "Liberation & Inclusions Officer",
+            "title": "Liberation Officer",
             "type": "FTO",
             "faculty": "SU",
             "initial":"Lib",
             "coords": { "q": -1, "r": 0 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 70,
+                    "position": "Liberation & Inclusions Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Welfare & Sustainability Officer",
@@ -569,7 +681,15 @@
             "faculty": "SU",
             "initial":"BAME",
             "coords": { "q": 2, "r": -3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 75,
+                    "position": "Ethnic Diversity Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Disabled & Neurodivergent Students Officer",
@@ -585,7 +705,15 @@
             "faculty": "SU",
             "initial":"Q",
             "coords": { "q": 0, "r": -3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 69,
+                    "position": "International & Community Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "Women Students Officer",

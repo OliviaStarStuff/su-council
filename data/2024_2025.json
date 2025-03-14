@@ -800,13 +800,16 @@
             "name": "Meeting 1",
             "date": "2024-10-31",
             "agenda": "https://docs.google.com/document/d/1Q-OQsVMgjWG7SUmtKad1zqsIJQCpp0IZ6971hJan4O4/edit?tab=t.0",
-            "logs": "https://docs.google.com/document/d/1VECB59mZe_-ln_6vUevDJn6Z6wN3vGuJFFQxh5MJLXQ/edit?tab=t.0"
+            "logs": "https://docs.google.com/document/d/1VECB59mZe_-ln_6vUevDJn6Z6wN3vGuJFFQxh5MJLXQ/edit?tab=t.0",
+            "discussion": "https://docs.google.com/document/d/1sszUaUFG6Fm6O7c3en69TwEV4IOHYNyBYzIAxvYcOZY/edit?tab=t.0",
+            "slides": "https://docs.google.com/presentation/d/1vPanIDbYLQTegQhLUM-3GD0lHPFYnsvzUQ_w1Oz2dpw/edit?usp=sharing"
         },
         {
             "name": "Meeting 2",
             "date": "2024-11-26",
             "agenda": "https://docs.google.com/document/d/1J-SyauTzTKx8w23NrN7eOylacrXvIqwelCIvuRE0drg/edit?tab=t.0",
-            "logs": "https://docs.google.com/document/d/1TAlWsx5DJjmtQ7FuqGxBKIRMimez6xiWDRbRFLfb6Ws/edit?tab=t.0"
+            "logs": "https://docs.google.com/document/d/1TAlWsx5DJjmtQ7FuqGxBKIRMimez6xiWDRbRFLfb6Ws/edit?tab=t.0",
+            "slides": "https://docs.google.com/presentation/d/1hPv41Du5cytspmNU8nfvP-Di0XGEsKB4I1i2PhMMIas/edit#slide=id.g2939f0ee5d6_0_142"
         },
         {
             "name": "Meeting 3",
@@ -818,7 +821,9 @@
             "name": "Meeting 4",
             "date": "2024-03-06",
             "agenda": "https://docs.google.com/document/d/1NlOiEBV9Gzg5R0UjfgvzMUB5n2kApEp2-L-Id4pcX1c/edit?usp=drive_link",
-            "logs": "https://docs.google.com/document/d/1Wr4wn0NGY2PkuQbF7F8unpd65moPnFhsexiofRHaOG0/edit?usp=drive_link"
+            "logs": "https://docs.google.com/document/d/1Wr4wn0NGY2PkuQbF7F8unpd65moPnFhsexiofRHaOG0/edit?usp=drive_link",
+            "discussion": "https://docs.google.com/document/d/1qb4KrTzQwFTrfu4D82EGJ8QhpKM2yRgdBgD9klZEs1M/edit?usp=drive_link",
+            "slides": "https://docs.google.com/presentation/d/1lCarCWjgLdA_ajA5bNrTaYdyrLfD9b5c1P7AFXhbYPM/edit?usp=drive_link"
         }
     ],
     "records": {

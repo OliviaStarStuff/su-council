@@ -49,7 +49,6 @@ function setArchaeologyOverlay(shape) {
         overlayType.innerText = "Forever Vacant";
         overlayVote.innerText = "";
         overlay.classList.remove("display-hidden");
-        console.log("seeting attribute")
         shape.style.setProperty("--group-colour", "#333");
     })
 

@@ -195,9 +195,14 @@
     align-items: center;
 }
 
-#career > *:nth-child(odd) {
+#career > *:nth-child(even) {
 
     justify-self: center;
+}
+
+.career-title {
+    grid-column: 1 / span 2;
+    text-align: center;
 }
 
 #career button {

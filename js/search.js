@@ -23,6 +23,7 @@ class Search {
     #clearButton;
     #result;
     #options;
+    #resultList;
     constructor(root, searchlist, options, createItem) {
         this.#options = options;
         this.#fuse = new Fuse(searchlist, options);
@@ -32,6 +33,7 @@ class Search {
         this.#input = rootNode.querySelector("input");
         this.#result = document.getElementById(root + "-search-results");
         this.#clearButton = rootNode.querySelector("button");
+        this.#resultList = [];
         this.#input.addEventListener("change", (e) => {
             clearChildren(this.#result.id)
             if (e.target.value == "") {
@@ -39,9 +41,8 @@ class Search {
                 return;
             };
             list.classList.add("display-hidden");
-            const result = this.#fuse.search(e.target.value).slice(0, 4);
-
-            for(const c of result.map(e => e.item)) {
+            this.#resultList = this.#fuse.search(e.target.value).slice(0, 6);
+            for(const c of this.#resultList.map(e => e.item)) {
                 this.#result.appendChild(createItem(c));
             }
         });
@@ -53,9 +54,36 @@ class Search {
         })
     }
 
+    get input() { return this.#input; }
+    get clearButton() { return this.#clearButton; }
+    get resultList() { return this.#resultList; }
+
     set searchList(list) {
         this.#fuse = new Fuse(list, this.#options);
         this.#input.dispatchEvent(new Event("change"));
+    }
+}
+const highlightBox = document.getElementById("toggle-highlight");
+
+const group = document.getElementById("group-container");
+function setHighlight(search) {
+    if (search.input.value == "" || !highlightBox.checked) {
+        for(const c of Councillor.list) {
+            c.node.classList.remove("lighten");
+            c.node.classList.remove("darken");
+        }
+        group.classList.remove("darken");
+        return;
+    };
+
+    group.classList.add("darken");
+
+    for(const c of Councillor.list) {
+        c.node.classList.remove("lighten");
+        c.node.classList.add("darken");
+    }
+    for(const c of search.resultList.map(e => e.item)) {
+        c.node.classList.add("lighten");
     }
 }
 
@@ -103,11 +131,22 @@ function addSearchListener() {
         policyOption, createPolicyItem)
 
     const yearSelector = document.getElementById("year-buttons");
+    councillorSearch.input.addEventListener("change", (e) => {
+        setHighlight(councillorSearch);
+    })
+
+    highlightBox.addEventListener("change", (e) => {
+        setHighlight(councillorSearch);
+    })
+
     for (const button of yearSelector.children) {
         if (!button.disabled) {
             button.addEventListener("click", (e) => {
                 councillorSearch.searchList = Councillor.list;
                 policySearch.searchList = records[getCurrentYear()].policies;
+                if (highlightBox.checked) {
+
+                }
             })
         }
     }

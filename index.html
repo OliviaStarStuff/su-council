@@ -227,6 +227,8 @@
                                 <div id="councillor-search-container" class="search-container flex-center-row">
                                 <input type="text" placeholder="Find councillor" class="search-input" name="" id="councillor-search">
                                 <button id="councillor-search-clear-button">Clear</button>
+                                <label for="toggle-highlight">highlight</label>
+                                <input type="checkbox" id="toggle-highlight" name="toggle-highlight" checked>
                                 </div>
                                 <div>
                                     <ul id="councillor-search-results" class="list-container">
@@ -353,18 +355,14 @@
 
                                     </div>
                                 </div>
-
+                                <div id="career"></div>
                                 <div id="cllr-details-buttons" class="pill-buttons">
                                     <button id="record-table-button" class="selected">Voting History</button>
                                     <button id="manifesto-button">Manifesto</button>
-                                    <button id="career-button">Career</button>
                                 </div>
                                 <div id="cllr-details-summary-container" tabindex="0" >
                                     <div id="manifesto-container" class="display-hidden" tabindex="0" role="menu">
                                         <div id="manifesto"></div>
-                                    </div>
-                                    <div id="career-container" class="display-hidden" tabindex="0" role="menu">
-                                        <div id="career"></div>
                                     </div>
                                     <div id="record-table-container">
                                         <table id="record-table">
@@ -534,6 +532,7 @@
                 <button><span></span><p>Council</p></button>
                 <button><span></span><p>Policies</p></button>
             </nav>
+            <!-- <svg id="full-svg"></svg> -->
         </main>
         <footer id="footer" hidden>
             <p>Data retrieved from <a href="https://docs.google.com/spreadsheets/d/1dJyH0pIN5il3tXYj-UPCyQHkHfwy7u6_vEKmcm1xsLY">Sheffield Students' Union</a>, </p>

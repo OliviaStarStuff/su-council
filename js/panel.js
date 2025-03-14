@@ -44,6 +44,10 @@ function setCouncillorClickBehaviour() {
 
 function updateMobilePanel(councillor) {
 
+    const rootNode = document.getElementById("councillor-search-container");
+    const clearButton = rootNode.querySelector("button");
+    clearButton.click();
+
     updatePanel(councillor);
 
     // clear vote history table;
@@ -81,7 +85,8 @@ const classes = ["fto", "pto", "representative", "specialised",
     "science", "engineering"]
 
 const yearSelector = document.getElementById("year-buttons");
-
+// const newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+// document.getElementById("full-svg").append(newLine);
 function updatePanel(councillor) {
     // reset panel UI
     details.className = "";
@@ -148,21 +153,24 @@ function updatePanel(councillor) {
 
     clearChildren(career.id)
     if (councillor.career.length == 0) {
-        const p = document.createElement('p');
-        p.innerText = "No known prior representational history."
-        career.appendChild(p);
     } else {
+        const careerTitle = document.createElement('p');
+        careerTitle.innerText = "Career";
+        careerTitle.classList.add ("career-title")
+        career.appendChild(careerTitle);
+
         for(const item of councillor.career) {
             const period = document.createElement('p');
             period.innerText = item.period;
-            const careerTitle = document.createElement('p');
+
             const careerTitleButton = document.createElement('button');
             careerTitleButton.innerText = item.position;
             careerTitleButton.value = item.period
+
             career.appendChild(period);
             career.appendChild(careerTitleButton);
+
             careerTitleButton.addEventListener("click", (e) => {
-                console.log("career clicked");
                 for (const button of yearSelector.children) {
                     if(button.innerText == item.period) {
                         button.click();
@@ -174,6 +182,18 @@ function updatePanel(councillor) {
             })
         }
     }
+    // const topContainer = document.getElementById("bottom-panel");
+    // const pt1 = topContainer.getBoundingClientRect()
+    // const pt2 = councillor.node.getBoundingClientRect()
+    // console.log(pt2)
+    // console.log(pt2.x, pt2.y, councillor.position)
+    // newLine.setAttribute('id', 'line1');
+    // newLine.setAttribute('x1', pt1.left);
+    // newLine.setAttribute('y1', pt1.top + 50);
+    // newLine.setAttribute('x2', pt2.x + 20);
+    // newLine.setAttribute('y2', pt2.y + 20);
+    // newLine.setAttribute('style', 'stroke: black; stroke-width: 2;');
+    // const svg = document.getElementById("full-svg");
 
 }
 const span = document.createElement("span");
