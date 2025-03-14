@@ -197,7 +197,8 @@
             "faculty": "Arts & Humanities",
             "initial": "Eng",
             "coords": { "q": 3, "r": 1 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "proxiedFor": [ 4 ]
         },
         {
             "title": "Geography & Planning Councillor (x2)",
@@ -206,7 +207,7 @@
             "initial": "GeoP",
             "coords": { "q": -1, "r": 2 },
             "isCurrentlyFilled": true,
-            "voteDelegatedIn": [ 3 ]
+            "proxiedFor": [ 3, 4 ]
         },
         {
             "title": "Geography & Planning Councillor (x2)",
@@ -214,7 +215,8 @@
             "faculty": "Social Science",
             "initial": "GeoP",
             "coords": { "q": -1, "r": 3 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "proxiedFor": [ 4 ]
         },
         {
             "title": "History, Philosophy & Digital Humanities Councillor (x2)",
@@ -413,7 +415,7 @@
             "initial": "Trans",
             "coords": { "q": 1, "r": -4 },
             "isCurrentlyFilled": true,
-            "voteDelegatedIn": [ 3 ]
+            "proxiedFor": [ 3, 4 ]
         },
         {
             "title": "PGT Rep Councillor",
@@ -430,7 +432,7 @@
             "initial": "Dis",
             "coords": { "q": -4, "r": 0 },
             "isCurrentlyFilled": true,
-            "voteDelegatedIn": [ 3 ]
+            "proxiedFor": [ 3 ]
         },
         {
             "title": "Disabled Students Rep Councillor (x2)",
