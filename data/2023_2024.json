@@ -616,13 +616,13 @@
     [
         {
             "name": "Meeting 1",
-            "date": "2023-11-9",
+            "date": "2023-11-09",
             "agenda": "https://docs.google.com/document/d/1NYff7SgtTmIToVwTEJRvXQ0yimQJ7oqH0A_ovHLADF4/edit?tab=t.0",
             "logs": "https://docs.google.com/document/d/15mSbV55w-C_sUoxe9iwp0iz7Ci7SRitHZyxyR-3ua80/edit?tab=t.0"
         },
         {
             "name": "Meeting 2",
-            "date": "2023-12-7",
+            "date": "2023-12-07",
             "agenda": "https://docs.google.com/document/d/1xgdeZS8CRADEex8s1wefQmlXUThnvafLvi6ryctImk8/edit?tab=t.0",
             "logs": "https://docs.google.com/document/d/1Po5bGUBRGV3hYoXPRFA0X7yDlMr14WAzGF4yPLgY9F4/edit?tab=t.0"
         },
