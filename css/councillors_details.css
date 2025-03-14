@@ -158,6 +158,12 @@
     /* border-radius: em; */
 }
 
+
+#record-table button:hover {
+    font-weight: bold;
+    /* color: red; */
+}
+
 #manifesto {
     display: flex;
     flex-direction: column;
@@ -175,7 +181,7 @@
 #record-table tr > td:last-child {
     position:relative;
     text-align: right;
-    padding-right: 0.75em;
+    /* padding-right: 0.75em; */
 }
 
 #record-table tr > td:first-child {
