@@ -6,12 +6,10 @@ const template = document.getElementById("legend-row-template");
 
 const options = {
     "windowWidth": 1120,
-    "windowheight": 1120,
+    "windowheight": 800,
     "width": 800,
     "height": 800,
-    "x": 0,
-    "y": 0,
-    // scrollX: 30
+    "scale": 1.25,
 }
 
 function downloadImage(uri, filename) {
@@ -123,8 +121,12 @@ function addCaptureButtonListener() {
         captureButton.classList.add("display-hidden");
         textContainer.classList.remove("display-hidden");
 
-
-        html2canvas(document.querySelector("#visual-container"), options).then(canvas => {
+        const viewport = document.querySelector("#visual-container");
+        const hexagon = document.querySelector("#hexagon");
+        viewport.style.width = "800px";
+        viewport.style.height = "800px";
+        viewport.style.setProperty('--scale', '1');
+        html2canvas(viewport, options).then(canvas => {
             // comment out before push
             // document.body.appendChild(canvas)
             if(checkMobile()) {
@@ -139,9 +141,12 @@ function addCaptureButtonListener() {
             }
         });
 
+
         captureButton.querySelector("p").innerText = "Copied!";
         setTimeout(resetButton, 1000);
-
+        viewport.style.width = null;
+        viewport.style.height = null;
+        viewport.style.removeProperty("--scale");
         captureButton.classList.remove("display-hidden");
         yearButtons.classList.remove("display-hidden");
         helpButton.classList.remove("display-hidden");
