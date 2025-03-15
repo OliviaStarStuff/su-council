@@ -469,15 +469,7 @@
             "faculty": "SU",
             "initial": "Dis",
             "coords": { "q": -3, "r": -1 },
-            "isCurrentlyFilled": true,
-            "career":
-            [
-                {
-                    "id": 5,
-                    "position": "Biosciences Councillor (x2)",
-                    "period": "2024/2025"
-                }
-            ]
+            "isCurrentlyFilled": true
         },
         {
             "title": "Women's Rep Councillor",
@@ -509,7 +501,15 @@
             "faculty": "SU",
             "initial": "BAME",
             "coords": { "q": 3, "r": -4 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 75,
+                    "position": "Ethnic Diversity Officer",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "LGBTQ+ Rep Councillor",
@@ -681,15 +681,7 @@
             "faculty": "SU",
             "initial":"BAME",
             "coords": { "q": 2, "r": -3 },
-            "isCurrentlyFilled": true,
-            "career":
-            [
-                {
-                    "id": 75,
-                    "position": "Ethnic Diversity Officer",
-                    "period": "2024/2025"
-                }
-            ]
+            "isCurrentlyFilled": true
         },
         {
             "title": "Disabled & Neurodivergent Students Officer",
@@ -697,7 +689,15 @@
             "faculty": "SU",
             "initial":"Dis",
             "coords": { "q": -3, "r": 0 },
-            "isCurrentlyFilled": true
+            "isCurrentlyFilled": true,
+            "career":
+            [
+                {
+                    "id": 5,
+                    "position": "Biosciences Councillor (x2)",
+                    "period": "2024/2025"
+                }
+            ]
         },
         {
             "title": "LGBTQ+ Students Officer",
