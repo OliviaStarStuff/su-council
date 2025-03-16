@@ -72,9 +72,11 @@ function addCaptureButtonListener() {
 
             title.innerText = VoteSummary.name;
 
-            councillorTotal.innerText = `Total Seats: ${Councillor.list.length}`;
-            councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`;
-            councillorVacant.innerText = `Vacant Seats: ${VoteSummary.vacant}`;
+            session.innerText = `${getCurrentYear()} Session ${VoteSummary.session} - Seats: ${Councillor.list.length}`;
+            // councillorTotal.innerText = `Total Seats: ${Councillor.list.length}`;
+            // councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`;
+            // councillorVacant.innerText = `Vacant: ${VoteSummary.vacant}`;
+            councillorTotal.innerText = `Occupied/Vacant: ${VoteSummary.occupiedSeats} / ${VoteSummary.vacant}`;
             present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
             absent.innerText = `Absent: ${VoteSummary.absent}`;
 
@@ -90,9 +92,6 @@ function addCaptureButtonListener() {
             if (!VoteSummary.isPassed() && VoteSummary.result == "Passed") {
                 result.innerText = `Result: Passed but shouldn't have`
             }
-
-
-            session.innerText = `Session ${VoteSummary.session}`;
 
             clearChildren(bottomRightContainer.id);
             for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
@@ -112,7 +111,7 @@ function addCaptureButtonListener() {
                 }
             }
         }
-        period.innerText = getCurrentYear();
+        // period.innerText = getCurrentYear();
 
         // Hide bits we don't want to see
         // maybe we should iterate over a class
