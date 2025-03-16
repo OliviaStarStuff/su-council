@@ -333,7 +333,6 @@
 }
 
 #visual-container-title {
-
     text-align: center;
     grid-column: 1 / span 2;
     grid-row: 1;
@@ -341,10 +340,12 @@
     text-wrap: balance;
     font-size: 2.4rem;
     padding-inline: 1.5em;
+    line-height: 1em;
 }
 
 #visual-container-description p {
     font-size: 1.5rem;
+    word-spacing: -2px;
 }
 
 p#visual-container-credits {
