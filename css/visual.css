@@ -341,11 +341,13 @@
     font-size: 2.4rem;
     padding-inline: 1.5em;
     line-height: 1em;
+    align-self: center;
 }
 
 #visual-container-description p {
     font-size: 1.5rem;
     word-spacing: -2px;
+    line-height: 1em;
 }
 
 p#visual-container-credits {
@@ -370,7 +372,11 @@ p#visual-container-credits {
     grid-column: 1;
     grid-row: 2;
 }
-
+#visual-container-bottom-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 #visual-container-bottom-right {
     grid-column: 2;
     grid-row: 4;
