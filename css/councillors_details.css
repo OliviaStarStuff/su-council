@@ -1,9 +1,10 @@
 .panel-title {
     text-align: center;
     width: var(--detail-width);
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     flex-grow: 1;
     text-wrap: pretty;
+    font-weight: 400;
 }
 .cllr-panel-name {
     grid-column: 2 / span 4;
@@ -187,6 +188,7 @@
 #record-table tr > td:first-child {
     text-align: left;
     width:20ch;
+    text-wrap: pretty;
 }
 
 #career {
@@ -241,5 +243,12 @@
         max-height: none;
         margin: 0em 1em 1em 1em;
         width: unset;
+    }
+}
+
+
+@media only screen and (min-width: 900px) {
+    #record-table tr > td:first-child {
+        width: 24ch;
     }
 }

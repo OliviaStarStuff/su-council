@@ -75,13 +75,21 @@ header {
 
 h2, h3 {
     font-family: "Cinzel", serif;
+    font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
 }
 
-h3, h4, h5, label {
+h3 {
+    font-weight: 400;
+    line-height: 1.25em;
+    text-wrap: balance;
+}
+
+h4, h5, label {
     font-family: "Fira Sans", sans-serif;
+    font-family: "Jost", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
@@ -94,6 +102,7 @@ h4 {
 a, p, td, dl, dt {
     font-family: "Fira Sans", sans-serif;
     font-optical-sizing: auto;
+    font-family: "Jost", sans-serif;
     font-weight: 300;
     font-style: normal;
 }
@@ -440,14 +449,22 @@ select {
     }
 }
 
-@media only screen and (min-width: 900px) and (min-height: 720px) {
+@media only screen and (min-width: 800px) {
+    #council-page {
+        grid-template-columns: 1fr 1fr 20em;
+    }
+}
+
+@media only screen and (min-width: 850px) {
     #council-page {
         grid-template-columns: 1fr 1fr 21.5em;
     }
 }
 
-@media only screen and (min-width: 900px) {
+
+
+@media only screen and (min-width: 1080px) {
     #council-page {
-        grid-template-columns: 1fr 1fr 20em;
+        grid-template-columns: 1fr 1fr 23em;
     }
 }
