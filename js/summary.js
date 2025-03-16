@@ -76,6 +76,7 @@ class VoteSummary {
     static #recordType = "";
     static #result = "";
     static #total = 0;
+    static #type = "";
     static #absent = 0;
     static #vacant = 0;
 
@@ -111,6 +112,7 @@ class VoteSummary {
         VoteSummary.#session = record.session;
         VoteSummary.#result = record.result;
         VoteSummary.#style = record.style;
+        VoteSummary.#type = record.type;
         VoteSummary.#absent = 0;
         VoteSummary.#vacant = 0;
         VoteSummary.#total = VoteSummary.getTotalVotes(record.votes);
@@ -156,7 +158,10 @@ class VoteSummary {
         let totalVotes = VoteSummary.#total;
         // this check is not ideal, we need a check that says
         // after 2023/2024 instead of this
-        if(getCurrentYear() != "2024/2025") {
+        // if(getCurrentYear() != "2024/2025") {
+        //     totalVotes -= VoteSummary.#breakdown.Abstain;
+        // }
+        if(VoteSummary.#type != "vonc chair") {
             totalVotes -= VoteSummary.#breakdown.Abstain;
         }
         return totalVotes;
