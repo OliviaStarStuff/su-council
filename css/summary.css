@@ -137,15 +137,17 @@
 }
 
 /* Vote summary panel */
-#vote-summary-panel {
+#vote-summary-panel:not(.display-hidden) {
     background-color: var(--primary-colour-light);
     padding-bottom: 0.5em;
+    position: relative;
+    display: none;
 }
 
-#vote-summary-panel:not(.display-hidden) {
+/* #vote-summary-panel:not(.display-hidden) {
     position: relative;
     display: flex;
-}
+} */
 
 #vote-summary-panel .pill-buttons * {
     background-color: white;
@@ -171,7 +173,20 @@
         font-size: unset;
     }
 
+    #vote-summary-panel:not(.display-hidden) {
+    position: relative;
+    display: flex;
+    }
+
+    #vote-summary-panel.display-hidden {
+        display: none;
+    }
+
     #vote-summary {
         display: none;
+    }
+
+    #vote-summary-panel {
+        display: flex;
     }
 }

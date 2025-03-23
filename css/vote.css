@@ -38,8 +38,8 @@ p.vote-text {
 }
 
 .vote .fa-solid::before {
-    -webkit-filter: drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
-    filter        : drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour));
+    /* -webkit-filter: drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour)); */
+    /* filter        : drop-shadow(var(--shadow-size) var(--shadow-size) 0 var(--member-border-colour)); */
 
     transition: all 300ms ease-in-out;
 }

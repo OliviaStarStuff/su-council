@@ -1,7 +1,7 @@
 import { generateCouncillors, addOverlayListener } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { addSummaryBackButtonListner } from "./summary.js";
-import { setupSelectors } from "./selector.js";
+import { setupSelectors, setupPolicyNavButtons } from "./selector.js";
 import { addCouncillorBackButtonListener } from "./councillorList.js";
 import { addCouncilNavListener } from "./councilnav.js";
 import { addToggleListeners } from "./toggles.js";
@@ -20,6 +20,7 @@ function main() {
     addOverlayListener();
     generateGroupings();
     setupSelectors();
+    setupPolicyNavButtons();
     addSummaryBackButtonListner();
     addCouncillorBackButtonListener();
     addToggleListeners();

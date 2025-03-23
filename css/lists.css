@@ -171,7 +171,7 @@ a.list-item-button {
     color: var(--member-border-colour);
 }
 
-#councillors-tab p, #councillors-tab span {
+#councillors-tab p, #councillors-tab span.material-symbols-outlined {
     color: black;
 }
 

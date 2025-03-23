@@ -42,7 +42,19 @@
     /* --translateY: 0; */
 }
 
-.member div {
+.member .shadow {
+    width: 0;
+    overflow: visible;
+    position: relative;
+    top: 0.25rem;
+    left: 0.25rem;
+}
+
+.member .shadow::before {
+    color: var(--member-border-colour);
+}
+
+.member div:nth-child(2) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,10 +259,6 @@
 @media only screen and (min-width: 400px) {
     .member p {
         font-size: 1rem;
-    }
-
-    #hexagon {
-        --hexagon-height: 360px;
     }
 }
 

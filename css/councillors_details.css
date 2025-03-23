@@ -34,6 +34,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 0 0.25em 0;
+    height: 100%;
 }
 
 #cllr-details.display-hidden {
@@ -98,6 +99,7 @@
 
 #cllr-panel-contact-container {
     /* align-self: center; */
+    justify-content: space-between;
     flex-wrap: wrap;
     display: flex;
     flex-direction: row;
@@ -128,9 +130,10 @@
 
 /* vote history container > record table */
 #cllr-details-summary-container  {
-    max-height: 15em;
+    /* max-height: 15em; */
     overflow-y: auto;
-    width: 100%;
+    /* width: 100%; */
+    margin: 0 1em 1em 1em;
     border: 0.125em solid rgb(152, 47, 65);
 }
 
@@ -182,12 +185,12 @@
 #record-table tr > td:last-child {
     position:relative;
     text-align: right;
+    width:10ch;
     /* padding-right: 0.75em; */
 }
 
 #record-table tr > td:first-child {
     text-align: left;
-    width:20ch;
     text-wrap: pretty;
 }
 
@@ -205,10 +208,14 @@
 .career-title {
     grid-column: 1 / span 2;
     text-align: center;
+    line-height: 1.5em;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 #career button {
     padding: 0.5em;
+    text-wrap: pretty;
 }
 
 #career button:hover {
@@ -216,9 +223,16 @@
 }
 
 @media only screen and (min-width: 600px) {
+    #cllr-details {
+        max-height: 100%;
+    }
+
     #cllr-details-summary-container {
         max-height: unset;
         flex-grow: 1;
+
+        margin: 0em 1em 1em 1em;
+        width: unset;
     }
 }
 
@@ -231,21 +245,6 @@
         padding-left: 2em;
     }
 }
-
-@media only screen and (min-width: 600px) {
-
-    #cllr-details {
-        max-height: 100%;
-        height: 100%;
-    }
-
-    #cllr-details > #cllr-details-summary-container {
-        max-height: none;
-        margin: 0em 1em 1em 1em;
-        width: unset;
-    }
-}
-
 
 @media only screen and (min-width: 900px) {
     #record-table tr > td:first-child {

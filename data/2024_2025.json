@@ -36,7 +36,7 @@
             "initial": "AMRC",
             "coords": { "q": -2, "r": 0 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Allied Health Professionals, Nursing and Midwifery Councillor (x2)",
@@ -53,7 +53,7 @@
             "initial": "HPNM",
             "coords": { "q": -5, "r": 3 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Architecture & Landscape Councillor (x2)",
@@ -274,7 +274,7 @@
             "initial": "Info",
             "coords": { "q": -5, "r": 5 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Journalism, Media & Communications Councillor",
@@ -349,7 +349,7 @@
             "initial": "MPS",
             "coords": { "q": 4, "r": -3 },
             "isCurrentlyFilled": false,
-            "vacantFor": [ 3 ]
+            "vacantFor": [ 3, 4 ]
         },
         {
             "title": "Mathematical & Physical Sciences Councillor (x2)",
@@ -358,7 +358,7 @@
             "initial": "MPS",
             "coords": { "q": 4, "r": -2 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Mechanical, Aerospace & Civil Engineering Councillor (x2)",
@@ -399,7 +399,7 @@
             "initial": "MPH",
             "coords": { "q": -5, "r": 2 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Music Councillor",
@@ -572,7 +572,7 @@
             "initial": "Appr",
             "coords": { "q": -2, "r": 1 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Foundation Year Councillor",
@@ -589,7 +589,7 @@
             "initial": "PGR",
             "coords": { "q": 2, "r": 0 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Faculty of Engineering PGR",
@@ -598,7 +598,7 @@
             "initial": "PGR",
             "coords": { "q": 1, "r": 2 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Faculty of Health PGR",
@@ -607,7 +607,7 @@
             "initial": "PGR",
             "coords": { "q": -3, "r": 2 },
             "isCurrentlyFilled": false,
-            "vacantFor": [1, 2, 3]
+            "vacantFor": [1, 2, 3, 4]
         },
         {
             "title": "Faculty of Science PGR",

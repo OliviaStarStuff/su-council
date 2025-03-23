@@ -154,8 +154,8 @@ function updatePanel(councillor) {
     clearChildren(career.id)
     if (councillor.career.length == 0) {
     } else {
-        const careerTitle = document.createElement('p');
-        careerTitle.innerText = "Career";
+        const careerTitle = document.createElement('h3');
+        careerTitle.innerText = "Previous Positions";
         careerTitle.classList.add ("career-title")
         career.appendChild(careerTitle);
 

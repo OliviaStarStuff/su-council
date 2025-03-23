@@ -30,6 +30,7 @@ function createPolicyItem(record) {
         selectPolicy(e, "vote-summary");
         bottomPanel.classList.remove("open");
         setPanel(true);
+        updatebuttonState();
     });
 
     const summaryButton = clone.querySelector("button.summary-button");
@@ -138,6 +139,8 @@ function selectPolicy(e, summaryId) {
 const voteSummary = document.getElementById("vote-summary")
 function displaySummary(e) {
     selectPolicy(e, "vote-summary");
+    policySelector.value = e.target.value;
+    updatebuttonState();
     policyList.classList.add("display-hidden");
     voteSummary.classList.remove("display-hidden");
 }
@@ -154,6 +157,9 @@ function setupSelectors() {
     policySelector.addEventListener("change", (e) => {
 
         selectPolicy(e, "vote-summary-panel");
+        if (e.target.value == "none") {
+            document.getElementById("vote-summary").querySelector("button").click();
+        }
 
         // show or hide vote summary panel
         if (window.innerWidth >= 600) {
@@ -225,6 +231,54 @@ function setupSelectors() {
     // })
 }
 
+
+const navButtonContainer = document.getElementById("visual-nav-button-container");
+const navButtons = navButtonContainer.getElementsByTagName("button");
+const maxPolicies = records[getCurrentYear()].policies.length
+
+function updatebuttonState() {
+    navButtons[0].disabled = false;
+    navButtons[1].disabled = false;
+    if (policySelector.value == "none") {
+        navButtons[0].disabled = true;
+    } else if(parseInt(policySelector.value) >= maxPolicies-1) {
+        navButtons[1].disabled = true;
+    }
+}
+
+function setupPolicyNavButtons() {
+    updatebuttonState();
+
+    console.log(policySelector.value, maxPolicies-1);
+
+    navButtons[0].addEventListener("click", () => {
+        let newValue = policySelector.value - 1;
+
+        navButtons[1].disabled = false;
+        if(newValue < 0) {
+            policySelector.value = "none";
+            navButtons[0].disabled = true;
+        } else {
+            policySelector.value = newValue
+        }
+
+        policySelector.dispatchEvent(new Event('change'))
+    })
+
+
+    navButtons[1].addEventListener("click", () => {
+        navButtons[0].disabled = false;
+        let newValue = policySelector.value == "none" ? 1 : parseInt(policySelector.value) +1;
+        const maxPolicies = records[getCurrentYear()].policies.length
+        if(newValue >= maxPolicies-1) {
+            navButtons[1].disabled = true;
+        }
+        policySelector.value = newValue;
+
+        policySelector.dispatchEvent(new Event('change'))
+    })
+}
+
 function selectYear(e) {
     Councillor.list = []
     // refresh the board
@@ -261,7 +315,7 @@ function resetVotesList() {
     voteSummary.classList.add("display-hidden");
 }
 
-export { resetVotesList, setupSelectors, createPolicyItem, selectYear }
+export { resetVotesList, setupSelectors, createPolicyItem, selectYear, setupPolicyNavButtons }
 
 
 

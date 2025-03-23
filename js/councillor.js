@@ -312,9 +312,13 @@ class Councillor {
 
         this.#icon = document.createElement("div");
         this.#icon.classList.add("fa-solid");
+        const shadow = document.createElement("div");
+        shadow.classList.add("fa-solid");
+        shadow.classList.add("shadow");
         this.#text = document.createElement("p")
 
         this.#text.innerText = this.#initial;
+        node.appendChild(shadow);
         node.appendChild(this.#icon);
         this.#icon.appendChild(this.#text)
 

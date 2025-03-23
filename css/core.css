@@ -99,12 +99,19 @@ h4 {
     padding: 0.75rem 0 0 0;
 }
 
-a, p, td, dl, dt {
+a, p, th, td, dl, dt {
     font-family: "Fira Sans", sans-serif;
     font-optical-sizing: auto;
     font-family: "Jost", sans-serif;
     font-weight: 300;
     font-style: normal;
+}
+button {
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+}
+th {
+    font-weight: 600;
 }
 
 a[disabled] {
