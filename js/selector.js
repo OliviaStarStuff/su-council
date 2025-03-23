@@ -226,11 +226,11 @@ function setupSelectors() {
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
         policyName = records[getCurrentYear()].policies[policyIndex].name;
-    }
-
-    VoteSummary.breakdown = {
-        "votes":[],
-        "style": "standard"
+    } else {
+        VoteSummary.breakdown = {
+            "votes":[],
+            "style": "standard"
+        }
     }
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");
