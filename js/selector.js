@@ -3,7 +3,7 @@ import { records, sessions, generateCouncillors } from "./councilMap.js";
 import { generateGroupings } from "./groupings.js";
 import { populateCouncillorList } from "./councillorList.js";
 import { setCouncillorClickBehaviour } from "./panel.js";
-import { updateSummary } from "./summary.js";
+import { updateSummary, VoteSummary } from "./summary.js";
 import { setPanel } from "./bottomPanel.js";
 import { qrCode } from "./qr.js";
 createMessage("I am here after selector import");
@@ -226,6 +226,11 @@ function setupSelectors() {
         policySelector.value = param.get("policy");
         policySelector.dispatchEvent(new Event('change'));
         policyName = records[getCurrentYear()].policies[policyIndex].name;
+    }
+
+    VoteSummary.breakdown = {
+        "votes":[],
+        "style": "standard"
     }
     // tab.addEventListener("scroll", (e) => {
     //     bottomPanel.classList.add("open");

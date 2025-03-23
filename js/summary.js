@@ -124,7 +124,8 @@ class VoteSummary {
                 VoteSummary.#vacant++;
             }
         }
-
+        // console.log(VoteSummary.#vacant);
+        console.log(record.style)
         for (const option of (VoteSummary.#targetOptions)) {
             let total = 0;
 
