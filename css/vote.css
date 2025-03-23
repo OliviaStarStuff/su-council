@@ -128,5 +128,10 @@ p.vote-text {
     border-width: 0.25em;
     --vote-shape: 50%;
     /* border-style: dashed; */
-    color: #424242;
+    /* color: #424242; */
+    color: black;
+}
+
+.member.member.vote-vacant p {
+    font-weight: 200;
 }

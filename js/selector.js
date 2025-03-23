@@ -159,6 +159,8 @@ function setupSelectors() {
         selectPolicy(e, "vote-summary-panel");
         if (e.target.value == "none") {
             document.getElementById("vote-summary").querySelector("button").click();
+        } else {
+            updateSummary(e, "vote-summary");
         }
 
         // show or hide vote summary panel

@@ -221,6 +221,9 @@
     width: fit-content;
     padding: 1em;
 
+
+    font-size: 1rem;
+
     background-color: var(--primary-colour);
     border-radius: 1em;
     box-shadow: 0.25em 0.25em rgba(79, 253, 192, 0.457);
@@ -233,13 +236,17 @@
     color: white
 }
 
+.visual-button .material-symbols-outlined {
+    font-size: 1.25em;
+}
+
 .visual-button:disabled {
     box-shadow: none;
     background-color: lightgray;
 }
 
 .visual-button p {
-    font-size: 1rem;
+    /* font-size: 1rem; */
     font-weight: 500;
 }
 

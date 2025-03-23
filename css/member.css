@@ -108,9 +108,9 @@
 }
 
 .member p {
-    font-weight: 400;
     font-size: 1rem;
     position: absolute;
+    font-weight: 300;
 }
 
 .member * {
@@ -126,6 +126,7 @@
     border-style: none;
     /* box-shadow: 0.125em 0.125em 5px #00000029, inset 0.125em 0.125em 0.25em #ffffff7d; */
     color: rgb(75, 75, 75);
+    /* font-weight: 200; */
 }
 
 .hidden-vacant {
@@ -254,12 +255,6 @@
 .member-health {
     --member-colour: var(--health-colour);
     --member-border-colour: var(--health-border-colour);
-}
-
-@media only screen and (min-width: 400px) {
-    .member p {
-        font-size: 1rem;
-    }
 }
 
 @media only screen and (min-width: 600px) {

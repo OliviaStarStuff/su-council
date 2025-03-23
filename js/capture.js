@@ -42,21 +42,6 @@ function addCaptureButtonListener() {
     const textContainer = document.querySelector("#visual-container-description");
     const title = document.querySelector("#visual-container-title");
 
-    const councillorTotal = document.querySelector("#visual-container-councillor-total");
-    const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
-    const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
-    const present = document.querySelector("#visual-container-councillor-present");
-    const absent = document.querySelector("#visual-container-councillor-absent");
-
-    const totalVotes = document.querySelector("#visual-container-result-total");
-    const abstain = document.querySelector("#visual-container-result-abstain");
-    const threshold = document.querySelector("#visual-container-result-threshold");
-    const result = document.querySelector("#visual-container-result");
-    const period = document.querySelector("#visual-container-result-period");
-    const session = document.querySelector("#visual-container-result-session");
-
-    const bottomRightContainer = document.querySelector("#visual-container-bottom-right");
-
     const yearButtons = document.getElementById("year-buttons-container");
     const helpButton = document.getElementById("help-button");
     textContainer.classList.add("display-hidden");
@@ -65,63 +50,17 @@ function addCaptureButtonListener() {
     captureButton.addEventListener("click", () => {
         // Set text
         // const currentRecord = records[getCurrentYear()].policies[index];
-        if(Councillor.list[0].voteIndex <= -1) {
-            title.innerText = "Su Council Visualiser";
-            result.innerText = "";
-        } else {
-
-            title.innerText = VoteSummary.name;
-
-            session.innerText = `${getCurrentYear()} Session ${VoteSummary.session} - Seats: ${Councillor.list.length}`;
-            // councillorTotal.innerText = `Total Seats: ${Councillor.list.length}`;
-            // councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`;
-            // councillorVacant.innerText = `Vacant: ${VoteSummary.vacant}`;
-            councillorTotal.innerText = `Occupied/Vacant: ${VoteSummary.occupiedSeats} / ${VoteSummary.vacant}`;
-            present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
-            absent.innerText = `Absent: ${VoteSummary.absent}`;
-
-            totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
-            // abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
-            if (VoteSummary.style == "standard") {
-                const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
-                threshold.innerText = `${recordType}: ${VoteSummary.threshold}`;
-            } else {
-                threshold.innerText = `Quota: ${VoteSummary.quota}`;
-            }
-            result.innerText = `Result: ${VoteSummary.result}`;
-            if (!VoteSummary.isPassed() && VoteSummary.result == "Passed") {
-                result.innerText = `Result: Passed but shouldn't have`
-            }
-
-            clearChildren(bottomRightContainer.id);
-            for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
-                if (key == "Absent") { continue; }
-
-                const row = template.content.cloneNode(true);
-                const p = row.querySelector(".legend-row-title");
-                const p2 = row.querySelector    (".legend-row-value");
-                const icon = row.querySelector(".fa-solid");
-                p.innerText = `${key}: `;
-                p2.innerText = `${value}`;
-                icon.classList.add(Vote.getClass(key, VoteSummary.style));
-                if ((key =="Abstain" ||  key =="Blank") && VoteSummary.style != "standard") {
-                    bottomRightContainer.insertBefore(row, bottomRightContainer.firstChild);
-                } else {
-                    bottomRightContainer.appendChild(row);
-                }
-            }
-        }
+        updateCaptureText();
         // period.innerText = getCurrentYear();
 
         // Hide bits we don't want to see
         // maybe we should iterate over a class
-        yearButtons.classList.add("display-hidden");
-        helpButton.classList.add("display-hidden");
-        captureButton.classList.add("display-hidden");
+        // yearButtons.classList.add("display-hidden");
+        // helpButton.classList.add("display-hidden");
+        // captureButton.classList.add("display-hidden");
         textContainer.classList.remove("display-hidden");
 
         const viewport = document.querySelector("#visual-container");
-        const hexagon = document.querySelector("#hexagon");
         viewport.style.width = "800px";
         viewport.style.height = "800px";
         viewport.style.setProperty('--scale', '1');
@@ -146,17 +85,83 @@ function addCaptureButtonListener() {
         viewport.style.width = null;
         viewport.style.height = null;
         viewport.style.removeProperty("--scale");
-        captureButton.classList.remove("display-hidden");
-        yearButtons.classList.remove("display-hidden");
-        helpButton.classList.remove("display-hidden");
+        // captureButton.classList.remove("display-hidden");
+        // yearButtons.classList.remove("display-hidden");
+        // helpButton.classList.remove("display-hidden");
         textContainer.classList.add("display-hidden");
 
     })
+}
+
+function updateCaptureText() {
+
+    const title = document.querySelector("#visual-container-title");
+    const councillorTotal = document.querySelector("#visual-container-councillor-total");
+    // const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
+    // const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
+    const present = document.querySelector("#visual-container-councillor-present");
+    const absent = document.querySelector("#visual-container-councillor-absent");
+
+    const totalVotes = document.querySelector("#visual-container-result-total");
+    // const abstain = document.querySelector("#visual-container-result-abstain");
+    const threshold = document.querySelector("#visual-container-result-threshold");
+    const result = document.querySelector("#visual-container-result");
+    // const period = document.querySelector("#visual-container-result-period");
+    const session = document.querySelector("#visual-container-result-session");
+
+    const bottomRightContainer = document.querySelector("#visual-container-bottom-right");
+
+    if(Councillor.list[0].voteIndex <= -1) {
+        title.innerText = "Su Council Visualiser";
+        result.innerText = "";
+    } else {
+
+        title.innerText = VoteSummary.name;
+
+        session.innerText = `${getCurrentYear()} Session ${VoteSummary.session} - Seats: ${Councillor.list.length}`;
+        // councillorTotal.innerText = `Total Seats: ${Councillor.list.length}`;
+        // councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`;
+        // councillorVacant.innerText = `Vacant: ${VoteSummary.vacant}`;
+        councillorTotal.innerText = `Occupied/Vacant: ${VoteSummary.occupiedSeats} / ${VoteSummary.vacant}`;
+        present.innerText = `Present: ${VoteSummary.occupiedSeats - VoteSummary.absent}`;
+        absent.innerText = `Absent: ${VoteSummary.absent}`;
+
+        totalVotes.innerText = `Total Votes: ${VoteSummary.total}`;
+        // abstain.innerText = `Abstain: ${VoteSummary.breakdown["Abstain"]}`;
+        if (VoteSummary.style == "standard") {
+            const recordType = VoteSummary.isSuperMajority() ? "Super Majority" : "Simple Majority";
+            threshold.innerText = `${recordType}: ${VoteSummary.threshold}`;
+        } else {
+            threshold.innerText = `Quota: ${VoteSummary.quota}`;
+        }
+        result.innerText = `Result: ${VoteSummary.result}`;
+        if (!VoteSummary.isPassed() && VoteSummary.result == "Passed") {
+            result.innerText = `Result: Passed but shouldn't have`
+        }
+
+        clearChildren(bottomRightContainer.id);
+        for(const [key, value] of Object.entries(VoteSummary.breakdown)) {
+            if (key == "Absent") { continue; }
+
+            const row = template.content.cloneNode(true);
+            const p = row.querySelector(".legend-row-title");
+            const p2 = row.querySelector    (".legend-row-value");
+            const icon = row.querySelector(".fa-solid");
+            p.innerText = `${key}: `;
+            p2.innerText = `${value}`;
+            icon.classList.add(Vote.getClass(key, VoteSummary.style));
+            if ((key =="Abstain" ||  key =="Blank") && VoteSummary.style != "standard") {
+                bottomRightContainer.insertBefore(row, bottomRightContainer.firstChild);
+            } else {
+                bottomRightContainer.appendChild(row);
+            }
+        }
+    }
 }
 
 function resetButton() {
     captureButton.querySelector("p").innerText = "Copy Visual";
 }
 
-export { addCaptureButtonListener }
+export { addCaptureButtonListener, updateCaptureText}
 

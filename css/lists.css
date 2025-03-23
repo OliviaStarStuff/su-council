@@ -32,7 +32,7 @@ li:has(.list-item-header) {
 }
 
 .list-item-header > h5 {
-    /* font-size: 1.25rem; */
+    font-size: 1.25rem;
     color: var(--primary-colour-dark);
     font-weight: 400;
 }
@@ -41,6 +41,13 @@ li:has(.list-item-header) {
     font-size: 1rem;
     font-weight: 300;
     text-align: left;
+}
+
+
+.list-item-button .material-symbols-outlined{
+    /* line-height: 1.5em; */
+    font-size: 1.25em;
+    vertical-align: sub;
 }
 
 .list-item-button {
@@ -53,6 +60,7 @@ li:has(.list-item-header) {
 
 a.list-item-button {
     text-decoration: none;
+    display: inline-block;
     color: var(--primary-colour-darker);
 }
 
@@ -79,6 +87,7 @@ a.list-item-button {
 .list-item > p {
     text-align: left;
     font-size: 1rem;
+    text-wrap: pretty;
 }
 
 .list-item-button-container {

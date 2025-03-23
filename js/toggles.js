@@ -1,5 +1,7 @@
 "use strict";
 
+import { updateCaptureText } from "./capture.js"
+
 function addToggleListeners() {
     const toggleNames = document.getElementById("toggle-names");
     toggleNames.addEventListener('change', function() {
@@ -53,6 +55,8 @@ function addToggleListeners() {
         const textContainer = document.querySelector("#visual-container-description");
         const yearButtons = document.getElementById("year-buttons-container");
         const helpButton = document.getElementById("help-button");
+
+        updateCaptureText();
 
         yearButtons.classList.toggle("display-hidden", this.checked);
         helpButton.classList.toggle("display-hidden", this.checked);

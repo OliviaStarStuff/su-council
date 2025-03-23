@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="css/lists.css">
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/councillors_details.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,content_copy,expand_circle_down,expand_circle_up,explore,help,keyboard_arrow_down,keyboard_arrow_up,link">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left,chevron_right,close_small,content_copy,description,expand_circle_down,expand_circle_up,explore,help,keyboard_arrow_down,keyboard_arrow_up,link">
 
     <!-- Utilities functions and classes -->
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs/qrcode.min.js"></script>
@@ -166,8 +166,8 @@
                         </div>
                     </div>
 
-                    <button id="help-button" class="visual-button absolute-container"><p>Explain</p></button>
-                    <button id="capture-button" class="visual-button absolute-container">
+                    <button id="help-button" class="visual-button absolute-container" data-html2canvas-ignore><p>Explain</p></button>
+                    <button id="capture-button" class="visual-button absolute-container" data-html2canvas-ignore>
                         <span class="material-symbols-outlined">
                             content_copy
                         </span>
@@ -178,7 +178,7 @@
                         <p id="overlay-type"></p>
                         <p id="overlay-vote" class="vote-text"></p>
                     </div>
-                    <div id="year-buttons-container" class="absolute-container">
+                    <div id="year-buttons-container" class="absolute-container" data-html2canvas-ignore>
                         <div id="year-buttons" class="pill-buttons">
                             <button value="2022/2023" disabled>2022/2023</button>
                             <button value="2023/2024">2023/2024</button>
@@ -652,8 +652,13 @@
             <div class="list-item-header">
                 <h5>Session 1</h5>
                 <div>
-                <a target="_blank" class="list-item-button minutes-link">minutes</a>
-                <a target="_blank" class="list-item-button agenda-link">agenda</a>
+                <a target="_blank" class="list-item-button minutes-link">
+                    <span class="material-symbols-outlined">
+                        description
+                    </span>minutes</a>
+                <a target="_blank" class="list-item-button agenda-link"><span class="material-symbols-outlined">
+                    description
+                </span>agenda</a>
                 </div>
             </div>
         </li>
@@ -663,7 +668,10 @@
             <div class="list-item">
                 <p></p>
                 <div class="list-item-button-container">
-                    <a target="_blank" class="details-button list-item-button">Read</a>
+                    <a target="_blank" class="details-button list-item-button">
+                        <span class="material-symbols-outlined">
+                            description
+                        </span>Read</a>
                     <button class="vote-button list-item-button">Show Visual</button>
                     <button class="summary-button list-item-button">Vote Summary</button>
                 </div>

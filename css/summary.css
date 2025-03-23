@@ -48,6 +48,8 @@
 
 .summary-overlay dd {
     margin-bottom: 0.5em;
+    font-weight: 200;
+    line-height: 1.25em;
 }
 
 .summary-overlay mark {
