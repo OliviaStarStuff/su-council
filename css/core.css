@@ -4,9 +4,12 @@
     box-sizing: border-box;
     --primary-colour: rgb(243, 185, 194);
     --primary-colour-light: rgb(250, 228, 231);
+    --primary-colour-lighter: rgb(248, 240, 241);
     --primary-colour-dark: rgb(181, 59, 80);
     --primary-colour-darker: rgb(104, 27, 40);
     --primary-colour-highlight: rgb(221, 82, 105);
+    --primary-text-color: #1b1b1b;
+    --primary-text-color-hover: #292929;
 }
 
 .staatliches-regular {
@@ -255,6 +258,13 @@ select {
     background-color: var(--primary-colour-light);
     /* border: solid var(--border-width) var(--primary-colour-dark) */
     outline: var(--border-width) solid var(--primary-colour-dark);
+}
+
+.pill-buttons > *:not([disabled]):hover {
+    /* background-color: var(--primary-colour-lighter); */
+    color: var(--primary-text-color-hover);
+    color: var(--primary-colour-dark);
+    /* filter: brightness(1.1); */
 }
 
 .pill-buttons a {

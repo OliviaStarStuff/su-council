@@ -51,7 +51,7 @@
     grid-row: 1;
     display: flex;
     flex-direction: row;
-    padding: 0.5em;
+    padding: 0.5em 0 0.25em 0;
     align-items: stretch;
     justify-content: space-evenly;
 }
@@ -69,7 +69,7 @@
     flex-direction: column;
     grid-column: 2 / span 4;
     grid-row: span 2;
-    gap: 0.25em;
+    /* gap: 0.25em; */
 }
 
 
@@ -83,6 +83,7 @@
     margin: 0 0 0 1em;
     grid-column: 1 / span 1;
     grid-row: 2 / span 2;
+    align-self: center;
     /* height: 4em; */
     width: 5em;
     border-radius: 100%;
@@ -192,6 +193,12 @@
 #record-table tr > td:first-child {
     text-align: left;
     text-wrap: pretty;
+}
+
+#record-table tr.session-row > td {
+    background-color: var(--primary-colour);
+    text-align: center;
+    font-weight: 300;
 }
 
 #career {

@@ -76,6 +76,7 @@
 .member-lost {
     border-style: none;
     position: absolute;
+    cursor: pointer;
 }
 
 .member-lost:hover {

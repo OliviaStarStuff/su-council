@@ -34,7 +34,7 @@ class Search {
         this.#result = document.getElementById(root + "-search-results");
         this.#clearButton = rootNode.querySelector("button");
         this.#resultList = [];
-        this.#input.addEventListener("change", (e) => {
+        this.#input.addEventListener("input", (e) => {
             clearChildren(this.#result.id)
             if (e.target.value == "") {
                 list.classList.remove("display-hidden");
@@ -50,7 +50,7 @@ class Search {
 
         this.#clearButton.addEventListener("click", () => {
             this.#input.value = "";
-            this.#input.dispatchEvent(new Event("change"));
+            this.#input.dispatchEvent(new Event("input"));
         })
     }
 
@@ -60,7 +60,7 @@ class Search {
 
     set searchList(list) {
         this.#fuse = new Fuse(list, this.#options);
-        this.#input.dispatchEvent(new Event("change"));
+        this.#input.dispatchEvent(new Event("input"));
     }
 }
 const highlightBox = document.getElementById("toggle-highlight");
@@ -131,7 +131,7 @@ function addSearchListener() {
         policyOption, createPolicyItem)
 
     const yearSelector = document.getElementById("year-buttons");
-    councillorSearch.input.addEventListener("change", (e) => {
+    councillorSearch.input.addEventListener("input", (e) => {
         setHighlight(councillorSearch);
     })
 

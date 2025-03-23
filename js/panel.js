@@ -58,12 +58,25 @@ function updateMobilePanel(councillor) {
     // populate vote history table;
     let i = 0
     const currentPolicies = records[getCurrentYear()].policies;
+    let currentSession = -1;
     for(const r of councillor.voteHistory) {
         i++;
         if (r.vote == "") { continue; }
+        if (currentPolicies[i-1].session > currentSession) {
+            createSessionRow(currentPolicies[i-1].session);
+            currentSession = currentPolicies[i-1].session;
+        }
         createHistoryRow(r, i, currentPolicies[i-1].url);
     }
     // vacantContainer.classList.add("display-hidden")
+}
+
+function createSessionRow(sessionNum) {
+    const rowTemplate = document.getElementById("record-table-session-row-template");
+    console.log(rowTemplate)
+    const clone = rowTemplate.content.cloneNode(true);
+    clone.querySelector("td").innerText = `Session ${sessionNum}`;
+    recordTableBody.appendChild(clone);
 }
 
 
@@ -201,6 +214,7 @@ span.title = "proxied";
 span.innerText = "(p)";
 const rowTemplate = document.getElementById("record-table-row-template");
 const policySelector = document.getElementById("policy-select");
+
 function createHistoryRow(record, index, url) {
     const clone = rowTemplate.content.cloneNode(true);
     const voteTitleCell = clone.querySelector("a");
