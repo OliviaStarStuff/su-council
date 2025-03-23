@@ -79,6 +79,10 @@
     cursor: pointer;
 }
 
+.member-lost.display-hidden {
+    display: none;
+}
+
 .member-lost:hover {
     border-style: none;
 }

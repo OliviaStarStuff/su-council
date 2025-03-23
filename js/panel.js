@@ -73,7 +73,6 @@ function updateMobilePanel(councillor) {
 
 function createSessionRow(sessionNum) {
     const rowTemplate = document.getElementById("record-table-session-row-template");
-    console.log(rowTemplate)
     const clone = rowTemplate.content.cloneNode(true);
     clone.querySelector("td").innerText = `Session ${sessionNum}`;
     recordTableBody.appendChild(clone);

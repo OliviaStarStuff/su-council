@@ -30,6 +30,18 @@ function addToggleListeners() {
         }
     });
 
+    const toggleGoneNodes = document.getElementById("toggle-gone-nodes");
+    toggleGoneNodes.addEventListener('change', function() {
+        let nodes = document.getElementsByClassName("member-lost")
+        for(const c of nodes) {
+            c.classList.toggle("display-hidden", !this.checked);
+        }
+        nodes = document.getElementsByClassName("group-gone")
+        for(const c of nodes) {
+            c.classList.toggle("display-hidden", !this.checked);
+        }
+    });
+
     const toggleAllNames = document.getElementById("toggle-all-names");
     toggleAllNames.addEventListener('change', function() {
         for(const c of Councillor.list) {c.initial = !this.checked; }
@@ -85,7 +97,13 @@ function addToggleListeners() {
 
     function toggleHidden(targetToMatch, bool) {
         for(const c of Councillor.list) {
-            if(c.type == targetToMatch) {
+            if(targetToMatch == "PTO" &&
+                (getCurrentYear() != "2023/2024" && getCurrentYear() != "2023/2024")) {
+                console.log(c.type);
+                if(c.type == "Liberation Facilitator") {
+                    c.classList.toggle("opacity-hidden", bool);
+                }
+            } else if(c.type == targetToMatch) {
                 c.classList.toggle("opacity-hidden", bool);
             }
         }
