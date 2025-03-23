@@ -298,14 +298,6 @@
             "isCurrentlyFilled": false
         },
         {
-            "title": "Mathematical & Physical Sciences Councillor (x2)",
-            "type": "Academic",
-            "faculty": "Science",
-            "initial": "MPS",
-            "coords": { "q": 4, "r": -2 },
-            "isCurrentlyFilled": false
-        },
-        {
             "title": "Mechanical, Aerospace & Civil Engineering Councillor (x2)",
             "type": "Academic",
             "faculty": "Engineering",
@@ -366,7 +358,7 @@
             "type": "Academic",
             "faculty": "Science",
             "initial": "Psy",
-            "coords": { "q": 5, "r": -2 },
+            "coords": { "q": 4, "r": -2 },
             "isCurrentlyFilled": false
         },
         {
@@ -588,48 +580,48 @@
             "isCurrentlyFilled": false
         },
         {
-            "title": "Postgraduate Officer",
-            "type": "Academic Facilitator",
+            "title": "Postgraduate Facilitator",
+            "type": "Liberation Facilitator",
             "faculty": "SU",
             "initial":"PG",
             "coords": { "q": -2, "r": -1 },
             "isCurrentlyFilled": false
         },
         {
-            "title": "LGBTQ+ Officer",
-            "type": "Academic Facilitator",
+            "title": "LGBTQ+ Facilitator",
+            "type": "Liberation Facilitator",
             "faculty": "SU",
             "initial":"Q",
             "coords": { "q": 0, "r": -3 },
             "isCurrentlyFilled": false
         },
         {
-            "title": "Disabled & Neurodivergent Students Officer",
-            "type": "Academic Facilitator",
+            "title": "Disabled & Neurodivergent Facilitator",
+            "type": "Liberation Facilitator",
             "faculty": "SU",
             "initial":"Dis",
             "coords": { "q": -3, "r": 0 },
             "isCurrentlyFilled": false
         },
         {
-            "title": "Gender Equality Officer",
-            "type": "Academic Facilitator",
+            "title": "Gender Equality Facilitator",
+            "type": "Liberation Facilitator",
             "faculty": "SU",
             "initial":"W",
             "coords": { "q": 1, "r": -3 },
             "isCurrentlyFilled": false
         },
         {
-            "title": "Ethnic Diversity Officer",
-            "type": "Academic Facilitator",
+            "title": "Ethnic Diversity Facilitator",
+            "type": "Liberation Facilitator",
             "faculty": "SU",
             "initial":"ED",
             "coords": { "q": 2, "r": -3 },
             "isCurrentlyFilled": false
         },
         {
-            "title": "Class Equity Officer",
-            "type": "Academic Facilitator",
+            "title": "Class Equity Facilitator",
+            "type": "Liberation Facilitator",
             "faculty": "SU",
             "initial":"Class",
             "coords": { "q": -1, "r": -2 },
@@ -676,7 +668,8 @@
         [
             { "q": 4, "r": -4 },
             { "q": 5, "r": -4 },
-            { "q": 5, "r": -2 },
+            { "q": 5, "r": -3 },
+            { "q": 4, "r": -2 },
             { "q": 3, "r": -2 },
             { "q": 3, "r": -3 }
         ],
@@ -716,7 +709,7 @@
             { "q": -5, "r": 1 },
             { "q": 0, "r": -4 }
         ],
-        "Academic Facilitator":
+        "Liberation Facilitator":
         [
             { "q": 2, "r": -3 },
             { "q": 0, "r": -3 },

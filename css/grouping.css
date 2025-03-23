@@ -33,7 +33,7 @@
     stroke-linejoin: miter;
 }
 
-.group-pto, .group-academic-facilitator {
+.group-pto, .group-liberation-facilitator {
     --group-colour: var(--pto-colour);
 }
 
