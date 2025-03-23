@@ -57,14 +57,11 @@ It should be ready to view.
 
 ## Known issues
 1. Unsure what the difference between no vote given, blank and absent.
-2. Abstain Votes and its effect on the passing threshold is broken due to the way it was amended.\
-   See: [Make Abstentions Make Sense Again](https://docs.google.com/document/d/1R1ARuz-AjBCocGNOla1V0274Vrlu8WQtIFvYzqch9-E/edit?tab=t.0#heading=h.2dqxjgoqdozu)
-3. Wasn't able to figure out how to copy image to clipboard for mobile, so download was done instead
-4. Ideally it would be good to move away from google services like firestore for the time being.
+2. Wasn't able to figure out how to copy image to clipboard for mobile, so download was done instead
+3. Ideally it would be good to move away from google services like firestore for the time being.
 
 ## Known bugs:
-1. Mobile image copying is in the wrong resolution
-2. HTML2Canvas does not capture css shadows on elements
+2. HTML2Canvas does not capture css shadows on elements (workaround implemented for some shadows)
 
 ## Format
 ### Overview of json format used
