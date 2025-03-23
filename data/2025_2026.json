@@ -596,7 +596,7 @@
             "isCurrentlyFilled": false
         },
         {
-            "title": "LGBTQ+ Students Officer",
+            "title": "LGBTQ+ Officer",
             "type": "Academic Facilitator",
             "faculty": "SU",
             "initial":"Q",
@@ -612,7 +612,7 @@
             "isCurrentlyFilled": false
         },
         {
-            "title": "Women Students Officer",
+            "title": "Gender Equality Officer",
             "type": "Academic Facilitator",
             "faculty": "SU",
             "initial":"W",
