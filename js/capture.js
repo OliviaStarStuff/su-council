@@ -97,8 +97,8 @@ function updateCaptureText() {
 
     const title = document.querySelector("#visual-container-title");
     const councillorTotal = document.querySelector("#visual-container-councillor-total");
-    // const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
-    // const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
+    const councillorOccupied = document.querySelector("#visual-container-councillor-occupied");
+    const councillorVacant = document.querySelector("#visual-container-councillor-vacant");
     const present = document.querySelector("#visual-container-councillor-present");
     const absent = document.querySelector("#visual-container-councillor-absent");
 
@@ -114,8 +114,22 @@ function updateCaptureText() {
     if(Councillor.list[0].voteIndex <= -1) {
         title.innerText = "Su Council Visualiser";
         result.innerText = "";
-    } else {
+        session.innerText = `${getCurrentYear()}`
+        councillorTotal.innerText = `Total Seats: ${Councillor.list.length}`;
+        councillorOccupied.innerText = `Occupied Seats: ${VoteSummary.occupiedSeats}`
+        councillorVacant.innerText = `Vacant Seats: ${VoteSummary.vacant}`
 
+        present.innerText = "";
+        absent.innerText = "";
+
+        totalVotes.innerText = "";
+        threshold.innerText = "";
+        result.innerText = "";
+
+        clearChildren(bottomRightContainer.id);
+    } else {
+        councillorOccupied.innerText = "";
+        councillorVacant.innerText = "";
         title.innerText = VoteSummary.name;
 
         session.innerText = `${getCurrentYear()} Session ${VoteSummary.session} - Seats: ${Councillor.list.length}`;
