@@ -3,7 +3,7 @@
 ## Description
 This tool allows one to view the voting record of Sheffield University's Students' Union's Council for the year.
 
-It is a single page static app that is mobile responsive.
+It is a single page static app that is mobile responsive. [You can view the page here](https://oliviastarstuff.github.io/su-council/)
 
 As a proof of concept, it shows what opportunities for data visualisation and interaction is possible when voting data is made public.
 
@@ -14,6 +14,18 @@ It is in line with the active SU policy, [Transparency And Voting](https://docs.
 1. Maintain the SUC Voting Record as a publicly available and easily accessible resource.
 2. Display individual officer and councillor voting history underneath their profile on the SU website (updated after each Council).
 3. Create a dedicated space on the SU website for candidates to expand on their manifestoes and experience, with voting records clearly displayed (if applicable).
+
+## Features
+* View voting record by year
+* link to policy details, the session minutes and agenda in an accessible place
+* Search through councillors and policies voted on
+* View Councillor information, history and records
+* View voting summary at a glance and in detail
+* View councillor's prior held positions
+* toggle graphic elements of visualisation
+* Copy or Download image of visualisation
+* Mobile Responsive layout
+* help and explanation pages
 
 ## Requirements
 As a static page it does not require much backend besides a webserver to serve the page.
