@@ -26,39 +26,44 @@ function setGroupOverlay(shape, name) {
     })
 }
 
-function setArchaeologyOverlay(shape) {
+function setClickableGroup(q, r, description, url) {
     const cm = document.getElementById("council-container");
     const hiddenDiv = document.createElement("div");
     hiddenDiv.classList.add("member-lost");
 
-    const hex = new Hex({"q":3.85,"r":0}, [24, 20]);
+    const hex = new Hex({"q":q,"r":r}, [24, 20]);
     const coords = hex.position;
     // I don't know why we have to add 1 but it works
     // hiddenDiv.style.left = coords[0] + 1 + "px";
     // hiddenDiv.style.top = coords[1] + 1 + "px";
     hiddenDiv.classList.add("member")
-    hiddenDiv.style.setProperty("--q", 3.85);
-    hiddenDiv.style.setProperty("--r", -0.02);
+    hiddenDiv.style.setProperty("--q", q);
+    hiddenDiv.style.setProperty("--r", r-0.02);
     hiddenDiv.style.setProperty("--size", "54px");
 
-    hiddenDiv.setAttribute("aria-label", "A black hexagon where the Archaeology Councillor would have been positioned if they didn't shut down the Archaeology department. Located at axial coordinates q: 4, r: 0")
+    hiddenDiv.setAttribute("aria-label", description)
+
+    hiddenDiv.addEventListener("click", () => {
+        window.open(url)
+    })
 
     cm.appendChild(hiddenDiv);
-    hiddenDiv.addEventListener("pointerover", () => {
-        overlayRole.innerText = "Archaeology Councillor";
+
+    return hiddenDiv;
+}
+
+function setGroupOverlayText(shape, div, title, period) {
+    div.addEventListener("pointerover", () => {
+        overlayRole.innerText = title;
         overlayType.innerText = "Forever Vacant";
-        overlayVote.innerText = "";
+        overlayVote.innerText = period;
         overlay.classList.remove("display-hidden");
         shape.style.setProperty("--group-colour", "#333");
     })
 
-    hiddenDiv.addEventListener("pointerout", () => {
+    div.addEventListener("pointerout", () => {
         overlay.classList.add("display-hidden");
         shape.style.removeProperty("--group-colour");
-    })
-
-    hiddenDiv.addEventListener("click", () => {
-        window.open('https://forgepress.org/more-than-45000-signatures-to-save-sheffield-archaeology/')
     })
 }
 
@@ -113,7 +118,34 @@ function generateGroupings() {
         // We don't want Grey to have any triggers
         if (key != "Grey") {
             // shape.setAttribute("tabindex", 0);
-            if(key == "Archaeology") { setArchaeologyOverlay(shape) }
+
+            if(key == "Archaeology") {
+                shape.classList.add("group-gone");
+                const div = setClickableGroup(
+                    3.85, 0,
+                    "A black hexagon where the Archaeology Councillor" +
+                    " would have been positioned if they didn't shut down" +
+                    " the Archaeology department. Located at axial " +
+                    "coordinates q: 4, r: 0",
+                    'https://forgepress.org/more-than-45000-signatures-to-save-sheffield-archaeology/'
+                )
+                setGroupOverlayText(shape, div, "Archaeology Councillor",
+                    "2023/2024");
+            } else if (key == "Activities") {
+                shape.classList.add("group-gone");
+                const div = setClickableGroup(
+                    0, 0,
+                    "A black hexagon representing the removal" +
+                    " of the Activities Officer following the FTO & PTO " +
+                    " restructure due to funding cuts." +
+                    "The Activities officer was located at" +
+                    "coordinates q: -1, r: 0. SU President node has been" +
+                    " moved to it",
+                    'https://forgepress.org/university-of-sheffield-cuts-students-union-funding-by-400000/'
+                )
+                setGroupOverlayText(shape, div, "Activities Officer",
+                    "2024/2025");
+            }
             setGroupOverlay(shape, key);
         }
     }

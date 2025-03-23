@@ -210,7 +210,7 @@
     --member-border-colour: var(--fto-border-colour);
 }
 
-.member-pto {
+.member-pto, .member-academic-facilitator {
     --member-colour: var(--pto-colour);
     --member-border-colour: var(--pto-border-colour);
     /* color: white; */

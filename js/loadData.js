@@ -9,7 +9,11 @@ const data2024 = await fetch("./data/2024_2025.json").then(response => {
     return response.json()
 });
 
-export const data = { "2023/2024": data2023, "2024/2025": data2024 }
+const data2025 = await fetch("./data/2025_2026.json").then(response => {
+    return response.json()
+});
+
+export const data = { "2023/2024": data2023, "2024/2025": data2024, "2025/2026": data2025 }
 
 console.log("Data Loaded");
 

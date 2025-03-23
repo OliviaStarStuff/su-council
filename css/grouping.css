@@ -26,14 +26,14 @@
     --group-colour: var(--rep-colour);
 }
 
-#grids polygon.group-archaeology {
+#grids polygon.group-gone {
     --group-colour: black;
     fill:black;
     stroke-width: 0.5em;
     stroke-linejoin: miter;
 }
 
-.group-pto {
+.group-pto, .group-academic-facilitator {
     --group-colour: var(--pto-colour);
 }
 
