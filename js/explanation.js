@@ -21,7 +21,10 @@ function addGroupTitleOverlayListener() {
 
     for (const node of titlesContainer.children) {
         node.addEventListener("click", (e) => {
-            const searchKey = node.innerText == "Special" ? "Specialised" : node.innerText;
+            let searchKey = node.innerText == "Special" ? "Specialised" : node.innerText;
+            if (node.innerText == "Facilitator") {
+                searchKey = "Liberation Facilitator";
+            }
 
             const mymap = new Map();
             const group = Councillor.getGroup(searchKey).filter(c => {

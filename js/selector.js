@@ -313,6 +313,10 @@ function selectYear(e) {
     const voteSummaryPanel = document.getElementById("vote-summary-panel");
     voteSummaryPanel.classList.add("display-hidden");
     clearChildren("vote-summary-panel-container");
+
+    const ptoTitle = document.getElementById("group-text-title-pto");
+    const years = ["2024/2025", "2023/2024"];
+    ptoTitle.innerText = !years.includes(e.target.value) ? "Facilitator" : "PTO";
 }
 
 

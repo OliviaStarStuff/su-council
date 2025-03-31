@@ -105,49 +105,49 @@
     text-align: center;
 }
 
-#group-title-pto {
-    --q: -1;
-    --r: -2;
+#group-text-title-pto {
+    --q: -1.5;
+    --r: -1.5;
     transform: skew(0deg, -30deg);
 }
 
-#group-title-rep {
+#group-text-title-rep {
     --q: -3;
     --r: -1.8;
     transform: skew(0deg, -30deg);
 }
 
-#group-title-su {
+#group-text-title-su {
     --q: 1.6;
     --r: -2.1;
 }
 
-#group-title-special {
+#group-text-title-special {
     --q: -2.5;
     --r: 0.75;
 }
 
-#group-title-sci {
+#group-text-title-sci {
     --q: 4;
     --r: -3;
 }
 
-#group-title-soc-sci {
+#group-text-title-soc-sci {
     --q: -2.33;
     --r: 3.16;
 }
 
-#group-title-arts {
+#group-text-title-arts {
     --q: 3.5;
     --r: -0.5;
 }
 
-#group-title-eng {
+#group-text-title-eng {
     --q: 1.4;
     --r: 2.7;
 }
 
-#group-title-health {
+#group-text-title-health {
     --q: -4;
     --r: 2.5;
 }
