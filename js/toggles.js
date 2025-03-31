@@ -24,6 +24,7 @@ function addToggleListeners() {
                 case "Representative":
                 case "FTO":
                 case "PTO":
+                case "Liberation Facilitator":
                     c.initial = !this.checked;
                     break;
             }
